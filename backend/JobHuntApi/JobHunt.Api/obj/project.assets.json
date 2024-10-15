@@ -433,11 +433,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHuntApi\\JobHuntApi.csproj",
-      "projectName": "JobHuntApi",
-      "projectPath": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHuntApi\\JobHuntApi.csproj",
+      "projectUniqueName": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Api\\JobHunt.Api.csproj",
+      "projectName": "JobHunt.Api",
+      "projectPath": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Api\\JobHunt.Api.csproj",
       "packagesPath": "C:\\Users\\Yura\\.nuget\\packages\\",
-      "outputPath": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHuntApi\\obj\\",
+      "outputPath": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Yura\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,6 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHuntApi", "JobHuntApi\JobHuntApi.csproj", "{EAEF77E7-9B92-4FF6-9117-12BE8F27D2C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHunt.Api", "JobHunt.Api\JobHunt.Api.csproj", "{EAEF77E7-9B92-4FF6-9117-12BE8F27D2C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHunt.Domain", "JobHunt.Domain\JobHunt.Domain.csproj", "{A28689FD-2EE8-4579-A846-B30AFA87519C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHunt.Application", "JobHunt.Application\JobHunt.Application.csproj", "{2BC8E139-784E-449E-BC97-1D42BDC3DD1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHunt.Infrastructure", "JobHunt.Infrastructure\JobHunt.Infrastructure.csproj", "{F7B79F01-1562-42AD-94D7-A17DD29ECB72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +18,17 @@ Global
 		{EAEF77E7-9B92-4FF6-9117-12BE8F27D2C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAEF77E7-9B92-4FF6-9117-12BE8F27D2C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAEF77E7-9B92-4FF6-9117-12BE8F27D2C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A28689FD-2EE8-4579-A846-B30AFA87519C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A28689FD-2EE8-4579-A846-B30AFA87519C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A28689FD-2EE8-4579-A846-B30AFA87519C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A28689FD-2EE8-4579-A846-B30AFA87519C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BC8E139-784E-449E-BC97-1D42BDC3DD1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BC8E139-784E-449E-BC97-1D42BDC3DD1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BC8E139-784E-449E-BC97-1D42BDC3DD1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BC8E139-784E-449E-BC97-1D42BDC3DD1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7B79F01-1562-42AD-94D7-A17DD29ECB72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7B79F01-1562-42AD-94D7-A17DD29ECB72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7B79F01-1562-42AD-94D7-A17DD29ECB72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7B79F01-1562-42AD-94D7-A17DD29ECB72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

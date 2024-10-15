@@ -1,6 +1,31 @@
-﻿namespace JobHunt.Infrastructure.Data;
+﻿using JobHunt.Domain.Models;
+using JobHunt.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
-public class JobHuntDbContext
+namespace JobHunt.Infrastructure.Data;
+
+public class JobHuntDbContext : IdentityDbContext<User>
 {
+
+    public DbSet<Address> Addresses { get; set; }
+
+    public DbSet<Profile> Profiles { get; set; }
+
+    public DbSet<Experience> Experiences { get; set; }
+
+    public DbSet<Job> Jobs { get; set; }
+
+    public DbSet<University> Universities { get; set; }
     
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseNpgsql("Host=localhost; Database=JobHuntDb; Username=postgres; Password=password");
+        
+    }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+    }
 }

@@ -1,6 +1,8 @@
-﻿namespace JobHunt.Infrastructure.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
-public class User
+namespace JobHunt.Infrastructure.Identity;
+
+public class User : IdentityUser
 {
     
 }

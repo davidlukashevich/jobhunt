@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ohprJCCZDvE=",
+  "dgSpecHash": "wKQqvX7mtLI=",
   "success": true,
-  "projectFilePath": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHuntApi\\JobHuntApi.csproj",
+  "projectFilePath": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Api\\JobHunt.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Yura\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Yura\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
