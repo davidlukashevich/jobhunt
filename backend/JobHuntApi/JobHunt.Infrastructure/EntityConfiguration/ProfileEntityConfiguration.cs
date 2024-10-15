@@ -18,5 +18,19 @@ public class ProfileEntityConfiguration : IEntityTypeConfiguration<Profile>
         builder.Property(x => x.Phone).IsRequired().HasColumnName("phone");
         builder.Property(x => x.Avatar).HasColumnName("avatar");
         
+       builder
+           .HasMany<University>(p => p.Universities)
+           .WithOne()
+           .HasForeignKey(x => x.UserId);
+        
+       builder
+           .HasMany<Experience>( p => p.Experiences)
+           .WithOne()
+           .HasForeignKey(x => x.UserId);
+       
+       builder
+           .HasOne<Address>( x => x.Address)
+           .WithOne()
+           .HasForeignKey<Profile>(p => p.AddressId);
     }
 }
