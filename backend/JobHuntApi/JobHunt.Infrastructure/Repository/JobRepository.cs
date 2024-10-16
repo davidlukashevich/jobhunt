@@ -26,6 +26,7 @@ public class JobRepository : IJobRepository
     {
         return await _context.Jobs
             .AsNoTracking()
+            .Include(j => j.Address)
             .FirstOrDefaultAsync(j => j.Id == jobId);
     }
 
