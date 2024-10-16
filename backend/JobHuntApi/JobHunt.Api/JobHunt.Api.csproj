@@ -15,4 +15,8 @@
       <Folder Include="Controllers\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\JobHunt.Application\JobHunt.Application.csproj" />
+    </ItemGroup>
+
 </Project>
