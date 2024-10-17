@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using JobHunt.Domain.Models;
 using JobHunt.Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -28,5 +29,9 @@ public class JobHuntDbContext : IdentityDbContext<User>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        
+        builder.Entity<IdentityUserLogin<string>>().HasNoKey();
+        builder.Entity<IdentityUserToken<string>>().HasNoKey();
+        builder.Entity<IdentityUserRole<string>>().HasNoKey();
     }
 }
