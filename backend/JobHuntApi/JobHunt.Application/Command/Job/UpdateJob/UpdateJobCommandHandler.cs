@@ -1,4 +1,6 @@
-﻿using JobHunt.Domain.Interface.Repository;
+﻿using JobHunt.Application.MessageBroker;
+using JobHunt.Application.MessageBroker.Address.UpdateAddress;
+using JobHunt.Domain.Interface.Repository;
 using MediatR;
 
 namespace JobHunt.Application.Command.Job.UpdateJob;
@@ -7,16 +9,19 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand>
 {
     
     private readonly IJobRepository _jobRepository;
+    private readonly ISendMessage _sendMessage;
 
-    public UpdateJobCommandHandler(IJobRepository jobRepository)
+    public UpdateJobCommandHandler(IJobRepository jobRepository, ISendMessage sendMessage)
     {
         _jobRepository = jobRepository;
+        _sendMessage = sendMessage;
     }
 
     public async Task Handle(UpdateJobByIdCommand request, CancellationToken cancellationToken)
     {
-        var updatedAddress = new Domain.Models.Address()
+        var updatedAddress = new UpdateAddress()
         {
+            Id = request.JobId,
             City = request.UpdateJobRequest.City,
             Country = request.UpdateJobRequest.Country,
             Street = request.UpdateJobRequest.Street,
@@ -24,6 +29,8 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand>
         
         
         // adding masstransit publish method to update address queue
+
+        await _sendMessage.Send<UpdateAddress>(updatedAddress, cancellationToken);
 
         var updatedJob = new Domain.Models.Job()
         {

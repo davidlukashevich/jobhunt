@@ -1,4 +1,6 @@
-﻿using JobHunt.Domain.Interface.Repository;
+﻿using JobHunt.Application.MessageBroker;
+using JobHunt.Application.MessageBroker.Address.CreateAddress;
+using JobHunt.Domain.Interface.Repository;
 using MediatR;
 
 namespace JobHunt.Application.Command.Job.CreateJob;
@@ -7,16 +9,18 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand>
 {
     
     private readonly IJobRepository _jobRepository;
+    private readonly ISendMessage _sendMessage;
 
-    public CreateJobCommandHandler(IJobRepository jobRepository)
+    public CreateJobCommandHandler(IJobRepository jobRepository, ISendMessage sendMessage)
     {
         _jobRepository = jobRepository;
+        _sendMessage = sendMessage;
     }
 
     public async Task Handle(CreateJobCommand request, CancellationToken cancellationToken)
     {
 
-        var newAddress = new Domain.Models.Address()
+        var createdAddress = new CreateAddress()
         {
             Id = Guid.NewGuid(),
             Country = request.CreateJobRequest.Country,
@@ -24,7 +28,8 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand>
             Street = request.CreateJobRequest.Street,
         };
         
-        // Adding masstransit publish method to create new address queue
+        await _sendMessage.Send<CreateAddress>(createdAddress, cancellationToken);
+        
         
         var newJob = new Domain.Models.Job()
         {
@@ -36,7 +41,7 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand>
             JobLevel = request.CreateJobRequest.JobLevel,
             Responsibilities = request.CreateJobRequest.Responsibilities,
             Requirements = request.CreateJobRequest.Requirements,
-            AddressId = newAddress.Id,
+            AddressId = createdAddress.Id,
         };
         
         
