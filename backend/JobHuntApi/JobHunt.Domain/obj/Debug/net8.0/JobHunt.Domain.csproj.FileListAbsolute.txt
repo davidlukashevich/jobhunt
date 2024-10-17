@@ -1,0 +1,12 @@
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\bin\Debug\net8.0\JobHunt.Domain.deps.json
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\bin\Debug\net8.0\JobHunt.Domain.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\bin\Debug\net8.0\JobHunt.Domain.pdb
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\JobHunt.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\JobHunt.Domain.AssemblyInfoInputs.cache
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\JobHunt.Domain.AssemblyInfo.cs
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\JobHunt.Domain.csproj.CoreCompileInputs.cache
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\JobHunt.Domain.sourcelink.json
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\JobHunt.Domain.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\refint\JobHunt.Domain.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\JobHunt.Domain.pdb
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\ref\JobHunt.Domain.dll

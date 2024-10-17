@@ -1,3 +1,4 @@
+using JobHunt.Application;
 using JobHunt.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services
+    .AddApplication()
     .AddInfrastructure();
 
 var app = builder.Build();

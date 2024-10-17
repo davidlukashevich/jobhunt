@@ -35,6 +35,7 @@ public class ExperienceRepository : IExperienceRepository
             .Where(e => e.Id == experienceId)
             .ExecuteUpdateAsync(s => s
                 .SetProperty(p => p.Position, experience.Position)
+                .SetProperty(p => p.Location, experience.Location)
                 .SetProperty(p => p.CompanyName, experience.CompanyName)
                 .SetProperty(p => p.Responsibility, experience.Responsibility)
                 .SetProperty(p => p.WorkFrom, experience.WorkFrom)

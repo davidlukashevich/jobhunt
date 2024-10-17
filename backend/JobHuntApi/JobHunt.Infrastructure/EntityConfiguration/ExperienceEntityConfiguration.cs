@@ -15,6 +15,7 @@ public class ExperienceEntityConfiguration : IEntityTypeConfiguration<Experience
         builder.Property(p => p.Position).HasColumnName("position").IsRequired();
         builder.Property(p => p.CompanyName).HasColumnName("company_name").IsRequired();
         builder.Property(p => p.Responsibility).HasColumnName("responsibility").IsRequired();
+        builder.Property(p => p.Location).HasColumnName("location").IsRequired();
         builder.Property(p => p.WorkFrom).HasColumnName("work_from").IsRequired();
         builder.Property(p => p.WorkTo).HasColumnName("work_to").IsRequired();
         builder.Property(p => p.UserId).HasColumnName("user_id");

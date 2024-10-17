@@ -9,7 +9,6 @@ public class University
     public string?  Specialization { get; set; }
     public DateTime StudyFrom { get; set; }
     public DateTime StudyTo { get; set; }
-    public Guid AddressId { get; set; }
     public Guid UserId { get; set; }
 
     

@@ -8,11 +8,17 @@
 
     <ItemGroup>
       <Folder Include="DTO\" />
+      <Folder Include="Query\Job\" />
+      <Folder Include="Response\" />
       <Folder Include="Service\" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\JobHunt.Infrastructure\JobHunt.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.4.1" />
     </ItemGroup>
 
 </Project>
