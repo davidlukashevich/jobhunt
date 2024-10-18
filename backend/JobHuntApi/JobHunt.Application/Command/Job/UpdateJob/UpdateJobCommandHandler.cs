@@ -9,12 +9,12 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand>
 {
     
     private readonly IJobRepository _jobRepository;
-    private readonly ISendMessage _sendMessage;
+    //private readonly ISendMessage _sendMessage;
 
-    public UpdateJobCommandHandler(IJobRepository jobRepository, ISendMessage sendMessage)
+    public UpdateJobCommandHandler(IJobRepository jobRepository)
     {
         _jobRepository = jobRepository;
-        _sendMessage = sendMessage;
+       // _sendMessage = sendMessage;
     }
 
     public async Task Handle(UpdateJobByIdCommand request, CancellationToken cancellationToken)
@@ -30,7 +30,7 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand>
         
         // adding masstransit publish method to update address queue
 
-        await _sendMessage.Send<UpdateAddress>(updatedAddress, cancellationToken);
+        //await _sendMessage.Send<UpdateAddress>(updatedAddress, cancellationToken);
 
         var updatedJob = new Domain.Models.Job()
         {

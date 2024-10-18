@@ -248,3 +248,9 @@ D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\runtimes\win\l
 D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\MassTransit.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\MassTransit.Abstractions.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\MassTransit.AspNetCoreIntegration.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\MassTransit.ExtensionsDependencyInjectionIntegration.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\RabbitMQ.Client.dll

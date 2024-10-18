@@ -46,6 +46,15 @@ namespace JobHunt.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("addresses", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("76e24589-638c-4cb9-9970-675a263a7a43"),
+                            City = "New York",
+                            Country = "USA ",
+                            Street = "street address 1"
+                        });
                 });
 
             modelBuilder.Entity("JobHunt.Domain.Models.Experience", b =>
@@ -70,14 +79,14 @@ namespace JobHunt.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("position");
 
+                    b.Property<Guid>("ProfileId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
                     b.Property<string>("Responsibility")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("responsibility");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
 
                     b.Property<DateTime>("WorkFrom")
                         .HasColumnType("timestamp with time zone")
@@ -89,9 +98,44 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("ProfileId");
 
                     b.ToTable("experiences", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("322dc990-9143-4abf-8f03-230818289510"),
+                            CompanyName = "CompanyName",
+                            Location = "Location",
+                            Position = "Position",
+                            ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
+                            Responsibility = "Responsibility",
+                            WorkFrom = new DateTime(2024, 10, 18, 15, 50, 17, 733, DateTimeKind.Utc).AddTicks(4500),
+                            WorkTo = new DateTime(2024, 10, 18, 15, 50, 17, 733, DateTimeKind.Utc).AddTicks(4505)
+                        },
+                        new
+                        {
+                            Id = new Guid("5be86c52-acd3-4d6a-b7c2-4fef83670298"),
+                            CompanyName = "CompanyName 2",
+                            Location = "Location 2",
+                            Position = "Position 2",
+                            ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
+                            Responsibility = "Responsibility 2",
+                            WorkFrom = new DateTime(2024, 10, 18, 15, 50, 17, 733, DateTimeKind.Utc).AddTicks(4515),
+                            WorkTo = new DateTime(2024, 10, 18, 15, 50, 17, 733, DateTimeKind.Utc).AddTicks(4516)
+                        },
+                        new
+                        {
+                            Id = new Guid("2d96ea5a-2b05-4d22-9650-f114a0e174cc"),
+                            CompanyName = "CompanyName 3",
+                            Location = "Location 3",
+                            Position = "Position 3",
+                            ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
+                            Responsibility = "Responsibility 3",
+                            WorkFrom = new DateTime(2024, 10, 18, 15, 50, 17, 733, DateTimeKind.Utc).AddTicks(4546),
+                            WorkTo = new DateTime(2024, 10, 18, 15, 50, 17, 733, DateTimeKind.Utc).AddTicks(4546)
+                        });
                 });
 
             modelBuilder.Entity("JobHunt.Domain.Models.Job", b =>
@@ -190,6 +234,19 @@ namespace JobHunt.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("profiles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
+                            AddressId = new Guid("76e24589-638c-4cb9-9970-675a263a7a43"),
+                            Avatar = "avatar.jpg",
+                            DateOfBirth = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(5333),
+                            Email = "john@doe.com",
+                            Lastname = "Doe",
+                            Name = "John ",
+                            Phone = "123456789"
+                        });
                 });
 
             modelBuilder.Entity("JobHunt.Domain.Models.University", b =>
@@ -209,6 +266,10 @@ namespace JobHunt.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("field_of_study");
 
+                    b.Property<Guid>("ProfileId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("profile_id");
+
                     b.Property<string>("Specialization")
                         .IsRequired()
                         .HasColumnType("text")
@@ -227,15 +288,46 @@ namespace JobHunt.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("university_name");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("user_id");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("ProfileId");
 
                     b.ToTable("universities", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("b6c0debb-850f-43ca-b6fe-d54b5847d258"),
+                            EducationLevel = "Bachelor",
+                            FieldOfStudy = "Field of Study",
+                            ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
+                            Specialization = "Computer Science",
+                            StudyFrom = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(9062),
+                            StudyTo = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(9064),
+                            UniversityName = "Vistula"
+                        },
+                        new
+                        {
+                            Id = new Guid("967731ff-3739-4745-a36e-ed73d573f61f"),
+                            EducationLevel = "Bachelor 2",
+                            FieldOfStudy = "Field of Study 2",
+                            ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
+                            Specialization = "Computer Science 2",
+                            StudyFrom = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(9071),
+                            StudyTo = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(9072),
+                            UniversityName = "Vistula 2"
+                        },
+                        new
+                        {
+                            Id = new Guid("45353996-bce9-4c76-b234-bc4a696ea26f"),
+                            EducationLevel = "Bachelor 3",
+                            FieldOfStudy = "Field of Study 3",
+                            ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
+                            Specialization = "Computer Science 3",
+                            StudyFrom = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(9077),
+                            StudyTo = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(9077),
+                            UniversityName = "Vistula 3"
+                        });
                 });
 
             modelBuilder.Entity("JobHunt.Infrastructure.Identity.User", b =>
@@ -406,7 +498,7 @@ namespace JobHunt.Infrastructure.Migrations
                 {
                     b.HasOne("JobHunt.Domain.Models.Profile", null)
                         .WithMany("Experiences")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -437,7 +529,7 @@ namespace JobHunt.Infrastructure.Migrations
                 {
                     b.HasOne("JobHunt.Domain.Models.Profile", null)
                         .WithMany("Universities")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

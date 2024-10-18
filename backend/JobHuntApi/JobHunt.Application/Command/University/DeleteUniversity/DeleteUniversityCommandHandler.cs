@@ -1,9 +1,11 @@
-﻿using JobHunt.Domain.Interface.Repository;
+﻿using System.Net;
+using JobHunt.Application.Response;
+using JobHunt.Domain.Interface.Repository;
 using MediatR;
 
 namespace JobHunt.Application.Command.University.DeleteUniversity;
 
-public class DeleteUniversityCommandHandler : IRequestHandler<DeleteUniversityCommand>
+public class DeleteUniversityCommandHandler : IRequestHandler<DeleteUniversityCommand, BaseResponse>
 {
     
     private readonly IUniversityRepository _universityRepository;
@@ -13,8 +15,14 @@ public class DeleteUniversityCommandHandler : IRequestHandler<DeleteUniversityCo
         _universityRepository = universityRepository;
     }
 
-    public async Task Handle(DeleteUniversityCommand request, CancellationToken cancellationToken)
+    public async Task<BaseResponse> Handle(DeleteUniversityCommand request, CancellationToken cancellationToken)
     {
         await _universityRepository.DeleteUniversityAsync(request.UniversityId);
+        
+        return new BaseResponse()
+        {
+            StatusCode = HttpStatusCode.OK,
+            Message = "University was deleted"
+        };
     }
 }

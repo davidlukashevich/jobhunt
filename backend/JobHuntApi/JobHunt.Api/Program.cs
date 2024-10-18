@@ -1,3 +1,4 @@
+using System.Reflection;
 using JobHunt.Application;
 using JobHunt.Infrastructure;
 
@@ -9,6 +10,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 
 builder.Services
     .AddApplication()

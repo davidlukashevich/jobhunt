@@ -10,3 +10,4 @@ D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\JobHunt.Dom
 D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\refint\JobHunt.Domain.dll
 D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\JobHunt.Domain.pdb
 D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\ref\JobHunt.Domain.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Domain\obj\Debug\net8.0\JobHunt.Domain.csproj.AssemblyReference.cache

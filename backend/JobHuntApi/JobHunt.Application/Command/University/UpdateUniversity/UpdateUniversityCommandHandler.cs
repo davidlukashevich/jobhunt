@@ -1,9 +1,11 @@
-﻿using JobHunt.Domain.Interface.Repository;
+﻿using System.Net;
+using JobHunt.Application.Response;
+using JobHunt.Domain.Interface.Repository;
 using MediatR;
 
 namespace JobHunt.Application.Command.University.UpdateUniversity;
 
-public class UpdateUniversityCommandHandler : IRequestHandler<UpdateUniversityCommand>
+public class UpdateUniversityCommandHandler : IRequestHandler<UpdateUniversityCommand,BaseResponse>
 {
     private readonly IUniversityRepository _universityRepository;
 
@@ -12,7 +14,7 @@ public class UpdateUniversityCommandHandler : IRequestHandler<UpdateUniversityCo
         _universityRepository = universityRepository;
     }
 
-    public async Task Handle(UpdateUniversityCommand request, CancellationToken cancellationToken)
+    public async Task<BaseResponse> Handle(UpdateUniversityCommand request, CancellationToken cancellationToken)
     {
         var updatedUniversity = new Domain.Models.University()
         {
@@ -25,5 +27,11 @@ public class UpdateUniversityCommandHandler : IRequestHandler<UpdateUniversityCo
         };
         
         await _universityRepository.UpdateUniversityAsync( updatedUniversity, request.UniversityId);
+        
+        return new BaseResponse()
+        {
+            StatusCode = HttpStatusCode.OK,
+            Message = "University was updated",
+        };
     }
 }

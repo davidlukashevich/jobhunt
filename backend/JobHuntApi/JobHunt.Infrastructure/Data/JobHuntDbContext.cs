@@ -30,6 +30,8 @@ public class JobHuntDbContext : IdentityDbContext<User>
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         
+        
+        
         builder.Entity<IdentityUserLogin<string>>().HasNoKey();
         builder.Entity<IdentityUserToken<string>>().HasNoKey();
         builder.Entity<IdentityUserRole<string>>().HasNoKey();

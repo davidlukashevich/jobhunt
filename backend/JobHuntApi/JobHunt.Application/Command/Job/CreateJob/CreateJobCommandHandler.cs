@@ -9,12 +9,12 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand>
 {
     
     private readonly IJobRepository _jobRepository;
-    private readonly ISendMessage _sendMessage;
+    //private readonly ISendMessage _sendMessage;
 
-    public CreateJobCommandHandler(IJobRepository jobRepository, ISendMessage sendMessage)
+    public CreateJobCommandHandler(IJobRepository jobRepository)
     {
         _jobRepository = jobRepository;
-        _sendMessage = sendMessage;
+        //_sendMessage = sendMessage;
     }
 
     public async Task Handle(CreateJobCommand request, CancellationToken cancellationToken)
@@ -28,7 +28,7 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand>
             Street = request.CreateJobRequest.Street,
         };
         
-        await _sendMessage.Send<CreateAddress>(createdAddress, cancellationToken);
+        //await _sendMessage.Send<CreateAddress>(createdAddress, cancellationToken);
         
         
         var newJob = new Domain.Models.Job()

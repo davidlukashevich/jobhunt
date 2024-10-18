@@ -1,9 +1,11 @@
-﻿using JobHunt.Domain.Interface.Repository;
+﻿using System.Net;
+using JobHunt.Application.Response;
+using JobHunt.Domain.Interface.Repository;
 using MediatR;
 
 namespace JobHunt.Application.Command.Experience.UpdateExperience;
 
-public class UpdateExperienceCommandHandler : IRequestHandler<UpdateExperienceCommand>
+public class UpdateExperienceCommandHandler : IRequestHandler<UpdateExperienceCommand, BaseResponse>
 {
     
     private readonly IExperienceRepository _experienceRepository;
@@ -13,7 +15,7 @@ public class UpdateExperienceCommandHandler : IRequestHandler<UpdateExperienceCo
         _experienceRepository = experienceRepository;
     }
 
-    public async Task Handle(UpdateExperienceCommand request, CancellationToken cancellationToken)
+    public async Task<BaseResponse> Handle(UpdateExperienceCommand request, CancellationToken cancellationToken)
     {
         var updatedExperience = new Domain.Models.Experience()
         {
@@ -26,5 +28,11 @@ public class UpdateExperienceCommandHandler : IRequestHandler<UpdateExperienceCo
         };
         
         await _experienceRepository.UpdateExperienceAsync(updatedExperience, request.ExperienceId);
+        
+        return new BaseResponse()
+        {
+            StatusCode = HttpStatusCode.OK,
+            Message = "Experience was updated",
+        };
     }
 }

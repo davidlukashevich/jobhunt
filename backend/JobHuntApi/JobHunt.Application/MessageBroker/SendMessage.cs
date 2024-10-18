@@ -1,11 +1,11 @@
 ﻿using MassTransit;
 
-namespace JobHunt.Application.MessageBroker;
+/*namespace JobHunt.Application.MessageBroker;
 
 public class SendMessage : ISendMessage
 {
     
-    private readonly IPublishEndpoint _publisher;
+   // private readonly IPublishEndpoint _publisher;
 
     public SendMessage(IPublishEndpoint publisher)
     {
@@ -16,4 +16,4 @@ public class SendMessage : ISendMessage
     {
         await _publisher.Publish(message!, cancellationToken);
     }
-}
+}*/

@@ -27,5 +27,7 @@ public class CreateAddressCommandHandler : IRequestHandler<CreateAddressCommand>
         };
         
         await _addressRepository.CreateAddressAsync(address);
+        
+        
     }
 }
