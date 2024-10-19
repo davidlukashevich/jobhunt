@@ -40,4 +40,11 @@ public class ProfileRepository : IProfileRepository
                 .SetProperty(p => p.Avatar, profile.Avatar)
             );
     }
+
+    public async Task CreateProfileAsync(Profile profile)
+    {
+        await _context.Profiles.AddAsync(profile);
+        
+        await _context.SaveChangesAsync();
+    }
 }

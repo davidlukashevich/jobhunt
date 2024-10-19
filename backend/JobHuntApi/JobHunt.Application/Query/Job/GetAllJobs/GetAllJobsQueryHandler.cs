@@ -1,5 +1,5 @@
 ﻿
-using JobHunt.Application.Mapper.Job;
+using JobHunt.Application.Mapper;
 using JobHunt.Application.Response.Job;
 using JobHunt.Domain.Interface.Repository;
 using MediatR;

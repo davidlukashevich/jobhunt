@@ -1,7 +1,7 @@
 ﻿using JobHunt.Application.DTO;
 using JobHunt.Application.Response.Job;
 
-namespace JobHunt.Application.Mapper.Job;
+namespace JobHunt.Application.Mapper;
 
 public static class JobMapper
 {
