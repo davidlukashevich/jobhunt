@@ -26,19 +26,18 @@ public class ProfileRepository : IProfileRepository
         
     }
 
-    public async Task UpdateProfileAsync(Profile profile, Guid userId)
+    public async Task UpdateProfileAsync(Profile profile, Guid profileId)
     {
         await _context.Profiles
-            .Where(p => p.Id == profile.Id)
+            .Where(p => p.Id == profileId)
             .ExecuteUpdateAsync(s => s
                     
                 .SetProperty(p => p.Name, profile.Name)
+                .SetProperty(p => p.Lastname, profile.Lastname)
                 .SetProperty(p => p.Email, profile.Email)
                 .SetProperty(p => p.Phone, profile.Phone)
-                .SetProperty(p => p.Lastname, profile.Lastname)
-                .SetProperty(p => p.Name, profile.Name)
-                .SetProperty(p => p.Email, profile.Email)
                 .SetProperty(p => p.Avatar, profile.Avatar)
+                .SetProperty(p => p.DateOfBirth, profile.DateOfBirth)
             );
     }
 
