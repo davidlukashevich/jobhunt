@@ -43,6 +43,8 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand, Bas
             JobLevel = request.UpdateJobRequest.JobLevel,
             Responsibilities = request.UpdateJobRequest.Responsibilities,
             Requirements = request.UpdateJobRequest.Requirements,
+            Type = request.UpdateJobRequest.Type,
+            Technology = request.UpdateJobRequest.Technology,
 
         };
         

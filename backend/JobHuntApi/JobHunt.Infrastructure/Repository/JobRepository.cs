@@ -59,4 +59,32 @@ public class JobRepository : IJobRepository
             .Where(j => j.Id == jobId)
             .ExecuteDeleteAsync();
     }
+
+    public async Task<List<Job>> GetAllJobsByFilterAsync(string type, string technology, string level)
+    {
+       
+        var query = _context.Jobs
+            .AsNoTracking()  
+            .Include(j => j.Address)  
+            .AsQueryable();  
+
+        
+        if (!string.IsNullOrEmpty(level))
+        {
+            query = query.Where(j => j.JobLevel == level);
+        }
+
+        if (!string.IsNullOrEmpty(type))
+        {
+            query = query.Where(j => j.Type == type);
+        }
+
+        if (!string.IsNullOrEmpty(technology))
+        {
+            query = query.Where(j => j.Technology == technology);
+        }
+
+        
+        return await query.ToListAsync();
+    }
 }

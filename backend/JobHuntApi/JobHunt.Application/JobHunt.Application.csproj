@@ -7,10 +7,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Query\Job\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\JobHunt.Infrastructure\JobHunt.Infrastructure.csproj" />
     </ItemGroup>
 

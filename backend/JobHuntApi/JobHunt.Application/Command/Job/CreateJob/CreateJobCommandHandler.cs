@@ -44,6 +44,8 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand, BaseRes
             Responsibilities = request.CreateJobRequest.Responsibilities,
             Requirements = request.CreateJobRequest.Requirements,
             AddressId = createdAddress.Id,
+            Type = request.CreateJobRequest.Type,
+            Technology = request.CreateJobRequest.Technology,
         };
 
         Console.WriteLine(createdAddress.Id);

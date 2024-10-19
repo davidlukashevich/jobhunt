@@ -12,4 +12,6 @@ public class CreateJobRequest
     public required string Country { get; set; }
     public required string City { get; set; }
     public required string Street { get; set; }
+    public string Type { get; set; }
+    public string Technology { get; set; }
 }

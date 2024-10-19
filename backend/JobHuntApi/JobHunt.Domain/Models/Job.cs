@@ -4,6 +4,8 @@ public class Job
 {
     public Guid Id  { get; set; }
     public required string Title { get; set; }
+    public required string Type { get; set; }
+    public required string Technology { get; set; }
     public required string CompanyName { get; set; }
     public required string OperationMode { get; set; }
     public required string ContractType { get; set; }

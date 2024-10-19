@@ -21,6 +21,9 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
         builder.Property(x => x.Requirements).HasColumnName("requirements").IsRequired();
         builder.Property(x => x.AddressId).HasColumnName("address_id").IsRequired();
         builder.Property(x => x.OperationMode).HasColumnName("operation_mode").IsRequired();
+        builder.Property(x => x.Type).HasColumnName("type").IsRequired();
+        builder.Property(x => x.Technology).HasColumnName("technology").IsRequired();
+        
         
         builder
             .HasOne<Address>(j => j.Address)

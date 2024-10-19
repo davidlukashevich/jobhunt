@@ -2,6 +2,7 @@ using JobHunt.Application.Command.Job.CreateJob;
 using JobHunt.Application.Command.Job.DeleteJob;
 using JobHunt.Application.Command.Job.UpdateJob;
 using JobHunt.Application.Query.Job.GetAllJobs;
+using JobHunt.Application.Query.Job.GetAllJobsByFilter;
 using JobHunt.Application.Query.Job.GetJobById;
 using JobHunt.Application.Request;
 using MediatR;
@@ -29,6 +30,16 @@ namespace JobHuntApi.Controllers
             
             return Ok(result);
         }
+        
+        [HttpGet("byFilter")]
+
+        public async Task<ActionResult> GetAllJobsByFilter([FromQuery] string? type, [FromQuery] string? technology, [FromQuery] string? level )
+        {
+            var result = await _sender.Send(new GetAllJobsByFilterQuery(type, technology, level));
+            
+            return Ok(result);
+        }
+
         
         [HttpGet("{id}")]
 
