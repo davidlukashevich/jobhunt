@@ -17,6 +17,7 @@ public class ProfileRepository : IProfileRepository
     public async Task<Profile?> GetProfileAsync(Guid userId)
     {
         return await _context.Profiles
+            .Include(p => p.Address)
             .Include(p => p.Universities)
             .Include(p => p.Experiences)
             .AsSplitQuery()
