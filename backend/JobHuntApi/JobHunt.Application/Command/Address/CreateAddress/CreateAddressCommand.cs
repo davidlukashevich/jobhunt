@@ -1,6 +1,7 @@
 ﻿
+using JobHunt.Application.Request;
 using MediatR;
 
 namespace JobHunt.Application.Command.Address.CreateAddress;
 
-public record CreateAddressCommand(string Country, string City, string Street ) : IRequest;
+public record CreateAddressCommand(CreateAddressRequest CreateAddressRequest) : IRequest;

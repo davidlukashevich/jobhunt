@@ -105,36 +105,36 @@ namespace JobHunt.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("322dc990-9143-4abf-8f03-230818289510"),
+                            Id = new Guid("257cf1f6-69d3-484b-a3b3-e60383afb8e9"),
                             CompanyName = "CompanyName",
                             Location = "Location",
                             Position = "Position",
                             ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             Responsibility = "Responsibility",
-                            WorkFrom = new DateTime(2024, 10, 18, 15, 50, 17, 733, DateTimeKind.Utc).AddTicks(4500),
-                            WorkTo = new DateTime(2024, 10, 18, 15, 50, 17, 733, DateTimeKind.Utc).AddTicks(4505)
+                            WorkFrom = new DateTime(2024, 10, 19, 13, 33, 51, 273, DateTimeKind.Utc).AddTicks(719),
+                            WorkTo = new DateTime(2024, 10, 19, 13, 33, 51, 273, DateTimeKind.Utc).AddTicks(721)
                         },
                         new
                         {
-                            Id = new Guid("5be86c52-acd3-4d6a-b7c2-4fef83670298"),
+                            Id = new Guid("027c906d-2e47-4f78-97da-35747551d30b"),
                             CompanyName = "CompanyName 2",
                             Location = "Location 2",
                             Position = "Position 2",
                             ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             Responsibility = "Responsibility 2",
-                            WorkFrom = new DateTime(2024, 10, 18, 15, 50, 17, 733, DateTimeKind.Utc).AddTicks(4515),
-                            WorkTo = new DateTime(2024, 10, 18, 15, 50, 17, 733, DateTimeKind.Utc).AddTicks(4516)
+                            WorkFrom = new DateTime(2024, 10, 19, 13, 33, 51, 273, DateTimeKind.Utc).AddTicks(727),
+                            WorkTo = new DateTime(2024, 10, 19, 13, 33, 51, 273, DateTimeKind.Utc).AddTicks(728)
                         },
                         new
                         {
-                            Id = new Guid("2d96ea5a-2b05-4d22-9650-f114a0e174cc"),
+                            Id = new Guid("d6a1de3a-ae10-4949-9dc8-0b9aad0136f7"),
                             CompanyName = "CompanyName 3",
                             Location = "Location 3",
                             Position = "Position 3",
                             ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             Responsibility = "Responsibility 3",
-                            WorkFrom = new DateTime(2024, 10, 18, 15, 50, 17, 733, DateTimeKind.Utc).AddTicks(4546),
-                            WorkTo = new DateTime(2024, 10, 18, 15, 50, 17, 733, DateTimeKind.Utc).AddTicks(4546)
+                            WorkFrom = new DateTime(2024, 10, 19, 13, 33, 51, 273, DateTimeKind.Utc).AddTicks(747),
+                            WorkTo = new DateTime(2024, 10, 19, 13, 33, 51, 273, DateTimeKind.Utc).AddTicks(747)
                         });
                 });
 
@@ -241,7 +241,7 @@ namespace JobHunt.Infrastructure.Migrations
                             Id = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             AddressId = new Guid("76e24589-638c-4cb9-9970-675a263a7a43"),
                             Avatar = "avatar.jpg",
-                            DateOfBirth = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(5333),
+                            DateOfBirth = new DateTime(2024, 10, 19, 13, 33, 51, 274, DateTimeKind.Utc).AddTicks(1815),
                             Email = "john@doe.com",
                             Lastname = "Doe",
                             Name = "John ",
@@ -297,35 +297,35 @@ namespace JobHunt.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b6c0debb-850f-43ca-b6fe-d54b5847d258"),
+                            Id = new Guid("0d24c05c-e75d-4762-9080-28ee72f4993f"),
                             EducationLevel = "Bachelor",
                             FieldOfStudy = "Field of Study",
                             ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             Specialization = "Computer Science",
-                            StudyFrom = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(9062),
-                            StudyTo = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(9064),
+                            StudyFrom = new DateTime(2024, 10, 19, 13, 33, 51, 274, DateTimeKind.Utc).AddTicks(4939),
+                            StudyTo = new DateTime(2024, 10, 19, 13, 33, 51, 274, DateTimeKind.Utc).AddTicks(4941),
                             UniversityName = "Vistula"
                         },
                         new
                         {
-                            Id = new Guid("967731ff-3739-4745-a36e-ed73d573f61f"),
+                            Id = new Guid("5f36f1c6-73c8-4abd-9509-61616916677b"),
                             EducationLevel = "Bachelor 2",
                             FieldOfStudy = "Field of Study 2",
                             ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             Specialization = "Computer Science 2",
-                            StudyFrom = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(9071),
-                            StudyTo = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(9072),
+                            StudyFrom = new DateTime(2024, 10, 19, 13, 33, 51, 274, DateTimeKind.Utc).AddTicks(4948),
+                            StudyTo = new DateTime(2024, 10, 19, 13, 33, 51, 274, DateTimeKind.Utc).AddTicks(4948),
                             UniversityName = "Vistula 2"
                         },
                         new
                         {
-                            Id = new Guid("45353996-bce9-4c76-b234-bc4a696ea26f"),
+                            Id = new Guid("972b81f2-b557-46f6-b879-6f4781b06df1"),
                             EducationLevel = "Bachelor 3",
                             FieldOfStudy = "Field of Study 3",
                             ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             Specialization = "Computer Science 3",
-                            StudyFrom = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(9077),
-                            StudyTo = new DateTime(2024, 10, 18, 15, 50, 17, 734, DateTimeKind.Utc).AddTicks(9077),
+                            StudyFrom = new DateTime(2024, 10, 19, 13, 33, 51, 274, DateTimeKind.Utc).AddTicks(4953),
+                            StudyTo = new DateTime(2024, 10, 19, 13, 33, 51, 274, DateTimeKind.Utc).AddTicks(4953),
                             UniversityName = "Vistula 3"
                         });
                 });

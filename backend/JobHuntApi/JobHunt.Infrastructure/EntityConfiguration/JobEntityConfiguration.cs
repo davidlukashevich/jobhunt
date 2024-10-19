@@ -25,7 +25,8 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
         builder
             .HasOne<Address>(j => j.Address)
             .WithOne()
-            .HasForeignKey<Job>(j => j.AddressId);
+            .HasForeignKey<Job>(j => j.AddressId)
+            .OnDelete(DeleteBehavior.Cascade);
         
     }
 }

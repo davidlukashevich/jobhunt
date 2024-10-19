@@ -1,27 +1,29 @@
-﻿using JobHunt.Domain.Interface.Repository;
+﻿using JobHunt.Application.Command.Address.UpdateAddress;
+
 using MassTransit;
+using MediatR;
 
 namespace JobHunt.Application.MessageBroker.Address.UpdateAddress;
 
 public class UpdateAddressConsumer : IConsumer<UpdateAddress>
 {
-    private readonly IAddressRepository _addressRepository;
+    private readonly ISender _sender;
 
-    public UpdateAddressConsumer(IAddressRepository addressRepository)
+    public UpdateAddressConsumer(ISender sender)
     {
-        _addressRepository = addressRepository;
+        _sender = sender;
     }
 
     public async Task Consume(ConsumeContext<UpdateAddress> context)
     {
 
-        var updatedAddress = new Domain.Models.Address()
-        {
-            City = context.Message.City,
-            Country = context.Message.Country,
-            Street = context.Message.Street,
-        };
-        
-        await _addressRepository.UpdateAddressAsync(updatedAddress, context.Message.Id);
+        var data = context.Message;
+
+        await _sender.Send(new UpdateAddressCommand(data.Id, data.Country!, data.City!, data.Street! ));
+
+
+
+
+
     }
 }

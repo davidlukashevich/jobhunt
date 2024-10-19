@@ -12,4 +12,6 @@ public class UpdateJobRequest
     public required string Country { get; set; }
     public required string City { get; set; }
     public required string Street { get; set; }
+
+    public Guid AddressId { get; set; }
 }

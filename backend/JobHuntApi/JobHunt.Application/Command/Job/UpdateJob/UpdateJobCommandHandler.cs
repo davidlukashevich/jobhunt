@@ -1,27 +1,29 @@
-﻿using JobHunt.Application.MessageBroker;
+﻿using System.Net;
+using JobHunt.Application.MessageBroker;
 using JobHunt.Application.MessageBroker.Address.UpdateAddress;
+using JobHunt.Application.Response;
 using JobHunt.Domain.Interface.Repository;
 using MediatR;
 
 namespace JobHunt.Application.Command.Job.UpdateJob;
 
-public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand>
+public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand, BaseResponse>
 {
     
     private readonly IJobRepository _jobRepository;
-    //private readonly ISendMessage _sendMessage;
+    private readonly ISendMessage _sendMessage;
 
-    public UpdateJobCommandHandler(IJobRepository jobRepository)
+    public UpdateJobCommandHandler(IJobRepository jobRepository, ISendMessage sendMessage)
     {
         _jobRepository = jobRepository;
-       // _sendMessage = sendMessage;
+        _sendMessage = sendMessage;
     }
 
-    public async Task Handle(UpdateJobByIdCommand request, CancellationToken cancellationToken)
+    public async Task<BaseResponse> Handle(UpdateJobByIdCommand request, CancellationToken cancellationToken)
     {
         var updatedAddress = new UpdateAddress()
         {
-            Id = request.JobId,
+            Id = request.UpdateJobRequest.AddressId,
             City = request.UpdateJobRequest.City,
             Country = request.UpdateJobRequest.Country,
             Street = request.UpdateJobRequest.Street,
@@ -30,7 +32,7 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand>
         
         // adding masstransit publish method to update address queue
 
-        //await _sendMessage.Send<UpdateAddress>(updatedAddress, cancellationToken);
+        await _sendMessage.Send<UpdateAddress>(updatedAddress, cancellationToken);
 
         var updatedJob = new Domain.Models.Job()
         {
@@ -45,5 +47,11 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand>
         };
         
         await _jobRepository.UpdateJobAsync(updatedJob, request.JobId);
+
+        return new BaseResponse()
+        {
+            StatusCode = HttpStatusCode.OK,
+            Message = "Job was updated",
+        };
     }
 }

@@ -20,10 +20,10 @@ public class CreateAddressCommandHandler : IRequestHandler<CreateAddressCommand>
     {
         var address = new Domain.Models.Address()
         {
-            Id = Guid.NewGuid(),
-            Country = request.Country,
-            City = request.City,
-            Street = request.Street,
+            Id = request.CreateAddressRequest.Id,
+            Country = request.CreateAddressRequest.Country,
+            City = request.CreateAddressRequest.City,
+            Street = request.CreateAddressRequest.Street,
         };
         
         await _addressRepository.CreateAddressAsync(address);

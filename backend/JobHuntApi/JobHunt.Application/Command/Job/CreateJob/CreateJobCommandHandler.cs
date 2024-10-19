@@ -1,23 +1,25 @@
-﻿using JobHunt.Application.MessageBroker;
+﻿using System.Net;
+using JobHunt.Application.MessageBroker;
 using JobHunt.Application.MessageBroker.Address.CreateAddress;
+using JobHunt.Application.Response;
 using JobHunt.Domain.Interface.Repository;
 using MediatR;
 
 namespace JobHunt.Application.Command.Job.CreateJob;
 
-public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand>
+public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand, BaseResponse>
 {
     
     private readonly IJobRepository _jobRepository;
-    //private readonly ISendMessage _sendMessage;
+    private readonly ISendMessage _sendMessage;
 
-    public CreateJobCommandHandler(IJobRepository jobRepository)
+    public CreateJobCommandHandler(IJobRepository jobRepository, ISendMessage sendMessage)
     {
         _jobRepository = jobRepository;
-        //_sendMessage = sendMessage;
+        _sendMessage = sendMessage;
     }
 
-    public async Task Handle(CreateJobCommand request, CancellationToken cancellationToken)
+    public async Task<BaseResponse> Handle(CreateJobCommand request, CancellationToken cancellationToken)
     {
 
         var createdAddress = new CreateAddress()
@@ -28,7 +30,7 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand>
             Street = request.CreateJobRequest.Street,
         };
         
-        //await _sendMessage.Send<CreateAddress>(createdAddress, cancellationToken);
+        await _sendMessage.Send<CreateAddress>(createdAddress, cancellationToken);
         
         
         var newJob = new Domain.Models.Job()
@@ -43,10 +45,16 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand>
             Requirements = request.CreateJobRequest.Requirements,
             AddressId = createdAddress.Id,
         };
+
+        Console.WriteLine(createdAddress.Id);
         
         
         await _jobRepository.CreateJobAsync(newJob);
-        
-        
+
+        return new BaseResponse()
+        {
+            StatusCode = HttpStatusCode.Created,
+            Message = "Job was created",
+        };
     }
 }

@@ -18,6 +18,7 @@ public class JobRepository : IJobRepository
     public async Task<List<Job>> GetAllJobsAsync()
     {
         return await _context.Jobs
+            .Include(j => j.Address)
             .AsNoTracking()
             .ToListAsync();
     }

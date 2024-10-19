@@ -1,10 +1,12 @@
 ﻿
+using JobHunt.Application.Mapper.Job;
+using JobHunt.Application.Response.Job;
 using JobHunt.Domain.Interface.Repository;
 using MediatR;
 
 namespace JobHunt.Application.Query.Job.GetAllJobs;
 
-public class GetAllJobsQueryHandler : IRequestHandler<GetAllJobsQuery, List<Domain.Models.Job>>
+public class GetAllJobsQueryHandler : IRequestHandler<GetAllJobsQuery, List<JobsResponse>>
 {
     
     private readonly IJobRepository _jobRepository;
@@ -16,8 +18,10 @@ public class GetAllJobsQueryHandler : IRequestHandler<GetAllJobsQuery, List<Doma
 
    
 
-    public async Task<List<Domain.Models.Job>> Handle(GetAllJobsQuery query, CancellationToken cancellationToken)
+    public async Task<List<JobsResponse>> Handle(GetAllJobsQuery query, CancellationToken cancellationToken)
     {
-        return await _jobRepository.GetAllJobsAsync();
+        var jobs =  await _jobRepository.GetAllJobsAsync();
+        
+        return jobs.ToJobsResponse();
     }
 }
