@@ -1,0 +1,70 @@
+.main {
+    margin-top: 30px;
+    color: #0062cc;
+}
+
+.main-title {
+    text-align: center;
+}
+
+.search-section {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.search-bar {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.search-btn {
+    width: 10%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #0062cc;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #004085;
+}
+
+.filter-section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-btn {
+    padding: 5px;
+    background-color: #0062cc;
+    color: #ffffff;
+    border: 1px solid #0062cc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #004085;
+}
+
+.card-container {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,29 @@
+.header {
+    width: 100%;
+    padding: 10px;
+    /* border-bottom: 2px solid #ac3b61;
+    box-shadow: 0 2px 4px rgba(172, 59, 97, 0.6); */
+    background-color: #0062cc;
+}
+
+.menu-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-item {
+    font-size: 18px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+/* .menu-link:hover {
+    color: #004085;
+} */
