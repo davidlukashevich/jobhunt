@@ -1,6 +1,8 @@
-﻿using JobHunt.Domain.Interface.Repository;
+﻿using System.Diagnostics.CodeAnalysis;
+using JobHunt.Domain.Interface.Repository;
 using JobHunt.Infrastructure.Data;
 using JobHunt.Infrastructure.Identity;
+using JobHunt.Infrastructure.Identity.UserManager;
 using JobHunt.Infrastructure.Repository;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,6 +24,8 @@ public static class InfrastructureDependencies
         services.AddScoped<IProfileRepository, ProfileRepository>();
         services.AddScoped<IUniversityRepository, UniversityRepository>();
         services.AddScoped<IAddressRepository, AddressRepository>();
+
+        services.AddScoped<IApplicationUserManager, ApplicationUserManager>();
         
         
         return services;

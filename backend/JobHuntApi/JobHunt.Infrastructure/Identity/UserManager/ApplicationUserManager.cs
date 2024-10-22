@@ -13,13 +13,30 @@ public class ApplicationUserManager : IApplicationUserManager
         _userManager = userManager;
     }
 
-    public async Task<bool> IsUserExists(string email)
+    public async Task<bool> IsUserExistsAsync(string email)
     {
         return await _userManager.Users.AnyAsync(u => u.Email == email);
     }
 
-    public async Task<bool> IsPasswordCorrect(string password, string email)
+    public async Task<bool> IsPasswordCorrectAsync(string password, string email)
     {
         return await _userManager.CheckPasswordAsync(await _userManager.FindByEmailAsync(email), password);
+    }
+
+    public async Task<IdentityResult> ChangeUserPasswordAsync(User user, string currentPassword, string newPassword)
+    {
+        return await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
+        
+        
+    }
+
+    public async Task<IdentityResult> RegisterUserAsync(User user)
+    {
+        return await _userManager.CreateAsync(user, user.PasswordHash);
+    }
+
+    public Task<User> FindByEmailAsync(string email)
+    {
+        return _userManager.FindByEmailAsync(email);
     }
 }

@@ -1,6 +1,7 @@
 using System.Reflection;
 using JobHunt.Application;
 using JobHunt.Infrastructure;
+using JobHuntApi.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +15,15 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services
-    .AddApplication()
+    .AddApplication(builder.Configuration)
     .AddInfrastructure();
+
+builder.Services.AddAuthorization(auth =>
+{
+    
+});
+
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JWT"));
 
 var app = builder.Build();
 

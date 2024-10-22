@@ -254,3 +254,11 @@ D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\MassTransit.As
 D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\MassTransit.ExtensionsDependencyInjectionIntegration.dll
 D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
 D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\RabbitMQ.Client.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\dotnet\jobhunt\backend\JobHuntApi\JobHunt.Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

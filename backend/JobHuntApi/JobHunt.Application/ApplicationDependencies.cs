@@ -3,7 +3,10 @@ using JobHunt.Application.MessageBroker;
 using JobHunt.Application.MessageBroker.Address.CreateAddress;
 using JobHunt.Application.MessageBroker.Address.DeleteAddress;
 using JobHunt.Application.MessageBroker.Address.UpdateAddress;
+using JobHunt.Application.Service;
+using JobHuntApi.Options;
 using MassTransit;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 
@@ -11,8 +14,10 @@ namespace JobHunt.Application;
 
 public static class ApplicationDependencies
 {
-    public static IServiceCollection AddApplication(this IServiceCollection services)
+    public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
     {
+
+        
         
         services.AddMediatR(options =>
         {
@@ -20,6 +25,7 @@ public static class ApplicationDependencies
         });
       
         services.AddScoped<ISendMessage, SendMessage>();
+        services.AddScoped<ITokenService, TokenService>();
 
         services.AddMassTransit(x =>
         {

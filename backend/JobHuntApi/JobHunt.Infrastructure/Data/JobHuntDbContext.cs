@@ -25,6 +25,8 @@ public class JobHuntDbContext : IdentityDbContext<User>
         optionsBuilder.UseNpgsql("Host=localhost; Database=JobHuntDb; Username=postgres; Password=password");
         
     }
+    
+    
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
