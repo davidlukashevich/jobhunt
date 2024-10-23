@@ -4,8 +4,10 @@ using JobHunt.Application.MessageBroker.Address.CreateAddress;
 using JobHunt.Application.MessageBroker.Address.DeleteAddress;
 using JobHunt.Application.MessageBroker.Address.UpdateAddress;
 using JobHunt.Application.Service;
-using JobHuntApi.Options;
+using JobHunt.Infrastructure.Data;
+using JobHunt.Infrastructure.Identity;
 using MassTransit;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,7 +19,11 @@ public static class ApplicationDependencies
     public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
     {
 
-        
+        services
+            .AddIdentityCore<User>()
+            .AddEntityFrameworkStores<JobHuntDbContext>()
+            //.AddRoles<IdentityRole>()
+            .AddSignInManager<SignInManager<User>>();
         
         services.AddMediatR(options =>
         {

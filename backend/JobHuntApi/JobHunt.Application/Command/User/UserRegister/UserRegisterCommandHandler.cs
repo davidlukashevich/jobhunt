@@ -18,20 +18,21 @@ public class UserRegisterCommandHandler : IRequestHandler<UserRegisterCommand, U
 
     public async Task<UserRegisterResponse> Handle(UserRegisterCommand request, CancellationToken cancellationToken)
     {
-        var userByEmail = await _applicationUserManager.IsUserExistsAsync(request.UserRegisterRequest.Email);
+        /*var userByEmail = await _applicationUserManager.IsUserExistsAsync(request.UserRegisterRequest.Email);
 
         if (userByEmail)
         {
             throw new Exception("User already exists");
-        }
+        }*/
 
         var newUser = new Infrastructure.Identity.User()
         {
             Email = request.UserRegisterRequest.Email,
             PasswordHash = request.UserRegisterRequest.Password,
+            UserName = request.UserRegisterRequest.Username
         };
         
-        var result = await _applicationUserManager.RegisterUserAsync(newUser);
+        var result = await _applicationUserManager.RegisterUserAsync(newUser, request.UserRegisterRequest.Password);
 
         if (!result.Succeeded)
         {
@@ -42,7 +43,7 @@ public class UserRegisterCommandHandler : IRequestHandler<UserRegisterCommand, U
         {
             StatusCode = HttpStatusCode.OK,
             Message = "User has been registered",
-            Id = "test id",
+            //Id = "test id",
         };
     }
 }

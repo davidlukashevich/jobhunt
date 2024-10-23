@@ -31,9 +31,13 @@ public class JobHuntDbContext : IdentityDbContext<User>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-        
-        
-        
+
+        builder.Entity<Address>(e =>
+        {
+            e.HasKey(x => x.Id);
+            e.Property(x => x.Id).HasColumnName("Id");
+        });
+       
         builder.Entity<IdentityUserLogin<string>>().HasNoKey();
         builder.Entity<IdentityUserToken<string>>().HasNoKey();
         builder.Entity<IdentityUserRole<string>>().HasNoKey();

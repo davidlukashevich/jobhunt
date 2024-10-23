@@ -2808,7 +2808,8 @@
           "MassTransit.AspNetCore": "7.3.1",
           "MassTransit.RabbitMQ": "8.3.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.10",
-          "Microsoft.Extensions.Configuration": "8.0.0"
+          "Microsoft.Extensions.Configuration": "8.0.0",
+          "Microsoft.Extensions.Identity.Core": "8.0.10"
         },
         "compile": {
           "bin/placeholder/JobHunt.Application.dll": {}
@@ -2839,6 +2840,7 @@
           "Microsoft.EntityFrameworkCore": "8.0.10",
           "Microsoft.Extensions.Configuration": "8.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.1",
+          "Microsoft.Extensions.Identity.Core": "8.0.10",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.8"
         },
         "compile": {
@@ -7751,6 +7753,7 @@
       "JobHunt.Application >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.10",
       "Microsoft.Extensions.Configuration >= 8.0.0",
+      "Microsoft.Extensions.Identity.Core >= 8.0.10",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.6",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
@@ -7811,6 +7814,10 @@
           "Microsoft.Extensions.Configuration": {
             "target": "Package",
             "version": "[8.0.0, )"
+          },
+          "Microsoft.Extensions.Identity.Core": {
+            "target": "Package",
+            "version": "[8.0.10, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",

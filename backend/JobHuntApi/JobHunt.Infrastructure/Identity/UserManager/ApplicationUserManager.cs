@@ -30,9 +30,11 @@ public class ApplicationUserManager : IApplicationUserManager
         
     }
 
-    public async Task<IdentityResult> RegisterUserAsync(User user)
+    public async Task<IdentityResult> RegisterUserAsync(User user,  string password)
     {
-        return await _userManager.CreateAsync(user, user.PasswordHash);
+        return await _userManager
+            
+            .CreateAsync(user, password);
     }
 
     public Task<User> FindByEmailAsync(string email)

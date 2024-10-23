@@ -1,7 +1,9 @@
-using System.Reflection;
+
 using JobHunt.Application;
 using JobHunt.Infrastructure;
 using JobHuntApi.Options;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,12 +20,27 @@ builder.Services
     .AddApplication(builder.Configuration)
     .AddInfrastructure();
 
-builder.Services.AddAuthorization(auth =>
+builder.Services.AddAuthentication(auth =>
 {
+    auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     
 });
 
+
+
+
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JWT"));
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("JobHuntClientApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000");
+        policy.AllowAnyMethod();
+        policy.AllowAnyHeader();
+        policy.AllowCredentials();
+    });
+});
 
 var app = builder.Build();
 
@@ -35,6 +52,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("JobHuntClientApp");
+
+app.UseAuthorization();
 
 app.UseAuthorization();
 

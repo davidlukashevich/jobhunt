@@ -2450,6 +2450,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.10",
       "Microsoft.Extensions.Configuration >= 8.0.0",
       "Microsoft.Extensions.DependencyInjection >= 8.0.1",
+      "Microsoft.Extensions.Identity.Core >= 8.0.10",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.8"
     ]
   },
@@ -2523,6 +2524,10 @@
           "Microsoft.Extensions.DependencyInjection": {
             "target": "Package",
             "version": "[8.0.1, )"
+          },
+          "Microsoft.Extensions.Identity.Core": {
+            "target": "Package",
+            "version": "[8.0.10, )"
           },
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
