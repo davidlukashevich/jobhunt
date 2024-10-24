@@ -91,4 +91,15 @@ public class JobRepository : IJobRepository
         
         return await query.ToListAsync();
     }
+
+    public async Task<List<Job>> GetAllJobsByTitleAsync(string title)
+    {
+        return await _context.Jobs
+            .AsNoTracking()
+            .Where(j => EF.Functions.ToTsVector("english", j.Title + " " + j.Technology + " " +j.JobLevel + " " + j.Type )
+                .Matches(EF.Functions.PhraseToTsQuery("english", title)))
+            .Include(j => j.Address)
+            .ToListAsync();
+            
+    }
 }

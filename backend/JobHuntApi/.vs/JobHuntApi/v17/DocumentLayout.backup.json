@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F7B79F01-1562-42AD-94D7-A17DD29ECB72}|JobHunt.Infrastructure\\JobHunt.Infrastructure.csproj|d:\\dotnet\\jobhunt\\backend\\jobhuntapi\\jobhunt.infrastructure\\repository\\profilerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B79F01-1562-42AD-94D7-A17DD29ECB72}|JobHunt.Infrastructure\\JobHunt.Infrastructure.csproj|solutionrelative:jobhunt.infrastructure\\repository\\profilerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2BC8E139-784E-449E-BC97-1D42BDC3DD1E}|JobHunt.Application\\JobHunt.Application.csproj|d:\\dotnet\\jobhunt\\backend\\jobhuntapi\\jobhunt.application\\command\\user\\userlogin\\userlogincommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2BC8E139-784E-449E-BC97-1D42BDC3DD1E}|JobHunt.Application\\JobHunt.Application.csproj|solutionrelative:jobhunt.application\\command\\user\\userlogin\\userlogincommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7B79F01-1562-42AD-94D7-A17DD29ECB72}|JobHunt.Infrastructure\\JobHunt.Infrastructure.csproj|d:\\dotnet\\jobhunt\\backend\\jobhuntapi\\jobhunt.infrastructure\\entityconfiguration\\experienceentityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B79F01-1562-42AD-94D7-A17DD29ECB72}|JobHunt.Infrastructure\\JobHunt.Infrastructure.csproj|solutionrelative:jobhunt.infrastructure\\entityconfiguration\\experienceentityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7B79F01-1562-42AD-94D7-A17DD29ECB72}|JobHunt.Infrastructure\\JobHunt.Infrastructure.csproj|d:\\dotnet\\jobhunt\\backend\\jobhuntapi\\jobhunt.infrastructure\\entityconfiguration\\addressentityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B79F01-1562-42AD-94D7-A17DD29ECB72}|JobHunt.Infrastructure\\JobHunt.Infrastructure.csproj|solutionrelative:jobhunt.infrastructure\\entityconfiguration\\addressentityconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7B79F01-1562-42AD-94D7-A17DD29ECB72}|JobHunt.Infrastructure\\JobHunt.Infrastructure.csproj|d:\\dotnet\\jobhunt\\backend\\jobhuntapi\\jobhunt.infrastructure\\repository\\addressrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7B79F01-1562-42AD-94D7-A17DD29ECB72}|JobHunt.Infrastructure\\JobHunt.Infrastructure.csproj|solutionrelative:jobhunt.infrastructure\\repository\\addressrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserLoginCommandHandler.cs",
+              "DocumentMoniker": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Application\\Command\\User\\UserLogin\\UserLoginCommandHandler.cs",
+              "RelativeDocumentMoniker": "JobHunt.Application\\Command\\User\\UserLogin\\UserLoginCommandHandler.cs",
+              "ToolTip": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Application\\Command\\User\\UserLogin\\UserLoginCommandHandler.cs",
+              "RelativeToolTip": "JobHunt.Application\\Command\\User\\UserLogin\\UserLoginCommandHandler.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T15:39:30.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ExperienceEntityConfiguration.cs",
+              "DocumentMoniker": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Infrastructure\\EntityConfiguration\\ExperienceEntityConfiguration.cs",
+              "RelativeDocumentMoniker": "JobHunt.Infrastructure\\EntityConfiguration\\ExperienceEntityConfiguration.cs",
+              "ToolTip": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Infrastructure\\EntityConfiguration\\ExperienceEntityConfiguration.cs",
+              "RelativeToolTip": "JobHunt.Infrastructure\\EntityConfiguration\\ExperienceEntityConfiguration.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T15:39:10.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddressEntityConfiguration.cs",
+              "DocumentMoniker": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Infrastructure\\EntityConfiguration\\AddressEntityConfiguration.cs",
+              "RelativeDocumentMoniker": "JobHunt.Infrastructure\\EntityConfiguration\\AddressEntityConfiguration.cs",
+              "ToolTip": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Infrastructure\\EntityConfiguration\\AddressEntityConfiguration.cs",
+              "RelativeToolTip": "JobHunt.Infrastructure\\EntityConfiguration\\AddressEntityConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T15:39:08.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProfileRepository.cs",
+              "DocumentMoniker": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Infrastructure\\Repository\\ProfileRepository.cs",
+              "RelativeDocumentMoniker": "JobHunt.Infrastructure\\Repository\\ProfileRepository.cs",
+              "ToolTip": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Infrastructure\\Repository\\ProfileRepository.cs",
+              "RelativeToolTip": "JobHunt.Infrastructure\\Repository\\ProfileRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T15:38:23.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddressRepository.cs",
+              "DocumentMoniker": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Infrastructure\\Repository\\AddressRepository.cs",
+              "RelativeDocumentMoniker": "JobHunt.Infrastructure\\Repository\\AddressRepository.cs",
+              "ToolTip": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Infrastructure\\Repository\\AddressRepository.cs",
+              "RelativeToolTip": "JobHunt.Infrastructure\\Repository\\AddressRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T15:38:10.726Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

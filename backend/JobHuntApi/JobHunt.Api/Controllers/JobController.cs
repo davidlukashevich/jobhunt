@@ -3,6 +3,7 @@ using JobHunt.Application.Command.Job.DeleteJob;
 using JobHunt.Application.Command.Job.UpdateJob;
 using JobHunt.Application.Query.Job.GetAllJobs;
 using JobHunt.Application.Query.Job.GetAllJobsByFilter;
+using JobHunt.Application.Query.Job.GetAllJobsByTitle;
 using JobHunt.Application.Query.Job.GetJobById;
 using JobHunt.Application.Request;
 using MediatR;
@@ -47,6 +48,16 @@ namespace JobHuntApi.Controllers
         {
             var result = await _sender.Send(new GetJobByIdQuery(id));
             
+            return Ok(result);
+        }
+
+        [HttpGet("byTitle")]
+
+        public async Task<ActionResult> GetAllJobsByTitle([FromQuery] string title)
+        {
+
+            var result = await _sender.Send(new GetAllJobsByTitleQuery(title));
+
             return Ok(result);
         }
 

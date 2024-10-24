@@ -8,7 +8,7 @@ namespace JobHunt.Infrastructure.Repository;
 public class ProfileRepository : IProfileRepository
 {
     private readonly JobHuntDbContext _context;
-
+    
     public ProfileRepository(JobHuntDbContext context)
     {
         _context = context;

@@ -10,4 +10,5 @@ public interface IJobRepository
     Task<bool> UpdateJobAsync(Job job, Guid jobId);
     Task<bool> DeleteJobAsync(Guid jobId);
     Task<List<Job>> GetAllJobsByFilterAsync(string type, string technology, string level);
+    Task<List<Job>> GetAllJobsByTitleAsync(string title);
 }
