@@ -22,16 +22,18 @@ public class UniversityRepository : IUniversityRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task DeleteUniversityAsync(Guid universityId)
+    public async Task<bool> DeleteUniversityAsync(Guid universityId)
     {
-        await _context.Universities
+        var deleteResult = await _context.Universities
             .Where(uni => uni.Id == universityId)
             .ExecuteDeleteAsync();
+        
+        return deleteResult > 0; 
     }
 
-    public async Task UpdateUniversityAsync(University university, Guid universityId)
+    public async Task<bool> UpdateUniversityAsync(University university, Guid universityId)
     {
-        await _context.Universities
+        var updateResult = await _context.Universities
             .Where(uni => uni.Id == universityId)
             .ExecuteUpdateAsync(s => s
                 .SetProperty(p => p.UniversityName, university.UniversityName)
@@ -41,5 +43,7 @@ public class UniversityRepository : IUniversityRepository
                 .SetProperty(p => p.StudyFrom, university.StudyFrom)
                 .SetProperty(p => p.StudyTo, university.StudyTo)
             );
+        
+        return updateResult > 0;
     }
 }

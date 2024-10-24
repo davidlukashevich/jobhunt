@@ -22,21 +22,25 @@ public class AddressRepository : IAddressRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task DeleteAddressAsync(Guid addressId)
+    public async Task<bool> DeleteAddressAsync(Guid addressId)
     {
-        await _context.Addresses
+        var deleteResult = await _context.Addresses
             .Where(a => a.Id == addressId)
             .ExecuteDeleteAsync();
+
+        return deleteResult > 0;
     }
 
-    public async Task UpdateAddressAsync(Address address, Guid adressId)
+    public async Task<bool> UpdateAddressAsync(Address address, Guid adressId)
     {
-        await _context.Addresses
+        var updateResult = await _context.Addresses
             .Where(a => a.Id == adressId)
             .ExecuteUpdateAsync(s => s
                 .SetProperty(p => p.Country, address.Country)
                 .SetProperty(p => p.City, address.City)
                 .SetProperty(p => p.Street, address.Street)
             );
+        
+        return updateResult > 0;
     }
 }

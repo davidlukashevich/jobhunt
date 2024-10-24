@@ -22,16 +22,18 @@ public class ExperienceRepository : IExperienceRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task DeleteExperienceAsync(Guid experienceId)
+    public async Task<bool> DeleteExperienceAsync(Guid experienceId)
     {
-        await _context.Experiences
+       var deleteResult =  await _context.Experiences
             .Where(e => e.Id == experienceId)
             .ExecuteDeleteAsync();
+       
+       return deleteResult > 0;
     }
 
-    public async  Task UpdateExperienceAsync(Experience experience, Guid experienceId)
+    public async  Task<bool> UpdateExperienceAsync(Experience experience, Guid experienceId)
     {
-        await _context.Experiences
+        var updateResult =  await _context.Experiences
             .Where(e => e.Id == experienceId)
             .ExecuteUpdateAsync(s => s
                 .SetProperty(p => p.Position, experience.Position)
@@ -41,5 +43,7 @@ public class ExperienceRepository : IExperienceRepository
                 .SetProperty(p => p.WorkFrom, experience.WorkFrom)
                 .SetProperty(p => p.WorkTo, experience.WorkTo)
             );
+        
+        return updateResult > 0;
     }
 }

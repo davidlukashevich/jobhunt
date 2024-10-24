@@ -26,9 +26,9 @@ public class ProfileRepository : IProfileRepository
         
     }
 
-    public async Task UpdateProfileAsync(Profile profile, Guid profileId)
+    public async Task<bool> UpdateProfileAsync(Profile profile, Guid profileId)
     {
-        await _context.Profiles
+        var updateResult = await _context.Profiles
             .Where(p => p.Id == profileId)
             .ExecuteUpdateAsync(s => s
                     
@@ -39,6 +39,8 @@ public class ProfileRepository : IProfileRepository
                 .SetProperty(p => p.Avatar, profile.Avatar)
                 .SetProperty(p => p.DateOfBirth, profile.DateOfBirth)
             );
+        
+        return updateResult > 0;
     }
 
     public async Task CreateProfileAsync(Profile profile)

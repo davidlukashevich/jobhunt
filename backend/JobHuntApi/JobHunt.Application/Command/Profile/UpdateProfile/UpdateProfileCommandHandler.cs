@@ -41,8 +41,17 @@ public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand,
             Avatar = request.UpdateProfileRequest.Avatar,
             DateOfBirth = request.UpdateProfileRequest.DateOfBirth,
         };
+
+        if (!await _profileRepository.UpdateProfileAsync(updatedProfile, request.ProfileId))
+        {
+            return new BaseResponse()
+            {
+                StatusCode = HttpStatusCode.BadRequest,
+                Message = "Error updating profile"
+            };
+        }
         
-        await _profileRepository.UpdateProfileAsync(updatedProfile, request.ProfileId);
+        
 
         return new BaseResponse()
         {

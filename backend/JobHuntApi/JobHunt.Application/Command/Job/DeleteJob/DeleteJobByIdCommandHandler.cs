@@ -4,7 +4,7 @@ using JobHunt.Application.MessageBroker;
 using JobHunt.Application.MessageBroker.Address.DeleteAddress;
 using JobHunt.Application.Response;
 using JobHunt.Domain.Interface.Repository;
-using MassTransit.JobService;
+
 using MediatR;
 
 namespace JobHunt.Application.Command.Job.DeleteJob;
@@ -28,7 +28,16 @@ public class DeleteJobByIdCommandHandler : IRequestHandler<DeleteJobByIdCommand,
         
         await _sendMessage.Send(new DeleteAddress(){AddressId = request.AddressId}, cancellationToken);
         
-        await _jobRepository.DeleteJobAsync(request.JobId);
+        if (!await _jobRepository.DeleteJobAsync(request.JobId))
+        {
+            return new BaseResponse()
+            {
+                StatusCode = HttpStatusCode.BadRequest,
+                Message = "Error while deleting job."
+            };
+        }
+        
+       
 
         return new BaseResponse()
         {

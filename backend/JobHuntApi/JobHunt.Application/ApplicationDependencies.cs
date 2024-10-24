@@ -4,6 +4,7 @@ using JobHunt.Application.MessageBroker.Address.CreateAddress;
 using JobHunt.Application.MessageBroker.Address.DeleteAddress;
 using JobHunt.Application.MessageBroker.Address.UpdateAddress;
 using JobHunt.Application.Service;
+using JobHunt.Application.SingInManager;
 using JobHunt.Infrastructure.Data;
 using JobHunt.Infrastructure.Identity;
 using MassTransit;
@@ -18,6 +19,8 @@ public static class ApplicationDependencies
 {
     public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
     {
+        
+        services.AddHttpContextAccessor();
 
         services
             .AddIdentityCore<User>()
@@ -32,6 +35,7 @@ public static class ApplicationDependencies
       
         services.AddScoped<ISendMessage, SendMessage>();
         services.AddScoped<ITokenService, TokenService>();
+        services.AddScoped<IApplicationSignInManager, ApplicationSignInManager>();
 
         services.AddMassTransit(x =>
         {

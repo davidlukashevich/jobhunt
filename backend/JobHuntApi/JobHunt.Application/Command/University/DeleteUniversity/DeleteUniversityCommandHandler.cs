@@ -17,7 +17,16 @@ public class DeleteUniversityCommandHandler : IRequestHandler<DeleteUniversityCo
 
     public async Task<BaseResponse> Handle(DeleteUniversityCommand request, CancellationToken cancellationToken)
     {
-        await _universityRepository.DeleteUniversityAsync(request.UniversityId);
+
+        if (!await _universityRepository.DeleteUniversityAsync(request.UniversityId))
+        {
+            return new BaseResponse()
+            {
+                StatusCode = HttpStatusCode.BadRequest,
+                Message = "The University could not be deleted."
+            };
+        }
+        
         
         return new BaseResponse()
         {

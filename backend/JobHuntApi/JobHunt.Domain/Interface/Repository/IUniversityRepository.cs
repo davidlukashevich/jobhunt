@@ -5,6 +5,6 @@ namespace JobHunt.Domain.Interface.Repository;
 public interface IUniversityRepository
 {
     Task CreateUniversityAsync(University university);
-    Task DeleteUniversityAsync(Guid universityId);
-    Task UpdateUniversityAsync(University university, Guid universityId);
+    Task<bool> DeleteUniversityAsync(Guid universityId);
+    Task<bool> UpdateUniversityAsync(University university, Guid universityId);
 }

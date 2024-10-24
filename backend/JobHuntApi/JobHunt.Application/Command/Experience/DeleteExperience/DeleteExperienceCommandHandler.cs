@@ -17,7 +17,14 @@ public class DeleteExperienceCommandHandler : IRequestHandler<DeleteExperienceCo
 
     public async Task<BaseResponse> Handle(DeleteExperienceCommand request, CancellationToken cancellationToken)
     {
-        await _experienceRepository.DeleteExperienceAsync(request.ExperienceId);
+        if (!await _experienceRepository.DeleteExperienceAsync(request.ExperienceId))
+        {
+            return new BaseResponse()
+            {
+                StatusCode = HttpStatusCode.BadRequest,
+                Message = "Experience not found!"
+            };
+        }
         
         return new BaseResponse()
         {

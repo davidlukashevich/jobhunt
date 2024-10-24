@@ -26,8 +26,17 @@ public class UpdateExperienceCommandHandler : IRequestHandler<UpdateExperienceCo
             WorkFrom = request.UpdateExperienceRequest.WorkFrom,
             WorkTo = request.UpdateExperienceRequest.WorkTo,
         };
+
+        if (!await _experienceRepository.UpdateExperienceAsync(updatedExperience, request.ExperienceId))
+        {
+            return new BaseResponse()
+            {
+                StatusCode = HttpStatusCode.BadRequest,
+                Message = "Failed to update experience",
+            };
+        }
         
-        await _experienceRepository.UpdateExperienceAsync(updatedExperience, request.ExperienceId);
+      
         
         return new BaseResponse()
         {

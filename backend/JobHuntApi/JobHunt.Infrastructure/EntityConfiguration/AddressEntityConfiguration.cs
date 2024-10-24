@@ -12,7 +12,7 @@ public class AddressEntityConfiguration : IEntityTypeConfiguration<Address>
         
         builder.HasKey(x => x.Id);
 
-        builder.Property(x => x.Id);
+        builder.Property(x => x.Id).HasColumnName("id");
         builder.Property(x => x.Country).IsRequired().HasColumnName("country");
         builder.Property(x => x.City).IsRequired().HasColumnName("city");
         builder.Property(x => x.Street).IsRequired().HasColumnName("street");

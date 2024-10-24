@@ -5,6 +5,6 @@ namespace JobHunt.Domain.Interface.Repository;
 public interface IExperienceRepository
 {
     Task CreateExperienceAsync(Experience experience);
-    Task DeleteExperienceAsync(Guid experienceId);
-    Task UpdateExperienceAsync(Experience experience, Guid experienceId);
+    Task<bool> DeleteExperienceAsync(Guid experienceId);
+    Task<bool> UpdateExperienceAsync(Experience experience, Guid experienceId);
 }

@@ -25,8 +25,15 @@ public class UpdateUniversityCommandHandler : IRequestHandler<UpdateUniversityCo
             Specialization = request.UpdateUniversityRequest.Specialization,
             StudyTo = request.UpdateUniversityRequest.StudyTo,
         };
-        
-        await _universityRepository.UpdateUniversityAsync( updatedUniversity, request.UniversityId);
+
+        if (!await _universityRepository.UpdateUniversityAsync( updatedUniversity, request.UniversityId))
+        {
+            return new BaseResponse()
+            {
+                StatusCode = HttpStatusCode.BadRequest,
+                Message = "Error while updating university",
+            };
+        }
         
         return new BaseResponse()
         {

@@ -24,9 +24,12 @@ public class JobHuntDbContext : IdentityDbContext<User>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseNpgsql("Host=localhost; Database=JobHuntDb; Username=postgres; Password=password")
+            .UseNpgsql("Host = localhost; Port=5432; Database=JobHuntDb; Username=postgres; Password=password")
             .AddInterceptors(new AuditableInterceptor());
-        
+                
+          
+
+
     }
     
     
@@ -34,7 +37,6 @@ public class JobHuntDbContext : IdentityDbContext<User>
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
         
        
         builder.Entity<IdentityUserLogin<string>>().HasNoKey();

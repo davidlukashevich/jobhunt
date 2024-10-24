@@ -38,9 +38,9 @@ public class JobRepository : IJobRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task UpdateJobAsync(Job job, Guid jobId)
+    public async Task<bool> UpdateJobAsync(Job job, Guid jobId)
     {
-        await _context.Jobs
+        var updateResult = await _context.Jobs
             .Where(j => j.Id == jobId)
             .ExecuteUpdateAsync(s => s
                 .SetProperty(p => p.Title, job.Title)
@@ -51,13 +51,17 @@ public class JobRepository : IJobRepository
                 .SetProperty(p => p.Responsibilities, job.Responsibilities)
                 .SetProperty(p => p.Requirements, job.Requirements)
             );
+
+        return updateResult > 0;
     }
 
-    public async Task DeleteJobAsync(Guid jobId)
+    public async Task<bool> DeleteJobAsync(Guid jobId)
     {
-        await _context.Jobs
+        var deleteResult = await _context.Jobs
             .Where(j => j.Id == jobId)
             .ExecuteDeleteAsync();
+        
+        return deleteResult > 0;
     }
 
     public async Task<List<Job>> GetAllJobsByFilterAsync(string type, string technology, string level)

@@ -5,6 +5,6 @@ namespace JobHunt.Domain.Interface.Repository;
 public interface IAddressRepository
 {
     Task CreateAddressAsync(Address address);
-    Task DeleteAddressAsync(Guid addressId);
-    Task UpdateAddressAsync(Address address, Guid adressId);
+    Task<bool> DeleteAddressAsync(Guid addressId);
+    Task<bool> UpdateAddressAsync(Address address, Guid adressId);
 }

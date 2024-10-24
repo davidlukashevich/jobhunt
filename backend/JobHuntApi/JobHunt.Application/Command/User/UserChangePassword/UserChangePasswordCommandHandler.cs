@@ -1,7 +1,9 @@
 ﻿using System.Net;
 using JobHunt.Application.Response;
+using JobHunt.Application.Response.User;
 using JobHunt.Infrastructure.Identity.UserManager;
 using MediatR;
+
 
 namespace JobHunt.Application.Command.User.UserChangePassword;
 
@@ -9,10 +11,12 @@ public class UserChangePasswordCommandHandler : IRequestHandler<UserChangePasswo
 {
     
     private readonly IApplicationUserManager _applicationUserManager;
+    
 
     public UserChangePasswordCommandHandler(IApplicationUserManager applicationUserManager)
     {
         _applicationUserManager = applicationUserManager;
+        
     }
 
     public async Task<BaseResponse> Handle(UserChangePasswordCommand request, CancellationToken cancellationToken)
@@ -22,9 +26,13 @@ public class UserChangePasswordCommandHandler : IRequestHandler<UserChangePasswo
 
         if (userByEmail is null)
         {
-            throw new Exception("User not found");
+          
+            return new BaseResponse()
+            {
+                StatusCode = HttpStatusCode.NotFound,
+                Message = "User not found"
+            };
         }
-            
         
         var changePasswordResult = await _applicationUserManager.ChangeUserPasswordAsync(userByEmail,
             request.ChangeUserPasswordRequest.CurrentPassword,
@@ -32,7 +40,12 @@ public class UserChangePasswordCommandHandler : IRequestHandler<UserChangePasswo
 
         if (!changePasswordResult.Succeeded)
         {
-            throw new Exception(string.Join("\n", changePasswordResult.Errors));
+            return new UserChangePasswordError()
+            {
+                StatusCode = HttpStatusCode.BadRequest,
+                Message = "Error changing password",
+                Errors = changePasswordResult.Errors.Select(x => x.Description).ToList()
+            };
         }
 
         return new BaseResponse()

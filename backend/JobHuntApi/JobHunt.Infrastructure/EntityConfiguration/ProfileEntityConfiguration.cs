@@ -11,7 +11,7 @@ public class ProfileEntityConfiguration : IEntityTypeConfiguration<Profile>
         builder.ToTable("profiles");
         
         builder.HasKey(x => x.Id);
-
+        builder.Property(x => x.Id).HasColumnName("id");
         builder.Property(x => x.Name).IsRequired().HasColumnName("name");
         builder.Property(x => x.Lastname).IsRequired().HasColumnName("lastname");
         builder.Property(x => x.Email).IsRequired().HasColumnName("email");

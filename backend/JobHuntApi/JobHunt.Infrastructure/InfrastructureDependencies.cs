@@ -15,10 +15,10 @@ public static class InfrastructureDependencies
 
         services.AddDbContext<JobHuntDbContext>();
 
-        services
+        /*services
             .AddIdentityCore<User>()
-            .AddEntityFrameworkStores<JobHuntDbContext>();
-        
+            .AddEntityFrameworkStores<JobHuntDbContext>();*/
+            
         
 
         

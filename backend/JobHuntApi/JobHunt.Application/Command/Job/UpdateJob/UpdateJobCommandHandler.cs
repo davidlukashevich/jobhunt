@@ -32,7 +32,7 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand, Bas
         
         // adding masstransit publish method to update address queue
 
-        await _sendMessage.Send<UpdateAddress>(updatedAddress, cancellationToken);
+        await _sendMessage.Send(updatedAddress, cancellationToken);
 
         var updatedJob = new Domain.Models.Job()
         {
@@ -47,8 +47,15 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand, Bas
             Technology = request.UpdateJobRequest.Technology,
 
         };
+        if (!await _jobRepository.UpdateJobAsync(updatedJob, request.JobId))
+        {
+            return new BaseResponse()
+            {
+                StatusCode = HttpStatusCode.BadRequest,
+                Message = "Error updating job",
+            };
+        }
         
-        await _jobRepository.UpdateJobAsync(updatedJob, request.JobId);
 
         return new BaseResponse()
         {

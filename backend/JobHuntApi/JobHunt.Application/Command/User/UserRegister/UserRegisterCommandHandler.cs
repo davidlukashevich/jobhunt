@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using JobHunt.Application.Response.User;
+using JobHunt.Application.Service;
 using JobHunt.Infrastructure.Identity.UserManager;
 using MediatR;
 
@@ -10,25 +11,30 @@ public class UserRegisterCommandHandler : IRequestHandler<UserRegisterCommand, U
 {
     
     private readonly IApplicationUserManager _applicationUserManager;
+    private readonly ITokenService _tokenService;
 
-    public UserRegisterCommandHandler(IApplicationUserManager applicationUserManager)
+    public UserRegisterCommandHandler(IApplicationUserManager applicationUserManager, ITokenService tokenService)
     {
         _applicationUserManager = applicationUserManager;
+        _tokenService = tokenService;
     }
 
     public async Task<UserRegisterResponse> Handle(UserRegisterCommand request, CancellationToken cancellationToken)
     {
-        /*var userByEmail = await _applicationUserManager.IsUserExistsAsync(request.UserRegisterRequest.Email);
+        var userByEmail = await _applicationUserManager.IsUserExistsAsync(request.UserRegisterRequest.Email);
 
         if (userByEmail)
         {
-            throw new Exception("User already exists");
-        }*/
+            return new UserRegisterResponse()
+            {
+                StatusCode = HttpStatusCode.BadRequest,
+                Message = "User already exists!"
+            };
+        }
 
         var newUser = new Infrastructure.Identity.User()
         {
             Email = request.UserRegisterRequest.Email,
-            PasswordHash = request.UserRegisterRequest.Password,
             UserName = request.UserRegisterRequest.Username
         };
         
@@ -38,12 +44,15 @@ public class UserRegisterCommandHandler : IRequestHandler<UserRegisterCommand, U
         {
             throw new Exception(result.Errors.First().Description);
         }
+
+        var token = _tokenService.GenerateToken(newUser.Email);
         
         return new UserRegisterResponse()
         {
             StatusCode = HttpStatusCode.OK,
             Message = "User has been registered",
-            //Id = "test id",
+            Id = newUser.Id,
+            Token = token
         };
     }
 }
