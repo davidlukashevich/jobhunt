@@ -1,6 +1,9 @@
-﻿namespace JobHunt.Domain.Models;
+﻿using JobHunt.Domain.Interface;
 
-public class BaseEntity
+namespace JobHunt.Domain.Models;
+
+public class BaseEntity : IBaseEntity
 {
-    
+    public DateTime CreatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; }
 }

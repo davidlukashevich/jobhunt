@@ -1,6 +1,6 @@
 ﻿namespace JobHunt.Domain.Models;
 
-public class Job
+public class Job : BaseEntity
 {
     public Guid Id  { get; set; }
     public required string Title { get; set; }

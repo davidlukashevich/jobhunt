@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace JobHunt.Infrastructure.Migrations
 {
     [DbContext(typeof(JobHuntDbContext))]
-    [Migration("20241022134228_adding test field to user identity")]
-    partial class addingtestfieldtouseridentity
+    [Migration("20241024111633_adding base entity fields")]
+    partial class addingbaseentityfields
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,10 +41,16 @@ namespace JobHunt.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("country");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("Street")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("street");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 
@@ -56,7 +62,9 @@ namespace JobHunt.Infrastructure.Migrations
                             Id = new Guid("76e24589-638c-4cb9-9970-675a263a7a43"),
                             City = "New York",
                             Country = "USA ",
-                            Street = "street address 1"
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Street = "street address 1",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -71,6 +79,9 @@ namespace JobHunt.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("company_name");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -91,6 +102,9 @@ namespace JobHunt.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("responsibility");
 
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<DateTime>("WorkFrom")
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("work_from");
@@ -108,36 +122,42 @@ namespace JobHunt.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("999a46bb-10e9-45b3-8179-900c0eb4d363"),
+                            Id = new Guid("622a45eb-6941-4ceb-b0a7-61351496af6e"),
                             CompanyName = "CompanyName",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Location",
                             Position = "Position",
                             ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             Responsibility = "Responsibility",
-                            WorkFrom = new DateTime(2024, 10, 22, 13, 42, 28, 264, DateTimeKind.Utc).AddTicks(1407),
-                            WorkTo = new DateTime(2024, 10, 22, 13, 42, 28, 264, DateTimeKind.Utc).AddTicks(1409)
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkFrom = new DateTime(2024, 10, 24, 11, 16, 33, 318, DateTimeKind.Utc).AddTicks(8429),
+                            WorkTo = new DateTime(2024, 10, 24, 11, 16, 33, 318, DateTimeKind.Utc).AddTicks(8431)
                         },
                         new
                         {
-                            Id = new Guid("3666bd08-506a-4467-858c-e89b1c633f28"),
+                            Id = new Guid("0ae6e14f-29c0-4e6a-9931-b538ef8469c1"),
                             CompanyName = "CompanyName 2",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Location 2",
                             Position = "Position 2",
                             ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             Responsibility = "Responsibility 2",
-                            WorkFrom = new DateTime(2024, 10, 22, 13, 42, 28, 264, DateTimeKind.Utc).AddTicks(1412),
-                            WorkTo = new DateTime(2024, 10, 22, 13, 42, 28, 264, DateTimeKind.Utc).AddTicks(1412)
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkFrom = new DateTime(2024, 10, 24, 11, 16, 33, 318, DateTimeKind.Utc).AddTicks(8438),
+                            WorkTo = new DateTime(2024, 10, 24, 11, 16, 33, 318, DateTimeKind.Utc).AddTicks(8439)
                         },
                         new
                         {
-                            Id = new Guid("22f4732c-151f-44ee-9600-260f3860ba12"),
+                            Id = new Guid("f013a84f-57bf-4dab-ae13-499ff7823522"),
                             CompanyName = "CompanyName 3",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Location = "Location 3",
                             Position = "Position 3",
                             ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             Responsibility = "Responsibility 3",
-                            WorkFrom = new DateTime(2024, 10, 22, 13, 42, 28, 264, DateTimeKind.Utc).AddTicks(1414),
-                            WorkTo = new DateTime(2024, 10, 22, 13, 42, 28, 264, DateTimeKind.Utc).AddTicks(1415)
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            WorkFrom = new DateTime(2024, 10, 24, 11, 16, 33, 318, DateTimeKind.Utc).AddTicks(8443),
+                            WorkTo = new DateTime(2024, 10, 24, 11, 16, 33, 318, DateTimeKind.Utc).AddTicks(8443)
                         });
                 });
 
@@ -161,6 +181,9 @@ namespace JobHunt.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("contract_type");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("JobLevel")
                         .IsRequired()
@@ -197,6 +220,9 @@ namespace JobHunt.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("type");
 
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AddressId")
@@ -217,6 +243,9 @@ namespace JobHunt.Infrastructure.Migrations
                     b.Property<string>("Avatar")
                         .HasColumnType("text")
                         .HasColumnName("avatar");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("timestamp with time zone");
@@ -241,6 +270,9 @@ namespace JobHunt.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("phone");
 
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AddressId")
@@ -254,11 +286,13 @@ namespace JobHunt.Infrastructure.Migrations
                             Id = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             AddressId = new Guid("76e24589-638c-4cb9-9970-675a263a7a43"),
                             Avatar = "avatar.jpg",
-                            DateOfBirth = new DateTime(2024, 10, 22, 13, 42, 28, 264, DateTimeKind.Utc).AddTicks(5927),
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateTime(2024, 10, 24, 11, 16, 33, 319, DateTimeKind.Utc).AddTicks(8927),
                             Email = "john@doe.com",
                             Lastname = "Doe",
                             Name = "John ",
-                            Phone = "123456789"
+                            Phone = "123456789",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -268,6 +302,9 @@ namespace JobHunt.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasColumnName("id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("EducationLevel")
                         .IsRequired()
@@ -301,6 +338,9 @@ namespace JobHunt.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("university_name");
 
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ProfileId");
@@ -310,36 +350,42 @@ namespace JobHunt.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d142426c-5016-4798-9768-ec9ff3165a69"),
+                            Id = new Guid("7150b36e-7b26-47f1-b52e-aeaa30b4a7a3"),
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EducationLevel = "Bachelor",
                             FieldOfStudy = "Field of Study",
                             ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             Specialization = "Computer Science",
-                            StudyFrom = new DateTime(2024, 10, 22, 13, 42, 28, 264, DateTimeKind.Utc).AddTicks(7429),
-                            StudyTo = new DateTime(2024, 10, 22, 13, 42, 28, 264, DateTimeKind.Utc).AddTicks(7429),
-                            UniversityName = "Vistula"
+                            StudyFrom = new DateTime(2024, 10, 24, 11, 16, 33, 320, DateTimeKind.Utc).AddTicks(2855),
+                            StudyTo = new DateTime(2024, 10, 24, 11, 16, 33, 320, DateTimeKind.Utc).AddTicks(2858),
+                            UniversityName = "Vistula",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("2f663f25-ba71-45ed-83bf-c460d38032d0"),
+                            Id = new Guid("fcc91f4c-92e8-4c00-975e-cf0087dffa24"),
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EducationLevel = "Bachelor 2",
                             FieldOfStudy = "Field of Study 2",
                             ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             Specialization = "Computer Science 2",
-                            StudyFrom = new DateTime(2024, 10, 22, 13, 42, 28, 264, DateTimeKind.Utc).AddTicks(7433),
-                            StudyTo = new DateTime(2024, 10, 22, 13, 42, 28, 264, DateTimeKind.Utc).AddTicks(7433),
-                            UniversityName = "Vistula 2"
+                            StudyFrom = new DateTime(2024, 10, 24, 11, 16, 33, 320, DateTimeKind.Utc).AddTicks(2879),
+                            StudyTo = new DateTime(2024, 10, 24, 11, 16, 33, 320, DateTimeKind.Utc).AddTicks(2880),
+                            UniversityName = "Vistula 2",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            Id = new Guid("1b9c5c20-f490-4aeb-ad73-6dedf2018159"),
+                            Id = new Guid("817bf067-c928-4b1c-8757-42bad4f38393"),
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EducationLevel = "Bachelor 3",
                             FieldOfStudy = "Field of Study 3",
                             ProfileId = new Guid("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
                             Specialization = "Computer Science 3",
-                            StudyFrom = new DateTime(2024, 10, 22, 13, 42, 28, 264, DateTimeKind.Utc).AddTicks(7435),
-                            StudyTo = new DateTime(2024, 10, 22, 13, 42, 28, 264, DateTimeKind.Utc).AddTicks(7435),
-                            UniversityName = "Vistula 3"
+                            StudyFrom = new DateTime(2024, 10, 24, 11, 16, 33, 320, DateTimeKind.Utc).AddTicks(2886),
+                            StudyTo = new DateTime(2024, 10, 24, 11, 16, 33, 320, DateTimeKind.Utc).AddTicks(2887),
+                            UniversityName = "Vistula 3",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -359,6 +405,9 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("text");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("boolean");
@@ -382,9 +431,6 @@ namespace JobHunt.Infrastructure.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("text");
-
-                    b.Property<string>("TestField")
                         .HasColumnType("text");
 
                     b.Property<bool>("TwoFactorEnabled")

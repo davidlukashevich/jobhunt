@@ -1,6 +1,6 @@
 ﻿namespace JobHunt.Domain.Models;
 
-public class University
+public class University : BaseEntity
 {
     public Guid Id { get; set; }
     public string?  UniversityName { get; set; }

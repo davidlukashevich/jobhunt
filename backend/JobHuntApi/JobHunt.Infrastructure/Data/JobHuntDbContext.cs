@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using JobHunt.Domain.Models;
 using JobHunt.Infrastructure.Identity;
+using JobHunt.Infrastructure.Interceptors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +23,9 @@ public class JobHuntDbContext : IdentityDbContext<User>
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost; Database=JobHuntDb; Username=postgres; Password=password");
+        optionsBuilder
+            .UseNpgsql("Host=localhost; Database=JobHuntDb; Username=postgres; Password=password")
+            .AddInterceptors(new AuditableInterceptor());
         
     }
     
@@ -32,11 +35,7 @@ public class JobHuntDbContext : IdentityDbContext<User>
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-        builder.Entity<Address>(e =>
-        {
-            e.HasKey(x => x.Id);
-            e.Property(x => x.Id).HasColumnName("Id");
-        });
+        
        
         builder.Entity<IdentityUserLogin<string>>().HasNoKey();
         builder.Entity<IdentityUserToken<string>>().HasNoKey();

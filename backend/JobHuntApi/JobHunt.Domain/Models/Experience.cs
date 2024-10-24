@@ -1,6 +1,6 @@
 ﻿namespace JobHunt.Domain.Models;
 
-public class Experience
+public class Experience : BaseEntity
 {
     public Guid Id { get; set; }
     public string?  Position { get; set; }
