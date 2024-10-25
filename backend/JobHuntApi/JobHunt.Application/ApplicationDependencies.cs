@@ -91,7 +91,20 @@ public static class ApplicationDependencies
             };
         });
 
-        services.AddAuthorization();
+        services.AddAuthorization(options =>
+        {
+            options.AddPolicy("RequireEmployerRole", policy =>
+            {
+                policy.RequireRole("Employer");
+            });
+            
+            options.AddPolicy("RequireEmployeeRole", policy =>
+            {
+                policy.RequireRole("Employee");
+            });
+        });
+        
+        
         
         
         

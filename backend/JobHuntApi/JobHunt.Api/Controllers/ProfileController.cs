@@ -3,12 +3,14 @@ using JobHunt.Application.Command.Profile.UpdateProfile;
 using JobHunt.Application.Query.Profile.GetProfile;
 using JobHunt.Application.Request;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobHuntApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Employee, Employer")]
     public class ProfileController : ControllerBase
     {
         private readonly ISender _sender;

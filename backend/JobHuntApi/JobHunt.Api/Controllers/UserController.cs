@@ -3,6 +3,7 @@ using JobHunt.Application.Command.User.UserLogin;
 using JobHunt.Application.Command.User.UserRegister;
 using JobHunt.Application.Request;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobHuntApi.Controllers
@@ -38,7 +39,7 @@ namespace JobHuntApi.Controllers
         }
 
         [HttpPost("changePassword")]
-
+        [Authorize(Roles = "Employer, Employee")]
         public async Task<ActionResult> UserChangePassword([FromBody] ChangeUserPasswordRequest request)
         {
             var result = await _sender.Send(new UserChangePasswordCommand(request));

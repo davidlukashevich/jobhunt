@@ -23,6 +23,11 @@ public class GetJobByIdQueryHandler : IRequestHandler<GetJobByIdQuery, SingleJob
         
         var jobById =  await _jobRepository.GetJobByIdAsync(query.JobId);
 
+        if (jobById is null)
+        {
+            return null;
+        }
+
         
         
         return jobById.ToSingleJobResponse();

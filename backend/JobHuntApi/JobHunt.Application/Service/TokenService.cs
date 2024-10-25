@@ -17,7 +17,7 @@ public class TokenService :  ITokenService
         _jwtOptions = jwtOptions.Value;
     }
 
-    public string GenerateToken(string email, string  role)
+    public string GenerateToken(string email, IList<string> roles)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.Key));
 
@@ -28,10 +28,10 @@ public class TokenService :  ITokenService
         var claims = new List<Claim>()
         {
             new Claim(ClaimTypes.Email, email),
-            new Claim(ClaimTypes.Role, role)
         };
         
-        
+        claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+
 
         var token = new JwtSecurityToken(
            

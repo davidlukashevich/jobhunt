@@ -4,6 +4,7 @@ using JobHunt.Application.Command.Experience.DeleteExperience;
 using JobHunt.Application.Command.Experience.UpdateExperience;
 using JobHunt.Application.Request;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -11,6 +12,7 @@ namespace JobHuntApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Employee")]
     public class ExperienceController : ControllerBase
     {
         private readonly ISender _sender;

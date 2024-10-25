@@ -44,8 +44,10 @@ public class UserRegisterCommandHandler : IRequestHandler<UserRegisterCommand, U
         {
             throw new Exception(result.Errors.First().Description);
         }
+        
+        var roleList = new List<string>(request.UserRegisterRequest.Role.Split(','));
 
-        var token = _tokenService.GenerateToken(newUser.Email, request.UserRegisterRequest.Role);
+        var token = _tokenService.GenerateToken(newUser.Email,  roleList);
         
         return new UserRegisterResponse()
         {

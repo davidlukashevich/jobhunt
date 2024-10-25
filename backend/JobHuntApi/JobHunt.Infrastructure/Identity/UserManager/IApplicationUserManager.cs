@@ -9,6 +9,6 @@ public interface IApplicationUserManager
     Task<IdentityResult> ChangeUserPasswordAsync(User user, string currentPassword, string newPassword);
     Task<IdentityResult> RegisterUserAsync(User user, string password, string role);
     Task<User?> FindByEmailAsync(string email);
-    Task<string> GetRoleByUserEmailAsync(string email);
+    Task<IList<string>> GetRoleByUserEmailAsync(string email);
     
 }

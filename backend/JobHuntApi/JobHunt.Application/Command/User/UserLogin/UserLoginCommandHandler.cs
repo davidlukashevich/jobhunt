@@ -54,6 +54,8 @@ public class UserLoginCommandHandler : IRequestHandler<UserLoginCommand ,UserLog
         }
 
         var userRole = await _userManager.GetRoleByUserEmailAsync(userByEmail.Email!);
+        
+        var roleList = new List<string>(userRole);
         var token =  _tokenService.GenerateToken(userByEmail.Email!, userRole);
         
         return new UserLoginResponse()

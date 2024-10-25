@@ -56,11 +56,11 @@ public class ApplicationUserManager : IApplicationUserManager
         return _userManager.FindByEmailAsync(email);
     }
 
-    public async Task<string> GetRoleByUserEmailAsync(string email)
+    public async Task<IList<string>> GetRoleByUserEmailAsync(string email)
     {
         var roles =  await _userManager.GetRolesAsync(await _userManager.FindByEmailAsync(email));
         
-        return  roles.First();
+        return  roles;
     }
 
     

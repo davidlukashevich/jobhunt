@@ -7,6 +7,7 @@ using JobHunt.Application.Query.Job.GetAllJobsByTitle;
 using JobHunt.Application.Query.Job.GetJobById;
 using JobHunt.Application.Request;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobHuntApi.Controllers
@@ -48,7 +49,7 @@ namespace JobHuntApi.Controllers
         {
             var result = await _sender.Send(new GetJobByIdQuery(id));
             
-            return Ok(result);
+            return result is null ? NotFound("Job not found")  : Ok(result) ;
         }
 
         [HttpGet("byTitle")]
@@ -62,7 +63,7 @@ namespace JobHuntApi.Controllers
         }
 
         [HttpPost("create")]
-
+        [Authorize(Roles = "Employer")]
         public async Task<ActionResult> CreateJob([FromBody] CreateJobRequest createJobRequest)
         {
             
@@ -73,7 +74,7 @@ namespace JobHuntApi.Controllers
 
 
         [HttpPut("update/{id}")]
-
+        [Authorize(Roles = "Employer")]
         public async Task<ActionResult> UpdateJob(Guid id, [FromBody] UpdateJobRequest updateJobRequest)
         {
             var result = await _sender.Send(new UpdateJobByIdCommand(id, updateJobRequest));
@@ -82,7 +83,7 @@ namespace JobHuntApi.Controllers
         }
 
         [HttpDelete("delete/{id}")]
-
+        [Authorize(Roles = "Employer")]
         public async Task<ActionResult> DeleteJob(Guid id, [FromQuery] Guid addressId)
         {
             var result = await _sender.Send(new DeleteJobByIdCommand(id, addressId));
