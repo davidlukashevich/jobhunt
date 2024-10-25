@@ -14,13 +14,6 @@ public static class InfrastructureDependencies
     {
 
         services.AddDbContext<JobHuntDbContext>();
-
-        /*services
-            .AddIdentityCore<User>()
-            .AddEntityFrameworkStores<JobHuntDbContext>();*/
-            
-        
-
         
 
         services.AddScoped<IJobRepository, JobRepository>();

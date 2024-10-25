@@ -96,8 +96,10 @@ public class JobRepository : IJobRepository
     {
         return await _context.Jobs
             .AsNoTracking()
-            .Where(j => EF.Functions.ToTsVector("english", j.Title + " " + j.Technology + " " +j.JobLevel + " " + j.Type )
-                .Matches(EF.Functions.PhraseToTsQuery("english", title)))
+            //.Where(j => EF.Functions.ToTsVector("english", j.Title + " " + j.Technology + " " +j.JobLevel + " " + j.Type )
+               // .Matches(EF.Functions.PhraseToTsQuery("english", title)))
+            
+            .Where(j => j.Title.ToLower().Replace(" ", "").Contains(title.ToLower()))
             .Include(j => j.Address)
             .ToListAsync();
             

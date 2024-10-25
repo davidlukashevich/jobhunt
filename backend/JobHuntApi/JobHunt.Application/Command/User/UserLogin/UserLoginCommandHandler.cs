@@ -6,6 +6,7 @@ using JobHunt.Infrastructure.Identity.UserManager;
 using MediatR;
 
 
+
 namespace JobHunt.Application.Command.User.UserLogin;
 
 public class UserLoginCommandHandler : IRequestHandler<UserLoginCommand ,UserLoginResponse>
@@ -14,12 +15,14 @@ public class UserLoginCommandHandler : IRequestHandler<UserLoginCommand ,UserLog
     private readonly IApplicationSignInManager _signInManager;
     private readonly IApplicationUserManager _userManager;
     private readonly ITokenService _tokenService;
+    
 
     public UserLoginCommandHandler(IApplicationSignInManager signInManager, IApplicationUserManager userManager, ITokenService tokenService)
     {
         _signInManager = signInManager;
         _userManager = userManager;
         _tokenService = tokenService;
+        
     }
 
     public async Task<UserLoginResponse> Handle(UserLoginCommand request, CancellationToken cancellationToken)
@@ -38,7 +41,7 @@ public class UserLoginCommandHandler : IRequestHandler<UserLoginCommand ,UserLog
             
         }
 
-
+        
         var signInResult = await _signInManager.CheckPasswordSignInAsync(userByEmail, request.UserLoginRequest.Password!);
 
         if (!signInResult)
@@ -50,7 +53,8 @@ public class UserLoginCommandHandler : IRequestHandler<UserLoginCommand ,UserLog
             };
         }
 
-        var token =  _tokenService.GenerateToken(userByEmail.Email!);
+        var userRole = await _userManager.GetRoleByUserEmailAsync(userByEmail.Email!);
+        var token =  _tokenService.GenerateToken(userByEmail.Email!, userRole);
         
         return new UserLoginResponse()
         {

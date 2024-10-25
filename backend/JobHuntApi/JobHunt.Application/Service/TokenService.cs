@@ -17,15 +17,21 @@ public class TokenService :  ITokenService
         _jwtOptions = jwtOptions.Value;
     }
 
-    public string GenerateToken(string email)
+    public string GenerateToken(string email, string  role)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.Key));
 
         var tokenHandler = new JwtSecurityTokenHandler();
+
+        
+        
         var claims = new List<Claim>()
         {
-            new Claim(ClaimTypes.Email, email)
+            new Claim(ClaimTypes.Email, email),
+            new Claim(ClaimTypes.Role, role)
         };
+        
+        
 
         var token = new JwtSecurityToken(
            

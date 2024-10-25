@@ -7,7 +7,8 @@ public interface IApplicationUserManager
     Task<bool> IsUserExistsAsync(string email);
     Task<bool> IsPasswordCorrectAsync(string password, string email);
     Task<IdentityResult> ChangeUserPasswordAsync(User user, string currentPassword, string newPassword);
-    Task<IdentityResult> RegisterUserAsync(User user, string password);
-    Task<User> FindByEmailAsync(string email);
+    Task<IdentityResult> RegisterUserAsync(User user, string password, string role);
+    Task<User?> FindByEmailAsync(string email);
+    Task<string> GetRoleByUserEmailAsync(string email);
     
 }

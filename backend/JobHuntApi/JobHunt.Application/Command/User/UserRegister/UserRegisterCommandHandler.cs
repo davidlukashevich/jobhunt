@@ -38,14 +38,14 @@ public class UserRegisterCommandHandler : IRequestHandler<UserRegisterCommand, U
             UserName = request.UserRegisterRequest.Username
         };
         
-        var result = await _applicationUserManager.RegisterUserAsync(newUser, request.UserRegisterRequest.Password);
+        var result = await _applicationUserManager.RegisterUserAsync(newUser, request.UserRegisterRequest.Password, request.UserRegisterRequest.Role);
 
         if (!result.Succeeded)
         {
             throw new Exception(result.Errors.First().Description);
         }
 
-        var token = _tokenService.GenerateToken(newUser.Email);
+        var token = _tokenService.GenerateToken(newUser.Email, request.UserRegisterRequest.Role);
         
         return new UserRegisterResponse()
         {

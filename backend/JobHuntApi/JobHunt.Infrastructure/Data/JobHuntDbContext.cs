@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JobHunt.Infrastructure.Data;
 
-public class JobHuntDbContext : IdentityDbContext<User>
+public class JobHuntDbContext : IdentityDbContext<User, IdentityRole,  string>
 {
 
     public DbSet<Address> Addresses { get; set; }
@@ -25,22 +25,17 @@ public class JobHuntDbContext : IdentityDbContext<User>
     {
         optionsBuilder
             .UseNpgsql("Host = localhost; Port=5432; Database=JobHuntDb; Username=postgres; Password=password")
-            .AddInterceptors(new AuditableInterceptor());
-                
-          
-
-
+            .AddInterceptors(new AuditableInterceptor())
+            .EnableSensitiveDataLogging();
+        
     }
     
-    
-
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         
-       
         builder.Entity<IdentityUserLogin<string>>().HasNoKey();
         builder.Entity<IdentityUserToken<string>>().HasNoKey();
-        builder.Entity<IdentityUserRole<string>>().HasNoKey();
+        
     }
 }

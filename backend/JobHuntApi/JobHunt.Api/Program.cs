@@ -7,17 +7,19 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var configuration = builder.Configuration;
+var services = builder.Services;
+
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(nameof(JwtOptions)));
 
 builder.Services
-    .AddApplication(builder.Configuration)
+    .AddApplication(configuration)
     .AddInfrastructure();
 
 builder.Services.AddAuthentication(auth =>
@@ -29,7 +31,7 @@ builder.Services.AddAuthentication(auth =>
 
 
 
-builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JWT"));
+
 
 builder.Services.AddCors(options =>
 {
@@ -55,7 +57,7 @@ app.UseHttpsRedirection();
 
 app.UseCors("JobHuntClientApp");
 
-app.UseAuthorization();
+app.UseAuthentication();
 
 app.UseAuthorization();
 

@@ -1,4 +1,5 @@
 ﻿
+using System.Text;
 using JobHunt.Application.MessageBroker;
 using JobHunt.Application.MessageBroker.Address.CreateAddress;
 using JobHunt.Application.MessageBroker.Address.DeleteAddress;
@@ -8,9 +9,12 @@ using JobHunt.Application.SingInManager;
 using JobHunt.Infrastructure.Data;
 using JobHunt.Infrastructure.Identity;
 using MassTransit;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 
 namespace JobHunt.Application;
@@ -19,14 +23,11 @@ public static class ApplicationDependencies
 {
     public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
     {
-        
-        services.AddHttpContextAccessor();
 
         services
-            .AddIdentityCore<User>()
+            .AddIdentity<User, IdentityRole>()
             .AddEntityFrameworkStores<JobHuntDbContext>()
-            //.AddRoles<IdentityRole>()
-            .AddSignInManager<SignInManager<User>>();
+            .AddDefaultTokenProviders();
         
         services.AddMediatR(options =>
         {
@@ -36,6 +37,10 @@ public static class ApplicationDependencies
         services.AddScoped<ISendMessage, SendMessage>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IApplicationSignInManager, ApplicationSignInManager>();
+        services.AddScoped<IRoleStore<IdentityRole>, RoleStore<IdentityRole, JobHuntDbContext>>();
+        services.AddScoped<IUserStore<IdentityUser>, UserStore<IdentityUser, IdentityRole, JobHuntDbContext>>();
+       
+
 
         services.AddMassTransit(x =>
         {
@@ -68,6 +73,25 @@ public static class ApplicationDependencies
                 });
             });
         });
+
+        services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultSignInScheme = JwtBearerDefaults.AuthenticationScheme;
+        }).AddJwtBearer(jwt =>
+        {
+            jwt.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtOptions:Key"]!))
+            };
+        });
+
+        services.AddAuthorization();
         
         
         
