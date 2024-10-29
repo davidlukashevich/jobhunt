@@ -8,6 +8,7 @@ public class Profile : BaseEntity
     public required string Email { get; set; }
     public string? Phone { get; set; }
     public string? Avatar { get; set; }
+    public  string? CreatedBy  { get; set; }
     
     public DateTime DateOfBirth { get; set; }
     public List<University> Universities { get; set; }

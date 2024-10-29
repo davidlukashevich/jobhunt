@@ -21,13 +21,14 @@ namespace JobHuntApi.Controllers
         }
 
         [HttpPost("create")]
-
-        public async Task<ActionResult> CreateProfile([FromBody] CreateProfileRequest createProfileRequest)
+        public async Task<ActionResult> CreateProfile([FromForm] CreateProfileRequest createProfileRequest)
         {
             var result = await _sender.Send(new CreateProfileCommand(createProfileRequest));
             
             return Ok(result);
         }
+        
+        
 
         [HttpPut("update/{id}")]
 
@@ -40,7 +41,7 @@ namespace JobHuntApi.Controllers
 
         [HttpGet("{id}")]
 
-        public async Task<ActionResult> GetProfile([FromRoute] Guid id)
+        public async Task<ActionResult> GetProfile([FromRoute] string id)
         {
             var result = await _sender.Send(new GetProfileQuery(id));
             

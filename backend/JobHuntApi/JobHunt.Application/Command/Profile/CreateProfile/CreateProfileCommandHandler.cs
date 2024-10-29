@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using JobHunt.Application.BlobStorage;
 using JobHunt.Application.MessageBroker;
 using JobHunt.Application.MessageBroker.Address.CreateAddress;
 using JobHunt.Application.Response;
@@ -13,15 +14,18 @@ public class CreateProfileCommandHandler : IRequestHandler<CreateProfileCommand,
     
     private readonly IProfileRepository _profileRepository;
     private readonly ISendMessage _sendMessage;
+    private readonly IImageService _imageService;
 
-    public CreateProfileCommandHandler(IProfileRepository profileRepository, ISendMessage sendMessage)
+    public CreateProfileCommandHandler(IProfileRepository profileRepository, ISendMessage sendMessage, IImageService imageService)
     {
         _profileRepository = profileRepository;
         _sendMessage = sendMessage;
+        _imageService = imageService;
     }
 
     public async Task<BaseResponse> Handle(CreateProfileCommand request, CancellationToken cancellationToken)
     {
+        var commandRequest = request.CreateProfileRequest;
 
         var newAddress = new CreateAddress()
         {
@@ -40,10 +44,13 @@ public class CreateProfileCommandHandler : IRequestHandler<CreateProfileCommand,
             Lastname = request.CreateProfileRequest.Lastname,
             Email = request.CreateProfileRequest.Email,
             Phone = request.CreateProfileRequest.Phone,
-            Avatar = request.CreateProfileRequest.Avatar,
+            Avatar = $"https://jobhuntstorage.blob.core.windows.net/images/profile_{commandRequest.UserId}{Path.GetExtension(commandRequest.File.FileName)}",
             DateOfBirth = request.CreateProfileRequest.DateOfBirth,
             AddressId = newAddress.Id,
+            CreatedBy = request.CreateProfileRequest.UserId
         };
+
+        await _imageService.UploadImageAsync(request.CreateProfileRequest.File,request.CreateProfileRequest.UserId, "profile");
         
         await _profileRepository.CreateProfileAsync(newProfile);
 

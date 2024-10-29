@@ -14,7 +14,7 @@ public class ProfileRepository : IProfileRepository
         _context = context;
     }
 
-    public async Task<Profile?> GetProfileAsync(Guid userId)
+    public async Task<Profile?> GetProfileAsync(string userId)
     {
         return await _context.Profiles
             .Include(p => p.Address)
@@ -22,7 +22,7 @@ public class ProfileRepository : IProfileRepository
             .Include(p => p.Experiences)
             .AsSplitQuery()
             .AsNoTracking()
-            .FirstOrDefaultAsync(p => p.Id == userId);
+            .FirstOrDefaultAsync(p => p.CreatedBy == userId);
         
     }
 

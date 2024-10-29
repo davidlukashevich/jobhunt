@@ -1,7 +1,7 @@
-﻿using JobHunt.Application.DTO;
+﻿
 using JobHunt.Application.Response.Profile;
 
-namespace JobHunt.Application.Mapper.Profile;
+namespace JobHunt.Application.Mapper;
 
 public static class ProfileMapper
 {

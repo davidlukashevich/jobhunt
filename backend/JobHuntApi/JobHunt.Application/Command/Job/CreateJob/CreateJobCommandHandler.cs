@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using JobHunt.Application.BlobStorage;
 using JobHunt.Application.MessageBroker;
 using JobHunt.Application.MessageBroker.Address.CreateAddress;
 using JobHunt.Application.Response;
@@ -12,15 +13,20 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand, BaseRes
     
     private readonly IJobRepository _jobRepository;
     private readonly ISendMessage _sendMessage;
+    private readonly IImageService _imageService;
 
-    public CreateJobCommandHandler(IJobRepository jobRepository, ISendMessage sendMessage)
+    public CreateJobCommandHandler(IJobRepository jobRepository, ISendMessage sendMessage, IImageService imageService)
     {
         _jobRepository = jobRepository;
         _sendMessage = sendMessage;
+        _imageService = imageService;
     }
 
     public async Task<BaseResponse> Handle(CreateJobCommand request, CancellationToken cancellationToken)
     {
+        
+        var commandRequest = request.CreateJobRequest;
+        
 
         var createdAddress = new CreateAddress()
         {
@@ -46,9 +52,10 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand, BaseRes
             AddressId = createdAddress.Id,
             Type = request.CreateJobRequest.Type,
             Technology = request.CreateJobRequest.Technology,
+            CompanyLogo = $"https://jobhuntstorage.blob.core.windows.net/images/job_{commandRequest.UserId}{Path.GetExtension(commandRequest.File.FileName)}"
         };
 
-        Console.WriteLine(createdAddress.Id);
+        await _imageService.UploadImageAsync(commandRequest.File, commandRequest.UserId, "job");
         
         
         await _jobRepository.CreateJobAsync(newJob);

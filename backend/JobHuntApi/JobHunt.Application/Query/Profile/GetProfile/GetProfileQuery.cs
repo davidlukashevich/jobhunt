@@ -3,4 +3,4 @@ using MediatR;
 
 namespace JobHunt.Application.Query.Profile.GetProfile;
 
-public record GetProfileQuery(Guid Id) : IRequest<ProfileResponse>;
+public record GetProfileQuery(string UserId) : IRequest<ProfileResponse>;

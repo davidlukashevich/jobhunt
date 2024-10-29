@@ -18,35 +18,41 @@ public class ProfileEntityConfiguration : IEntityTypeConfiguration<Profile>
         builder.Property(x => x.Phone).IsRequired().HasColumnName("phone");
         builder.Property(x => x.Avatar).HasColumnName("avatar");
         
+        builder.Property(x => x.CreatedBy).HasColumnName("createdBy");
+        
+        
+        
        builder
            .HasMany<University>(p => p.Universities)
            .WithOne()
            .HasForeignKey(x => x.ProfileId);
-        
+
        builder
-           .HasMany<Experience>( p => p.Experiences)
+           .HasMany<Experience>(p => p.Experiences)
            .WithOne()
            .HasForeignKey(x => x.ProfileId);
+           
        
        builder
            .HasOne<Address>( x => x.Address)
            .WithOne()
            .HasForeignKey<Profile>(p => p.AddressId);
-
-
+        
        builder.HasData(
 
            new Profile()
            {
-                Id = Guid.Parse("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
-                Name = "John ",
-                Lastname = "Doe",
-                Email = "john@doe.com",
-                Phone = "123456789",
-                Avatar = "avatar.jpg",
-                DateOfBirth = DateTime.UtcNow,
-                AddressId = Guid.Parse("76e24589-638c-4cb9-9970-675a263a7a43"),
+               Id = Guid.Parse("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
+               Name = "John ",
+               Lastname = "Doe",
+               Email = "john@doe.com",
+               Phone = "123456789",
+               Avatar = "avatar.jpg",
+               DateOfBirth = DateTime.UtcNow,
+               AddressId = Guid.Parse("76e24589-638c-4cb9-9970-675a263a7a43"),
+               CreatedBy = "user"
            }
        );
+       
     }
 }

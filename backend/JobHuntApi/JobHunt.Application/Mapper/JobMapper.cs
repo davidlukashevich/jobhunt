@@ -33,6 +33,7 @@ public static class JobMapper
             JobLevel = job.JobLevel,
             Responsibilities = job.Responsibilities,
             Requirements = job.Requirements,
+            CompanyLogo = job.CompanyLogo,
             Address = new AddressDTO()
             {
                 Id = job.Address!.Id,

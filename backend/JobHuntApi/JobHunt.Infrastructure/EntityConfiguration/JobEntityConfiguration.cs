@@ -13,6 +13,7 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Id).HasColumnName("id");
+        builder.Property(x => x.CompanyLogo).HasColumnName("company_logo");
         builder.Property(x => x.Title).HasColumnName("title").IsRequired();
         builder.Property(x => x.CompanyName).HasColumnName("company_name").IsRequired();
         builder.Property(x => x.ContractType).HasColumnName("contract_type").IsRequired();

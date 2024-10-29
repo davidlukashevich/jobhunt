@@ -40,6 +40,8 @@ public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand,
             Phone = request.UpdateProfileRequest.Phone,
             Avatar = request.UpdateProfileRequest.Avatar,
             DateOfBirth = request.UpdateProfileRequest.DateOfBirth,
+            CreatedBy = request.UpdateProfileRequest.UserId!,
+            
         };
 
         if (!await _profileRepository.UpdateProfileAsync(updatedProfile, request.ProfileId))

@@ -10,4 +10,6 @@ public class Experience : BaseEntity
     public string? Location { get; set; }
     public DateTime WorkTo { get; set; }
     public Guid ProfileId { get; set; }
+    
+    
 }

@@ -64,7 +64,7 @@ namespace JobHuntApi.Controllers
 
         [HttpPost("create")]
         [Authorize(Roles = "Employer")]
-        public async Task<ActionResult> CreateJob([FromBody] CreateJobRequest createJobRequest)
+        public async Task<ActionResult> CreateJob([FromForm] CreateJobRequest createJobRequest)
         {
             
             var result = await _sender.Send(new CreateJobCommand(createJobRequest));

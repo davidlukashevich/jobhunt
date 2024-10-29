@@ -31,7 +31,7 @@ namespace JobHuntApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost("update/{id}")]
+        [HttpPut("update/{id}")]
 
         public async Task<ActionResult> UpdateUniversity([FromBody] UpdateUniversityRequest request, [FromRoute] Guid id)
         {

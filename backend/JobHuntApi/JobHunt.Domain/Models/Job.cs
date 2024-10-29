@@ -12,6 +12,7 @@ public class Job : BaseEntity
     public required string JobLevel { get; set; }
     public required string Responsibilities { get; set; }
     public required string Requirements { get; set; }
+    public string? CompanyLogo { get; set; }
     public Guid AddressId { get; set; }
     public Address? Address { get; set; }
 }
