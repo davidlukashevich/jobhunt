@@ -52,10 +52,11 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand, BaseRes
             AddressId = createdAddress.Id,
             Type = request.CreateJobRequest.Type,
             Technology = request.CreateJobRequest.Technology,
-            CompanyLogo = $"https://jobhuntstorage.blob.core.windows.net/images/job_{commandRequest.UserId}{Path.GetExtension(commandRequest.File.FileName)}"
+            CreatedBy = request.CreateJobRequest.CreatedBy,
+            CompanyLogo = $"https://jobhuntstorage.blob.core.windows.net/images/job_{commandRequest.CreatedBy}{Path.GetExtension(commandRequest.File.FileName)}"
         };
 
-        await _imageService.UploadImageAsync(commandRequest.File, commandRequest.UserId, "job");
+        await _imageService.UploadImageAsync(commandRequest.File, commandRequest.CreatedBy, "job");
         
         
         await _jobRepository.CreateJobAsync(newJob);

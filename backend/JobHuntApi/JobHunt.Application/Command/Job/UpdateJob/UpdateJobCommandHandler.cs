@@ -45,6 +45,7 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand, Bas
             Requirements = request.UpdateJobRequest.Requirements,
             Type = request.UpdateJobRequest.Type,
             Technology = request.UpdateJobRequest.Technology,
+            CreatedBy = request.UpdateJobRequest.CreatedBy
 
         };
         if (!await _jobRepository.UpdateJobAsync(updatedJob, request.JobId))

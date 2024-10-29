@@ -15,6 +15,8 @@ public static class JobMapper
                     CompanyName = j.CompanyName,
                     City = j.Address!.City,
                     OperationMode = j.OperationMode,
+                    CompanyLogo = j.CompanyLogo,
+                    
             })
             .ToList();
         

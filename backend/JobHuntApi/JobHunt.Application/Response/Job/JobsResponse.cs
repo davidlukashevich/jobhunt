@@ -7,4 +7,5 @@ public class JobsResponse
     public string? CompanyName { get; set; }
     public string? City { get; set; }
     public string? OperationMode { get; set; }
+    public string? CompanyLogo { get; set; }
 }

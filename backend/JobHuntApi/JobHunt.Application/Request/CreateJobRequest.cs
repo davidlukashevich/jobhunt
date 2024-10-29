@@ -14,8 +14,8 @@ public class CreateJobRequest
     public required string Country { get; set; }
     public required string City { get; set; }
     public required string Street { get; set; }
-    public IFormFile File { get; set; }
-    public string UserId { get; set; }
-    public string Type { get; set; }
-    public string Technology { get; set; }
+    public IFormFile? File { get; set; }
+    public required string Type { get; set; }
+    public required string Technology { get; set; }
+    public required string CreatedBy { get; set; }
 }

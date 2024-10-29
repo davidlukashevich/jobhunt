@@ -14,5 +14,6 @@ public class UpdateJobRequest
     public required string Street { get; set; }
     public required string Type { get; set; }
     public required string Technology { get; set; }
+    public string? CreatedBy { get; set; }
     public Guid AddressId { get; set; }
 }

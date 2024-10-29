@@ -24,6 +24,7 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
         builder.Property(x => x.OperationMode).HasColumnName("operation_mode").IsRequired();
         builder.Property(x => x.Type).HasColumnName("type").IsRequired();
         builder.Property(x => x.Technology).HasColumnName("technology").IsRequired();
+        builder.Property(x => x.CreatedBy).HasColumnName("created_by").IsRequired();
 
         builder
             .HasIndex(j =>  new {  j.Title, j.JobLevel, j.Technology, j.Type })
