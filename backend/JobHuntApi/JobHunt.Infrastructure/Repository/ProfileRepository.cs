@@ -36,7 +36,6 @@ public class ProfileRepository : IProfileRepository
                 .SetProperty(p => p.Lastname, profile.Lastname)
                 .SetProperty(p => p.Email, profile.Email)
                 .SetProperty(p => p.Phone, profile.Phone)
-                .SetProperty(p => p.Avatar, profile.Avatar)
                 .SetProperty(p => p.DateOfBirth, profile.DateOfBirth)
             );
         

@@ -9,7 +9,7 @@ public class ExperienceEntityConfiguration : IEntityTypeConfiguration<Experience
     public void Configure(EntityTypeBuilder<Experience> builder)
     {
         builder.ToTable("experiences");
-        builder.HasKey(x => x.Id);
+        builder.HasKey(k => k.Id);
         
         builder.Property(p => p.Id).HasColumnName("id");
         builder.Property(p => p.Position).HasColumnName("position").IsRequired();

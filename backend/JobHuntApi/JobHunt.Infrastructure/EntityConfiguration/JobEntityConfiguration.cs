@@ -10,21 +10,23 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
     {
         builder.ToTable("jobs");
         
-        builder.HasKey(x => x.Id);
+        builder.HasKey(k => k.Id);
 
-        builder.Property(x => x.Id).HasColumnName("id");
-        builder.Property(x => x.CompanyLogo).HasColumnName("company_logo");
-        builder.Property(x => x.Title).HasColumnName("title").IsRequired();
-        builder.Property(x => x.CompanyName).HasColumnName("company_name").IsRequired();
-        builder.Property(x => x.ContractType).HasColumnName("contract_type").IsRequired();
-        builder.Property(x => x.JobLevel).HasColumnName("job_level").IsRequired();
-        builder.Property(x => x.Responsibilities).HasColumnName("responsibilities").IsRequired();
-        builder.Property(x => x.Requirements).HasColumnName("requirements").IsRequired();
-        builder.Property(x => x.AddressId).HasColumnName("address_id").IsRequired();
-        builder.Property(x => x.OperationMode).HasColumnName("operation_mode").IsRequired();
-        builder.Property(x => x.Type).HasColumnName("type").IsRequired();
-        builder.Property(x => x.Technology).HasColumnName("technology").IsRequired();
-        builder.Property(x => x.CreatedBy).HasColumnName("created_by").IsRequired();
+        builder.Property(p => p.Id).HasColumnName("id");
+        builder.Property(p => p.Title).HasColumnName("title").IsRequired();
+        builder.Property(p => p.CompanyName).HasColumnName("company_name").IsRequired();
+        builder.Property(p => p.ContractType).HasColumnName("contract_type").IsRequired();
+        builder.Property(p => p.JobLevel).HasColumnName("job_level").IsRequired();
+        builder.Property(p => p.Responsibilities).HasColumnName("responsibilities").IsRequired();
+        builder.Property(p => p.Requirements).HasColumnName("requirements").IsRequired();
+        builder.Property(p => p.AddressId).HasColumnName("address_id").IsRequired();
+        builder.Property(p => p.OperationMode).HasColumnName("operation_mode").IsRequired();
+        builder.Property(p => p.Type).HasColumnName("type").IsRequired();
+        builder.Property(p => p.Technology).HasColumnName("technology").IsRequired();
+        builder.Property(p => p.CreatedBy).HasColumnName("created_by").IsRequired();
+        //builder.Property(p => p.ImageId).HasColumnName("image_id").IsRequired();
+
+        //builder.HasIndex(i => i.ImageId).IsUnique();
 
         builder
             .HasIndex(j =>  new {  j.Title, j.JobLevel, j.Technology, j.Type })
@@ -37,6 +39,16 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
             .WithOne()
             .HasForeignKey<Job>(j => j.AddressId)
             .OnDelete(DeleteBehavior.Cascade);
-        
+
+        builder
+            .HasOne<Image>(j => j.Image)
+            .WithOne()
+            .HasForeignKey<Image>(j => j.JobId);
+
+        builder
+            .HasMany(j => j.JobApplications)
+            .WithOne()
+            .HasForeignKey(j => j.JobId);
+
     }
 }

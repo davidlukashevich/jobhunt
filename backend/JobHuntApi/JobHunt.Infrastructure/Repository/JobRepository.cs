@@ -19,6 +19,7 @@ public class JobRepository : IJobRepository
     {
         return await _context.Jobs
             .Include(j => j.Address)
+            .Include(j => j.Image)
             .AsNoTracking()
             .ToListAsync();
     }
@@ -28,6 +29,7 @@ public class JobRepository : IJobRepository
         return await _context.Jobs
             .AsNoTracking()
             .Include(j => j.Address)
+            .Include(j => j.Image)
             .FirstOrDefaultAsync(j => j.Id == jobId);
     }
 
@@ -70,6 +72,7 @@ public class JobRepository : IJobRepository
         var query = _context.Jobs
             .AsNoTracking()  
             .Include(j => j.Address)  
+            .Include(j => j.Image)  
             .AsQueryable();  
 
         
@@ -101,6 +104,7 @@ public class JobRepository : IJobRepository
             
             .Where(j => j.Title.ToLower().Replace(" ", "").Contains(title.ToLower()))
             .Include(j => j.Address)
+            .Include(j => j.Image)
             .ToListAsync();
             
     }

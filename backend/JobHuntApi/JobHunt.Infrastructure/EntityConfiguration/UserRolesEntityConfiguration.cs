@@ -8,6 +8,6 @@ public class UserRolesEntityConfiguration : IEntityTypeConfiguration<IdentityUse
 {
     public void Configure(EntityTypeBuilder<IdentityUserRole<string>> builder)
     {
-        builder.HasKey(x => new { x.UserId, x.RoleId });
+        builder.HasKey(k => new { k.UserId, k.RoleId });
     }
 }

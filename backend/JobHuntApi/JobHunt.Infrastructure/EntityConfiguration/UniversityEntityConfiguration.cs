@@ -9,16 +9,16 @@ public class UniversityEntityConfiguration : IEntityTypeConfiguration<University
     public void Configure(EntityTypeBuilder<University> builder)
     {
         builder.ToTable("universities");
-        builder.HasKey(x => x.Id);
+        builder.HasKey(k => k.Id);
         
-        builder.Property(x => x.Id).HasColumnName("id");
-        builder.Property(x => x.UniversityName).HasColumnName("university_name").IsRequired();
-        builder.Property(x => x.EducationLevel).HasColumnName("education_level").IsRequired();
-        builder.Property(x => x.FieldOfStudy).HasColumnName("field_of_study").IsRequired();
-        builder.Property(x => x.Specialization).HasColumnName("specialization").IsRequired();
-        builder.Property(x => x.StudyFrom).HasColumnName("study_from").IsRequired();
-        builder.Property(x => x.StudyTo).HasColumnName("study_to").IsRequired();
-        builder.Property(x => x.ProfileId).HasColumnName("profile_id").IsRequired();
+        builder.Property(p => p.Id).HasColumnName("id");
+        builder.Property(p => p.UniversityName).HasColumnName("university_name").IsRequired();
+        builder.Property(p => p.EducationLevel).HasColumnName("education_level").IsRequired();
+        builder.Property(p => p.FieldOfStudy).HasColumnName("field_of_study").IsRequired();
+        builder.Property(p => p.Specialization).HasColumnName("specialization").IsRequired();
+        builder.Property(p => p.StudyFrom).HasColumnName("study_from").IsRequired();
+        builder.Property(p => p.StudyTo).HasColumnName("study_to").IsRequired();
+        builder.Property(p => p.ProfileId).HasColumnName("profile_id").IsRequired();
         
         
 

@@ -10,25 +10,25 @@ public class ProfileEntityConfiguration : IEntityTypeConfiguration<Profile>
     {
         builder.ToTable("profiles");
         
-        builder.HasKey(x => x.Id);
-        builder.Property(x => x.Id).HasColumnName("id");
-        builder.Property(x => x.Name).IsRequired().HasColumnName("name");
-        builder.Property(x => x.Lastname).IsRequired().HasColumnName("lastname");
-        builder.Property(x => x.Email).IsRequired().HasColumnName("email");
-        builder.Property(x => x.Phone).IsRequired().HasColumnName("phone");
-        builder.Property(x => x.Avatar).HasColumnName("avatar");
+        builder.HasKey(k => k.Id);
+        builder.Property(p => p.Id).HasColumnName("id");
+        builder.Property(p => p.Name).IsRequired().HasColumnName("name");
+        builder.Property(p => p.Lastname).IsRequired().HasColumnName("lastname");
+        builder.Property(p => p.Email).IsRequired().HasColumnName("email");
+        builder.Property(p => p.Phone).IsRequired().HasColumnName("phone");
+        builder.Property(p => p.ProfileImage).HasColumnName("profile_image");
+        builder.Property(p => p.AddressId).IsRequired().HasColumnName("address_id");
+        builder.Property(p => p.CreatedBy).HasColumnName("createdBy");
         
-        builder.Property(x => x.CreatedBy).HasColumnName("createdBy");
-        
-        
+       
         
        builder
-           .HasMany<University>(p => p.Universities)
+           .HasMany(p => p.Universities)
            .WithOne()
            .HasForeignKey(x => x.ProfileId);
 
        builder
-           .HasMany<Experience>(p => p.Experiences)
+           .HasMany(p => p.Experiences)
            .WithOne()
            .HasForeignKey(x => x.ProfileId);
            
@@ -36,7 +36,9 @@ public class ProfileEntityConfiguration : IEntityTypeConfiguration<Profile>
        builder
            .HasOne<Address>( x => x.Address)
            .WithOne()
-           .HasForeignKey<Profile>(p => p.AddressId);
+           .HasForeignKey<Profile>(p => p.AddressId); 
+       
+       
         
        builder.HasData(
 
@@ -47,9 +49,9 @@ public class ProfileEntityConfiguration : IEntityTypeConfiguration<Profile>
                Lastname = "Doe",
                Email = "john@doe.com",
                Phone = "123456789",
-               Avatar = "avatar.jpg",
                DateOfBirth = DateTime.UtcNow,
                AddressId = Guid.Parse("76e24589-638c-4cb9-9970-675a263a7a43"),
+               
                CreatedBy = "user"
            }
        );

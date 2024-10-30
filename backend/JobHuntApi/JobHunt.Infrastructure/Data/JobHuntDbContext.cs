@@ -12,14 +12,12 @@ public class JobHuntDbContext : IdentityDbContext<User, IdentityRole,  string>
 {
 
     public DbSet<Address> Addresses { get; set; }
-
     public DbSet<Profile> Profiles { get; set; }
-
     public DbSet<Experience> Experiences { get; set; }
-
     public DbSet<Job> Jobs { get; set; }
-
     public DbSet<University> Universities { get; set; }
+    public DbSet<Image> Images { get; set; }
+    public DbSet<JobApplication> JobApplications { get; set; }
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
