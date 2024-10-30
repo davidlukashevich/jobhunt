@@ -35,26 +35,28 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand, BaseRes
         
         var commandRequest = request.CreateJobRequest;
 
+        
+        
+        
 
         var createdAddress = AddressMapper.ToCreateAddressRequest(commandRequest.City, commandRequest.Country, commandRequest.Street);
         
-
+        var jobLogo = ImageMapper.ToImageModelCreate(commandRequest.File!, "job");
+        
+        var newJob = JobMapper.ToJobModelCreate(request.CreateJobRequest, createdAddress.Id, jobLogo.Id);
+        
         await _sender.Send(new CreateAddressCommand(createdAddress), cancellationToken);
-
-
-        var newJob = JobMapper.ToJobModelCreate(request.CreateJobRequest, createdAddress.Id);
-        
-
-        var jobLogo = ImageMapper.ToImageModelCreate(commandRequest.File!, newJob.Id);
-        
-
         
         await _sender.Send(new CreateImageCommand(jobLogo), cancellationToken);
-
-        await _imageService.UploadImageAsync(commandRequest.File, commandRequest.CreatedBy, "job");
-        
         
         await _jobRepository.CreateJobAsync(newJob);
+        
+        
+
+        await _imageService.UploadImageAsync(commandRequest.File,  "job");
+        
+        
+        
 
         return new BaseResponse()
         {

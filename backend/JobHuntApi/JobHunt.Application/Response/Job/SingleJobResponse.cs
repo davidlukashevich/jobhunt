@@ -15,4 +15,5 @@ public class SingleJobResponse
     public string? Requirements { get; set; }
     public string? CompanyLogo { get; set; }
     public AddressDTO? Address { get; set; }
+    public string? CreatedBy { get; set; }
 }

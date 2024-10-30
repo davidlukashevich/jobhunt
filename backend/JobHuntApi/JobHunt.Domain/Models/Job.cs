@@ -15,7 +15,7 @@ public class Job : BaseEntity
     public required string CreatedBy { get; set; }
     public Guid AddressId { get; set; }
     public Address? Address { get; set; }
-    //public Guid ImageId { get; set; }
+    public Guid ImageId { get; set; }
     public Image? Image { get; set; }
     public List<JobApplication>? JobApplications { get; set; }
 }

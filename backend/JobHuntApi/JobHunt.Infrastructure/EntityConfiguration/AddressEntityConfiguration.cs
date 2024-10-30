@@ -16,8 +16,11 @@ public class AddressEntityConfiguration : IEntityTypeConfiguration<Address>
         builder.Property(p => p.Country).IsRequired().HasColumnName("country");
         builder.Property(p => p.City).IsRequired().HasColumnName("city");
         builder.Property(p => p.Street).IsRequired().HasColumnName("street");
+        builder.Property(p => p.CreatedAt).HasColumnName("createdAt");
+        builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt");
         
-        builder.HasData(
+        
+        /*builder.HasData(
 
             new Address()
             {
@@ -27,6 +30,6 @@ public class AddressEntityConfiguration : IEntityTypeConfiguration<Address>
                 Street = "street address 1",
                 
             }
-        );
+        );*/
     }
 }

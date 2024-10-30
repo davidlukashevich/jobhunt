@@ -16,7 +16,7 @@ public static class ProfileMapper
             Lastname = profile.Lastname,
             Email = profile.Email,
             Phone = profile.Phone,
-            Avatar = profile.ProfileImage,
+            ProfileLogo = profile.Image.ImageUrl,
             DateOfBirth = profile.DateOfBirth,
             Universities = profile.Universities?.Select(u => u.ToUniversityDTO()).ToList(),
             Experiences = profile.Experiences?.Select(e => e.ToExperienceDto()).ToList(),
@@ -25,7 +25,7 @@ public static class ProfileMapper
         };
     }
 
-    public static Profile ToProfileModelCreate(CreateProfileRequest request, Guid addressId)
+    public static Profile ToProfileModelCreate(CreateProfileRequest request, Guid addressId, Guid imageId)
     {
         return new Profile()
         {
@@ -34,10 +34,10 @@ public static class ProfileMapper
             Lastname = request.Lastname,
             Email = request.Email,
             Phone = request.Phone,
-            ProfileImage = $"https://jobhuntstorage.blob.core.windows.net/images/profile_{request.UserId}{Path.GetExtension(request.File.FileName)}",
             DateOfBirth = request.DateOfBirth,
             AddressId = addressId,
             CreatedBy = request.UserId,
+            ImageId = imageId,
             
             
         };
@@ -51,7 +51,7 @@ public static class ProfileMapper
             Lastname = request.Lastname,
             Email = request.Email,
             Phone = request.Phone,
-            ProfileImage = request.Avatar,
+            //ProfileImage = request.Avatar,
             DateOfBirth = request.DateOfBirth,
             CreatedBy = request.UserId,
         };

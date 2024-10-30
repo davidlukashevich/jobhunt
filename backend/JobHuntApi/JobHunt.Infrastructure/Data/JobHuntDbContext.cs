@@ -22,7 +22,7 @@ public class JobHuntDbContext : IdentityDbContext<User, IdentityRole,  string>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseNpgsql("Host = localhost; Port=5432; Database=JobHuntDb; Username=postgres; Password=password")
+            .UseNpgsql("Host = localhost; Port=5432; Database=JobHuntDb; Username=postgres; Password=password; Include Error Detail=true")
             .AddInterceptors(new AuditableInterceptor())
             .EnableSensitiveDataLogging();
         

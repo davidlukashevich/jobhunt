@@ -1,6 +1,4 @@
 ﻿
-
-
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Microsoft.AspNetCore.Http;
@@ -19,14 +17,14 @@ public class ImageService : IImageService
         _blobContainerClient = _blobServiceClient.GetBlobContainerClient("images");
     }
 
-    public async Task UploadImageAsync(IFormFile file, string userId, string imageName )
+    public async Task UploadImageAsync(IFormFile file,  string imageName )
     {
 
         try
         {
             
 
-           var filename = $"{imageName}_{userId}{Path.GetExtension(file.FileName)}";
+           var filename = $"{imageName}_{file.FileName}";
             
             var blob = _blobContainerClient.GetBlobClient(filename);
 

@@ -17,7 +17,7 @@ public static class JobMapper
                     CompanyName = j.CompanyName,
                     City = j.Address!.City,
                     OperationMode = j.OperationMode,
-                   // CompanyLogo = j.CompanyLogo,
+                    CompanyLogo = j.Image?.ImageUrl,
                     
             })
             .ToList();
@@ -37,7 +37,8 @@ public static class JobMapper
             JobLevel = job.JobLevel,
             Responsibilities = job.Responsibilities,
             Requirements = job.Requirements,
-            //CompanyLogo = job.CompanyLogo,
+            CompanyLogo = job.Image?.ImageUrl,
+            CreatedBy = job.CreatedBy,
             Address = new AddressDTO()
             {
                 Id = job.Address!.Id,
@@ -50,7 +51,7 @@ public static class JobMapper
         return singleJobResponse;
     }
 
-    public static Job ToJobModelCreate( CreateJobRequest jobRequest, Guid addressId)
+    public static Job ToJobModelCreate( CreateJobRequest jobRequest, Guid addressId, Guid imageId)
     {
         return new Job()
         {
@@ -66,6 +67,7 @@ public static class JobMapper
             Type = jobRequest.Type,
             Technology = jobRequest.Technology,
             CreatedBy = jobRequest.CreatedBy,
+            ImageId = imageId
         };
     }
     

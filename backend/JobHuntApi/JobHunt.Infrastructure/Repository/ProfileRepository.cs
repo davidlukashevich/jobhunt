@@ -20,6 +20,7 @@ public class ProfileRepository : IProfileRepository
             .Include(p => p.Address)
             .Include(p => p.Universities)
             .Include(p => p.Experiences)
+            .Include(p => p.Image)
             .AsSplitQuery()
             .AsNoTracking()
             .FirstOrDefaultAsync(p => p.CreatedBy == userId);
@@ -32,7 +33,7 @@ public class ProfileRepository : IProfileRepository
             .Where(p => p.Id == profileId)
             .ExecuteUpdateAsync(s => s
                 .SetProperty(p => p.Name, profile.Name)
-                .SetProperty(p => p.ProfileImage, profile.ProfileImage)
+                //.SetProperty(p => p.ProfileImage, profile.ProfileImage)
                 .SetProperty(p => p.Lastname, profile.Lastname)
                 .SetProperty(p => p.Email, profile.Email)
                 .SetProperty(p => p.Phone, profile.Phone)

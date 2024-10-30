@@ -19,10 +19,12 @@ public class UniversityEntityConfiguration : IEntityTypeConfiguration<University
         builder.Property(p => p.StudyFrom).HasColumnName("study_from").IsRequired();
         builder.Property(p => p.StudyTo).HasColumnName("study_to").IsRequired();
         builder.Property(p => p.ProfileId).HasColumnName("profile_id").IsRequired();
+        builder.Property(p => p.CreatedAt).HasColumnName("createdAt").IsRequired();
+        builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt").IsRequired();
         
         
 
-        builder.HasData(new List<University>()
+        /*builder.HasData(new List<University>()
         {
             new University()
             {
@@ -57,7 +59,7 @@ public class UniversityEntityConfiguration : IEntityTypeConfiguration<University
                 StudyFrom = DateTime.UtcNow,
                 StudyTo = DateTime.UtcNow,
             },
-        });
+        });*/
 
     }
 }

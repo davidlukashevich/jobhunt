@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using JobHunt.Application.BlobStorage;
 using JobHunt.Application.Command.Address.CreateAddress;
+using JobHunt.Application.Command.Image.CreateImage;
 using JobHunt.Application.Mapper;
 //using JobHunt.Application.MessageBroker;
 //using JobHunt.Application.MessageBroker.Address.CreateAddress;
@@ -44,14 +45,17 @@ public class CreateProfileCommandHandler : IRequestHandler<CreateProfileCommand,
         
         await _sendMessage.Send(newAddress, cancellationToken);*/
 
-        var newAddress = AddressMapper.ToCreateAddressRequest(commandRequest.Country!, commandRequest.City!, commandRequest.Street! );
+        var newAddress = AddressMapper.ToCreateAddressRequest(commandRequest.Country!, commandRequest.City!, commandRequest.Street!);
+        
+        var newProfileLogo = ImageMapper.ToImageModelCreate(commandRequest.File, "profile");
+        
+        var newProfile = ProfileMapper.ToProfileModelCreate(commandRequest, newAddress.Id, newProfileLogo.Id);
         
         await _sender.Send(new CreateAddressCommand(newAddress), cancellationToken);
-        
-        var newProfile = ProfileMapper.ToProfileModelCreate(commandRequest, newAddress.Id);
-        
 
-        await _imageService.UploadImageAsync(request.CreateProfileRequest.File,request.CreateProfileRequest.UserId, "profile");
+        await _sender.Send(new CreateImageCommand(newProfileLogo), cancellationToken);
+        
+        await _imageService.UploadImageAsync(request.CreateProfileRequest.File, "profile");
         
         await _profileRepository.CreateProfileAsync(newProfile);
 

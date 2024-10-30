@@ -1,4 +1,5 @@
-﻿using JobHunt.Domain.Models;
+﻿
+using JobHunt.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -24,6 +25,9 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
         builder.Property(p => p.Type).HasColumnName("type").IsRequired();
         builder.Property(p => p.Technology).HasColumnName("technology").IsRequired();
         builder.Property(p => p.CreatedBy).HasColumnName("created_by").IsRequired();
+        builder.Property(p => p.ImageId).HasColumnName("image_id");
+        builder.Property(p => p.CreatedAt).HasColumnName("createdAt");
+        builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt");
         //builder.Property(p => p.ImageId).HasColumnName("image_id").IsRequired();
 
         //builder.HasIndex(i => i.ImageId).IsUnique();
@@ -32,18 +36,23 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
             .HasIndex(j =>  new {  j.Title, j.JobLevel, j.Technology, j.Type })
             .HasMethod("GIN")
             .IsTsVectorExpressionIndex("english");
-        
-        
+
+
         builder
             .HasOne<Address>(j => j.Address)
             .WithOne()
-            .HasForeignKey<Job>(j => j.AddressId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .HasForeignKey<Job>(j => j.AddressId);
+            
+
+        /*builder
+            .HasOne<Image>(j => j.Image)
+            .WithOne()
+            .HasForeignKey<Image>(j => j.JobId);*/
 
         builder
             .HasOne<Image>(j => j.Image)
             .WithOne()
-            .HasForeignKey<Image>(j => j.JobId);
+            .HasForeignKey<Job>(j => j.ImageId);
 
         builder
             .HasMany(j => j.JobApplications)

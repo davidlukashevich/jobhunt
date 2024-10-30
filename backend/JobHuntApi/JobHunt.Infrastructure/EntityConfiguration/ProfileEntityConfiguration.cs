@@ -16,9 +16,12 @@ public class ProfileEntityConfiguration : IEntityTypeConfiguration<Profile>
         builder.Property(p => p.Lastname).IsRequired().HasColumnName("lastname");
         builder.Property(p => p.Email).IsRequired().HasColumnName("email");
         builder.Property(p => p.Phone).IsRequired().HasColumnName("phone");
-        builder.Property(p => p.ProfileImage).HasColumnName("profile_image");
+        //builder.Property(p => p.ProfileImage).HasColumnName("profile_image");
         builder.Property(p => p.AddressId).IsRequired().HasColumnName("address_id");
         builder.Property(p => p.CreatedBy).HasColumnName("createdBy");
+        builder.Property(p => p.ImageId).HasColumnName("image_id");
+        builder.Property(p => p.CreatedAt).HasColumnName("createdAt");
+        builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt");
         
        
         
@@ -39,8 +42,14 @@ public class ProfileEntityConfiguration : IEntityTypeConfiguration<Profile>
            .HasForeignKey<Profile>(p => p.AddressId); 
        
        
+       builder
+           .HasOne<Image>( x => x.Image )
+           .WithOne()
+           .HasForeignKey<Profile>(p => p.ImageId);
+       
+       
         
-       builder.HasData(
+       /*builder.HasData(
 
            new Profile()
            {
@@ -51,10 +60,9 @@ public class ProfileEntityConfiguration : IEntityTypeConfiguration<Profile>
                Phone = "123456789",
                DateOfBirth = DateTime.UtcNow,
                AddressId = Guid.Parse("76e24589-638c-4cb9-9970-675a263a7a43"),
-               
                CreatedBy = "user"
            }
-       );
+       );*/
        
     }
 }
