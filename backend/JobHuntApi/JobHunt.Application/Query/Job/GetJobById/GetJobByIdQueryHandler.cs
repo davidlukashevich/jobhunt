@@ -1,8 +1,6 @@
 ﻿using JobHunt.Application.Mapper;
-using JobHunt.Application.Query.Job.GetJobById;
 using JobHunt.Application.Response.Job;
 using JobHunt.Domain.Interface.Repository;
-using JobHunt.Domain.Models;
 using MediatR;
 
 namespace JobHunt.Application.Query.Job.GetJobById;

@@ -29,7 +29,7 @@ public class DeleteExperienceCommandHandler : IRequestHandler<DeleteExperienceCo
         return new BaseResponse()
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "Experience was deleted",
+            Message = "Experience was deleted successfully!",
         };
     }
 }

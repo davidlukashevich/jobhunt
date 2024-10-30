@@ -51,7 +51,7 @@ public class UserChangePasswordCommandHandler : IRequestHandler<UserChangePasswo
         return new BaseResponse()
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "Password changed successfully.",
+            Message = "Password changed successfully!",
         };
     }
 }

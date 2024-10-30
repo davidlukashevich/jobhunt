@@ -39,7 +39,7 @@ public static class ApplicationDependencies
 
         services.AddSingleton(_ =>  new BlobServiceClient(configuration.GetConnectionString("BlobStorage")) );
         services.AddScoped<IImageService, ImageService>();
-        services.AddScoped<ISendMessage, SendMessage>();
+       // services.AddScoped<ISendMessage, SendMessage>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IApplicationSignInManager, ApplicationSignInManager>();
         services.AddScoped<IRoleStore<IdentityRole>, RoleStore<IdentityRole, JobHuntDbContext>>();
@@ -47,6 +47,7 @@ public static class ApplicationDependencies
        
 
 
+        /*
         services.AddMassTransit(x =>
         {
             
@@ -78,6 +79,7 @@ public static class ApplicationDependencies
                 });
             });
         });
+        */
 
         services.AddAuthentication(options =>
         {

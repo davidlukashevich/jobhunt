@@ -71,7 +71,7 @@ public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand,
         return new BaseResponse()
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "Profile was updated",
+            Message = "Profile was updated successfully!",
         };
     }
 }

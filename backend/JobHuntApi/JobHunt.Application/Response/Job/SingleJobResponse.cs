@@ -14,5 +14,5 @@ public class SingleJobResponse
     public string? Responsibilities { get; set; }
     public string? Requirements { get; set; }
     public string? CompanyLogo { get; set; }
-    public AddressDTO Address { get; set; }
+    public AddressDTO? Address { get; set; }
 }

@@ -48,7 +48,7 @@ public class DeleteJobByIdCommandHandler : IRequestHandler<DeleteJobByIdCommand,
         return new BaseResponse()
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "Job was deleted",
+            Message = "Job was deleted successfully!",
         };
     }
 }

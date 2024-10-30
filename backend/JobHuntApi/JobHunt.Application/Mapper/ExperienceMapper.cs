@@ -16,6 +16,7 @@ public static class ExperienceMapper
             Responsibility = experience.Responsibility,
             WorkFrom = experience.WorkFrom,
             WorkTo = experience.WorkTo,
+            Location = experience.Location,
         };
     }
 

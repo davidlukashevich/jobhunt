@@ -59,7 +59,7 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand, Bas
         return new BaseResponse()
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "Job was updated",
+            Message = "Job was updated successfully!",
         };
     }
 }

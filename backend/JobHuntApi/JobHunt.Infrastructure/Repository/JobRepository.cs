@@ -66,7 +66,7 @@ public class JobRepository : IJobRepository
         return deleteResult > 0;
     }
 
-    public async Task<List<Job>> GetAllJobsByFilterAsync(string type, string technology, string level)
+    public async Task<List<Job>> GetAllJobsByFilterAsync(string? type, string? technology, string? level)
     {
        
         var query = _context.Jobs

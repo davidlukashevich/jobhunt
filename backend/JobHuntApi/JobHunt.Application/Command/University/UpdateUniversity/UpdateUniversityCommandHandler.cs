@@ -33,7 +33,7 @@ public class UpdateUniversityCommandHandler : IRequestHandler<UpdateUniversityCo
         return new BaseResponse()
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "University was updated",
+            Message = "University was updated successfully!",
         };
     }
 }

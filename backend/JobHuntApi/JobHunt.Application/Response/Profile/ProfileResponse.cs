@@ -14,4 +14,5 @@ public class ProfileResponse
     public List<UniversityDTO>? Universities { get; set; }
     public List<ExperienceDTO>? Experiences { get; set; }
     public AddressDTO? Address { get; set; }
+    
 }

@@ -58,7 +58,7 @@ public class CreateProfileCommandHandler : IRequestHandler<CreateProfileCommand,
         return new ProfileCreatedResponse()
         {
             StatusCode = HttpStatusCode.Created,
-            Message = "Profile was  created",
+            Message = "Profile was created successfully!",
             ProfileId = newProfile.Id
         };
     }

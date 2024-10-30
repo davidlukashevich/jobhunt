@@ -59,7 +59,7 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand, BaseRes
         return new BaseResponse()
         {
             StatusCode = HttpStatusCode.Created,
-            Message = "Job was created",
+            Message = "Job was created successfully!",
         };
     }
 }

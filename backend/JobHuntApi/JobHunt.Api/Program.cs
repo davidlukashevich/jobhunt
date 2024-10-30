@@ -1,9 +1,10 @@
 
 
 using JobHunt.Application;
+using JobHunt.Application.Options;
 using JobHunt.Infrastructure;
-using JobHunt.Infrastructure.Options;
-using JobHuntApi.Options;
+
+
 using Microsoft.OpenApi.Models;
 
 
@@ -19,7 +20,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(nameof(JwtOptions)));
-builder.Services.Configure<AwsOptions>(builder.Configuration.GetSection("AWS"));
+
 
 builder.Services
     .AddApplication(configuration)

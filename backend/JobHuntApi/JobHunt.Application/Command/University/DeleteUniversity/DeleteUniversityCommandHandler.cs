@@ -31,7 +31,7 @@ public class DeleteUniversityCommandHandler : IRequestHandler<DeleteUniversityCo
         return new BaseResponse()
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "University was deleted"
+            Message = "University was deleted successfully!"
         };
     }
 }

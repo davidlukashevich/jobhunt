@@ -29,7 +29,7 @@ public class CreateUniversityCommandHandler : IRequestHandler<CreateUniversityCo
         return new BaseResponse()
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "University was created",
+            Message = "University was created successfully!",
         };
     }
 }

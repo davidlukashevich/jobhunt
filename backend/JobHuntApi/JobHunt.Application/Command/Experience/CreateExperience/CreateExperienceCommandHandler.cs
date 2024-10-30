@@ -25,7 +25,7 @@ public class CreateExperienceCommandHandler : IRequestHandler<CreateExperienceCo
         return new BaseResponse()
         {
             StatusCode = HttpStatusCode.Created,
-            Message = "Experience was created",
+            Message = "Experience was created successfully!",
         };
     }
 }

@@ -37,7 +37,7 @@ public class UpdateExperienceCommandHandler : IRequestHandler<UpdateExperienceCo
         return new BaseResponse()
         {
             StatusCode = HttpStatusCode.OK,
-            Message = "Experience was updated",
+            Message = "Experience was updated successfully!",
         };
     }
 }

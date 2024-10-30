@@ -1,4 +1,4 @@
-﻿namespace JobHuntApi.Options;
+﻿namespace JobHunt.Application.Options;
 
 public class JwtOptions
 {

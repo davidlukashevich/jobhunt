@@ -1,7 +1,6 @@
 ﻿using JobHunt.Application.Mapper;
 using JobHunt.Application.Response.Profile;
 using JobHunt.Domain.Interface.Repository;
-using JobHunt.Application.BlobStorage;
 using MediatR;
 
 namespace JobHunt.Application.Query.Profile.GetProfile;
@@ -10,12 +9,12 @@ public class GetProfileQueryHandler : IRequestHandler<GetProfileQuery, ProfileRe
 {
     
     private readonly IProfileRepository _profileRepository;
-    private readonly IImageService _imageService;
+    
 
-    public GetProfileQueryHandler(IProfileRepository profileRepository, IImageService imageService)
+    public GetProfileQueryHandler(IProfileRepository profileRepository)
     {
         _profileRepository = profileRepository;
-        _imageService = imageService;
+        
     }
 
     public async Task<ProfileResponse> Handle(GetProfileQuery request, CancellationToken cancellationToken)
