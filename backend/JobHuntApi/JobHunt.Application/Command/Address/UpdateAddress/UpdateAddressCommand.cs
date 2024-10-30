@@ -1,5 +1,6 @@
-﻿using MediatR;
+﻿using JobHunt.Application.Request;
+using MediatR;
 
 namespace JobHunt.Application.Command.Address.UpdateAddress;
 
-public record UpdateAddressCommand(Guid AddressId,string Country, string City, string Street) : IRequest;
+public record UpdateAddressCommand(Guid AddressId, UpdateAddressRequest UpdateAddressRequest) : IRequest;

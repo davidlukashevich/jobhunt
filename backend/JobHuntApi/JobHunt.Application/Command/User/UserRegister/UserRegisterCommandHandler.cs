@@ -53,9 +53,9 @@ public class UserRegisterCommandHandler : IRequestHandler<UserRegisterCommand, U
         {
             StatusCode = HttpStatusCode.OK,
             Message = "User has been registered",
-            Id = newUser.Id,
             Token = token,
-            UserId = newUser.Id
+            UserId = newUser.Id,
+            UserRoles = roleList
         };
     }
 }

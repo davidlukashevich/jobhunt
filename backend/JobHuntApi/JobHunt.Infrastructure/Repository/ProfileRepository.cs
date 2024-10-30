@@ -31,12 +31,13 @@ public class ProfileRepository : IProfileRepository
         var updateResult = await _context.Profiles
             .Where(p => p.Id == profileId)
             .ExecuteUpdateAsync(s => s
-                    
                 .SetProperty(p => p.Name, profile.Name)
+                .SetProperty(p => p.ProfileImage, profile.ProfileImage)
                 .SetProperty(p => p.Lastname, profile.Lastname)
                 .SetProperty(p => p.Email, profile.Email)
                 .SetProperty(p => p.Phone, profile.Phone)
                 .SetProperty(p => p.DateOfBirth, profile.DateOfBirth)
+                .SetProperty(p => p.CreatedBy, profile.CreatedBy)
             );
         
         return updateResult > 0;

@@ -1,5 +1,4 @@
-﻿using JobHunt.Application.Command.Address.UpdateAddress;
-
+﻿
 using MassTransit;
 using MediatR;
 
@@ -19,7 +18,7 @@ public class UpdateAddressConsumer : IConsumer<UpdateAddress>
 
         var data = context.Message;
 
-        await _sender.Send(new UpdateAddressCommand(data.Id, data.Country!, data.City!, data.Street! ));
+       // await _sender.Send(new UpdateAddressCommand(data.Id, data.Country!, data.City!, data.Street! ));
 
 
 

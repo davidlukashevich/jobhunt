@@ -1,5 +1,6 @@
 ﻿
 using JobHunt.Domain.Interface.Repository;
+using JobHunt.Domain.Models;
 using JobHunt.Infrastructure.Data;
 using JobHunt.Infrastructure.Identity.UserManager;
 using JobHunt.Infrastructure.Repository;
@@ -16,23 +17,7 @@ public static class InfrastructureDependencies
 
         services.AddDbContext<JobHuntDbContext>();
 
-        /*services.AddSingleton<IAmazonS3>(options =>
-        {
-            
-            var awsSettings = options.GetRequiredService<IOptions<AwsOptions>>().Value;
-
-            var config = new AmazonS3Config
-            {
-                RegionEndpoint = RegionEndpoint.GetBySystemName(awsSettings.RegionName),
-                
-            };
-            
-            return new AmazonS3Client(config);
-        });*/
-
         
-        
-
         
         services.AddScoped<IJobRepository, JobRepository>();
         services.AddScoped<IExperienceRepository, ExperienceRepository>();
@@ -40,6 +25,8 @@ public static class InfrastructureDependencies
         services.AddScoped<IUniversityRepository, UniversityRepository>();
         services.AddScoped<IAddressRepository, AddressRepository>();
         services.AddScoped<IApplicationUserManager, ApplicationUserManager>();
+        services.AddScoped<IImageRepository, ImageRepository>();
+        services.AddScoped<IJobApplicationRepository, JobApplicationRepository>();
         
         
         return services;

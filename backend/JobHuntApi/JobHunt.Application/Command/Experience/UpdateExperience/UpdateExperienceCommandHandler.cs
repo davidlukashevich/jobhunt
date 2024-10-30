@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using JobHunt.Application.Mapper;
 using JobHunt.Application.Response;
 using JobHunt.Domain.Interface.Repository;
 using MediatR;
@@ -17,15 +18,10 @@ public class UpdateExperienceCommandHandler : IRequestHandler<UpdateExperienceCo
 
     public async Task<BaseResponse> Handle(UpdateExperienceCommand request, CancellationToken cancellationToken)
     {
-        var updatedExperience = new Domain.Models.Experience()
-        {
-            Position = request.UpdateExperienceRequest.Position,
-            CompanyName = request.UpdateExperienceRequest.CompanyName,
-            Location = request.UpdateExperienceRequest.Location,
-            Responsibility = request.UpdateExperienceRequest.Responsibility,
-            WorkFrom = request.UpdateExperienceRequest.WorkFrom,
-            WorkTo = request.UpdateExperienceRequest.WorkTo,
-        };
+
+        var updateExperienceRequest = request.UpdateExperienceRequest;
+        
+        var updatedExperience = ExperienceMapper.ToExperienceModelUpdate(updateExperienceRequest);
 
         if (!await _experienceRepository.UpdateExperienceAsync(updatedExperience, request.ExperienceId))
         {

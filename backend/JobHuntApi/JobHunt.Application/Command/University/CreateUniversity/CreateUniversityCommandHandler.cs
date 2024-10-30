@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using JobHunt.Application.Mapper;
 using JobHunt.Application.Response;
 using JobHunt.Domain.Interface.Repository;
 using MediatR;
@@ -17,18 +18,11 @@ public class CreateUniversityCommandHandler : IRequestHandler<CreateUniversityCo
 
     public async Task<BaseResponse> Handle(CreateUniversityCommand request, CancellationToken cancellationToken)
     {
-
-        var university = new Domain.Models.University()
-        {
-            Id = Guid.NewGuid(),
-            UniversityName = request.CreateUniversityRequest.UniversityName,
-            EducationLevel = request.CreateUniversityRequest.EducationLevel,
-            FieldOfStudy = request.CreateUniversityRequest.FieldOfStudy,
-            Specialization = request.CreateUniversityRequest.Specialization,
-            StudyFrom = request.CreateUniversityRequest.StudyFrom,
-            StudyTo = request.CreateUniversityRequest.StudyTo,
-            ProfileId = request.ProfileId
-        };
+        var createUniversityRequest = request.CreateUniversityRequest;
+        
+        
+        var university = UniversityMapper.ToUniversityModelCreate(createUniversityRequest, request.ProfileId);
+       
         
         await _universityRepository.CreateUniversityAsync(university);
         

@@ -1,4 +1,5 @@
 ﻿
+using JobHunt.Application.Mapper;
 using JobHunt.Domain.Interface.Repository;
 using MediatR;
 
@@ -18,13 +19,8 @@ public class CreateAddressCommandHandler : IRequestHandler<CreateAddressCommand>
 
     public async Task Handle(CreateAddressCommand request, CancellationToken cancellationToken)
     {
-        var address = new Domain.Models.Address()
-        {
-            Id = request.CreateAddressRequest.Id,
-            Country = request.CreateAddressRequest.Country,
-            City = request.CreateAddressRequest.City,
-            Street = request.CreateAddressRequest.Street,
-        };
+        var address = AddressMapper.ToAddressModelCreate(request.CreateAddressRequest);
+        
         
         await _addressRepository.CreateAddressAsync(address);
         

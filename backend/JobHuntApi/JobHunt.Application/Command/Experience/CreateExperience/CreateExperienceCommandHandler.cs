@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using JobHunt.Application.Mapper;
 using JobHunt.Application.Response;
 using JobHunt.Domain.Interface.Repository;
 using MediatR;
@@ -17,18 +18,8 @@ public class CreateExperienceCommandHandler : IRequestHandler<CreateExperienceCo
 
     public async Task<BaseResponse> Handle(CreateExperienceCommand request, CancellationToken cancellationToken)
     {
-        var experience = new Domain.Models.Experience()
-        {
-            Id = Guid.NewGuid(),
-            Position = request.CreateExperienceRequest.Position,
-            Location = request.CreateExperienceRequest.Location,
-            CompanyName = request.CreateExperienceRequest.CompanyName,
-            Responsibility = request.CreateExperienceRequest.Responsibility,
-            WorkFrom = request.CreateExperienceRequest.WorkFrom,
-            WorkTo = request.CreateExperienceRequest.WorkTo,
-            ProfileId = request.ProfileId
-        };
-        
+        var createExperienceRequest = request.CreateExperienceRequest;
+        var experience = ExperienceMapper.ToExperienceModelCreate(createExperienceRequest, request.ProfileId);
         await _experienceRepository.CreateExperienceAsync(experience);
         
         return new BaseResponse()

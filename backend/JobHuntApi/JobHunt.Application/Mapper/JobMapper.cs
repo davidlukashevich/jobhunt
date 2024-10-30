@@ -1,11 +1,13 @@
 ﻿using JobHunt.Application.DTO;
+using JobHunt.Application.Request;
 using JobHunt.Application.Response.Job;
+using JobHunt.Domain.Models;
 
 namespace JobHunt.Application.Mapper;
 
 public static class JobMapper
 {
-    public static List<JobsResponse>  ToJobsResponse(this List<Domain.Models.Job> jobs){
+    public static List<JobsResponse>  ToJobsResponse(this List<Job> jobs){
     {
         var jobsResponse = jobs 
             .Select(j => new JobsResponse()
@@ -23,7 +25,7 @@ public static class JobMapper
         return jobsResponse;
     }}
 
-    public static SingleJobResponse ToSingleJobResponse(this Domain.Models.Job job)
+    public static SingleJobResponse ToSingleJobResponse(this Job job)
     {
         var singleJobResponse = new SingleJobResponse()
         {
@@ -46,5 +48,41 @@ public static class JobMapper
         };
         
         return singleJobResponse;
+    }
+
+    public static Job ToJobModelCreate( CreateJobRequest jobRequest, Guid addressId)
+    {
+        return new Job()
+        {
+            Id = Guid.NewGuid(),
+            Title = jobRequest.Title,
+            CompanyName = jobRequest.CompanyName,
+            OperationMode = jobRequest.OperationMode,
+            ContractType = jobRequest.ContractType,
+            JobLevel = jobRequest.JobLevel,
+            Responsibilities = jobRequest.Responsibilities,
+            Requirements = jobRequest.Requirements,
+            AddressId = addressId,
+            Type = jobRequest.Type,
+            Technology = jobRequest.Technology,
+            CreatedBy = jobRequest.CreatedBy,
+        };
+    }
+    
+    public static Job ToJobModelUpdate(UpdateJobRequest jobRequest)
+    {
+        return new Job()
+        {
+            Title = jobRequest.Title,
+            CompanyName = jobRequest.CompanyName,
+            OperationMode = jobRequest.OperationMode,
+            ContractType = jobRequest.ContractType,
+            JobLevel = jobRequest.JobLevel,
+            Responsibilities = jobRequest.Responsibilities,
+            Requirements = jobRequest.Requirements,
+            Type = jobRequest.Type,
+            Technology = jobRequest.Technology,
+            CreatedBy = jobRequest.CreatedBy!,
+        };
     }
 }

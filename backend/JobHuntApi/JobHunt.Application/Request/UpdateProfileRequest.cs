@@ -1,4 +1,6 @@
-﻿namespace JobHunt.Application.Request;
+﻿using Microsoft.AspNetCore.Http;
+
+namespace JobHunt.Application.Request;
 
 public class UpdateProfileRequest
 {
@@ -10,7 +12,8 @@ public class UpdateProfileRequest
     public string? Avatar { get; set; }
     public DateTime DateOfBirth { get; set; }
     public Guid AddressId { get; set; }
-    public string? Country { get; set; }
-    public string? City { get; set; }
-    public string? Street { get; set; }
+    public required string Country { get; set; }
+    public required string City { get; set; }
+    public required string Street { get; set; }
+    public IFormFile? ProfileImage { get; set; }
 }

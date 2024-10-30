@@ -1,4 +1,5 @@
 ﻿using JobHunt.Application.DTO;
+using JobHunt.Application.Request;
 using JobHunt.Domain.Models;
 
 namespace JobHunt.Application.Mapper;
@@ -15,6 +16,33 @@ public static class ExperienceMapper
             Responsibility = experience.Responsibility,
             WorkFrom = experience.WorkFrom,
             WorkTo = experience.WorkTo,
+        };
+    }
+
+    public static Experience ToExperienceModelCreate(CreateExperienceRequest createExperienceRequest, Guid profileId)
+    {
+        return new Experience()
+        {
+            Id = Guid.NewGuid(),
+            Position = createExperienceRequest.Position,
+            Location = createExperienceRequest.Location,
+            CompanyName = createExperienceRequest.CompanyName,
+            Responsibility = createExperienceRequest.Responsibility,
+            WorkFrom = createExperienceRequest.WorkFrom,
+            WorkTo = createExperienceRequest.WorkTo,
+            ProfileId = profileId
+        };
+    }
+    public static Experience ToExperienceModelUpdate(UpdateExperienceRequest updateExperienceRequest)
+    {
+        return new Experience()
+        {
+            Position = updateExperienceRequest.Position,
+            Location = updateExperienceRequest.Location,
+            CompanyName = updateExperienceRequest.CompanyName,
+            Responsibility = updateExperienceRequest.Responsibility,
+            WorkFrom = updateExperienceRequest.WorkFrom,
+            WorkTo = updateExperienceRequest.WorkTo,
         };
     }
 }

@@ -1,4 +1,5 @@
-﻿using JobHunt.Domain.Interface.Repository;
+﻿using JobHunt.Application.Mapper;
+using JobHunt.Domain.Interface.Repository;
 using MediatR;
 
 namespace JobHunt.Application.Command.Address.UpdateAddress;
@@ -16,12 +17,10 @@ public class UpdateAddressCommandHandler : IRequestHandler<UpdateAddressCommand>
     public async Task Handle(UpdateAddressCommand request, CancellationToken cancellationToken)
     {
 
-        var updatedAddress = new Domain.Models.Address
-        {
-            Country = request.Country,
-            City = request.City,
-            Street = request.Street,
-        };
+        var updateAddressRequest = request.UpdateAddressRequest;
+
+        var updatedAddress = AddressMapper.ToAddressModelUpdate(updateAddressRequest);
+       
         
         await _addressRepository.UpdateAddressAsync( updatedAddress, request.AddressId);
     }

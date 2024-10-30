@@ -63,7 +63,8 @@ public class UserLoginCommandHandler : IRequestHandler<UserLoginCommand ,UserLog
             StatusCode = HttpStatusCode.OK,
             Message = "User was logged in successfully",
             Token =  token,
-            UserId = userByEmail.Id
+            UserId = userByEmail.Id,
+            UserRoles = roleList
         };
     }
 }
