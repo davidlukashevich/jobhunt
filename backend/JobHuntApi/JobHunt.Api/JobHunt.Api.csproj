@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>JobHuntApi</RootNamespace>
+        <UserSecretsId>e782daf0-9fb8-42b2-bbb0-9e9b854ccfe3</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
