@@ -38,7 +38,7 @@ public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand,
             Lastname = request.UpdateProfileRequest.Lastname,
             Email = request.UpdateProfileRequest.Email,
             Phone = request.UpdateProfileRequest.Phone,
-            Avatar = request.UpdateProfileRequest.Avatar,
+            ProfileImage = request.UpdateProfileRequest.Avatar,
             DateOfBirth = request.UpdateProfileRequest.DateOfBirth,
             CreatedBy = request.UpdateProfileRequest.UserId!,
             

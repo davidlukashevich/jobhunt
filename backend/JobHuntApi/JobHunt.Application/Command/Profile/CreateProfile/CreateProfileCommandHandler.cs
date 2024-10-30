@@ -44,7 +44,7 @@ public class CreateProfileCommandHandler : IRequestHandler<CreateProfileCommand,
             Lastname = request.CreateProfileRequest.Lastname,
             Email = request.CreateProfileRequest.Email,
             Phone = request.CreateProfileRequest.Phone,
-            Avatar = $"https://jobhuntstorage.blob.core.windows.net/images/profile_{commandRequest.UserId}{Path.GetExtension(commandRequest.File.FileName)}",
+            ProfileImage = $"https://jobhuntstorage.blob.core.windows.net/images/profile_{commandRequest.UserId}{Path.GetExtension(commandRequest.File.FileName)}",
             DateOfBirth = request.CreateProfileRequest.DateOfBirth,
             AddressId = newAddress.Id,
             CreatedBy = request.CreateProfileRequest.UserId

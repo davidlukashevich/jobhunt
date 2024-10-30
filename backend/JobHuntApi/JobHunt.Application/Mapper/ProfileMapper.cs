@@ -14,7 +14,7 @@ public static class ProfileMapper
             Lastname = profile.Lastname,
             Email = profile.Email,
             Phone = profile.Phone,
-            Avatar = profile.Avatar,
+           // Avatar = profile.Avatar,
             DateOfBirth = profile.DateOfBirth,
             Universities = profile.Universities.Select(u => u.ToUniversityDTO()).ToList(),
             Experiences = profile.Experiences.Select(e => e.ToExperienceDto()).ToList(),

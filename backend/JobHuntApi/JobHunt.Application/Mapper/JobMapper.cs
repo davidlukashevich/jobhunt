@@ -15,7 +15,7 @@ public static class JobMapper
                     CompanyName = j.CompanyName,
                     City = j.Address!.City,
                     OperationMode = j.OperationMode,
-                    CompanyLogo = j.CompanyLogo,
+                   // CompanyLogo = j.CompanyLogo,
                     
             })
             .ToList();
@@ -35,7 +35,7 @@ public static class JobMapper
             JobLevel = job.JobLevel,
             Responsibilities = job.Responsibilities,
             Requirements = job.Requirements,
-            CompanyLogo = job.CompanyLogo,
+            //CompanyLogo = job.CompanyLogo,
             Address = new AddressDTO()
             {
                 Id = job.Address!.Id,
