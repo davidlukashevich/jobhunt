@@ -1,0 +1,3 @@
+﻿namespace JobHunt.Application.Query.JobApplication.GetAllJobApplicationsByCreatedById;
+
+public record GetAllJobApplicationsByCreatedByIdQuery();
