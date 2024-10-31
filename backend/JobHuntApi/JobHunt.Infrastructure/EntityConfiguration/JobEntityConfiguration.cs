@@ -28,9 +28,7 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
         builder.Property(p => p.ImageId).HasColumnName("image_id");
         builder.Property(p => p.CreatedAt).HasColumnName("createdAt");
         builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt");
-        //builder.Property(p => p.ImageId).HasColumnName("image_id").IsRequired();
-
-        //builder.HasIndex(i => i.ImageId).IsUnique();
+        
 
         builder
             .HasIndex(j =>  new {  j.Title, j.JobLevel, j.Technology, j.Type })
@@ -43,11 +41,7 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
             .WithOne()
             .HasForeignKey<Job>(j => j.AddressId);
             
-
-        /*builder
-            .HasOne<Image>(j => j.Image)
-            .WithOne()
-            .HasForeignKey<Image>(j => j.JobId);*/
+        
 
         builder
             .HasOne<Image>(j => j.Image)

@@ -20,16 +20,5 @@ public class AddressEntityConfiguration : IEntityTypeConfiguration<Address>
         builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt");
         
         
-        /*builder.HasData(
-
-            new Address()
-            {
-                Id = Guid.Parse("76e24589-638c-4cb9-9970-675a263a7a43"),
-                Country = "USA ",
-                City = "New York",
-                Street = "street address 1",
-                
-            }
-        );*/
     }
 }

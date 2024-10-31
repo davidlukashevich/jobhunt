@@ -22,45 +22,7 @@ public class ExperienceEntityConfiguration : IEntityTypeConfiguration<Experience
         builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt");
         builder.Property(p => p.CreatedAt).HasColumnName("createdAt");
         
-       
-
-        /*builder.HasData(new List<Experience>()
-        {
-            new Experience()
-            {
-                Id = Guid.NewGuid(),
-                Position = "Position",
-                CompanyName = "CompanyName",
-                Responsibility = "Responsibility",
-                Location = "Location",
-                ProfileId = Guid.Parse("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
-                WorkFrom = DateTime.UtcNow,
-                WorkTo = DateTime.UtcNow,
-                
-            },
-            new Experience()
-            {
-                Id = Guid.NewGuid(),
-                Position = "Position 2",
-                CompanyName = "CompanyName 2",
-                Responsibility = "Responsibility 2",
-                Location = "Location 2",
-                ProfileId = Guid.Parse("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
-                WorkFrom = DateTime.UtcNow,
-                WorkTo = DateTime.UtcNow,
-            },
-            new Experience()
-            {
-                Id = Guid.NewGuid(),
-                Position = "Position 3",
-                CompanyName = "CompanyName 3",
-                Responsibility = "Responsibility 3",
-                Location = "Location 3",
-                ProfileId = Guid.Parse("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
-                WorkFrom = DateTime.UtcNow,
-                WorkTo = DateTime.UtcNow,
-            },
-        });*/
+        
 
     }
 }

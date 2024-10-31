@@ -24,42 +24,7 @@ public class UniversityEntityConfiguration : IEntityTypeConfiguration<University
         
         
 
-        /*builder.HasData(new List<University>()
-        {
-            new University()
-            {
-                Id = Guid.NewGuid(),
-                UniversityName = "Vistula",
-                EducationLevel = "Bachelor",
-                Specialization = "Computer Science",
-                ProfileId = Guid.Parse("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
-                FieldOfStudy = "Field of Study",
-                StudyFrom = DateTime.UtcNow,
-                StudyTo = DateTime.UtcNow,
-            },
-            new University()
-            {
-                Id = Guid.NewGuid(),
-                UniversityName = "Vistula 2",
-                EducationLevel = "Bachelor 2",
-                Specialization = "Computer Science 2",
-                ProfileId = Guid.Parse("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
-                FieldOfStudy = "Field of Study 2",
-                StudyFrom = DateTime.UtcNow,
-                StudyTo = DateTime.UtcNow,
-            },
-            new University()
-            {
-                Id = Guid.NewGuid(),
-                UniversityName = "Vistula 3",
-                EducationLevel = "Bachelor 3",
-                Specialization = "Computer Science 3",
-                ProfileId = Guid.Parse("a51bd4f1-8501-405e-a634-bdb1d8bd8511"),
-                FieldOfStudy = "Field of Study 3",
-                StudyFrom = DateTime.UtcNow,
-                StudyTo = DateTime.UtcNow,
-            },
-        });*/
+       
 
     }
 }
