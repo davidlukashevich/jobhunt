@@ -108,4 +108,14 @@ public class JobRepository : IJobRepository
             .ToListAsync();
             
     }
+
+    public async Task<List<Job>> GetAllJobsByCreatedByIdAsync(string createdById)
+    {
+        return await _context.Jobs
+            .Where(j => j.CreatedBy == createdById)
+            .Include(j => j.Address)
+            .Include(j => j.Image)
+            .AsNoTracking()
+            .ToListAsync();
+    }
 }

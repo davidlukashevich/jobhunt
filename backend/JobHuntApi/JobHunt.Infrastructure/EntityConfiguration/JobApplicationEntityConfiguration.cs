@@ -15,6 +15,7 @@ public class JobApplicationEntityConfiguration : IEntityTypeConfiguration<JobApp
         builder.Property(p => p.Id).HasColumnName("id");
         builder.Property(p => p.Name).HasColumnName("name").IsRequired();
         builder.Property(p => p.LastName).HasColumnName("lastname").IsRequired();
+        builder.Property(p => p.CreatedBy).HasColumnName("createdBy").IsRequired();
         builder.Property(p => p.Email).HasColumnName("email").IsRequired();
         builder.Property(p => p.Phone).HasColumnName("phone");
         builder.Property(p => p.AboutInformation).HasColumnName("about_information");

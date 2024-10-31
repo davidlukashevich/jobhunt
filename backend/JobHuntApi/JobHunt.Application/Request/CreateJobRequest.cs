@@ -18,4 +18,5 @@ public class CreateJobRequest
     public required string Type { get; set; }
     public required string Technology { get; set; }
     public required string CreatedBy { get; set; }
+    public required string AboutCompany { get; set; }
 }

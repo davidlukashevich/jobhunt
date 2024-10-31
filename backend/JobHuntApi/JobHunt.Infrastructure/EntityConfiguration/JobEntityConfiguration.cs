@@ -28,6 +28,7 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
         builder.Property(p => p.ImageId).HasColumnName("image_id");
         builder.Property(p => p.CreatedAt).HasColumnName("createdAt");
         builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt");
+        builder.Property(p => p.AboutCompany).HasColumnName("about_company").IsRequired();
         
 
         builder

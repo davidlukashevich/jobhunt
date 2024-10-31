@@ -9,6 +9,7 @@ public class Job : BaseEntity
     public required string CompanyName { get; set; }
     public required string OperationMode { get; set; }
     public required string ContractType { get; set; }
+    public required string AboutCompany { get; set; }
     public required string JobLevel { get; set; }
     public required string Responsibilities { get; set; }
     public required string Requirements { get; set; }

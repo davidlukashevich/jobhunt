@@ -17,6 +17,7 @@ public static class JobApplicationMapper
             Phone = request.Mobile,
             AboutInformation = request.AboutUser,
             JobId = request.JobId,
+            CreatedBy = request.CreatedBy
         };
     }
 
@@ -49,5 +50,23 @@ public static class JobApplicationMapper
             .ToList();
         
         return jobApplicationsByJobIdResponse;
+    }
+
+    public static List<ProfileJobApplicationsResponse> ToProfileJobApplicationsResponse(
+        this List<JobApplication>? jobApplications)
+    {
+        var profileJobApplicationsResponse = jobApplications
+            .Select(j => new ProfileJobApplicationsResponse()
+            {
+                Id = j!.Id,
+                JobTitle = j.Job!.Title,
+                JobCompanyName = j.Job!.CompanyName,
+                //JobCompanyLogo = j.Job.Image!.ImageUrl,
+                JobAddressCountry = j.Job.Address!.Country,
+                JobAddressCity = j.Job.Address!.City,
+            })
+            .ToList();
+        
+        return profileJobApplicationsResponse;
     }
 }

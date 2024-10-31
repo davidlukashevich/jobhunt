@@ -1,4 +1,6 @@
 using JobHunt.Application.Command.JobApplication.CreateJobApplication;
+using JobHunt.Application.Query.Job.GetAllJobsByCreatedById;
+using JobHunt.Application.Query.JobApplication.GetAllJobApplicationsByCreatedById;
 using JobHunt.Application.Query.JobApplication.GetJobApplicationById;
 using JobHunt.Application.Query.JobApplication.GetJobApplicationsByJobId;
 using JobHunt.Application.Request;
@@ -51,5 +53,16 @@ namespace JobHuntApi.Controllers
             
             return Ok(result);
         }
+        
+        [HttpGet("createdBy/{id}")]
+        [Authorize(Roles = "Employee")]
+        
+        public async Task<ActionResult> GetJobApplicationsByCreatedById([FromRoute] string id)
+        {
+            var result = await _sender.Send(new GetAllJobApplicationsByCreatedByIdQuery(id));
+            
+            return Ok(result);
+        }
+
     }
 }

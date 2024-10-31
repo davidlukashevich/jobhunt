@@ -38,6 +38,7 @@ public static class JobMapper
             Responsibilities = job.Responsibilities,
             Requirements = job.Requirements,
             CompanyLogo = job.Image?.ImageUrl,
+            AboutCompany = job.AboutCompany,
             CreatedBy = job.CreatedBy,
             Address = new AddressDTO()
             {
@@ -67,7 +68,8 @@ public static class JobMapper
             Type = jobRequest.Type,
             Technology = jobRequest.Technology,
             CreatedBy = jobRequest.CreatedBy,
-            ImageId = imageId
+            ImageId = imageId,
+            AboutCompany = jobRequest.AboutCompany
         };
     }
     
@@ -85,6 +87,7 @@ public static class JobMapper
             Type = jobRequest.Type,
             Technology = jobRequest.Technology,
             CreatedBy = jobRequest.CreatedBy!,
+            AboutCompany = jobRequest.AboutCompany
         };
     }
 }

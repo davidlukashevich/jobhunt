@@ -33,4 +33,15 @@ public class JobApplicationRepository : IJobApplicationRepository
     {
         return await _context.JobApplications.FirstOrDefaultAsync(j => j.Id == jobApplicationId);
     }
+
+    public async Task<List<JobApplication>> GetAllJobsApplicationByCreatedById(string createdById)
+    {
+        return await _context.JobApplications
+            .Where(j => j.CreatedBy == createdById)
+            .AsNoTracking()
+            .Include(j => j.Job)
+            
+            
+            .ToListAsync();
+    }
 }

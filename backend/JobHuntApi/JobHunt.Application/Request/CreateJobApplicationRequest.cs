@@ -11,4 +11,5 @@ public class CreateJobApplicationRequest
     public string? AboutUser  { get; set; }
     public IFormFile?  Cv  { get; set; }
     public Guid JobId { get; set; }
+    public required string CreatedBy { get; set; }
 }

@@ -10,4 +10,6 @@ public class JobApplication : BaseEntity
     public string? AboutInformation { get; set; }
     public string? Cv { get; set; }
     public Guid JobId { get; set; }
+    public required string CreatedBy { get; set; }
+    public Job? Job { get; set; }
 }

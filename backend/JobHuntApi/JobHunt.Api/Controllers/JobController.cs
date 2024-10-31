@@ -2,6 +2,7 @@ using JobHunt.Application.Command.Job.CreateJob;
 using JobHunt.Application.Command.Job.DeleteJob;
 using JobHunt.Application.Command.Job.UpdateJob;
 using JobHunt.Application.Query.Job.GetAllJobs;
+using JobHunt.Application.Query.Job.GetAllJobsByCreatedById;
 using JobHunt.Application.Query.Job.GetAllJobsByFilter;
 using JobHunt.Application.Query.Job.GetAllJobsByTitle;
 using JobHunt.Application.Query.Job.GetJobById;
@@ -26,7 +27,7 @@ namespace JobHuntApi.Controllers
 
         [HttpGet("")]
 
-        public async Task<ActionResult> GetJobs()
+        public async Task<ActionResult> GetAllJobs()
         {
             var result = await _sender.Send(new GetAllJobsQuery());
             
@@ -42,6 +43,15 @@ namespace JobHuntApi.Controllers
             return Ok(result);
         }
 
+        [HttpGet("createdBy/{id}")]
+        [Authorize(Roles = "Employer")]
+
+        public async Task<ActionResult> GetAllJobsByCreatedById([FromRoute] string id)
+        {
+            var result = await _sender.Send(new GetAllJobsByCreatedByIdQuery(id));
+            
+            return Ok(result);
+        }
         
         [HttpGet("{id}")]
 

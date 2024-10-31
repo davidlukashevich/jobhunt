@@ -3,6 +3,7 @@ using System;
 using JobHunt.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace JobHunt.Infrastructure.Migrations
 {
     [DbContext(typeof(JobHuntDbContext))]
-    partial class JobHuntDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241031143117_adding about_company column in job table and createdBy column in job_application table ")]
+    partial class addingabout_companycolumninjobtableandcreatedBycolumninjob_applicationtable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -268,9 +271,6 @@ namespace JobHunt.Infrastructure.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("job_id");
 
-                    b.Property<Guid?>("JobId1")
-                        .HasColumnType("uuid");
-
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("text")
@@ -292,8 +292,6 @@ namespace JobHunt.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("JobId");
-
-                    b.HasIndex("JobId1");
 
                     b.ToTable("job_applications", (string)null);
                 });
@@ -631,12 +629,6 @@ namespace JobHunt.Infrastructure.Migrations
                         .HasForeignKey("JobId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("JobHunt.Domain.Models.Job", "Job")
-                        .WithMany()
-                        .HasForeignKey("JobId1");
-
-                    b.Navigation("Job");
                 });
 
             modelBuilder.Entity("JobHunt.Domain.Models.Profile", b =>

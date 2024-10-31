@@ -1,3 +1,6 @@
-﻿namespace JobHunt.Application.Query.JobApplication.GetAllJobApplicationsByCreatedById;
+﻿using JobHunt.Application.Response.JobApplication;
+using MediatR;
 
-public record GetAllJobApplicationsByCreatedByIdQuery();
+namespace JobHunt.Application.Query.JobApplication.GetAllJobApplicationsByCreatedById;
+
+public record GetAllJobApplicationsByCreatedByIdQuery(string CreatedById) : IRequest<List<ProfileJobApplicationsResponse>>;

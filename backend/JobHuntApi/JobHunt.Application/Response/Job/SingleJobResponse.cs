@@ -16,4 +16,5 @@ public class SingleJobResponse
     public string? CompanyLogo { get; set; }
     public AddressDTO? Address { get; set; }
     public string? CreatedBy { get; set; }
+    public string? AboutCompany { get; set; }
 }
