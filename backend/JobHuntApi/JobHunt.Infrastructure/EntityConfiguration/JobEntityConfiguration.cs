@@ -51,7 +51,7 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
 
         builder
             .HasMany(j => j.JobApplications)
-            .WithOne()
+            .WithOne(ja => ja.Job)
             .HasForeignKey(j => j.JobId);
 
     }

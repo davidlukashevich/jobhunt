@@ -40,8 +40,9 @@ public class JobApplicationRepository : IJobApplicationRepository
             .Where(j => j.CreatedBy == createdById)
             .AsNoTracking()
             .Include(j => j.Job)
-            
-            
+            .ThenInclude(j => j!.Address)
+            .Include(j => j.Job)
+            .ThenInclude(j => j!.Image)
             .ToListAsync();
     }
 }

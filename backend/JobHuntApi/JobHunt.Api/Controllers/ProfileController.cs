@@ -32,7 +32,7 @@ namespace JobHuntApi.Controllers
 
         [HttpPut("update/{id}")]
 
-        public async Task<ActionResult> UpdateProfile([FromBody] UpdateProfileRequest updateProfileRequest, [FromRoute] Guid id)
+        public async Task<ActionResult> UpdateProfile([FromForm] UpdateProfileRequest updateProfileRequest, [FromRoute] Guid id)
         {
             var result = await _sender.Send(new UpdateProfileCommand(updateProfileRequest, id));
             

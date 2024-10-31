@@ -1,18 +1,27 @@
 ﻿
 using JobHunt.Domain.Models;
-using Microsoft.AspNetCore.Http;
+
 
 namespace JobHunt.Application.Mapper;
 
 public static class ImageMapper
 {
-    public static Image ToImageModelCreate( IFormFile file,string imageName )
+    public static Image ToImageModelCreate( string fileName,string imageName )
     {
         return new Image()
         {
             Id = Guid.NewGuid(),
-            Name = file.FileName,
-            ImageUrl = $"https://jobhuntstorage.blob.core.windows.net/images/{imageName}_{file.FileName}",
+            Name = fileName,
+            ImageUrl = $"https://jobhuntstorage.blob.core.windows.net/images/{imageName}_{fileName}",
+        };
+    }
+
+    public static Image ToImageModelUpdate(string fileName, string imageName)
+    {
+        return new Image()
+        {
+            Name = fileName,
+            ImageUrl = $"https://jobhuntstorage.blob.core.windows.net/images/{imageName}_{fileName}",
         };
     }
 }

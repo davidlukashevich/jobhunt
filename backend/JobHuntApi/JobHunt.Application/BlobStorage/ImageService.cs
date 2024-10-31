@@ -17,14 +17,14 @@ public class ImageService : IImageService
         _blobContainerClient = _blobServiceClient.GetBlobContainerClient("images");
     }
 
-    public async Task UploadImageAsync(IFormFile file,  string imageName )
+    public async Task UploadImageAsync(IFormFile file,  string imageName, string fileName )
     {
 
         try
         {
             
 
-           var filename = $"{imageName}_{file.FileName}";
+           var filename = $"{imageName}_{fileName}";
             
             var blob = _blobContainerClient.GetBlobClient(filename);
 

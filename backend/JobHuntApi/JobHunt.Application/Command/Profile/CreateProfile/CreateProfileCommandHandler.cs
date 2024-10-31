@@ -47,7 +47,7 @@ public class CreateProfileCommandHandler : IRequestHandler<CreateProfileCommand,
 
         var newAddress = AddressMapper.ToCreateAddressRequest(commandRequest.Country!, commandRequest.City!, commandRequest.Street!);
         
-        var newProfileLogo = ImageMapper.ToImageModelCreate(commandRequest.File, "profile");
+        var newProfileLogo = ImageMapper.ToImageModelCreate(commandRequest.File.FileName, "profile");
         
         var newProfile = ProfileMapper.ToProfileModelCreate(commandRequest, newAddress.Id, newProfileLogo.Id);
         
@@ -55,7 +55,7 @@ public class CreateProfileCommandHandler : IRequestHandler<CreateProfileCommand,
 
         await _sender.Send(new CreateImageCommand(newProfileLogo), cancellationToken);
         
-        await _imageService.UploadImageAsync(request.CreateProfileRequest.File, "profile");
+        await _imageService.UploadImageAsync(request.CreateProfileRequest.File, "profile", commandRequest.File.FileName);
         
         await _profileRepository.CreateProfileAsync(newProfile);
 

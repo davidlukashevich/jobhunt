@@ -1,4 +1,5 @@
 ﻿
+using JobHunt.Application.DTO;
 using JobHunt.Application.Request;
 using JobHunt.Application.Response.Profile;
 using JobHunt.Domain.Models;
@@ -16,11 +17,15 @@ public static class ProfileMapper
             Lastname = profile.Lastname,
             Email = profile.Email,
             Phone = profile.Phone,
-            ProfileLogo = profile.Image.ImageUrl,
             DateOfBirth = profile.DateOfBirth,
             Universities = profile.Universities?.Select(u => u.ToUniversityDTO()).ToList(),
             Experiences = profile.Experiences?.Select(e => e.ToExperienceDto()).ToList(),
             Address = profile.Address!.ToAddressDto(),
+            Image = new ImageDTO()
+            {
+                Id = profile.Image.Id,
+                ProfileImage = profile.Image.ImageUrl,
+            }
            
         };
     }

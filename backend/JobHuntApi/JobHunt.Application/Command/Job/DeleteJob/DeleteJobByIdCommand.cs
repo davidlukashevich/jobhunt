@@ -3,4 +3,4 @@ using MediatR;
 
 namespace JobHunt.Application.Command.Job.DeleteJob;
 
-public record DeleteJobByIdCommand(Guid JobId, Guid AddressId) : IRequest<BaseResponse>;
+public record DeleteJobByIdCommand(Guid JobId, Guid AddressId, Guid ImageId) : IRequest<BaseResponse>;

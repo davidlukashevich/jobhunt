@@ -1,5 +1,7 @@
 ﻿using System.Net;
+using JobHunt.Application.BlobStorage;
 using JobHunt.Application.Command.Address.UpdateAddress;
+using JobHunt.Application.Command.Image.UpdateImage;
 using JobHunt.Application.Mapper;
 //using JobHunt.Application.MessageBroker;
 //using JobHunt.Application.MessageBroker.Address.UpdateAddress;
@@ -14,16 +16,18 @@ public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand,
     
     private readonly IProfileRepository _profileRepository;
     private readonly ISender _sender;
+    private readonly IImageService _imageService;
     //private readonly ISendMessage _sendMessage;
 
     public UpdateProfileCommandHandler(
         IProfileRepository profileRepository, 
-        ISender sender
+        ISender sender, IImageService imageService
         //ISendMessage sendMessage
         )
     {
         _profileRepository = profileRepository;
         _sender = sender;
+        _imageService = imageService;
         //_sendMessage = sendMessage;
     }
 
@@ -52,6 +56,27 @@ public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand,
             updatedProfileRequest.AddressId,
             updatedAddressRequest), 
             cancellationToken);
+
+        if (updatedProfileRequest.ProfileImage is not null)
+        {
+            await _imageService.UploadImageAsync(
+                updatedProfileRequest.ProfileImage,
+                "profile", 
+                request.ProfileId.ToString()
+                );
+
+            var updatedImageProfile = ImageMapper.ToImageModelUpdate(
+                request.ProfileId.ToString(),
+                "profile");
+
+            await _sender.Send(new UpdateImageCommand(
+                    updatedProfileRequest.ProfileImageId, 
+                    updatedImageProfile),
+                    cancellationToken
+                    );
+
+
+        }
                 
                 
 

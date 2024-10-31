@@ -52,6 +52,9 @@ public class JobRepository : IJobRepository
                 .SetProperty(p => p.JobLevel, job.JobLevel)
                 .SetProperty(p => p.Responsibilities, job.Responsibilities)
                 .SetProperty(p => p.Requirements, job.Requirements)
+                .SetProperty(p => p.Type, job.Type)
+                .SetProperty(p => p.Technology, job.Technology)
+                .SetProperty(p => p.AboutCompany, job.AboutCompany)
             );
 
         return updateResult > 0;

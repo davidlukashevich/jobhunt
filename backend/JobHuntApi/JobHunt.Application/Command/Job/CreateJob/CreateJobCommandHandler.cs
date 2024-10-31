@@ -41,7 +41,7 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand, BaseRes
 
         var createdAddress = AddressMapper.ToCreateAddressRequest(commandRequest.City, commandRequest.Country, commandRequest.Street);
         
-        var jobLogo = ImageMapper.ToImageModelCreate(commandRequest.File!, "job");
+        var jobLogo = ImageMapper.ToImageModelCreate(commandRequest.File!.FileName, "job");
         
         var newJob = JobMapper.ToJobModelCreate(request.CreateJobRequest, createdAddress.Id, jobLogo.Id);
         
@@ -53,7 +53,7 @@ public class CreateJobCommandHandler : IRequestHandler<CreateJobCommand, BaseRes
         
         
 
-        await _imageService.UploadImageAsync(commandRequest.File,  "job");
+        await _imageService.UploadImageAsync(commandRequest.File!,  "job", commandRequest.File!.FileName);
         
         
         

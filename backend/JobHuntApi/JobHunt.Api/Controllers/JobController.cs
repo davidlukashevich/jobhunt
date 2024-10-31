@@ -94,9 +94,9 @@ namespace JobHuntApi.Controllers
 
         [HttpDelete("delete/{id}")]
         [Authorize(Roles = "Employer")]
-        public async Task<ActionResult> DeleteJob(Guid id, [FromQuery] Guid addressId)
+        public async Task<ActionResult> DeleteJob(Guid id, [FromQuery] Guid addressId, [FromQuery] Guid imageId)
         {
-            var result = await _sender.Send(new DeleteJobByIdCommand(id, addressId));
+            var result = await _sender.Send(new DeleteJobByIdCommand(id, addressId, imageId));
             
             return Ok(result);
         }

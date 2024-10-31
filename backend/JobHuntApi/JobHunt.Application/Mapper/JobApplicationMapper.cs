@@ -61,7 +61,7 @@ public static class JobApplicationMapper
                 Id = j!.Id,
                 JobTitle = j.Job!.Title,
                 JobCompanyName = j.Job!.CompanyName,
-                //JobCompanyLogo = j.Job.Image!.ImageUrl,
+                JobCompanyLogo = j.Job.Image!.ImageUrl,
                 JobAddressCountry = j.Job.Address!.Country,
                 JobAddressCity = j.Job.Address!.City,
             })
