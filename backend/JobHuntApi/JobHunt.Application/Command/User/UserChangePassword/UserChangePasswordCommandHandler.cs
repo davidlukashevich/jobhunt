@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using JobHunt.Application.Exceptions.User;
 using JobHunt.Application.Response;
 using JobHunt.Application.Response.User;
 using JobHunt.Infrastructure.Identity.UserManager;
@@ -27,11 +28,7 @@ public class UserChangePasswordCommandHandler : IRequestHandler<UserChangePasswo
         if (userByEmail is null)
         {
           
-            return new BaseResponse()
-            {
-                StatusCode = HttpStatusCode.NotFound,
-                Message = "User not found"
-            };
+            throw new UserDoesNotExist("User with email address " + request.ChangeUserPasswordRequest.Email + " does not exist");
         }
         
         var changePasswordResult = await _applicationUserManager.ChangeUserPasswordAsync(userByEmail,
@@ -40,12 +37,14 @@ public class UserChangePasswordCommandHandler : IRequestHandler<UserChangePasswo
 
         if (!changePasswordResult.Succeeded)
         {
-            return new UserChangePasswordError()
+            /*return new UserChangePasswordError()
             {
                 StatusCode = HttpStatusCode.BadRequest,
                 Message = "Error changing password",
                 Errors = changePasswordResult.Errors.Select(x => x.Description).ToList()
-            };
+            };*/
+            
+            throw new UserWrongCredentialsException("Wrong email or currentPassword");
         }
 
         return new BaseResponse()

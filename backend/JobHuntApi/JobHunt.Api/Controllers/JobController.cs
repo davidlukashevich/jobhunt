@@ -59,7 +59,7 @@ namespace JobHuntApi.Controllers
         {
             var result = await _sender.Send(new GetJobByIdQuery(id));
             
-            return result is null ? NotFound("Job not found")  : Ok(result) ;
+            return Ok(result) ;
         }
 
         [HttpGet("byTitle")]

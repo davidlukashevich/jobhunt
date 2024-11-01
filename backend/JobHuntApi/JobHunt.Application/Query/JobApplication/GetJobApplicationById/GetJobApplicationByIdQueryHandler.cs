@@ -1,4 +1,5 @@
-﻿using JobHunt.Application.Mapper;
+﻿using JobHunt.Application.Exceptions.JobApplication;
+using JobHunt.Application.Mapper;
 using JobHunt.Application.Response.JobApplication;
 using JobHunt.Domain.Interface.Repository;
 using MediatR;
@@ -18,6 +19,11 @@ public class GetJobApplicationByIdQueryHandler : IRequestHandler<GetJobApplicati
     public async Task<JobApplicationByIdResponse> Handle(GetJobApplicationByIdQuery request, CancellationToken cancellationToken)
     {
         var jobApplication = await _jobApplicationRepository.GetJobApplicationById(request.Id);
+
+        if (jobApplication is null)
+        {
+            throw new JobApplicationNotFound("Job Application Not Found");
+        }
         
         return jobApplication.ToJobApplicationByIdResponse();
     }

@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using JobHunt.Application.Exceptions.User;
 using JobHunt.Application.Response.User;
 using JobHunt.Application.Service;
 using JobHunt.Application.SingInManager;
@@ -32,11 +33,7 @@ public class UserLoginCommandHandler : IRequestHandler<UserLoginCommand ,UserLog
     
         if (userByEmail is null)
         {
-            return new UserLoginResponse()
-            {
-                StatusCode = HttpStatusCode.NotFound,
-                Message = "User not found"
-            };
+            throw new UserDoesNotExist("User with email address " + request.UserLoginRequest.Email + " does not exist");
 
             
         }
@@ -46,11 +43,7 @@ public class UserLoginCommandHandler : IRequestHandler<UserLoginCommand ,UserLog
 
         if (!signInResult)
         {
-            return new UserLoginResponse()
-            {
-                StatusCode = HttpStatusCode.Unauthorized,
-                Message = "Wrong email or password"
-            };
+            throw new UserWrongCredentialsException("Wrong email or password");
         }
 
         var userRole = await _userManager.GetRoleByUserEmailAsync(userByEmail.Email!);

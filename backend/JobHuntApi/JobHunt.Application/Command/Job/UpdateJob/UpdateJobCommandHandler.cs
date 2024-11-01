@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using JobHunt.Application.Command.Address.UpdateAddress;
+using JobHunt.Application.Exceptions.Job;
 using JobHunt.Application.Mapper;
 //using JobHunt.Application.MessageBroker;
 //using JobHunt.Application.MessageBroker.Address.UpdateAddress;
@@ -36,6 +37,17 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand, Bas
             updateJobRequest.Street);
         
         
+        var updatedJob = JobMapper.ToJobModelUpdate(updateJobRequest);
+        if (!await _jobRepository.UpdateJobAsync(updatedJob, request.JobId))
+        {
+            /*return new BaseResponse()
+            {
+                StatusCode = HttpStatusCode.BadRequest,
+                Message = "Error updating job",
+            };*/
+            
+            throw new JobNotFoundException("Job not found");
+        }
 
         await _sender.Send(new UpdateAddressCommand(updateJobRequest.AddressId, updatedAddressRequest), cancellationToken);
         
@@ -45,15 +57,6 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand, Bas
 
         //await _sendMessage.Send(updatedAddress, cancellationToken);
 
-        var updatedJob = JobMapper.ToJobModelUpdate(updateJobRequest);
-        if (!await _jobRepository.UpdateJobAsync(updatedJob, request.JobId))
-        {
-            return new BaseResponse()
-            {
-                StatusCode = HttpStatusCode.BadRequest,
-                Message = "Error updating job",
-            };
-        }
         
 
         return new BaseResponse()

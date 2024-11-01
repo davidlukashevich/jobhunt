@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using JobHunt.Application.Exceptions.User;
 using JobHunt.Application.Response.User;
 using JobHunt.Application.Service;
 using JobHunt.Infrastructure.Identity.UserManager;
@@ -25,11 +26,9 @@ public class UserRegisterCommandHandler : IRequestHandler<UserRegisterCommand, U
 
         if (userByEmail)
         {
-            return new UserRegisterResponse()
-            {
-                StatusCode = HttpStatusCode.BadRequest,
-                Message = "User already exists!"
-            };
+            
+            throw new UserExistsException("User with this email already exists");
+            
         }
 
         var newUser = new Infrastructure.Identity.User()

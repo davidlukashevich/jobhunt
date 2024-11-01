@@ -62,7 +62,7 @@ public class JobRepository : IJobRepository
 
     public async Task<bool> DeleteJobAsync(Guid jobId)
     {
-        var deleteResult = await _context.Jobs
+         var deleteResult = await _context.Jobs
             .Where(j => j.Id == jobId)
             .ExecuteDeleteAsync();
         

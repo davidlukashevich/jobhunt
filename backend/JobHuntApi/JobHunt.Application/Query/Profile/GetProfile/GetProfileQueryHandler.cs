@@ -1,4 +1,5 @@
-﻿using JobHunt.Application.Mapper;
+﻿using JobHunt.Application.Exceptions.Profile;
+using JobHunt.Application.Mapper;
 using JobHunt.Application.Response.Profile;
 using JobHunt.Domain.Interface.Repository;
 using MediatR;
@@ -21,8 +22,11 @@ public class GetProfileQueryHandler : IRequestHandler<GetProfileQuery, ProfileRe
     {
         var profile = await _profileRepository.GetProfileAsync(request.UserId);
 
-        
+        if (profile is null)
+        {
+            throw new ProfileNotFoundException("Profile not found");
+        }
 
-        return profile!.MapToProfileResponse();
+        return profile.MapToProfileResponse();
     }
 }

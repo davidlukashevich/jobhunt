@@ -1,4 +1,5 @@
-﻿using JobHunt.Application.Mapper;
+﻿using JobHunt.Application.Exceptions.Job;
+using JobHunt.Application.Mapper;
 using JobHunt.Application.Response.Job;
 using JobHunt.Domain.Interface.Repository;
 using MediatR;
@@ -23,7 +24,7 @@ public class GetJobByIdQueryHandler : IRequestHandler<GetJobByIdQuery, SingleJob
 
         if (jobById is null)
         {
-            return null;
+            throw new JobNotFoundException("Job not found");
         }
 
         

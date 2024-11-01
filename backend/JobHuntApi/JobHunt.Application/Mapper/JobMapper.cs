@@ -37,7 +37,6 @@ public static class JobMapper
             JobLevel = job.JobLevel,
             Responsibilities = job.Responsibilities,
             Requirements = job.Requirements,
-            CompanyLogo = job.Image?.ImageUrl,
             AboutCompany = job.AboutCompany,
             CreatedBy = job.CreatedBy,
             Address = new AddressDTO()
@@ -47,6 +46,11 @@ public static class JobMapper
                 City = job.Address.City,
                 Street = job.Address.Street,
             },
+            Image = new ImageDTO()
+            {
+                Id = job.Image!.Id,
+                ImageUrl = job.Image!.ImageUrl,
+            }
         };
         
         return singleJobResponse;

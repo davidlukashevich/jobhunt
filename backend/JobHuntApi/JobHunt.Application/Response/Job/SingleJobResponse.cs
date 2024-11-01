@@ -13,7 +13,7 @@ public class SingleJobResponse
     public string? JobLevel { get; set; }
     public string? Responsibilities { get; set; }
     public string? Requirements { get; set; }
-    public string? CompanyLogo { get; set; }
+    public ImageDTO? Image { get; set; }
     public AddressDTO? Address { get; set; }
     public string? CreatedBy { get; set; }
     public string? AboutCompany { get; set; }

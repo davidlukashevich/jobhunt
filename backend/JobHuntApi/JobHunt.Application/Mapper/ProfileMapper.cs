@@ -24,7 +24,7 @@ public static class ProfileMapper
             Image = new ImageDTO()
             {
                 Id = profile.Image.Id,
-                ProfileImage = profile.Image.ImageUrl,
+                ImageUrl = profile.Image.ImageUrl,
             }
            
         };

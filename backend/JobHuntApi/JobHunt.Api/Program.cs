@@ -76,6 +76,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseExceptionHandler(_ => { });
+
 app.UseHttpsRedirection();
 
 app.UseCors("JobHuntClientApp");

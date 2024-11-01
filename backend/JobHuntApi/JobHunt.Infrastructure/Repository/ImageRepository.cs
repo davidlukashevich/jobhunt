@@ -38,4 +38,11 @@ public class ImageRepository : IImageRepository
             .Where(i => i.Id == imageId)
             .ExecuteDeleteAsync();
     }
+
+    public async Task<Image> GetImageByIdAsync(Guid imageId)
+    {
+        return (await _context.Images
+            .AsNoTracking()
+            .FirstOrDefaultAsync(i => i.Id == imageId))!;
+    }
 }

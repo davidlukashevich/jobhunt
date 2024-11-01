@@ -46,8 +46,21 @@ public class ImageService : IImageService
         
     }
 
-    public Task DeleteImageAsync(string key)
+    public async Task DeleteImageAsync(string fileName, string imageName)
     {
-        throw new NotImplementedException();
+
+        try
+        {
+            var blobName = $"{imageName}_{fileName}";
+        
+            await _blobContainerClient.DeleteBlobIfExistsAsync(blobName);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
+       
     }
 }

@@ -2,6 +2,7 @@
 using System.Net;
 using JobHunt.Application.Command.Address.DeleteAddress;
 using JobHunt.Application.Command.Image.DeleteImage;
+using JobHunt.Application.Exceptions.Job;
 //using JobHunt.Application.MessageBroker;
 //using JobHunt.Application.MessageBroker.Address.DeleteAddress;
 using JobHunt.Application.Response;
@@ -34,18 +35,15 @@ public class DeleteJobByIdCommandHandler : IRequestHandler<DeleteJobByIdCommand,
     {
         
         //await _sendMessage.Send(new DeleteAddress(){AddressId = request.AddressId}, cancellationToken);
-        await _sender.Send(new DeleteAddressCommand(request.AddressId), cancellationToken);
-        await _sender.Send(new DeleteImageCommand(request.ImageId), cancellationToken);
+        
         if (!await _jobRepository.DeleteJobAsync(request.JobId))
         {
-            return new BaseResponse()
-            {
-                StatusCode = HttpStatusCode.BadRequest,
-                Message = "Error while deleting job."
-            };
+            throw new JobNotFoundException("Job not found");
         }
         
-       
+        await _sender.Send(new DeleteAddressCommand(request.AddressId), cancellationToken);
+        await _sender.Send(new DeleteImageCommand(request.ImageId), cancellationToken);
+        
 
         return new BaseResponse()
         {

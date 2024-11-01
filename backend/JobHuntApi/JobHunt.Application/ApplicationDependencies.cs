@@ -2,6 +2,7 @@
 using System.Text;
 using Azure.Storage.Blobs;
 using JobHunt.Application.BlobStorage;
+using JobHunt.Application.Exceptions;
 using JobHunt.Application.MessageBroker;
 using JobHunt.Application.MessageBroker.Address.CreateAddress;
 using JobHunt.Application.MessageBroker.Address.DeleteAddress;
@@ -44,8 +45,8 @@ public static class ApplicationDependencies
         services.AddScoped<IApplicationSignInManager, ApplicationSignInManager>();
         services.AddScoped<IRoleStore<IdentityRole>, RoleStore<IdentityRole, JobHuntDbContext>>();
         services.AddScoped<IUserStore<IdentityUser>, UserStore<IdentityUser, IdentityRole, JobHuntDbContext>>();
-       
 
+        services.AddExceptionHandler<GlobalException>();
 
         /*
         services.AddMassTransit(x =>

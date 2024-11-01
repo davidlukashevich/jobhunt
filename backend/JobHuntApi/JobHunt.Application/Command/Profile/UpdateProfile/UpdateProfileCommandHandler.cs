@@ -2,6 +2,7 @@
 using JobHunt.Application.BlobStorage;
 using JobHunt.Application.Command.Address.UpdateAddress;
 using JobHunt.Application.Command.Image.UpdateImage;
+using JobHunt.Application.Exceptions.Profile;
 using JobHunt.Application.Mapper;
 //using JobHunt.Application.MessageBroker;
 //using JobHunt.Application.MessageBroker.Address.UpdateAddress;
@@ -51,6 +52,14 @@ public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand,
             updatedProfileRequest.City, 
             updatedProfileRequest.Country,
             updatedProfileRequest.Street);
+        
+        var updatedProfile = ProfileMapper.ToProfileModelUpdate(updatedProfileRequest);
+        
+        if (!await _profileRepository.UpdateProfileAsync(updatedProfile, request.ProfileId))
+        {
+            throw new ProfileNotFoundException("Profile not found");
+        }
+
 
         await _sender.Send(new UpdateAddressCommand(
             updatedProfileRequest.AddressId,
@@ -80,16 +89,8 @@ public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand,
                 
                 
 
-        var updatedProfile = ProfileMapper.ToProfileModelUpdate(updatedProfileRequest);
+        
 
-        if (!await _profileRepository.UpdateProfileAsync(updatedProfile, request.ProfileId))
-        {
-            return new BaseResponse()
-            {
-                StatusCode = HttpStatusCode.BadRequest,
-                Message = "Error updating profile"
-            };
-        }
         
         
 

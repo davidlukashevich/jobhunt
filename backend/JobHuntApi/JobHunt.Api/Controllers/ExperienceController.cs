@@ -28,7 +28,7 @@ namespace JobHuntApi.Controllers
         {
             var result = await _sender.Send(new CreateExperienceCommand(request, profileId));
             
-            return Ok();
+            return Ok(result);
         }
         
         
