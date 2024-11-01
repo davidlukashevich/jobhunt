@@ -1,4 +1,4 @@
-﻿namespace JobHunt.Application.Request;
+﻿namespace JobHunt.Application.Request.User;
 
 public class UserLoginRequest
 {

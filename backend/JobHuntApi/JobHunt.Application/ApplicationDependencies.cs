@@ -1,21 +1,16 @@
 ﻿
 using System.Text;
 using Azure.Storage.Blobs;
-using JobHunt.Application.BlobStorage;
+using JobHunt.Application.BlobStorage.Files;
+using JobHunt.Application.BlobStorage.Image;
 using JobHunt.Application.Exceptions;
-using JobHunt.Application.MessageBroker;
-using JobHunt.Application.MessageBroker.Address.CreateAddress;
-using JobHunt.Application.MessageBroker.Address.DeleteAddress;
-using JobHunt.Application.MessageBroker.Address.UpdateAddress;
 using JobHunt.Application.Service;
 using JobHunt.Application.SingInManager;
 using JobHunt.Infrastructure.Data;
 using JobHunt.Infrastructure.Identity;
-using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.Extensions.Azure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -40,6 +35,7 @@ public static class ApplicationDependencies
 
         services.AddSingleton(_ =>  new BlobServiceClient(configuration.GetConnectionString("BlobStorage")) );
         services.AddScoped<IImageService, ImageService>();
+        services.AddScoped<IFileService, FileService>();
        // services.AddScoped<ISendMessage, SendMessage>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IApplicationSignInManager, ApplicationSignInManager>();

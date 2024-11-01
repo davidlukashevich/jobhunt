@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using JobHunt.Application.BlobStorage.Files;
 using JobHunt.Application.Mapper;
 using JobHunt.Application.Response;
 using JobHunt.Domain.Interface.Repository;
@@ -11,10 +12,12 @@ public class CreateJobApplicationCommandHandler : IRequestHandler<CreateJobAppli
 {
     
     private readonly IJobApplicationRepository _jobApplicationRepository;
+    private readonly IFileService _fileService;
 
-    public CreateJobApplicationCommandHandler(IJobApplicationRepository jobApplicationRepository)
+    public CreateJobApplicationCommandHandler(IJobApplicationRepository jobApplicationRepository, IFileService fileService)
     {
         _jobApplicationRepository = jobApplicationRepository;
+        _fileService = fileService;
     }
 
     public async Task<BaseResponse> Handle(CreateJobApplicationCommand request, CancellationToken cancellationToken)
@@ -24,6 +27,8 @@ public class CreateJobApplicationCommandHandler : IRequestHandler<CreateJobAppli
         var newJobApplication = JobApplicationMapper.ToJobApplicationModelCreate(createJobApplicationRequest);
         
         await _jobApplicationRepository.CreateJobApplicationsAsync(newJobApplication);
+
+        await _fileService.UploadCvAsync(createJobApplicationRequest.Cv, "files");
         
         return new BaseResponse()
         {

@@ -6,7 +6,7 @@ using JobHunt.Application.Query.Job.GetAllJobsByCreatedById;
 using JobHunt.Application.Query.Job.GetAllJobsByFilter;
 using JobHunt.Application.Query.Job.GetAllJobsByTitle;
 using JobHunt.Application.Query.Job.GetJobById;
-using JobHunt.Application.Request;
+using JobHunt.Application.Request.Job;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

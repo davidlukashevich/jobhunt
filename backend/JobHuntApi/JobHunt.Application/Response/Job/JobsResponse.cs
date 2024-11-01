@@ -8,4 +8,5 @@ public class JobsResponse
     public string? City { get; set; }
     public string? OperationMode { get; set; }
     public string? CompanyLogo { get; set; }
+    public string? Salary { get; set; }
 }

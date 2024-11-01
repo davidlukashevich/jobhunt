@@ -55,6 +55,7 @@ public class JobRepository : IJobRepository
                 .SetProperty(p => p.Type, job.Type)
                 .SetProperty(p => p.Technology, job.Technology)
                 .SetProperty(p => p.AboutCompany, job.AboutCompany)
+                .SetProperty(p => p.Salary, job.Salary)
             );
 
         return updateResult > 0;
@@ -81,17 +82,17 @@ public class JobRepository : IJobRepository
         
         if (!string.IsNullOrEmpty(level))
         {
-            query = query.Where(j => j.JobLevel == level);
+            query = query.Where(j => j.JobLevel.ToLower() == level.ToLower());
         }
 
         if (!string.IsNullOrEmpty(type))
         {
-            query = query.Where(j => j.Type == type);
+            query = query.Where(j => j.Type.ToLower() == type.ToLower());
         }
 
         if (!string.IsNullOrEmpty(technology))
         {
-            query = query.Where(j => j.Technology == technology);
+            query = query.Where(j => j.Technology.ToLower() == technology.ToLower());
         }
 
         

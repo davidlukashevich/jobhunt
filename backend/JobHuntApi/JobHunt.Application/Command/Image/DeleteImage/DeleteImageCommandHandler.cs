@@ -1,4 +1,4 @@
-﻿using JobHunt.Application.BlobStorage;
+﻿using JobHunt.Application.BlobStorage.Image;
 using JobHunt.Domain.Interface.Repository;
 using MediatR;
 

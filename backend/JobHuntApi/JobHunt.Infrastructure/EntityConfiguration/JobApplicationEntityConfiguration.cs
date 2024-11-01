@@ -19,7 +19,7 @@ public class JobApplicationEntityConfiguration : IEntityTypeConfiguration<JobApp
         builder.Property(p => p.Email).HasColumnName("email").IsRequired();
         builder.Property(p => p.Phone).HasColumnName("phone");
         builder.Property(p => p.AboutInformation).HasColumnName("about_information");
-        builder.Property(p => p.Cv).HasColumnName("cv");
+        builder.Property(p => p.Cv).HasColumnName("cv").IsRequired();
         builder.Property(p => p.JobId).HasColumnName("job_id");
         builder.Property(p => p.CreatedAt).HasColumnName("createdAt");
         builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt");

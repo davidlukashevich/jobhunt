@@ -1,4 +1,4 @@
-﻿using JobHunt.Application.Request;
+﻿using JobHunt.Application.Request.Experience;
 using JobHunt.Application.Response;
 using MediatR;
 

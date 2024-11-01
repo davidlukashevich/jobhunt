@@ -1,6 +1,6 @@
 ﻿
 using JobHunt.Application.Command.Address.CreateAddress;
-using JobHunt.Application.Request;
+using JobHunt.Application.Request.Address;
 using MassTransit;
 using MediatR;
 

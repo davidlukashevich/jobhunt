@@ -18,5 +18,6 @@ public class Job : BaseEntity
     public Address? Address { get; set; }
     public Guid ImageId { get; set; }
     public Image? Image { get; set; }
+    public required string Salary { get; set; }
     public List<JobApplication>? JobApplications { get; set; }
 }

@@ -1,5 +1,5 @@
 ﻿using JobHunt.Application.DTO;
-using JobHunt.Application.Request;
+using JobHunt.Application.Request.Experience;
 using JobHunt.Domain.Models;
 
 namespace JobHunt.Application.Mapper;

@@ -544,6 +544,11 @@ namespace JobHunt.Infrastructure.Migrations
                         .HasColumnType("text")
                         .HasColumnName("responsibilities");
 
+                    b.Property<string>("Salary")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("salary");
+
                     b.Property<string>("Technology")
                         .IsRequired()
                         .HasColumnType("text")
@@ -581,7 +586,7 @@ namespace JobHunt.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("335fe048-ee18-4960-97a2-95e8ea6bcb5b"),
+                            Id = new Guid("df0eecb8-19ab-4acf-92e6-bd3c6ca23c27"),
                             AboutCompany = "Web and mobile dev",
                             AddressId = new Guid("81829923-f40e-4f58-9506-08da478058a2"),
                             CompanyName = "Code Factory",
@@ -593,6 +598,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Remote",
                             Requirements = "1+ years in HTML/CSS, Javascript, React",
                             Responsibilities = "Assist in frontend dev",
+                            Salary = "4000-5000 zł brutto",
                             Technology = "Js",
                             Title = "Junior Frontend Developer",
                             Type = "Frontend",
@@ -600,7 +606,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("43b6d933-d0a8-438b-ac43-e033acaa8978"),
+                            Id = new Guid("5f4f53e8-2e32-414b-a178-f6f2d1b618bb"),
                             AboutCompany = "Web innovation leaders",
                             AddressId = new Guid("760b41f0-1ae8-4140-aeaa-c51edb8524dd"),
                             CompanyName = "Web Wonders",
@@ -612,6 +618,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Hybrid",
                             Requirements = "3+ years with Angular, TypeScript",
                             Responsibilities = "Develop frontend apps",
+                            Salary = "6000-8000 zł brutto",
                             Technology = "Typescript",
                             Title = "Middle Frontend Developer",
                             Type = "Frontend",
@@ -619,7 +626,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3c1d7aa6-d68c-4534-90a6-6603f65243be"),
+                            Id = new Guid("4b09cc45-4aff-4a35-a3d4-5be9c926c3d8"),
                             AboutCompany = "Leading in AI solutions",
                             AddressId = new Guid("0ca4032a-b0c0-4d25-8575-f5b065d7df54"),
                             CompanyName = "Tech Innovators",
@@ -631,6 +638,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Remote",
                             Requirements = "5+ years experience with React",
                             Responsibilities = "Develop UI components, optimize for performance",
+                            Salary = "10000-12000 zł netto",
                             Technology = "React",
                             Title = "Senior Frontend Developer",
                             Type = "Frontend",
@@ -638,7 +646,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("56da99a8-6ca3-404f-bbe6-25ed809866df"),
+                            Id = new Guid("15491037-bbea-4771-95b5-b95bf1473c1c"),
                             AboutCompany = "Web dev specialists",
                             AddressId = new Guid("525c49eb-3406-4210-9125-6085e59b4eb3"),
                             CompanyName = "WebWorks",
@@ -650,6 +658,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Hybrid",
                             Requirements = "7+ years with React, javascript, html, css",
                             Responsibilities = "Oversee frontend projects",
+                            Salary = "15000-20000 zł netto",
                             Technology = "Js",
                             Title = "Lead Frontend Engineer",
                             Type = "Frontend",
@@ -657,7 +666,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4f85d20e-acfe-4ac6-9021-75137c1ccb1d"),
+                            Id = new Guid("98efa681-9a4b-4282-ac4d-43f8d2474566"),
                             AboutCompany = "Focus on data analytics",
                             AddressId = new Guid("65997657-6342-4461-991e-d9ef4cc27808"),
                             CompanyName = "DataX Solutions",
@@ -669,6 +678,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Hybrid",
                             Requirements = "1+ years with .NET",
                             Responsibilities = "Assist backend development team",
+                            Salary = "5000-6000 zł netto",
                             Technology = ".Net",
                             Title = "Junior Backend Developer",
                             Type = "Backend",
@@ -676,7 +686,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("872b12c2-3c2f-41d2-acd8-00e103c0ccee"),
+                            Id = new Guid("f036145e-83ec-465b-a53e-093935a016ac"),
                             AboutCompany = "Data science leaders",
                             AddressId = new Guid("02cb7c97-8ac4-4df1-b9bb-a9ff6732c728"),
                             CompanyName = "DataScience Co",
@@ -688,6 +698,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Remote",
                             Requirements = "3+ years with Python, Flask",
                             Responsibilities = "Develop API services",
+                            Salary = "7000-9000 zł brutto",
                             Technology = "Python",
                             Title = "Middle Backend Developer",
                             Type = "Backend",
@@ -695,7 +706,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ac3bed56-f571-4c0b-9436-24b140a62ad5"),
+                            Id = new Guid("38bbc481-d2aa-4187-9bc4-eeb9356ef7ec"),
                             AboutCompany = "Experts in cloud tech",
                             AddressId = new Guid("c4d716dc-e536-4f93-affd-1eca9be155f1"),
                             CompanyName = "Cloudify",
@@ -707,6 +718,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Remote",
                             Requirements = "5+ years in backend dev, Python, Django",
                             Responsibilities = "Design backend services",
+                            Salary = "12000-15000 zł netto",
                             Technology = "Python",
                             Title = "Senior Backend Engineer",
                             Type = "Backend",
@@ -714,7 +726,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("88041c82-a0b2-4214-90c5-e34b5a4cf64e"),
+                            Id = new Guid("762adc3b-a58c-4306-bc9d-5037572b80a2"),
                             AboutCompany = "Backend solutions",
                             AddressId = new Guid("eb0bf179-2a90-42f2-a778-0457f10280b7"),
                             CompanyName = "CoreTech",
@@ -726,6 +738,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Onsite",
                             Requirements = "7+ years in backend dev, Java, Spring Boot",
                             Responsibilities = "Lead backend projects",
+                            Salary = "15000-20000 zł brutto",
                             Technology = "Java",
                             Title = "Lead Backend Developer",
                             Type = "Backend",
@@ -733,7 +746,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("23d9e44c-b903-4488-9e3b-7eefab1becfe"),
+                            Id = new Guid("88e05857-c96d-4e87-9864-131a42b24ae3"),
                             AboutCompany = "Web innovation hub",
                             AddressId = new Guid("61e53104-cc1e-4403-b781-ac2a9d90a675"),
                             CompanyName = "WebGen",
@@ -745,6 +758,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Remote",
                             Requirements = "Experience with HTML, CSS, JavaScript",
                             Responsibilities = "Support web projects",
+                            Salary = "4000-5000 zł brutto",
                             Technology = "Js",
                             Title = "Junior Fullstack Developer",
                             Type = "Fullstack",
@@ -752,7 +766,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("693422cd-f6b3-4590-ba66-f5473124b06b"),
+                            Id = new Guid("944440b1-572e-4316-886c-f3335add063c"),
                             AboutCompany = "Web solutions specialists",
                             AddressId = new Guid("6dceaa73-c28e-4aa5-b148-aa673e9b80b5"),
                             CompanyName = "App Builders",
@@ -764,6 +778,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Remote",
                             Requirements = "3+ years with JS & Node",
                             Responsibilities = "Develop web applications",
+                            Salary = "7000-9000 zł netto",
                             Technology = "Js",
                             Title = "Middle Fullstack Developer",
                             Type = "Fullstack",
@@ -771,7 +786,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("708fb34c-2286-4176-9342-5d642fb3cf47"),
+                            Id = new Guid("47c53d24-329e-4260-b408-de669b20cd86"),
                             AboutCompany = "Comprehensive IT services",
                             AddressId = new Guid("aecc1bcc-91a9-406c-9258-b38bbd12fdb9"),
                             CompanyName = "DigitalCraft",
@@ -783,6 +798,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Hybrid",
                             Requirements = "5+ years in fullstack dev, , Ruby on Rails, JavaScript",
                             Responsibilities = "Develop fullstack apps",
+                            Salary = "11000-14000 zł brutto",
                             Technology = "JavaScript",
                             Title = "Senior Fullstack Developer",
                             Type = "Fullstack",
@@ -790,7 +806,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("65409a2a-0cd8-4d9a-bd0c-422fec747a6b"),
+                            Id = new Guid("47cebfd8-150a-468c-aa28-598ad387eea3"),
                             AboutCompany = "IT and web solutions",
                             AddressId = new Guid("d1977ab7-eef3-4def-ae48-66f65922b471"),
                             CompanyName = "Total Solutions",
@@ -802,6 +818,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Remote",
                             Requirements = "7+ years in fullstack dev, JavaScript, Node.js, React",
                             Responsibilities = "Lead fullstack projects",
+                            Salary = "16000-19000 zł brutto",
                             Technology = "Javascript",
                             Title = "Lead Fullstack Developer",
                             Type = "Fullstack",
@@ -809,7 +826,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("83fdfce0-e580-4ca9-b954-555bd7c14536"),
+                            Id = new Guid("ea287104-d45d-4b70-92d9-9b0fe5d77d43"),
                             AboutCompany = "Creative app developers",
                             AddressId = new Guid("bc05e016-1537-41f6-80b3-9bbf991dd39c"),
                             CompanyName = "AppLab",
@@ -821,6 +838,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Onsite",
                             Requirements = "Basic knowledge in Swift, iOS",
                             Responsibilities = "Support mobile dev team",
+                            Salary = "7000-9000 zł netto",
                             Technology = "Swift",
                             Title = "Junior Mobile Developer",
                             Type = "Mobile",
@@ -828,7 +846,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d7522cdd-708d-4098-9db7-932d59a77ec7"),
+                            Id = new Guid("fd66fa9e-0fa0-4350-abe8-3844a8d112c9"),
                             AboutCompany = "Mobile app innovation",
                             AddressId = new Guid("a538082d-1000-4b50-b6ea-7e0f8b715c14"),
                             CompanyName = "NextGen Mobile",
@@ -840,6 +858,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Hybrid",
                             Requirements = "2+ years in mobile dev, Kotlin",
                             Responsibilities = "Maintain mobile apps",
+                            Salary = "10000-13000 zł netto",
                             Technology = "Kotlin",
                             Title = " Middle Mobile Developer",
                             Type = "Mobile",
@@ -847,7 +866,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("71e38101-6b1a-45da-80bf-7075b398c745"),
+                            Id = new Guid("14cf9b0b-a62a-4bad-ad71-80582704c2c0"),
                             AboutCompany = "Top mobile solutions",
                             AddressId = new Guid("3a55e504-11f1-4c82-8628-692982996558"),
                             CompanyName = "MobiSolutions",
@@ -859,6 +878,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Hybrid",
                             Requirements = "5+ years in mobile dev, , Android, Kotlin",
                             Responsibilities = "Design mobile features",
+                            Salary = "15000-20000 zł brutto",
                             Technology = "Kotlin",
                             Title = "Senior Mobile Developer",
                             Type = "Mobile",
@@ -866,7 +886,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c7e375ba-7452-4c67-8a70-bac20182ef2c"),
+                            Id = new Guid("e2f529de-fb82-4141-a06e-1bb55cea0ef4"),
                             AboutCompany = "Specializing in mobile tech",
                             AddressId = new Guid("9c654eec-ba66-40a6-8bf7-160591a9a602"),
                             CompanyName = "AppSphere",
@@ -878,6 +898,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Onsite",
                             Requirements = "7+ years in mobile dev, Swift",
                             Responsibilities = "Oversee mobile development",
+                            Salary = "20000-25000 zł brutto",
                             Technology = "Swift",
                             Title = "Lead Mobile Developer",
                             Type = "Mobile",
@@ -885,7 +906,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e5a92cb4-61cf-4b3c-86bb-272d41d8b760"),
+                            Id = new Guid("78c3d9d8-ed21-45bb-a717-ab6431bbed50"),
                             AboutCompany = "Renowned in game dev",
                             AddressId = new Guid("6270749d-0b30-4e83-8374-12d23c22271a"),
                             CompanyName = "PlayMax Studios",
@@ -897,6 +918,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Remote",
                             Requirements = "Experience with Unity, C#",
                             Responsibilities = "Write game mechanics code",
+                            Salary = "8000-9000 zł netto",
                             Technology = "C#",
                             Title = "Junior Game Developer",
                             Type = "GameDev",
@@ -904,7 +926,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8831bc31-a93a-4015-ab30-c9743eb3f267"),
+                            Id = new Guid("51bb165f-f6b1-4f28-8f68-b9a616082f3a"),
                             AboutCompany = "Innovators in gaming",
                             AddressId = new Guid("5f6ec67a-de91-4260-a1cf-50aebeb8181b"),
                             CompanyName = "GameForge",
@@ -916,6 +938,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Onsite",
                             Requirements = "3+ years with Unity,C#",
                             Responsibilities = "Create engaging game logic",
+                            Salary = "10000-12000 zł brutto",
                             Technology = "C#",
                             Title = "Middle Game Developer",
                             Type = "Gamedev",
@@ -923,7 +946,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("519d680e-c05f-45c2-bcc9-1af7feaf8f1f"),
+                            Id = new Guid("cad7a8ae-11e2-4695-9582-6cf21bd3252d"),
                             AboutCompany = "A renowned leader in AAA game development",
                             AddressId = new Guid("868f8731-4a07-44fd-bd27-4acb4a35f77f"),
                             CompanyName = "PlayMax Studios",
@@ -935,6 +958,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Remote",
                             Requirements = "5+ years with Unity or Unreal Engine, strong C# or C++ skills",
                             Responsibilities = "Develop complex game systems, mentor junior developers",
+                            Salary = "14000-17000 zł brutto",
                             Technology = "C#",
                             Title = "Senior Game Developer",
                             Type = "GameDev",
@@ -942,7 +966,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f7bf7250-4b46-4d1a-8c9b-e7c77bda3c8f"),
+                            Id = new Guid("ad44aad1-630e-46b3-a376-8a8d670a8d29"),
                             AboutCompany = "Industry leader in immersive gaming experiences",
                             AddressId = new Guid("4b23304a-d75c-4dff-8b86-402a8656f39c"),
                             CompanyName = "Epic Games Studio",
@@ -954,6 +978,7 @@ namespace JobHunt.Infrastructure.Migrations
                             OperationMode = "Onsite",
                             Requirements = "7+ years in game development, experience leading large projects, Unreal Engine, C++, Game Design",
                             Responsibilities = "Lead the game development team, oversee project lifecycle",
+                            Salary = "18000-20000 zł brutto",
                             Technology = "C++",
                             Title = "Lead Game Developer",
                             Type = "GameDev",

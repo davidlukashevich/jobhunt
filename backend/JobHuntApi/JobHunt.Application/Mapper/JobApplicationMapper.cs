@@ -1,4 +1,4 @@
-﻿using JobHunt.Application.Request;
+﻿using JobHunt.Application.Request.JobApplication;
 using JobHunt.Application.Response.JobApplication;
 using JobHunt.Domain.Models;
 
@@ -17,7 +17,8 @@ public static class JobApplicationMapper
             Phone = request.Mobile,
             AboutInformation = request.AboutUser,
             JobId = request.JobId,
-            CreatedBy = request.CreatedBy
+            CreatedBy = request.CreatedBy,
+            Cv = $"https://jobhuntstorage.blob.core.windows.net/files/cv_{request.Cv.FileName}"
         };
     }
 

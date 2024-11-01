@@ -1,7 +1,7 @@
 using JobHunt.Application.Command.User.UserChangePassword;
 using JobHunt.Application.Command.User.UserLogin;
 using JobHunt.Application.Command.User.UserRegister;
-using JobHunt.Application.Request;
+using JobHunt.Application.Request.User;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

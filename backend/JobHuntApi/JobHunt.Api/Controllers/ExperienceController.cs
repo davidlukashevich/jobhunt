@@ -2,7 +2,7 @@
 using JobHunt.Application.Command.Experience.CreateExperience;
 using JobHunt.Application.Command.Experience.DeleteExperience;
 using JobHunt.Application.Command.Experience.UpdateExperience;
-using JobHunt.Application.Request;
+using JobHunt.Application.Request.Experience;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

@@ -1,7 +1,7 @@
 using JobHunt.Application.Command.Profile.CreateProfile;
 using JobHunt.Application.Command.Profile.UpdateProfile;
 using JobHunt.Application.Query.Profile.GetProfile;
-using JobHunt.Application.Request;
+using JobHunt.Application.Request.Profile;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

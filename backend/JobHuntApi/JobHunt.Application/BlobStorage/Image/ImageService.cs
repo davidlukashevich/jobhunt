@@ -3,7 +3,7 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Microsoft.AspNetCore.Http;
 
-namespace JobHunt.Application.BlobStorage;
+namespace JobHunt.Application.BlobStorage.Image;
 
 public class ImageService : IImageService
 {

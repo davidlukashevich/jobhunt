@@ -1,5 +1,5 @@
 ﻿using System.Net;
-using JobHunt.Application.BlobStorage;
+using JobHunt.Application.BlobStorage.Image;
 using JobHunt.Application.Command.Address.CreateAddress;
 using JobHunt.Application.Command.Image.CreateImage;
 using JobHunt.Application.Mapper;

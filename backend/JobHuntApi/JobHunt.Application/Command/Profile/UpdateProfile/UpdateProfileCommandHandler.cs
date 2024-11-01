@@ -1,5 +1,5 @@
 ﻿using System.Net;
-using JobHunt.Application.BlobStorage;
+using JobHunt.Application.BlobStorage.Image;
 using JobHunt.Application.Command.Address.UpdateAddress;
 using JobHunt.Application.Command.Image.UpdateImage;
 using JobHunt.Application.Exceptions.Profile;

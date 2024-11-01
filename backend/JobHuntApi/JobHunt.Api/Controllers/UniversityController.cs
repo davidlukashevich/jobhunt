@@ -1,7 +1,7 @@
 using JobHunt.Application.Command.University.CreateUniversity;
 using JobHunt.Application.Command.University.DeleteUniversity;
 using JobHunt.Application.Command.University.UpdateUniversity;
-using JobHunt.Application.Request;
+using JobHunt.Application.Request.University;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

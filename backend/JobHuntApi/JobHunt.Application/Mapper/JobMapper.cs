@@ -1,5 +1,5 @@
 ﻿using JobHunt.Application.DTO;
-using JobHunt.Application.Request;
+using JobHunt.Application.Request.Job;
 using JobHunt.Application.Response.Job;
 using JobHunt.Domain.Models;
 
@@ -18,6 +18,7 @@ public static class JobMapper
                     City = j.Address!.City,
                     OperationMode = j.OperationMode,
                     CompanyLogo = j.Image?.ImageUrl,
+                    Salary = j.Salary,
                     
             })
             .ToList();
@@ -39,6 +40,7 @@ public static class JobMapper
             Requirements = job.Requirements,
             AboutCompany = job.AboutCompany,
             CreatedBy = job.CreatedBy,
+            Salary = job.Salary,
             Address = new AddressDTO()
             {
                 Id = job.Address!.Id,
@@ -73,7 +75,8 @@ public static class JobMapper
             Technology = jobRequest.Technology,
             CreatedBy = jobRequest.CreatedBy,
             ImageId = imageId,
-            AboutCompany = jobRequest.AboutCompany
+            AboutCompany = jobRequest.AboutCompany,
+            Salary = jobRequest.Salary
         };
     }
     
@@ -91,7 +94,8 @@ public static class JobMapper
             Type = jobRequest.Type,
             Technology = jobRequest.Technology,
             CreatedBy = jobRequest.CreatedBy!,
-            AboutCompany = jobRequest.AboutCompany
+            AboutCompany = jobRequest.AboutCompany,
+            Salary = jobRequest.Salary
         };
     }
 }

@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Http;
 
-namespace JobHunt.Application.BlobStorage;
+namespace JobHunt.Application.BlobStorage.Image;
 
 public interface IImageService
 {

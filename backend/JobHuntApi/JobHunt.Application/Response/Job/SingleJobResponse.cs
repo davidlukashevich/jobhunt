@@ -17,4 +17,5 @@ public class SingleJobResponse
     public AddressDTO? Address { get; set; }
     public string? CreatedBy { get; set; }
     public string? AboutCompany { get; set; }
+    public string? Salary { get; set; }
 }

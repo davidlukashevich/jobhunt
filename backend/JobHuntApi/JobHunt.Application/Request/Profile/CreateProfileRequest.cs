@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace JobHunt.Application.Request;
+namespace JobHunt.Application.Request.Profile;
 
 public class CreateProfileRequest
 {

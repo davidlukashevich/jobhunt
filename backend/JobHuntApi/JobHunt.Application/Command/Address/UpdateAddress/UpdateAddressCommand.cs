@@ -1,4 +1,4 @@
-﻿using JobHunt.Application.Request;
+﻿using JobHunt.Application.Request.Address;
 using MediatR;
 
 namespace JobHunt.Application.Command.Address.UpdateAddress;
