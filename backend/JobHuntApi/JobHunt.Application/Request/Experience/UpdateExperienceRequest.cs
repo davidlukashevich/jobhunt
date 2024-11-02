@@ -1,4 +1,6 @@
-﻿namespace JobHunt.Application.Request.Experience;
+﻿using JobHunt.Application.DTO;
+
+namespace JobHunt.Application.Request.Experience;
 
 public class UpdateExperienceRequest
 {
@@ -6,6 +8,6 @@ public class UpdateExperienceRequest
     public string?  CompanyName { get; set; }
     public string?  Responsibility { get; set; }
     public string? Location { get; set; }
-    public DateTime WorkFrom  { get; set; }
-    public DateTime WorkTo { get; set; }
+    public DateDto? WorkFrom  { get; set; }
+    public DateDto? WorkTo { get; set; }
 }

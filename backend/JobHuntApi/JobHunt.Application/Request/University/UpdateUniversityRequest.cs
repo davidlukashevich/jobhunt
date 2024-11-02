@@ -1,4 +1,6 @@
-﻿namespace JobHunt.Application.Request.University;
+﻿using JobHunt.Application.DTO;
+
+namespace JobHunt.Application.Request.University;
 
 public class UpdateUniversityRequest
 {
@@ -6,6 +8,6 @@ public class UpdateUniversityRequest
     public string? EducationLevel { get; set; }
     public string?  FieldOfStudy { get; set; }
     public string?  Specialization { get; set; }
-    public DateTime StudyFrom { get; set; }
-    public DateTime StudyTo { get; set; }
+    public DateDto? StudyFrom { get; set; }
+    public DateDto? StudyTo { get; set; }
 }

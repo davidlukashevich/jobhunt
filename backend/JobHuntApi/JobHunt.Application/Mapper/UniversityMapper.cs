@@ -15,8 +15,17 @@ public static class UniversityMapper
             EducationLevel = university.EducationLevel,
             FieldOfStudy = university.FieldOfStudy,
             Specialization = university.Specialization,
-            StudyFrom = university.StudyFrom,
-            StudyTo = university.StudyTo,
+            StudyFrom = new DateOnly(
+                    university.StudyFrom.Year,
+                    university.StudyFrom.Month,
+                    university.StudyFrom.Day
+                ).ToString("dd/MM/yyyy"),
+            
+            StudyTo = new DateOnly(
+                    university.StudyTo.Year,
+                    university.StudyTo.Month,
+                    university.StudyTo.Day
+                ).ToString("dd/MM/yyyy"),
         };
     }
 
@@ -29,8 +38,18 @@ public static class UniversityMapper
             EducationLevel = request.EducationLevel,
             FieldOfStudy = request.FieldOfStudy,
             Specialization = request.Specialization,
-            StudyFrom = request.StudyFrom,
-            StudyTo = request.StudyTo,
+            StudyFrom = new DateOnly(
+                    request.StudyFrom!.Year,
+                    request.StudyFrom.Month,
+                    request.StudyFrom.Day
+                ),
+            
+            StudyTo = new DateOnly(
+                request.StudyTo!.Year,
+                request.StudyTo.Month,
+                request.StudyTo.Day
+            ),
+            
             ProfileId = profileId
         };
     }
@@ -44,8 +63,16 @@ public static class UniversityMapper
             EducationLevel = request.EducationLevel,
             FieldOfStudy = request.FieldOfStudy,
             Specialization = request.Specialization,
-            StudyFrom = request.StudyFrom,
-            StudyTo = request.StudyTo,
+            StudyFrom = new DateOnly(
+                request.StudyFrom!.Year,
+                request.StudyFrom.Month,
+                request.StudyFrom.Day
+                ),
+            StudyTo = new DateOnly(
+                    request.StudyTo!.Year,
+                    request.StudyTo.Month,
+                    request.StudyTo.Day
+                ),
             
         };
     }

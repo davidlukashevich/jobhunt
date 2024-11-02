@@ -14,8 +14,17 @@ public static class ExperienceMapper
             Position = experience.Position,
             CompanyName = experience.CompanyName,
             Responsibility = experience.Responsibility,
-            WorkFrom = experience.WorkFrom,
-            WorkTo = experience.WorkTo,
+            WorkFrom = new DateOnly(
+                experience.WorkFrom.Year,
+                experience.WorkFrom.Month,
+                experience.WorkFrom.Day
+                ).ToString("dd/MM/yyyy"),
+            
+            WorkTo = new DateOnly(
+                experience.WorkTo.Year,
+                experience.WorkTo.Month,
+                experience.WorkTo.Day
+                ).ToString("dd/MM/yyyy"),
             Location = experience.Location,
         };
     }
@@ -29,8 +38,17 @@ public static class ExperienceMapper
             Location = createExperienceRequest.Location,
             CompanyName = createExperienceRequest.CompanyName,
             Responsibility = createExperienceRequest.Responsibility,
-            WorkFrom = createExperienceRequest.WorkFrom,
-            WorkTo = createExperienceRequest.WorkTo,
+            WorkFrom = new DateOnly(
+                createExperienceRequest.WorkFrom!.Year,
+                createExperienceRequest.WorkFrom.Month,
+                createExperienceRequest.WorkFrom.Day
+                
+                ),
+            WorkTo = new DateOnly(
+                createExperienceRequest.WorkTo!.Year,
+                createExperienceRequest.WorkTo.Month,
+                createExperienceRequest.WorkTo.Day
+                ),
             ProfileId = profileId
         };
     }
@@ -42,8 +60,16 @@ public static class ExperienceMapper
             Location = updateExperienceRequest.Location,
             CompanyName = updateExperienceRequest.CompanyName,
             Responsibility = updateExperienceRequest.Responsibility,
-            WorkFrom = updateExperienceRequest.WorkFrom,
-            WorkTo = updateExperienceRequest.WorkTo,
+            WorkFrom = new DateOnly(
+                    updateExperienceRequest.WorkFrom!.Year,
+                    updateExperienceRequest.WorkFrom.Month,
+                    updateExperienceRequest.WorkFrom.Day
+                ),
+            WorkTo = new DateOnly(
+                    updateExperienceRequest.WorkTo!.Year,
+                    updateExperienceRequest.WorkTo.Month,
+                    updateExperienceRequest.WorkTo.Day
+                ),
         };
     }
 }

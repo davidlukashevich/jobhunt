@@ -7,6 +7,6 @@ public class UniversityDTO
     public string? EducationLevel { get; set; }
     public string?  FieldOfStudy { get; set; }
     public string?  Specialization { get; set; }
-    public DateTime StudyFrom { get; set; }
-    public DateTime StudyTo { get; set; }
+    public string? StudyFrom { get; set; } 
+    public string? StudyTo { get; set; }
 }
