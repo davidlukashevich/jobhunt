@@ -9,12 +9,16 @@ interface LoginForm {
 interface SignUpForm extends LoginForm {
   username: string;
   confirmPassword: string;
+  userType: 'employee' | 'employer';
+  companyName?: string;
+  companyAddress?: string;
 }
 
 type FormType = 'login' | 'signup';
 
 const Form: React.FC = () => {
   const [formType, setFormType] = useState<FormType>('login');
+  const [userType, setUserType] = useState<'employee' | 'employer'>('employee');
 
   const [loginForm, setLoginForm] = useState<LoginForm>({
     email: '',
@@ -26,6 +30,7 @@ const Form: React.FC = () => {
     password: '',
     username: '',
     confirmPassword: '',
+    userType: 'employee',
   });
 
   const handleInputChange = (
@@ -47,6 +52,15 @@ const Form: React.FC = () => {
     }
   };
 
+  const handleUserTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setUserType(value as 'employee' | 'employer');
+    setSignUpForm({
+      ...signUpForm,
+      userType: value as 'employee' | 'employer',
+    });
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formType === 'login') {
@@ -63,15 +77,41 @@ const Form: React.FC = () => {
             onClick={() => setFormType('login')}
             className={formType === 'login' ? 'active' : ''}
         >
-                Log In
+          Log In
         </button>
         <button 
             onClick={() => setFormType('signup')}
             className={formType === 'signup' ? 'active' : ''}
         >
-            Sign Up
+          Sign Up
         </button>
       </div>
+
+      {formType === 'signup' && (
+        <div className="user-type-selection">
+          <label>Are you an employee or an employer?</label>
+          <div className="radio-group">
+            <label>
+              <input
+                type="radio"
+                name="userType"
+                value="employee"
+                checked={userType === 'employee'}
+                onChange={handleUserTypeChange}
+              /> Employee
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="userType"
+                value="employer"
+                checked={userType === 'employer'}
+                onChange={handleUserTypeChange}
+              /> Employer
+            </label>
+          </div>
+        </div>
+      )}
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -123,11 +163,38 @@ const Form: React.FC = () => {
                 required
               />
             </div>
+
+            {userType === 'employer' && (
+              <>
+                <div>
+                  <label>Company Name:</label>
+                  <input
+                    type="text"
+                    name="companyName"
+                    className='auth-form-input'
+                    value={signUpForm.companyName || ''}
+                    onChange={(e) => handleInputChange(e, 'signup')}
+                    required
+                  />
+                </div>
+                <div>
+                  <label>Company Address:</label>
+                  <input
+                    type="text"
+                    name="companyAddress"
+                    className='auth-form-input'
+                    value={signUpForm.companyAddress || ''}
+                    onChange={(e) => handleInputChange(e, 'signup')}
+                    required
+                  />
+                </div>
+              </>
+            )}
           </>
         )}
 
         <button type="submit" className="submit-btn">
-        {formType === 'login' ? 'Log In' : 'Sign Up'}
+          {formType === 'login' ? 'Log In' : 'Sign Up'}
         </button>
       </form>
     </div>
