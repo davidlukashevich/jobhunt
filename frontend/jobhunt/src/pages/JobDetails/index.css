@@ -1,24 +1,55 @@
+.job-header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
 .job-title {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
+    color: #333;
+    margin-bottom: 5px;
 }
 
 .company-name {
     font-size: 18px;
-    margin-bottom: 5px;
+    color: #555;
 }
 
-.hourly-rate {
+.job-location {
     font-size: 16px;
-    color: #555;
+    color: #777;
     margin-bottom: 20px;
 }
 
-.job-description {
+.job-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.salary-range {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.employment-type, .work-type, .availability {
     font-size: 16px;
+    color: #666;
+}
+
+.job-description {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    margin-top: 15px;
     line-height: 1.5;
-    margin-bottom: 30px;
+}
+
+.working-hours, .days, .benefits {
+    font-size: 14px;
+    color: #666;
 }
 
 .apply-btn {
@@ -28,4 +59,11 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.container {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 20px;
 }

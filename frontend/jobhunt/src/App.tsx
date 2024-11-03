@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Main from './pages/Main/Main';
 import AuthPage from './pages/Auth/AuthPage';
 import JobDetails from './pages/JobDetails/JobDetails';
+import ApplicationForm from './pages/ApplicationForm/ApplicationForm';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path='/' Component={Main}/>
             <Route path='/auth' Component={AuthPage} />
             <Route path='/job/:id' element={<JobDetails />} />
+            <Route path="/apply/:jobId" Component={ApplicationForm} />
           </Routes>
       </div>
     </BrowserRouter>

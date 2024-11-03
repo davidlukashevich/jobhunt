@@ -78,8 +78,9 @@
 }
 
 .view-btn {
-  background-color: black;
-  color: white;
+  background-color: #0062cc;
+  color: #ffffff;
+  border: 1px solid #0062cc;
   padding: 10px 20px;
   border-radius: 6px;
   border: none;
@@ -89,5 +90,5 @@
 }
 
 .view-btn:hover {
-  background-color: #333;
+  background-color: #004085;
 }

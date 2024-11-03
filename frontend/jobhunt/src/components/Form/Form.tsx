@@ -75,13 +75,13 @@ const Form: React.FC = () => {
       <div className="auth-form-switch">
         <button 
             onClick={() => setFormType('login')}
-            className={formType === 'login' ? 'active' : ''}
+            className={formType === 'login' ? 'active' : 'login-btn'}
         >
           Log In
         </button>
         <button 
             onClick={() => setFormType('signup')}
-            className={formType === 'signup' ? 'active' : ''}
+            className={formType === 'signup' ? 'active' : 'signup-btn'}
         >
           Sign Up
         </button>
