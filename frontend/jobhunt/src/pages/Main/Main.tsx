@@ -31,6 +31,38 @@ const Main: React.FC = () => {
           description: "Help manage product life cycles and collaborate with cross-functional teams.",
           requirements: "Strong communication skills and ability to work in a team.",
         },
+        {
+            id: 3,
+            title: "Product Management Intern",
+            company: "Global Corp",
+            location: "Remote",
+            description: "Help manage product life cycles and collaborate with cross-functional teams.",
+            requirements: "Strong communication skills and ability to work in a team.",
+          },
+          {
+            id: 4,
+            title: "Product Management Intern",
+            company: "Global Corp",
+            location: "Remote",
+            description: "Help manage product life cycles and collaborate with cross-functional teams.",
+            requirements: "Strong communication skills and ability to work in a team.",
+          },
+          {
+            id: 5,
+            title: "Product Management Intern",
+            company: "Global Corp",
+            location: "Remote",
+            description: "Help manage product life cycles and collaborate with cross-functional teams.",
+            requirements: "Strong communication skills and ability to work in a team.",
+          },
+          {
+            id: 6,
+            title: "Product Management Intern",
+            company: "Global Corp",
+            location: "Remote",
+            description: "Help manage product life cycles and collaborate with cross-functional teams.",
+            requirements: "Strong communication skills and ability to work in a team.",
+          },
     ];
 
     const jobsFilter = [
