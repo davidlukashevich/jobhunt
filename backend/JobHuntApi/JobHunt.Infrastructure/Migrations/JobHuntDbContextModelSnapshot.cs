@@ -41,7 +41,7 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("createdAt");
+                        .HasColumnName("created_at");
 
                     b.Property<string>("Street")
                         .IsRequired()
@@ -50,7 +50,7 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updatedAt");
+                        .HasColumnName("updated_at");
 
                     b.HasKey("Id");
 
@@ -253,7 +253,7 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("createdAt");
+                        .HasColumnName("created_at");
 
                     b.Property<string>("Location")
                         .IsRequired()
@@ -276,7 +276,7 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updatedAt");
+                        .HasColumnName("updated_at");
 
                     b.Property<DateOnly>("WorkFrom")
                         .HasColumnType("date")
@@ -302,7 +302,7 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("createdAt");
+                        .HasColumnName("created_at");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
@@ -316,7 +316,7 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updatedAt");
+                        .HasColumnName("updated_at");
 
                     b.HasKey("Id");
 
@@ -513,7 +513,7 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("createdAt");
+                        .HasColumnName("created_at");
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
@@ -566,7 +566,7 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updatedAt");
+                        .HasColumnName("updated_at");
 
                     b.HasKey("Id");
 
@@ -586,7 +586,7 @@ namespace JobHunt.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("38a5a066-358f-42d3-aa50-d4768e583788"),
+                            Id = new Guid("2f9e3626-08a3-4d9c-90d4-101f9e58287c"),
                             AboutCompany = "Web and mobile dev",
                             AddressId = new Guid("81829923-f40e-4f58-9506-08da478058a2"),
                             CompanyName = "Code Factory",
@@ -606,7 +606,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ea1d62c3-3202-438c-ab2f-04632a3eda80"),
+                            Id = new Guid("5b74933d-d06f-4bca-b8d7-b6bebd643e51"),
                             AboutCompany = "Web innovation leaders",
                             AddressId = new Guid("760b41f0-1ae8-4140-aeaa-c51edb8524dd"),
                             CompanyName = "Web Wonders",
@@ -626,7 +626,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("801386bc-011a-4931-974b-45a8d1a5b267"),
+                            Id = new Guid("58709e94-9ada-4ca8-8f7a-4a076a2ab9ec"),
                             AboutCompany = "Leading in AI solutions",
                             AddressId = new Guid("0ca4032a-b0c0-4d25-8575-f5b065d7df54"),
                             CompanyName = "Tech Innovators",
@@ -646,7 +646,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("52400c05-8880-441a-bf41-7363b1d8b2e8"),
+                            Id = new Guid("15213a54-0e96-475a-b93d-70b4e91a23bd"),
                             AboutCompany = "Web dev specialists",
                             AddressId = new Guid("525c49eb-3406-4210-9125-6085e59b4eb3"),
                             CompanyName = "WebWorks",
@@ -666,7 +666,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("95d8c621-000a-4148-a0d2-958dceaca46c"),
+                            Id = new Guid("2f4f1f5e-7d70-4bfa-ba52-55a0655d1b66"),
                             AboutCompany = "Focus on data analytics",
                             AddressId = new Guid("65997657-6342-4461-991e-d9ef4cc27808"),
                             CompanyName = "DataX Solutions",
@@ -686,7 +686,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("89a5c45a-5c45-4fc9-bb07-88aec066b78e"),
+                            Id = new Guid("7cdab76b-6e62-4717-a46c-d38c8e590162"),
                             AboutCompany = "Data science leaders",
                             AddressId = new Guid("02cb7c97-8ac4-4df1-b9bb-a9ff6732c728"),
                             CompanyName = "DataScience Co",
@@ -706,7 +706,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("096dbbb1-8956-4eca-8e88-f6c31a40823f"),
+                            Id = new Guid("71cafc82-a482-4055-aba5-55fe616eae39"),
                             AboutCompany = "Experts in cloud tech",
                             AddressId = new Guid("c4d716dc-e536-4f93-affd-1eca9be155f1"),
                             CompanyName = "Cloudify",
@@ -726,7 +726,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c34a8816-8488-4408-8072-bbe1cf5d5bf6"),
+                            Id = new Guid("97444e85-cd7c-4f68-8799-95f3de6b7215"),
                             AboutCompany = "Backend solutions",
                             AddressId = new Guid("eb0bf179-2a90-42f2-a778-0457f10280b7"),
                             CompanyName = "CoreTech",
@@ -746,7 +746,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4fa7c913-bfb9-481b-b64a-31b9a39e377b"),
+                            Id = new Guid("116a86e2-4d69-42c1-b0dc-44777f218daa"),
                             AboutCompany = "Web innovation hub",
                             AddressId = new Guid("61e53104-cc1e-4403-b781-ac2a9d90a675"),
                             CompanyName = "WebGen",
@@ -766,7 +766,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1d1658ca-da5d-465c-9566-951227f19aba"),
+                            Id = new Guid("c4ddd05a-581e-4be6-9e29-1e8d604e9e38"),
                             AboutCompany = "Web solutions specialists",
                             AddressId = new Guid("6dceaa73-c28e-4aa5-b148-aa673e9b80b5"),
                             CompanyName = "App Builders",
@@ -786,7 +786,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7c3e4b4a-11fc-4037-b6ca-a2a4284b6ae1"),
+                            Id = new Guid("b517cc87-5322-4b4d-8d90-a8b839e1a24a"),
                             AboutCompany = "Comprehensive IT services",
                             AddressId = new Guid("aecc1bcc-91a9-406c-9258-b38bbd12fdb9"),
                             CompanyName = "DigitalCraft",
@@ -806,7 +806,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c4f0512e-207b-4445-a926-9e5281cc1e75"),
+                            Id = new Guid("3bc88c56-6eef-480f-a940-18bd21ddba27"),
                             AboutCompany = "IT and web solutions",
                             AddressId = new Guid("d1977ab7-eef3-4def-ae48-66f65922b471"),
                             CompanyName = "Total Solutions",
@@ -826,7 +826,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("9687d167-e80f-4dd8-b852-57962555f607"),
+                            Id = new Guid("f37a58b9-5f15-4576-ab26-a766c1bdaab0"),
                             AboutCompany = "Creative app developers",
                             AddressId = new Guid("bc05e016-1537-41f6-80b3-9bbf991dd39c"),
                             CompanyName = "AppLab",
@@ -846,7 +846,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5b7e765a-0596-4be6-a2a5-06ed33c667d9"),
+                            Id = new Guid("4e78f3c6-ba66-425d-b488-e349435bbc4d"),
                             AboutCompany = "Mobile app innovation",
                             AddressId = new Guid("a538082d-1000-4b50-b6ea-7e0f8b715c14"),
                             CompanyName = "NextGen Mobile",
@@ -866,7 +866,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b8bc64be-c347-41a8-ad2b-a960c9e71b78"),
+                            Id = new Guid("02052c90-4f85-469b-a6dd-0143e80cc688"),
                             AboutCompany = "Top mobile solutions",
                             AddressId = new Guid("3a55e504-11f1-4c82-8628-692982996558"),
                             CompanyName = "MobiSolutions",
@@ -886,7 +886,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("da4e3396-e4b4-4593-8034-dcffcc55ad2f"),
+                            Id = new Guid("11e54c47-9a04-4584-a523-20fb7909d067"),
                             AboutCompany = "Specializing in mobile tech",
                             AddressId = new Guid("9c654eec-ba66-40a6-8bf7-160591a9a602"),
                             CompanyName = "AppSphere",
@@ -906,7 +906,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("40dc4787-2329-48ee-b0a7-eb95721417b9"),
+                            Id = new Guid("bb4e2c5f-2c02-4576-b01e-bd48a362c079"),
                             AboutCompany = "Renowned in game dev",
                             AddressId = new Guid("6270749d-0b30-4e83-8374-12d23c22271a"),
                             CompanyName = "PlayMax Studios",
@@ -926,7 +926,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0a966e88-cd83-429e-83d4-f88e91710485"),
+                            Id = new Guid("d5a24bff-c85f-4bc3-8708-a0e39bec6aea"),
                             AboutCompany = "Innovators in gaming",
                             AddressId = new Guid("5f6ec67a-de91-4260-a1cf-50aebeb8181b"),
                             CompanyName = "GameForge",
@@ -946,7 +946,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("75de3d8a-b798-422b-902d-7c5cb022e132"),
+                            Id = new Guid("46a7218b-8b76-4fba-92fd-a1ea61380da8"),
                             AboutCompany = "A renowned leader in AAA game development",
                             AddressId = new Guid("868f8731-4a07-44fd-bd27-4acb4a35f77f"),
                             CompanyName = "PlayMax Studios",
@@ -966,7 +966,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7574a111-19c0-40f0-9f42-366b125fd09d"),
+                            Id = new Guid("bdc15363-aceb-4cf3-bde8-dd5fdd227272"),
                             AboutCompany = "Industry leader in immersive gaming experiences",
                             AddressId = new Guid("4b23304a-d75c-4dff-8b86-402a8656f39c"),
                             CompanyName = "Epic Games Studio",
@@ -999,12 +999,12 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("createdAt");
+                        .HasColumnName("created_at");
 
                     b.Property<string>("CreatedBy")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("createdBy");
+                        .HasColumnName("created_by");
 
                     b.Property<string>("Cv")
                         .IsRequired()
@@ -1036,7 +1036,7 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updatedAt");
+                        .HasColumnName("updated_at");
 
                     b.HasKey("Id");
 
@@ -1058,14 +1058,14 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("createdAt");
+                        .HasColumnName("created_at");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("text")
-                        .HasColumnName("createdBy");
+                        .HasColumnName("created_by");
 
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("DateOfBirth")
+                        .HasColumnType("date");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -1093,7 +1093,7 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updatedAt");
+                        .HasColumnName("updated_at");
 
                     b.HasKey("Id");
 
@@ -1115,7 +1115,7 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("createdAt");
+                        .HasColumnName("created_at");
 
                     b.Property<string>("EducationLevel")
                         .IsRequired()
@@ -1151,7 +1151,7 @@ namespace JobHunt.Infrastructure.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")
-                        .HasColumnName("updatedAt");
+                        .HasColumnName("updated_at");
 
                     b.HasKey("Id");
 

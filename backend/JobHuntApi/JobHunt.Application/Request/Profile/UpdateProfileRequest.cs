@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using JobHunt.Application.DTO;
+using Microsoft.AspNetCore.Http;
 
 namespace JobHunt.Application.Request.Profile;
 
@@ -9,7 +10,9 @@ public class UpdateProfileRequest
     public required string Email { get; set; }
     public string? Phone { get; set; }
     public string? UserId { get; set; }
-    public DateTime DateOfBirth { get; set; }
+    public int DateOfBirthYear { get; set; }
+    public int DateOfBirthMonth { get; set; }
+    public int DateOfBirthDay { get; set; }
     public Guid AddressId { get; set; }
     public required string Country { get; set; }
     public required string City { get; set; }

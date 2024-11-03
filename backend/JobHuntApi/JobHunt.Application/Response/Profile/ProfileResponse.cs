@@ -9,7 +9,7 @@ public class ProfileResponse
     public required string Lastname { get; set; }
     public required string Email { get; set; }
     public string? Phone { get; set; }
-    public DateTime DateOfBirth { get; set; }
+    public string? DateOfBirth { get; set; }
     public List<UniversityDTO>? Universities { get; set; }
     public List<ExperienceDTO>? Experiences { get; set; }
     public AddressDTO? Address { get; set; }

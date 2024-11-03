@@ -14,8 +14,8 @@ public class ImageEntityConfiguration : IEntityTypeConfiguration<Image>
         builder.Property(p => p.Id).HasColumnName("id");
         builder.Property(p => p.Name).HasColumnName("name").IsRequired();
         builder.Property(p => p.ImageUrl).HasColumnName("image_url").IsRequired();
-        builder.Property(p => p.CreatedAt).HasColumnName("createdAt");
-        builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt");
+        builder.Property(p => p.CreatedAt).HasColumnName("created_at");
+        builder.Property(p => p.UpdatedAt).HasColumnName("updated_at");
 
 
         builder.HasData(

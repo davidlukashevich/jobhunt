@@ -17,7 +17,7 @@ public static class ProfileMapper
             Lastname = profile.Lastname,
             Email = profile.Email,
             Phone = profile.Phone,
-            DateOfBirth = profile.DateOfBirth,
+            DateOfBirth = new DateOnly(profile.DateOfBirth.Year, profile.DateOfBirth.Month, profile.DateOfBirth.Day).ToString("dd/MM/yyyy"),
             Universities = profile.Universities?.Select(u => u.ToUniversityDTO()).ToList(),
             Experiences = profile.Experiences?.Select(e => e.ToExperienceDto()).ToList(),
             Address = profile.Address!.ToAddressDto(),
@@ -39,7 +39,7 @@ public static class ProfileMapper
             Lastname = request.Lastname,
             Email = request.Email,
             Phone = request.Phone,
-            DateOfBirth = request.DateOfBirth,
+            DateOfBirth = new DateOnly(request.DateOfBirthYear, request.DateOfBirthMonth, request.DateOfBirthDay),
             AddressId = addressId,
             CreatedBy = request.UserId,
             ImageId = imageId,
@@ -57,7 +57,7 @@ public static class ProfileMapper
             Email = request.Email,
             Phone = request.Phone,
             //ProfileImage = request.Avatar,
-            DateOfBirth = request.DateOfBirth,
+            DateOfBirth = new DateOnly(request.DateOfBirthYear, request.DateOfBirthMonth, request.DateOfBirthDay),
             CreatedBy = request.UserId,
         };
     }

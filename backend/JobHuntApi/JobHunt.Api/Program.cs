@@ -1,6 +1,7 @@
 
 
 using JobHunt.Application;
+using JobHunt.Application.Extensions;
 using JobHunt.Application.Options;
 using JobHunt.Infrastructure;
 
@@ -74,6 +75,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.ApplyMigrations();
 }
 
 app.UseExceptionHandler(_ => { });

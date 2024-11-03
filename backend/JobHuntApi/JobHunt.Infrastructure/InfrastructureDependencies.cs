@@ -1,10 +1,8 @@
 ﻿
 using JobHunt.Domain.Interface.Repository;
-using JobHunt.Domain.Models;
 using JobHunt.Infrastructure.Data;
 using JobHunt.Infrastructure.Identity.UserManager;
 using JobHunt.Infrastructure.Repository;
-
 using Microsoft.Extensions.DependencyInjection;
 
 
@@ -16,7 +14,7 @@ public static class InfrastructureDependencies
     {
 
         services.AddDbContext<JobHuntDbContext>();
-
+       
         
         
         services.AddScoped<IJobRepository, JobRepository>();

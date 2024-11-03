@@ -19,8 +19,8 @@ public class ExperienceEntityConfiguration : IEntityTypeConfiguration<Experience
         builder.Property(p => p.WorkFrom).HasColumnName("work_from").IsRequired();
         builder.Property(p => p.WorkTo).HasColumnName("work_to").IsRequired();
         builder.Property(p => p.ProfileId).HasColumnName("profile_id").IsRequired();
-        builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt");
-        builder.Property(p => p.CreatedAt).HasColumnName("createdAt");
+        builder.Property(p => p.UpdatedAt).HasColumnName("updated_at");
+        builder.Property(p => p.CreatedAt).HasColumnName("created_at");
         
         
 

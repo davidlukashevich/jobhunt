@@ -17,10 +17,10 @@ public class ProfileEntityConfiguration : IEntityTypeConfiguration<Profile>
         builder.Property(p => p.Email).IsRequired().HasColumnName("email");
         builder.Property(p => p.Phone).IsRequired().HasColumnName("phone");
         builder.Property(p => p.AddressId).IsRequired().HasColumnName("address_id");
-        builder.Property(p => p.CreatedBy).HasColumnName("createdBy");
+        builder.Property(p => p.CreatedBy).HasColumnName("created_by");
         builder.Property(p => p.ImageId).HasColumnName("image_id");
-        builder.Property(p => p.CreatedAt).HasColumnName("createdAt");
-        builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt");
+        builder.Property(p => p.CreatedAt).HasColumnName("created_at");
+        builder.Property(p => p.UpdatedAt).HasColumnName("updated_at");
         
        
         

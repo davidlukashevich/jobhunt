@@ -16,8 +16,8 @@ public class AddressEntityConfiguration : IEntityTypeConfiguration<Address>
         builder.Property(p => p.Country).IsRequired().HasColumnName("country");
         builder.Property(p => p.City).IsRequired().HasColumnName("city");
         builder.Property(p => p.Street).IsRequired().HasColumnName("street");
-        builder.Property(p => p.CreatedAt).HasColumnName("createdAt");
-        builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt");
+        builder.Property(p => p.CreatedAt).HasColumnName("created_at");
+        builder.Property(p => p.UpdatedAt).HasColumnName("updated_at");
 
         builder.HasData(
             new List<Address>()

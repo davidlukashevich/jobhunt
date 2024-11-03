@@ -5,11 +5,14 @@ using JobHunt.Infrastructure.Interceptors;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace JobHunt.Infrastructure.Data;
 
-public class JobHuntDbContext : IdentityDbContext<User, IdentityRole,  string>
+public class JobHuntDbContext
+    : IdentityDbContext<User, IdentityRole, string>
 {
+   
 
     public DbSet<Address> Addresses { get; set; }
     public DbSet<Profile> Profiles { get; set; }
@@ -22,7 +25,7 @@ public class JobHuntDbContext : IdentityDbContext<User, IdentityRole,  string>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseNpgsql("Host = localhost; Port=5432; Database=JobHuntDb; Username=postgres; Password=password; Include Error Detail=true")
+            .UseNpgsql("{your_connection_string}")
             .AddInterceptors(new AuditableInterceptor())
             .EnableSensitiveDataLogging();
         

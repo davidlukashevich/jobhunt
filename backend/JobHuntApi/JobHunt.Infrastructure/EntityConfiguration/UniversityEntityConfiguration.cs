@@ -19,8 +19,8 @@ public class UniversityEntityConfiguration : IEntityTypeConfiguration<University
         builder.Property(p => p.StudyFrom).HasColumnName("study_from").IsRequired();
         builder.Property(p => p.StudyTo).HasColumnName("study_to").IsRequired();
         builder.Property(p => p.ProfileId).HasColumnName("profile_id").IsRequired();
-        builder.Property(p => p.CreatedAt).HasColumnName("createdAt").IsRequired();
-        builder.Property(p => p.UpdatedAt).HasColumnName("updatedAt").IsRequired();
+        builder.Property(p => p.CreatedAt).HasColumnName("created_at").IsRequired();
+        builder.Property(p => p.UpdatedAt).HasColumnName("updated_at").IsRequired();
         
         
 
