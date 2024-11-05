@@ -18,7 +18,7 @@ public static class JobApplicationMapper
             AboutInformation = request.AboutUser,
             JobId = request.JobId,
             CreatedBy = request.CreatedBy,
-            Cv = $"https://jobhuntstorage.blob.core.windows.net/files/cv_{request.Cv.FileName}"
+            Cv = $"{your_link}/cv_{request.Cv.FileName}"
         };
     }
 
