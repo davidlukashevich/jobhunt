@@ -12,7 +12,7 @@ public static class ImageMapper
         {
             Id = Guid.NewGuid(),
             Name = fileName,
-            ImageUrl = $"https://jobhuntstorage.blob.core.windows.net/images/{imageName}_{fileName}",
+            ImageUrl = $"{your_link}/{imageName}_{fileName}",
         };
     }
 
@@ -21,7 +21,7 @@ public static class ImageMapper
         return new Image()
         {
             Name = fileName,
-            ImageUrl = $"https://jobhuntstorage.blob.core.windows.net/images/{imageName}_{fileName}",
+            ImageUrl = $"{your_link}/{imageName}_{fileName}",
         };
     }
 }
