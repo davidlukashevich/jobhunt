@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Container from '../../components/Container/Container';
+import { FaMapMarkerAlt, FaClock, FaMoneyBillWave, FaBriefcase, FaHome, FaCalendarAlt } from 'react-icons/fa';
 import './index.css';
 
 const JobDetails: React.FC = () => {
+    const [jobDetails, setJobDetails] = useState([]);
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
 
@@ -45,30 +47,44 @@ const JobDetails: React.FC = () => {
             <div className="job-header">
                 <h2 className="job-title">{job.title}</h2>
                 <p className="company-name">{job.company}</p>
-                <p className="job-location">{job.location}</p>
+                <p className="job-location">
+                    <FaMapMarkerAlt /> {job.location}
+                </p>
             </div>
-            <div className="job-details">
-                <p className="salary-rate">{job.salaryRate}</p>
-                <p className="employment-type">{job.employmentType}</p>
-                <p className="work-type">{job.workType}</p>
-                <p className="contract-duration">{job.contractDuration}</p>
-                <p className="availability">{job.availability}</p>
-            </div>
-            <div className="job-description">
-                <h3>Zakres obowiązków</h3>
-                <ul>
-                    {job.responsibilities.map((task, index) => (
-                        <li key={index}>{task}</li>
-                    ))}
-                </ul>
-                <h3>Nasze wymagania</h3>
-                <ul>
-                    {job.requirements.map((requirement, index) => (
-                        <li key={index}>{requirement}</li>
-                    ))}
-                </ul>
-                <h3>O firmie</h3>
-                <p>{job.aboutCompany}</p>
+            <div className="job-body">
+                <div className="job-description">
+                    <h3>Zakres obowiązków</h3>
+                    <ul>
+                        {job.responsibilities.map((task, index) => (
+                            <li key={index}>{task}</li>
+                        ))}
+                    </ul>
+                    <h3>Nasze wymagania</h3>
+                    <ul>
+                        {job.requirements.map((requirement, index) => (
+                            <li key={index}>{requirement}</li>
+                        ))}
+                    </ul>
+                    <h3>O firmie</h3>
+                    <p>{job.aboutCompany}</p>
+                </div>
+                <div className="job-details">
+                    <p className="salary-rate">
+                        <FaMoneyBillWave /> {job.salaryRate}
+                    </p>
+                    <p className="employment-type">
+                        <FaBriefcase /> {job.employmentType}
+                    </p>
+                    <p className="work-type">
+                        <FaHome /> {job.workType}
+                    </p>
+                    <p className="contract-duration">
+                        <FaClock /> {job.contractDuration}
+                    </p>
+                    <p className="availability">
+                        <FaCalendarAlt /> {job.availability}
+                    </p>
+                </div>
             </div>
             <button className="apply-btn" onClick={handleApplyClick}>Aplikuj szybko</button>
         </Container>

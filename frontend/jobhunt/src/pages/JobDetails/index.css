@@ -1,7 +1,8 @@
 .job-header {
     border-bottom: 1px solid #ddd;
     padding-bottom: 15px;
-    margin-bottom: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 10px;
     background-color: #f9f9f9;
     padding: 20px;
@@ -19,20 +20,13 @@
     color: #555;
 }
 
-.job-location {
+.job-location, .salary-rate, .employment-type, .work-type, .contract-duration, .availability {
+    display: flex;
+    align-items: center;
     font-size: 16px;
     color: #777;
-    margin-bottom: 20px;
-}
-
-.job-details {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    padding: 20px;
+    gap: 8px;
+    margin-bottom: 10px;
 }
 
 .salary-rate {
@@ -41,15 +35,18 @@
     color: #4CAF50;
 }
 
-.employment-type, .work-type, .contract-duration, .availability {
-    font-size: 16px;
-    color: #666;
+.job-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
 }
 
 .job-description {
     border-top: 1px solid #ddd;
     padding-top: 15px;
-    margin-top: 15px;
     line-height: 1.5;
     border-radius: 10px;
     background-color: #f9f9f9;
@@ -73,9 +70,8 @@
     margin-top: 20px;
 }
 
-.container {
-    width: 100%;
-    max-width: 1040px;
-    margin: 0 auto;
-    padding: 20px;
+.job-body {
+    display: flex;
+    gap: 20px;
+    /* align-items: baseline; */
 }
