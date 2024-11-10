@@ -2,6 +2,9 @@
     border-bottom: 1px solid #ddd;
     padding-bottom: 15px;
     margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
 }
 
 .job-title {
@@ -27,15 +30,18 @@
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
 }
 
-.salary-range {
+.salary-rate {
     font-size: 20px;
     font-weight: bold;
     color: #4CAF50;
 }
 
-.employment-type, .work-type, .availability {
+.employment-type, .work-type, .contract-duration, .availability {
     font-size: 16px;
     color: #666;
 }
@@ -45,11 +51,16 @@
     padding-top: 15px;
     margin-top: 15px;
     line-height: 1.5;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
 }
 
-.working-hours, .days, .benefits {
-    font-size: 14px;
-    color: #666;
+.job-description h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
 }
 
 .apply-btn {
@@ -59,6 +70,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 .container {
