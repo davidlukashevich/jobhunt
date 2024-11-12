@@ -28,43 +28,45 @@ const ApplicationForm: React.FC = () => {
 
     return (
         <Container>
-            <h2>Application Form</h2>
-            <form className="application-form" onSubmit={handleSubmit}>
-                <label>
-                    Full Name:
-                    <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <label>
-                    Email:
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <label>
-                    Resume:
-                    <input type="file" name="resume" onChange={handleFileChange} required />
-                </label>
-                <label>
-                    Cover Letter:
-                    <textarea
-                        name="coverLetter"
-                        value={formData.coverLetter}
-                        onChange={handleChange}
-                        required
-                    />
-                </label>
-                <button type="submit" className="submit-btn">Submit Application</button>
-            </form>
+            <div className="application-form-wrapper">
+                <h2>Application Form</h2>
+                <form className="application-form" onSubmit={handleSubmit}>
+                    <label>
+                        Full Name:
+                        <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
+                    </label>
+                    <label>
+                        Email:
+                        <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+                    </label>
+                    <label>
+                        Resume:
+                        <input type="file" name="resume" onChange={handleFileChange} required />
+                    </label>
+                    <label>
+                        Cover Letter:
+                        <textarea
+                            name="coverLetter"
+                            value={formData.coverLetter}
+                            onChange={handleChange}
+                            required
+                        />
+                    </label>
+                    <button type="submit" className="submit-btn">Submit Application</button>
+                </form>
+            </div>
         </Container>
     );
 };

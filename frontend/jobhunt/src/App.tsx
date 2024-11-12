@@ -6,6 +6,7 @@ import Main from './pages/Main/Main';
 import AuthPage from './pages/Auth/AuthPage';
 import JobDetails from './pages/JobDetails/JobDetails';
 import ApplicationForm from './pages/ApplicationForm/ApplicationForm';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path='/job/:id' element={<JobDetails />} />
             <Route path="/apply/:jobId" Component={ApplicationForm} />
           </Routes>
+        <Footer/>
       </div>
     </BrowserRouter>
   );
