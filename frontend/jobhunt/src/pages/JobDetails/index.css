@@ -1,11 +1,15 @@
+ul li {
+    list-style: none;
+}
+
 .job-header {
     border-bottom: 1px solid #ddd;
-    padding-bottom: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
     background-color: #f9f9f9;
-    padding: 20px;
+    padding: 0 20px;
+    display: flex;
 }
 
 .job-title {
@@ -20,13 +24,18 @@
     color: #555;
 }
 
-.job-location, .salary-rate, .employment-type, .work-type, .contract-duration, .availability {
+.job-location, .salary-rate, .employment-type, .work-type, .work-level {
     display: flex;
     align-items: center;
     font-size: 16px;
     color: #777;
     gap: 8px;
     margin-bottom: 10px;
+}
+
+.work-type-icon {
+    font-size: 30px;
+    margin: 0 0 0 -3px;
 }
 
 .salary-rate {
@@ -39,15 +48,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    padding: 20px;
-}
-
-.job-description {
-    border-top: 1px solid #ddd;
-    padding-top: 15px;
-    line-height: 1.5;
     border-radius: 10px;
     background-color: #f9f9f9;
     padding: 20px;
@@ -67,11 +67,58 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
 }
 
 .job-body {
     display: flex;
     gap: 20px;
     /* align-items: baseline; */
+}
+
+.job-icon-wrapper {
+    margin: 0 20px 0 0;
+}
+
+.job-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.job-company-info {
+    align-content: center;
+}
+
+.job-response {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.job-requirements {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.check-icon {
+    font-size: 17px;
+   
+}
+
+.job-skills-title {
+    margin: 20px 0 0 0;
+}
+
+.about-firm-title {
+    margin: 20px 0 0 0;
+}
+
+.job-info {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    line-height: 1.5;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 0 0 20px 0;
 }
