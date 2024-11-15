@@ -60,6 +60,10 @@ ul li {
     margin-bottom: 10px;
 }
 
+.job-description {
+    width: 800px;
+}
+
 .apply-btn {
     background-color: #4CAF50;
     color: white;
@@ -103,14 +107,6 @@ ul li {
 .check-icon {
     font-size: 17px;
    
-}
-
-.job-skills-title {
-    margin: 20px 0 0 0;
-}
-
-.about-firm-title {
-    margin: 20px 0 0 0;
 }
 
 .job-info {

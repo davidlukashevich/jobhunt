@@ -1,58 +1,53 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaBriefcase, FaHome, FaMapMarkerAlt, FaMoneyBillWave } from 'react-icons/fa';
 import { SiLevelsdotfyi } from 'react-icons/si'
 import { useNavigate, useParams } from 'react-router-dom';
 import Container from '../../components/Container/Container';
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import './index.css';
+import jobApi from '../../api/jobApi';
+
+type JobDetailsType = {
+    id: string
+    title: string
+    companyName: string
+    operationMode: string,
+    image: { id: string, imageUrl: string }
+    responsibilities: string[]
+    requirements: string[]
+    aboutCompany: string
+    salary: string
+    address: {
+        street: string
+        city: string
+        country: string
+    }
+    contractType: string
+    jobLevel: string
+}
 
 const JobDetails: React.FC = () => {
-    const [jobDetails, setJobDetails] = useState([]);
+    const [jobDetails, setJobDetails] = useState<JobDetailsType>();
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-
-    const job = {
-        id,
-        title: 'Praktykant/Praktykantka do Zespołu .NET',
-        icon: 'https://cdn-icons-png.freepik.com/256/3673/3673360.png?semt=ais_hybrid',
-        company: 'AXA IT Solutions',
-        location: 'Chłodna 51, Wola, Warszawa',
-        employmentType: 'Umowa zlecenie',
-        salaryRate: '32,00 zł brutto / godz.',
-        workType: 'Praca zdalna, praca hybrydowa',
-        level: 'Praktykant',
-        responsibilities: [
-            'Wykonywanie zadań developerskich z zakresu programowania w C# oraz Angular (17+)',
-            'Współpraca i wsparcie zespołu testowego przy wykonywaniu ',
-            'Analiza problemów developerskich i możliwości ich rozwiązania z bardziej doświadczonymi',
-            'Praca zgodnie z metodyką Agile/DSDM',
-        ],
-        requirements: [
-            'Znajomość dobrych praktyk tworzenia oprogramowania',
-            'Doświadczenie w tworzeniu aplikacji w C# (.Net Framework, .Net Core)',
-            'ASP.NET Web API',
-            'Znajomość Angular (lub podobny framework SPA)',
-            'Znajomość relacyjnych baz danych',
-            'Znajomość SQL (T-SQL)',
-            'Komunikatywna znajomość języka angielskiego',
-            'Git',
-        ],
-        aboutCompany: 'AXA IT Solutions to wiodąca firma w branży technologii informacyjnych, oferująca nowoczesne rozwiązania dla sektora ubezpieczeń oraz finansów.',
-    };
+    useEffect(() => {
+        jobApi.getJobById(id).then(data => {
+            setJobDetails(data)
+        });
+    }, [])
 
     const handleApplyClick = () => {
         navigate(`/apply/${id}`);
     };
-
     return (
         <Container>
             <div className="job-header">
                 <div className='job-icon-wrapper'>
-                    <img className='job-icon' src={job.icon} />
+                    <img className='job-icon' src={jobDetails?.image.imageUrl} />
                 </div>
                 <div className='job-company-info'>
-                    <h2 className="job-title">{job.title}</h2>
-                    <p className="company-name">{job.company}</p>
+                    <h2 className="job-title">{jobDetails?.title}</h2>
+                    <p className="company-name">{jobDetails?.companyName}</p>
                 </div>
             </div>
             <div className='job-body'>
@@ -60,39 +55,35 @@ const JobDetails: React.FC = () => {
                     <div className='job-info'>
                         <h3>Zakres obowiązków</h3>
                         <ul>
-                            {job.responsibilities.map((task, index) => (
-                                <div className='job-response'><IoMdCheckmarkCircleOutline className='check-icon' /><li key={index}>{task}</li></div>
-                            ))}
+                            <div className='job-response'><IoMdCheckmarkCircleOutline className='check-icon' /><li>{jobDetails?.responsibilities}</li></div>
                         </ul>
                     </div>
                     <div className='job-info'>
                         <h3 className='job-skills-title'>Nasze wymagania</h3>
                         <ul>
-                            {job.requirements.map((requirement, index) => (
-                                <div className='job-requirements'><IoMdCheckmarkCircleOutline className='check-icon' /><li key={index}>{requirement}</li></div>
-                            ))}
+                            <div className='job-requirements'><IoMdCheckmarkCircleOutline className='check-icon' /><li>{jobDetails?.requirements}</li></div>
                         </ul>
                     </div>
                     <div className='job-info'>
                         <h3 className='about-firm-title'>O firmie</h3>
-                        <p>{job.aboutCompany}</p>
+                        <p>{jobDetails?.aboutCompany}</p>
                     </div>
                 </div>
                 <div className="job-details">
                     <p className="salary-rate">
-                        <FaMoneyBillWave /> {job.salaryRate}
+                        <FaMoneyBillWave /> {jobDetails?.salary}
                     </p>
                     <p className="job-location">
-                        <FaMapMarkerAlt /> {job.location}
+                        <FaMapMarkerAlt /> {jobDetails?.address.street}, {jobDetails?.address.city}, {jobDetails?.address.country}
                     </p>
                     <p className="employment-type">
-                        <FaBriefcase /> {job.employmentType}
+                        <FaBriefcase /> {jobDetails?.contractType}
                     </p>
                     <p className="work-type">
-                        <FaHome className='work-type-icon' /> {job.workType}
+                        <FaHome className='work-type-icon' /> {jobDetails?.operationMode}
                     </p>
                     <p className='work-level'>
-                        <SiLevelsdotfyi />{job.level}
+                        <SiLevelsdotfyi />{jobDetails?.jobLevel}
                     </p>
                 </div>
             </div>

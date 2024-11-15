@@ -1,0 +1,9 @@
+.loader-block {
+   width: 100%;
+}
+
+.loader-img {
+    width: 300px;
+    height: 300px;
+    margin: 0 415px;
+}
