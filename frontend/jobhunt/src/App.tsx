@@ -7,8 +7,11 @@ import AuthPage from './pages/Auth/AuthPage';
 import JobDetails from './pages/JobDetails/JobDetails';
 import ApplicationForm from './pages/ApplicationForm/ApplicationForm';
 import Footer from './components/Footer/Footer';
+import Profile from './pages/Profile/Profile';
 
 function App() {
+  const userRole: 'Employee' | 'Employer' = 'Employer';
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -16,8 +19,9 @@ function App() {
           <Routes>
             <Route path='/' Component={Main}/>
             <Route path='/auth' Component={AuthPage} />
-            <Route path='/job/:id' element={<JobDetails />} />
+            <Route path='/job/:id' Component={JobDetails} />
             <Route path="/apply/:jobId" Component={ApplicationForm} />
+            <Route path='/myprofile' element={<Profile role={userRole}/>} />
           </Routes>
         <Footer/>
       </div>
