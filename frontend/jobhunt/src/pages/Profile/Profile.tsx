@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Container from '../../components/Container/Container';
+import { useNavigate } from 'react-router-dom';
+
 import './index.css';
 
 interface ProfileProps {
@@ -22,6 +24,7 @@ interface JobOffer {
 
 const Profile: React.FC<ProfileProps> = ({ role }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate();
 
   const [employeeData, setEmployeeData] = useState({
     name: 'John Doe',
@@ -261,6 +264,16 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
           <button className="menu-button" onClick={() => setIsEditing(!isEditing)}>
             {isEditing ? 'Cancel' : 'Edit Profile'}
           </button>
+          {
+            role === 'Employer' && (
+              <button
+                className="post-job-btn"
+                onClick={() => navigate('/post-job-offer')}
+              >
+                Post Job Offer
+              </button>
+            )
+          }
         </div>
       </div>
     </Container>
