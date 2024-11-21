@@ -2,8 +2,8 @@ import { FC, useEffect, useState } from 'react';
 import jobApi from '../../api/jobApi';
 import Card from '../../components/Card/Card';
 import Container from '../../components/Container/Container';
-import './index.css';
 import { Loader } from '../../components/Loader/Loader';
+import './index.css';
 
 interface Job {
     id: number
@@ -25,7 +25,7 @@ const Main: FC = () => {
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [jobs, setJobs] = useState<JobType[]>([]);
-
+    
     useEffect(() => {
         setIsLoading(true)
         jobApi.getAllJobs().then(data => {
@@ -43,12 +43,13 @@ const Main: FC = () => {
     ];
 
     const handleSearch = () => {
-        setIsLoading(true)
         if(searchQuery === "") {
             setError(true);
             return
         }
+        setIsLoading(true)
         jobApi.getAllJobsByTitle(searchQuery).then(data => {
+            setError(false)
             setIsLoading(false)
             setJobs(data);
         });
@@ -88,7 +89,7 @@ const Main: FC = () => {
                 </div>
                 {isLoading ? <Loader /> : <div className='card-container'>
                     {jobs.length > 0 ? (
-                        jobs.map((job: any) => (
+                        jobs.map((job) => (
                             <Card key={job.id} id={job.id} title={job.title} companyLogo={job.companyLogo} companyName={job.companyName} city={job.city} salary={job.salary} operationMode={job.operationMode} />
                         ))
                     ) : (

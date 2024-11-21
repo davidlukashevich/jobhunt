@@ -234,3 +234,8 @@
 .auth-form .submit-btn:active {
   background-color: #003366;
 }
+
+.error {
+  color: red;
+  margin: 20px 0 0 0;
+}

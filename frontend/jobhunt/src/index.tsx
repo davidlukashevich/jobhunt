@@ -2,14 +2,17 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { UserDataContextProvider } from './components/UserDataMode/UserDataMode';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-    <StrictMode>
+  <StrictMode>
+    <UserDataContextProvider>
       <App />
-    </StrictMode>
+    </UserDataContextProvider>
+  </StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
