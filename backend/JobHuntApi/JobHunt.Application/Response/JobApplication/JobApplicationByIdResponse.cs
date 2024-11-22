@@ -9,4 +9,5 @@ public class JobApplicationByIdResponse
     public string? Phone { get; set; }
     public string? AboutInformation { get; set; }
     public string? Cv { get; set; }
+    public DateTime CreatedAt { get; set; }
 }

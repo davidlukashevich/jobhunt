@@ -1,5 +1,5 @@
 using JobHunt.Application.Command.JobApplication.CreateJobApplication;
-using JobHunt.Application.Query.Job.GetAllJobsByCreatedById;
+using JobHunt.Application.Command.JobApplication.UpdateJobApplicationStatus;
 using JobHunt.Application.Query.JobApplication.GetAllJobApplicationsByCreatedById;
 using JobHunt.Application.Query.JobApplication.GetJobApplicationById;
 using JobHunt.Application.Query.JobApplication.GetJobApplicationsByJobId;
@@ -60,6 +60,16 @@ namespace JobHuntApi.Controllers
         public async Task<ActionResult> GetJobApplicationsByCreatedById([FromRoute] string id)
         {
             var result = await _sender.Send(new GetAllJobApplicationsByCreatedByIdQuery(id));
+            
+            return Ok(result);
+        }
+
+        [HttpPut("update/application/{id}")]
+        [Authorize(Roles = "Employer")]
+        public async Task<ActionResult> ChangeJobApplicationStatus([FromRoute] Guid id,
+            [FromBody] UpdateJobApplicationStatusRequest request)
+        {
+            var result = await _sender.Send(new UpdateJobApplicationStatusCommand(id, request.Status));
             
             return Ok(result);
         }

@@ -1,4 +1,5 @@
-﻿using JobHunt.Application.DTO;
+﻿using System.Text.Json;
+using JobHunt.Application.DTO;
 using JobHunt.Application.Request.Job;
 using JobHunt.Application.Response.Job;
 using JobHunt.Domain.Models;
@@ -19,6 +20,7 @@ public static class JobMapper
                     OperationMode = j.OperationMode,
                     CompanyLogo = j.Image?.ImageUrl,
                     Salary = j.Salary,
+                    CreatedAt = j.CreatedAt,
                     
             })
             .ToList();
@@ -36,8 +38,8 @@ public static class JobMapper
             OperationMode = job.OperationMode,
             ContractType = job.ContractType,
             JobLevel = job.JobLevel,
-            Responsibilities = job.Responsibilities,
-            Requirements = job.Requirements,
+            Responsibilities = JsonSerializer.Deserialize<List<string>>(job.Responsibilities) ,
+            Requirements = JsonSerializer.Deserialize<List<string>>(job.Requirements),
             AboutCompany = job.AboutCompany,
             CreatedBy = job.CreatedBy,
             Salary = job.Salary,
@@ -68,8 +70,8 @@ public static class JobMapper
             OperationMode = jobRequest.OperationMode,
             ContractType = jobRequest.ContractType,
             JobLevel = jobRequest.JobLevel,
-            Responsibilities = jobRequest.Responsibilities,
-            Requirements = jobRequest.Requirements,
+            Responsibilities = JsonSerializer.Serialize(jobRequest.Responsibilities),
+            Requirements = JsonSerializer.Serialize(jobRequest.Requirements),
             AddressId = addressId,
             Type = jobRequest.Type,
             Technology = jobRequest.Technology,
@@ -89,8 +91,8 @@ public static class JobMapper
             OperationMode = jobRequest.OperationMode,
             ContractType = jobRequest.ContractType,
             JobLevel = jobRequest.JobLevel,
-            Responsibilities = jobRequest.Responsibilities,
-            Requirements = jobRequest.Requirements,
+            Responsibilities = JsonSerializer.Serialize(jobRequest.Responsibilities),
+            Requirements = JsonSerializer.Serialize(jobRequest.Requirements),
             Type = jobRequest.Type,
             Technology = jobRequest.Technology,
             CreatedBy = jobRequest.CreatedBy!,

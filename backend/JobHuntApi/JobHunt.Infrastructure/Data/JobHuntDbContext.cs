@@ -25,7 +25,7 @@ public class JobHuntDbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseNpgsql("{your_connection_string}")
+            .UseNpgsql("Host = jhposgresql.postgres.database.azure.com;  Database=jobhuntdb; Username=postgres; Password=JobHunt_Db-4002; Include Error Detail=true")
             .AddInterceptors(new AuditableInterceptor())
             .EnableSensitiveDataLogging();
         

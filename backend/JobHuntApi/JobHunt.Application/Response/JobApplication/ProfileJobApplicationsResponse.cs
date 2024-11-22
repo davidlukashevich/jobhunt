@@ -8,5 +8,7 @@ public class ProfileJobApplicationsResponse
     public string? JobAddressCountry { get; set; }
     public string? JobAddressCity { get; set; }
     public string? JobCompanyLogo { get; set; }
+    public string? Status  { get; set; }
+    public DateTime CreatedAt { get; set; }
     
 }

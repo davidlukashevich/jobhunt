@@ -23,5 +23,6 @@ public class JobApplicationEntityConfiguration : IEntityTypeConfiguration<JobApp
         builder.Property(p => p.JobId).HasColumnName("job_id");
         builder.Property(p => p.CreatedAt).HasColumnName("created_at");
         builder.Property(p => p.UpdatedAt).HasColumnName("updated_at");
+        builder.Property(p => p.Status).HasColumnName("status");
     }
 }

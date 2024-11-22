@@ -11,8 +11,8 @@ public class SingleJobResponse
     public string? OperationMode { get; set; }
     public string? ContractType { get; set; }
     public string? JobLevel { get; set; }
-    public string? Responsibilities { get; set; }
-    public string? Requirements { get; set; }
+    public List<string>? Responsibilities { get; set; }
+    public List<string>? Requirements { get; set; }
     public ImageDTO? Image { get; set; }
     public AddressDTO? Address { get; set; }
     public string? CreatedBy { get; set; }

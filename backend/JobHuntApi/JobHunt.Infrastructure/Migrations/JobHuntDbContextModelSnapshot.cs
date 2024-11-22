@@ -586,7 +586,7 @@ namespace JobHunt.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2f9e3626-08a3-4d9c-90d4-101f9e58287c"),
+                            Id = new Guid("7318dc1c-6e13-47a3-b5f8-0230c5744b3b"),
                             AboutCompany = "Web and mobile dev",
                             AddressId = new Guid("81829923-f40e-4f58-9506-08da478058a2"),
                             CompanyName = "Code Factory",
@@ -596,8 +596,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("b7a18197-c6d6-47c4-ab72-d3a042b646c3"),
                             JobLevel = "Junior",
                             OperationMode = "Remote",
-                            Requirements = "1+ years in HTML/CSS, Javascript, React",
-                            Responsibilities = "Assist in frontend dev",
+                            Requirements = "[\"Wykszta\\u0142cenie: min. student 3 roku - kierunek informatyka lub pokrewny\",\"Znajomo\\u015B\\u0107: Vue 3 \\u002B Angular \\u002B CSS \\u002B TypeScript\",\"Znajomo\\u015B\\u0107 system\\u00F3w kontroli wersji (Git)\",\"Znajomo\\u015B\\u0107 j\\u0119zyka angielskiego umo\\u017Cliwiaj\\u0105ca sprawn\\u0105 komunikacj\\u0119 w mowie i w pi\\u015Bmie\"]",
+                            Responsibilities = "[\"Projektowanie i implementowanie Front-endu na podstawie wymaga\\u0144 biznesowych\",\"Testowanie manualne oraz automatyczne dostarczanych rozwi\\u0105za\\u0144\",\"Udzia\\u0142 w pracach utrzymaniowych w \\u015Brodowiskach testowych i produkcyjnych\"]",
                             Salary = "4000-5000 zł brutto",
                             Technology = "Js",
                             Title = "Junior Frontend Developer",
@@ -606,7 +606,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5b74933d-d06f-4bca-b8d7-b6bebd643e51"),
+                            Id = new Guid("0ac7c82f-5f1b-49ac-a2d3-111024b7c5e9"),
                             AboutCompany = "Web innovation leaders",
                             AddressId = new Guid("760b41f0-1ae8-4140-aeaa-c51edb8524dd"),
                             CompanyName = "Web Wonders",
@@ -616,8 +616,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("47219591-466c-4f33-bd2e-4b165844b4da"),
                             JobLevel = "Middle",
                             OperationMode = "Hybrid",
-                            Requirements = "3+ years with Angular, TypeScript",
-                            Responsibilities = "Develop frontend apps",
+                            Requirements = "[\"3-4 years of experience in frontend development using Angular and TypeScript.\",\"Additional proficiency with Lit, Sass, Java, C\\u002B\\u002B is preferred.\",\"Openness to contributing to Google\\u0027s future success in Cloud AI.\",\"English level: min B2\\u002B.\"]",
+                            Responsibilities = "[\"Build user interfaces using Angular and TypeScript for Google Cloud\\u0027s AI applications.\",\"Work closely with backend teams, PM, UX Researchers, and UX Designers on improvements to Cloud AI products.\",\"Design and build new frontend components and features for all Cloud AI applications and services.\",\"Opportunities to work on end-to-end features including UI, API and backend layers to develop full-stack experience.\"]",
                             Salary = "6000-8000 zł brutto",
                             Technology = "Typescript",
                             Title = "Middle Frontend Developer",
@@ -626,7 +626,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("58709e94-9ada-4ca8-8f7a-4a076a2ab9ec"),
+                            Id = new Guid("ab6b2d8d-4abf-4231-a544-d40bc06a2f6c"),
                             AboutCompany = "Leading in AI solutions",
                             AddressId = new Guid("0ca4032a-b0c0-4d25-8575-f5b065d7df54"),
                             CompanyName = "Tech Innovators",
@@ -636,8 +636,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("9788b6d6-2dfd-4272-8249-43a66bfc5e2b"),
                             JobLevel = "Senior",
                             OperationMode = "Remote",
-                            Requirements = "5+ years experience with React",
-                            Responsibilities = "Develop UI components, optimize for performance",
+                            Requirements = "[\"7\\u002B years of experience\",\"Expert experience with HTML, CSS, React, and Node.js\",\"High fidelity HTML/CSS prototyping skills\",\"Excellent knowledge of design systems and responsive web design\",\"Strong understanding of component-based development within a shared style guide context\",\"Deep knowledge of web accessibility standards\",\"Expertise in managing cross-browser issues \"]",
+                            Responsibilities = "[\"Collaborating with a cross-functional team of UX designers and UI developers\",\"Iteratively coding with considerations for fast-paced delivery and quality\",\"Working with multiple stakeholders including product owners and engineering leads\",\"Developing and maintaining a consistent approach to our component library and consuming applications\",\"Mentoring junior team members\",\"Ensuring UI consistency across multiple applications in collaboration with engineering leadership\",\"Adhering to best practices in our UX/UI functions\",\"Creating high-fidelity HTML/CSS prototypes\",\"Addressing cross-browser concerns and ensuring web accessibility\"]",
                             Salary = "10000-12000 zł netto",
                             Technology = "React",
                             Title = "Senior Frontend Developer",
@@ -646,7 +646,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("15213a54-0e96-475a-b93d-70b4e91a23bd"),
+                            Id = new Guid("3b6e75c5-31c5-4b7e-839c-5ddbd5fb17f3"),
                             AboutCompany = "Web dev specialists",
                             AddressId = new Guid("525c49eb-3406-4210-9125-6085e59b4eb3"),
                             CompanyName = "WebWorks",
@@ -656,8 +656,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("fc8e5936-d76a-4d3a-bc64-d91d6d6e7da9"),
                             JobLevel = "Lead",
                             OperationMode = "Hybrid",
-                            Requirements = "7+ years with React, javascript, html, css",
-                            Responsibilities = "Oversee frontend projects",
+                            Requirements = "[\"Strong proficiency in React for building dynamic, component-driven user interfaces\",\"In-depth knowledge of Redux for state management, including actions, reducers, and middlewares (such as Redux Thunk or Redux Saga)\",\"Experience with React hooks (useEffect, useState, etc.) and functional components\",\"Proficiency in JavaScript (ES6\\u002B)\",\"Familiarity with React Router for navigation and Axios for API requests\",\"Understanding of CSS\"]",
+                            Responsibilities = "[\"Working in international Scrum Team to deliver Business critical solutions within the terminal/transit warehousing area in close cooperation with Product Owner\",\"Developing and technically owning backend (Java 17\\u002B/Spring, Event-Driven Architecture) and frontend (React for building dynamic, component-driven user interfaces) applications hosted in Azure Cloud\",\"Continuous improvement of products and internal delivery \\u0026 maintenance processes\"]",
                             Salary = "15000-20000 zł netto",
                             Technology = "Js",
                             Title = "Lead Frontend Engineer",
@@ -666,7 +666,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("2f4f1f5e-7d70-4bfa-ba52-55a0655d1b66"),
+                            Id = new Guid("4eea75ed-57c1-431d-bcbe-378914a3a76a"),
                             AboutCompany = "Focus on data analytics",
                             AddressId = new Guid("65997657-6342-4461-991e-d9ef4cc27808"),
                             CompanyName = "DataX Solutions",
@@ -676,8 +676,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("7d296ead-d7f2-4f9d-a2d9-f756b0aaa1a4"),
                             JobLevel = "Junior",
                             OperationMode = "Hybrid",
-                            Requirements = "1+ years with .NET",
-                            Responsibilities = "Assist backend development team",
+                            Requirements = "[\"Do\\u015Bwiadczenie w programowaniu z wykorzystaniem C# .Net\",\"Znajomo\\u015B\\u0107 Microsoft SQL Server w zakresie tworzenia zapyta\\u0144\",\"Do\\u015Bwiadczenie w projektowaniu lub tworzeniu aplikacji komercyjnych (mile widziane)\",\"Znajomo\\u015B\\u0107 j\\u0119z. angielskiego umo\\u017Cliwiaj\\u0105ca czytanie dokumentacji technicznej\"]",
+                            Responsibilities = "[\"Assist backend development team\",\"Szukamy osoby, kt\\u00F3rej zadaniem b\\u0119dzie rozwijanie naszego produktu opartego o \\u015Brodowisko bazodanowe MS SQL oraz .Net\"]",
                             Salary = "5000-6000 zł netto",
                             Technology = ".Net",
                             Title = "Junior Backend Developer",
@@ -686,7 +686,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("7cdab76b-6e62-4717-a46c-d38c8e590162"),
+                            Id = new Guid("06b259f1-d197-4b0c-bb00-ae8c8fe919a2"),
                             AboutCompany = "Data science leaders",
                             AddressId = new Guid("02cb7c97-8ac4-4df1-b9bb-a9ff6732c728"),
                             CompanyName = "DataScience Co",
@@ -696,8 +696,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("5f890acc-9532-4c56-9e3c-07a45a91dc83"),
                             JobLevel = "Middle",
                             OperationMode = "Remote",
-                            Requirements = "3+ years with Python, Flask",
-                            Responsibilities = "Develop API services",
+                            Requirements = "[\"3\\u002B years with Python, Flask\",\"do\\u015Bwiadczenie na stanowisku programisty \\u2013 minimum 2 lata;\",\"do\\u015Bwiadczenie w pracy projektowej w zespole deweloperskim;\",\"dobra znajomo\\u015B\\u0107 wzorc\\u00F3w projektowych, zasad programowania obiektowego;\",\"znajomo\\u015B\\u0107 narz\\u0119dzi kontroli wersji Git;\",\"do\\u015Bwiadczenie w pisaniu test\\u00F3w jednostkowych, integracyjnych;\",\"samodzielno\\u015B\\u0107 i komunikatywno\\u015B\\u0107.\"]",
+                            Responsibilities = "[\"projektowanie i implementacja rozwi\\u0105za\\u0144 informatycznych;\",\"praca w oparciu o zwinn\\u0105 metodyk\\u0119 wytwarzania oprogramowania;\",\"dbanie o jako\\u015B\\u0107 kodu \\u017Ar\\u00F3d\\u0142owego;\",\"wsp\\u00F3\\u0142praca z pozosta\\u0142ymi cz\\u0142onkami zespo\\u0142u.\"]",
                             Salary = "7000-9000 zł brutto",
                             Technology = "Python",
                             Title = "Middle Backend Developer",
@@ -706,7 +706,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("71cafc82-a482-4055-aba5-55fe616eae39"),
+                            Id = new Guid("e2c71ce1-94e9-4184-822a-7b6fe3dabc1a"),
                             AboutCompany = "Experts in cloud tech",
                             AddressId = new Guid("c4d716dc-e536-4f93-affd-1eca9be155f1"),
                             CompanyName = "Cloudify",
@@ -716,8 +716,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("239b185c-4d37-4b01-baba-001b4425794a"),
                             JobLevel = "Senior",
                             OperationMode = "Remote",
-                            Requirements = "5+ years in backend dev, Python, Django",
-                            Responsibilities = "Design backend services",
+                            Requirements = "[\" Minimum 3-letnie do\\u015Bwiadczenie w budowaniu aplikacji pythonowych\",\" Do\\u015Bwiadczenie w projektowaniu i budowaniu wysoko-skalowalnych aplikacji z r\\u00F3wnoleg\\u0142ym strumieniem przetwarzania\",\" Tworzenie czytelnego kodu zgodnego z zasadami SOLID, umiej\\u0119tno\\u015B\\u0107 wykorzystywania Design Patterns w codziennej pracy\",\" Podstawowa znajomo\\u015B\\u0107 algorytm\\u00F3w i struktur danych\",\" J\\u0119zyk angielski na poziomie umo\\u017Cliwiaj\\u0105cym swobodne czytanie i pisanie dokumentacji oraz porozumiewanie si\\u0119 z wsp\\u00F3\\u0142pracownikami (min. B2)\",\" Do\\u015Bwiadczenie w pracy z JavaScript, optymalnie NestJS\",\"Do\\u015Bwiadczenie w pracy z Flask oraz relacyjnymi i nie relacyjnymi bazami danych\",\" Znajomo\\u015B\\u0107 ekosystemu AWS\"]",
+                            Responsibilities = "[\" Wsparcie zespo\\u0142u w budowaniu architektury aplikacji\",\" Udzia\\u0142 w podejmowaniu decyzji i rozwi\\u0105zywaniu problem\\u00F3w w okre\\u015Blonych obszarach projektu\",\"Wsparcie prowadzenia zespo\\u0142u developerskiego\",\"  Dzielenie si\\u0119 wiedz\\u0105 i do\\u015Bwiadczeniami z reszt\\u0105 zespo\\u0142u\",\" Pisanie czystego, wydajnego kodu\",\" Prowadzenie procesu Code Review oraz podejmowanie decyzji na poziomie kodu\"]",
                             Salary = "12000-15000 zł netto",
                             Technology = "Python",
                             Title = "Senior Backend Engineer",
@@ -726,7 +726,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("97444e85-cd7c-4f68-8799-95f3de6b7215"),
+                            Id = new Guid("20f19952-3bfd-4f5c-8d93-f8c7e81333cd"),
                             AboutCompany = "Backend solutions",
                             AddressId = new Guid("eb0bf179-2a90-42f2-a778-0457f10280b7"),
                             CompanyName = "CoreTech",
@@ -736,8 +736,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("caa67e3a-d380-4a7f-9921-bce41d768349"),
                             JobLevel = "Lead",
                             OperationMode = "Onsite",
-                            Requirements = "7+ years in backend dev, Java, Spring Boot",
-                            Responsibilities = "Lead backend projects",
+                            Requirements = "[\"Bachelor\\u0027s or Master\\u0027s degree in computer science/engineering or last year of university degree\",\" At least 7\\u002B years of hands-on Java development experience\",\" Very Good knowledge of Java (11\\u002B)\",\" Strong Experience with Spring Framework\",\" Strong Experience with JPA/Hibernate\",\" Strong Experience with SQL/NoSQL with understanding of database design and optimization methodologies\",\" Experience with Apache Camel\",\" Experience with Messaging Queues\",\" Experience with QueryDSL or other query mapping frameworks\",\" Experience in Angular 10\\u002B\",\" Knowledge of unit testing frameworks (preferred Cucumber)\",\" Good knowledge of linux commands and scripting\"]",
+                            Responsibilities = "[\" Core Java development and Web applications with Spring and Angular\",\" Participate in requirements analysis\",\" Work with deployment pipelines and CI/CD processes\",\"Debugging and problem solving on existing applications\",\" Working in distributed teams with Agile Frameworks (Kanban/Scrum)\",\" Feature development, code reviews, guide our developers for best development practices\"]",
                             Salary = "15000-20000 zł brutto",
                             Technology = "Java",
                             Title = "Lead Backend Developer",
@@ -746,7 +746,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("116a86e2-4d69-42c1-b0dc-44777f218daa"),
+                            Id = new Guid("db15da62-dd1b-46c6-896f-183375514cd6"),
                             AboutCompany = "Web innovation hub",
                             AddressId = new Guid("61e53104-cc1e-4403-b781-ac2a9d90a675"),
                             CompanyName = "WebGen",
@@ -756,8 +756,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("ba1c1bbf-cd15-49ce-8fcb-d744593c5299"),
                             JobLevel = "Junior",
                             OperationMode = "Remote",
-                            Requirements = "Experience with HTML, CSS, JavaScript",
-                            Responsibilities = "Support web projects",
+                            Requirements = "[\"Experience with HTML, CSS, JavaScript\",\"Wykszta\\u0142cenie: min. student 3 roku - kierunek informatyka lub pokrewny\",\"Znajomo\\u015B\\u0107: Vue 3 \\u002B Angular \\u002B CSS \\u002B TypeScript\",\"Znajomo\\u015B\\u0107 system\\u00F3w kontroli wersji (Git)\",\"Znajomo\\u015B\\u0107 j\\u0119zyka angielskiego umo\\u017Cliwiaj\\u0105ca sprawn\\u0105 komunikacj\\u0119 w mowie i w pi\\u015Bmie\"]",
+                            Responsibilities = "[\"Support web projects\",\"Projektowanie i implementowanie Front-endu na podstawie wymaga\\u0144 biznesowych\",\"Testowanie manualne oraz automatyczne dostarczanych rozwi\\u0105za\\u0144\",\"Udzia\\u0142 w pracach utrzymaniowych w \\u015Brodowiskach testowych i produkcyjnych\"]",
                             Salary = "4000-5000 zł brutto",
                             Technology = "Js",
                             Title = "Junior Fullstack Developer",
@@ -766,7 +766,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c4ddd05a-581e-4be6-9e29-1e8d604e9e38"),
+                            Id = new Guid("c837e3fe-ff98-4143-8935-96fe1f7f1235"),
                             AboutCompany = "Web solutions specialists",
                             AddressId = new Guid("6dceaa73-c28e-4aa5-b148-aa673e9b80b5"),
                             CompanyName = "App Builders",
@@ -776,8 +776,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("0c97833d-79fb-43d9-a1e1-25032d81ad77"),
                             JobLevel = "Middle",
                             OperationMode = "Remote",
-                            Requirements = "3+ years with JS & Node",
-                            Responsibilities = "Develop web applications",
+                            Requirements = "[\"3\\u002B years with JS \\u0026 Node\",\"Wykszta\\u0142cenie: min. student 3 roku - kierunek informatyka lub pokrewny\",\"Znajomo\\u015B\\u0107: Vue 3 \\u002B Angular \\u002B CSS \\u002B TypeScript\",\"Znajomo\\u015B\\u0107 system\\u00F3w kontroli wersji (Git)\",\"Znajomo\\u015B\\u0107 j\\u0119zyka angielskiego umo\\u017Cliwiaj\\u0105ca sprawn\\u0105 komunikacj\\u0119 w mowie i w pi\\u015Bmie\"]",
+                            Responsibilities = "[\"Projektowanie i implementowanie Front-endu na podstawie wymaga\\u0144 biznesowych\",\"Testowanie manualne oraz automatyczne dostarczanych rozwi\\u0105za\\u0144\",\"Udzia\\u0142 w pracach utrzymaniowych w \\u015Brodowiskach testowych i produkcyjnych\"]",
                             Salary = "7000-9000 zł netto",
                             Technology = "Js",
                             Title = "Middle Fullstack Developer",
@@ -786,7 +786,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("b517cc87-5322-4b4d-8d90-a8b839e1a24a"),
+                            Id = new Guid("5de9c83e-b0f2-4eaa-b0c2-c6eb504f2212"),
                             AboutCompany = "Comprehensive IT services",
                             AddressId = new Guid("aecc1bcc-91a9-406c-9258-b38bbd12fdb9"),
                             CompanyName = "DigitalCraft",
@@ -796,8 +796,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("f884c7f8-502a-49a6-acde-7350a412b097"),
                             JobLevel = "Senior",
                             OperationMode = "Hybrid",
-                            Requirements = "5+ years in fullstack dev, , Ruby on Rails, JavaScript",
-                            Responsibilities = "Develop fullstack apps",
+                            Requirements = "[\"5\\u002B years in fullstack dev, , Ruby on Rails, JavaScript\",\" dobra znajomo\\u015B\\u0107 zasad projektowania, dost\\u0119pno\\u015Bci i testowania u\\u017Cyteczno\\u015Bci\",\"znajomo\\u015B\\u0107 kompatybilno\\u015Bci mi\\u0119dzy przegl\\u0105darkami, techniki buforowania i optymalizacji wydajno\\u015Bci, znajomo\\u015B\\u0107 podstaw SEO i umiej\\u0119tno\\u015B\\u0107 optymalizacji pod k\\u0105tem wyszukiwarek\",\" aktywna wsp\\u00F3\\u0142praca z klientami oraz zespo\\u0142ami - Twoja wiedza pozwala na konstruktywny dialog i wyb\\u00F3r odpowiednich rozwi\\u0105za\\u0144.\",\" znajomo\\u015B\\u0107 systemu kontroli wersji (GIT)\"]",
+                            Responsibilities = "[\" tworzenie portali turystycznych dla naszych Klient\\u00F3w w Polsce i za granic\\u0105\",\"  rozw\\u00F3j i tworzenie nowych funkcjonalno\\u015Bci dotychczasowych aplikacji\",\" uczestnictwo w przegl\\u0105dach kodu oraz d\\u0105\\u017Cenie do zapewnienia wysokiej jako\\u015Bci i efektywno\\u015Bci rozwi\\u0105za\\u0144\",\" aktywne uczestnictwo w tworzeniu specyfikacji projektowych wraz z zespo\\u0142em\"]",
                             Salary = "11000-14000 zł brutto",
                             Technology = "JavaScript",
                             Title = "Senior Fullstack Developer",
@@ -806,7 +806,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("3bc88c56-6eef-480f-a940-18bd21ddba27"),
+                            Id = new Guid("1537a05b-ac00-4f84-92c9-67b0b5a7ef37"),
                             AboutCompany = "IT and web solutions",
                             AddressId = new Guid("d1977ab7-eef3-4def-ae48-66f65922b471"),
                             CompanyName = "Total Solutions",
@@ -816,8 +816,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("01761843-a4d3-4dbd-988b-977094f0a083"),
                             JobLevel = "Lead",
                             OperationMode = "Remote",
-                            Requirements = "7+ years in fullstack dev, JavaScript, Node.js, React",
-                            Responsibilities = "Lead fullstack projects",
+                            Requirements = "[\"7\\u002B years in fullstack dev, JavaScript, Node.js, React\",\" Problem-solving skills and a proactive approach to challenges\",\" Experience working in a DevSecOps environment\",\" Solid understanding of change management processes\",\" Strong Gitlab, Jira, and Confluence experience for project and code management\",\"Knowledge of HTML, CSS, and JavaScript for front-end integration\",\"Ability to work collaboratively within a globally distributed team\"]",
+                            Responsibilities = "[\"Lead fullstack projects\",\"Solid understanding of change management processes\",\" Strong Gitlab, Jira, and Confluence experience for project and code management\",\" Knowledge of HTML, CSS, and JavaScript for front-end integration\",\" Ability to work collaboratively within a globally distributed team\"]",
                             Salary = "16000-19000 zł brutto",
                             Technology = "Javascript",
                             Title = "Lead Fullstack Developer",
@@ -826,7 +826,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f37a58b9-5f15-4576-ab26-a766c1bdaab0"),
+                            Id = new Guid("e5126ac7-65dc-4f32-b424-628df4da755d"),
                             AboutCompany = "Creative app developers",
                             AddressId = new Guid("bc05e016-1537-41f6-80b3-9bbf991dd39c"),
                             CompanyName = "AppLab",
@@ -836,8 +836,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("39fd3f9a-1911-4676-b4cf-d245f68a83a7"),
                             JobLevel = "Junior",
                             OperationMode = "Onsite",
-                            Requirements = "Basic knowledge in Swift, iOS",
-                            Responsibilities = "Support mobile dev team",
+                            Requirements = "[\"Basic knowledge in Swift, iOS\",\" Znajomo\\u015B\\u0107 Kotlin oraz Java\",\" Do\\u015Bwiadczenie z Android Studio\",\" znajomo\\u015B\\u0107 Git, Gerrit, Gradle\"]",
+                            Responsibilities = "[\"Support mobile dev team\",\" Udzia\\u0142 w rozwoju oprogramowania aplikacji mobilnych dla bran\\u017Cy finansowej\",\" Stosowanie dobrych praktyk programowania obiektowego i wzorc\\u00F3w projektowych, takich jak MVP, MVVM czy MVC\",\" Implementacja atrakcyjnych i intuicyjnych interfejs\\u00F3w u\\u017Cytkownika\",\" \\u015Acis\\u0142a wsp\\u00F3\\u0142praca z zespo\\u0142em projektant\\u00F3w UX/UI, backendowc\\u00F3w, tester\\u00F3w oraz product manager\\u00F3w, aby spe\\u0142ni\\u0107 wymagania projektowe i dostarczy\\u0107 wysokiej jako\\u015Bci produkt\"]",
                             Salary = "7000-9000 zł netto",
                             Technology = "Swift",
                             Title = "Junior Mobile Developer",
@@ -846,7 +846,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("4e78f3c6-ba66-425d-b488-e349435bbc4d"),
+                            Id = new Guid("bda3b2cc-c91c-462f-9609-009356422365"),
                             AboutCompany = "Mobile app innovation",
                             AddressId = new Guid("a538082d-1000-4b50-b6ea-7e0f8b715c14"),
                             CompanyName = "NextGen Mobile",
@@ -856,8 +856,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("ba513f10-c72d-4cdb-a105-d6b462ec61fe"),
                             JobLevel = "Middle",
                             OperationMode = "Hybrid",
-                            Requirements = "2+ years in mobile dev, Kotlin",
-                            Responsibilities = "Maintain mobile apps",
+                            Requirements = "[\"2\\u002B years in mobile dev, Kotlin\",\"Znajomo\\u015B\\u0107 Kotlin oraz Java\",\" Do\\u015Bwiadczenie z Android Studio\",\"  znajomo\\u015B\\u0107 Git, Gerrit, Gradle\",\" Do\\u015Bwiadczene z Postman lub SoapUI\",\" Do\\u015Bwiadczenie z Jira, Confluence\",\" Do\\u015Bwiadczenie z Adobexd lub podobnymi bibliotekami\",\" Do\\u015Bwiadczenie z narz\\u0119dziami CI/CD (Jenkins)\"]",
+                            Responsibilities = "[\"Maintain mobile apps\",\"Udzia\\u0142 w rozwoju oprogramowania aplikacji mobilnych dla bran\\u017Cy finansowej\",\"Stosowanie dobrych praktyk programowania obiektowego i wzorc\\u00F3w projektowych, takich jak MVP, MVVM czy MVC\",\"Implementacja atrakcyjnych i intuicyjnych interfejs\\u00F3w u\\u017Cytkownika\",\" \\u015Acis\\u0142a wsp\\u00F3\\u0142praca z zespo\\u0142em projektant\\u00F3w UX/UI, backendowc\\u00F3w, tester\\u00F3w oraz product manager\\u00F3w, aby spe\\u0142ni\\u0107 wymagania projektowe i dostarczy\\u0107 wysokiej jako\\u015Bci produkt\"]",
                             Salary = "10000-13000 zł netto",
                             Technology = "Kotlin",
                             Title = " Middle Mobile Developer",
@@ -866,7 +866,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("02052c90-4f85-469b-a6dd-0143e80cc688"),
+                            Id = new Guid("f4df625e-d6e8-488f-bea0-1efb1f25d324"),
                             AboutCompany = "Top mobile solutions",
                             AddressId = new Guid("3a55e504-11f1-4c82-8628-692982996558"),
                             CompanyName = "MobiSolutions",
@@ -876,8 +876,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("8b9cea71-52d1-46fd-b1e7-b2b54726bfa6"),
                             JobLevel = "Senior",
                             OperationMode = "Hybrid",
-                            Requirements = "5+ years in mobile dev, , Android, Kotlin",
-                            Responsibilities = "Design mobile features",
+                            Requirements = "[\"5\\u002B years in mobile dev, , Android, Kotlin\",\" Advanced English (written and spoken)\",\" Expertise in software engineering toolchain (Jira, Git, CI/CD)\",\" Good communication skills\",\" Willingness to learn\",\" Basic know how of automotive problematics\"]",
+                            Responsibilities = "[\"Design mobile features\",\" Programming languages  Swift\",\" Mobile development frameworks\",\" In-depth experience with application and user interface level using at least one mobile application development language\",\" Asynchronous programming and networking protocols\"]",
                             Salary = "15000-20000 zł brutto",
                             Technology = "Kotlin",
                             Title = "Senior Mobile Developer",
@@ -886,7 +886,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("11e54c47-9a04-4584-a523-20fb7909d067"),
+                            Id = new Guid("44441ad6-cb25-4f0d-9cc3-7470afb848a2"),
                             AboutCompany = "Specializing in mobile tech",
                             AddressId = new Guid("9c654eec-ba66-40a6-8bf7-160591a9a602"),
                             CompanyName = "AppSphere",
@@ -896,8 +896,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("aa697543-3225-4e7b-8baf-83d71683b2c8"),
                             JobLevel = "Lead",
                             OperationMode = "Onsite",
-                            Requirements = "7+ years in mobile dev, Swift",
-                            Responsibilities = "Oversee mobile development",
+                            Requirements = "[\"7\\u002B years in mobile dev, Swift\",\" Advanced English (written and spoken)\",\" Expertise in software engineering toolchain (Jira, Git, CI/CD)\",\"Good communication skills\",\" Willingness to learn\",\"Basic knowhow of automotive problematics\"]",
+                            Responsibilities = "[\"Oversee mobile development\",\"Advanced English (written and spoken)\",\" Expertise in software engineering toolchain (Jira, Git, CI/CD)\",\"Good communication skills\",\" Willingness to learn\",\" Basic knowhow of automotive problematics\"]",
                             Salary = "20000-25000 zł brutto",
                             Technology = "Swift",
                             Title = "Lead Mobile Developer",
@@ -906,7 +906,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("bb4e2c5f-2c02-4576-b01e-bd48a362c079"),
+                            Id = new Guid("60dfecfd-372b-4896-b420-5e855c8d5407"),
                             AboutCompany = "Renowned in game dev",
                             AddressId = new Guid("6270749d-0b30-4e83-8374-12d23c22271a"),
                             CompanyName = "PlayMax Studios",
@@ -916,8 +916,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("32bafe62-e9ba-4c2a-9f2a-76053c689eff"),
                             JobLevel = "Junior",
                             OperationMode = "Remote",
-                            Requirements = "Experience with Unity, C#",
-                            Responsibilities = "Write game mechanics code",
+                            Requirements = "[\"Experience with Unity, C#\"]",
+                            Responsibilities = "[\"Write game mechanics code\"]",
                             Salary = "8000-9000 zł netto",
                             Technology = "C#",
                             Title = "Junior Game Developer",
@@ -926,7 +926,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d5a24bff-c85f-4bc3-8708-a0e39bec6aea"),
+                            Id = new Guid("93feeaa2-63f1-41ed-925a-ff63edab5860"),
                             AboutCompany = "Innovators in gaming",
                             AddressId = new Guid("5f6ec67a-de91-4260-a1cf-50aebeb8181b"),
                             CompanyName = "GameForge",
@@ -936,8 +936,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("a7bcaf46-c806-4bf4-825f-e17852cd276c"),
                             JobLevel = "Middle",
                             OperationMode = "Onsite",
-                            Requirements = "3+ years with Unity,C#",
-                            Responsibilities = "Create engaging game logic",
+                            Requirements = "[\"3\\u002B years with Unity,C#\"]",
+                            Responsibilities = "[\"Create engaging game logic\"]",
                             Salary = "10000-12000 zł brutto",
                             Technology = "C#",
                             Title = "Middle Game Developer",
@@ -946,7 +946,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("46a7218b-8b76-4fba-92fd-a1ea61380da8"),
+                            Id = new Guid("ea97730f-c8f3-481f-a9dc-abb4fce14b55"),
                             AboutCompany = "A renowned leader in AAA game development",
                             AddressId = new Guid("868f8731-4a07-44fd-bd27-4acb4a35f77f"),
                             CompanyName = "PlayMax Studios",
@@ -956,8 +956,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("20deaa5a-9243-4e3d-bed1-dc0a23aaccd3"),
                             JobLevel = "Senior",
                             OperationMode = "Remote",
-                            Requirements = "5+ years with Unity or Unreal Engine, strong C# or C++ skills",
-                            Responsibilities = "Develop complex game systems, mentor junior developers",
+                            Requirements = "[\" Programujesz w C\\u002B\\u002B 17\",\" Znasz STL, Git/Svn\",\"Posiadasz umiej\\u0119tno\\u015B\\u0107 analitycznego i logicznego my\\u015Blenia\",\"Masz zdolno\\u015B\\u0107 do analizy wymaga\\u0144 niezb\\u0119dnych do projektowania i wdra\\u017Cania najlepszych rozwi\\u0105za\\u0144\",\" Dysponujesz wiedz\\u0105 z zakresu zagadnie\\u0144 rachunku prawdopodobie\\u0144stwa, kombinatoryki i statystyki\",\" Microsoft Excel nie ma przed Tob\\u0105 tajemnic\",\" Komunikujesz si\\u0119 w j\\u0119zyku angielskim na poziomie komunikatywnym\"]",
+                            Responsibilities = "[\"Develop complex game systems, mentor junior developers\",\" Nasz\\u0105 misj\\u0105 jest nie tylko wprowadzanie nowych tytu\\u0142\\u00F3w na rynek, ale tak\\u017Ce ich dostosowywanie do specyficznych wymaga\\u0144 r\\u00F3\\u017Cnych rynk\\u00F3w.\",\" Specjalizujemy si\\u0119 w zaawansowanej matematyce gier oraz tworzeniu i doskonaleniu mechanizm\\u00F3w kontrolnych.\"]",
                             Salary = "14000-17000 zł brutto",
                             Technology = "C#",
                             Title = "Senior Game Developer",
@@ -966,7 +966,7 @@ namespace JobHunt.Infrastructure.Migrations
                         },
                         new
                         {
-                            Id = new Guid("bdc15363-aceb-4cf3-bde8-dd5fdd227272"),
+                            Id = new Guid("bbe67608-9bb4-4a4d-92b6-ab1f4f49624b"),
                             AboutCompany = "Industry leader in immersive gaming experiences",
                             AddressId = new Guid("4b23304a-d75c-4dff-8b86-402a8656f39c"),
                             CompanyName = "Epic Games Studio",
@@ -976,8 +976,8 @@ namespace JobHunt.Infrastructure.Migrations
                             ImageId = new Guid("d86c3bf1-22f9-467a-bb25-a335508074c2"),
                             JobLevel = "Lead",
                             OperationMode = "Onsite",
-                            Requirements = "7+ years in game development, experience leading large projects, Unreal Engine, C++, Game Design",
-                            Responsibilities = "Lead the game development team, oversee project lifecycle",
+                            Requirements = "[\"7\\u002B years in game development, experience leading large projects, Unreal Engine, C\\u002B\\u002B, Game Design\",\" Programujesz w C\\u002B\\u002B 17\",\" Znasz STL, Git/Svn\",\" Posiadasz umiej\\u0119tno\\u015B\\u0107 analitycznego i logicznego my\\u015Blenia\",\" Masz zdolno\\u015B\\u0107 do analizy wymaga\\u0144 niezb\\u0119dnych do projektowania i wdra\\u017Cania najlepszych rozwi\\u0105za\\u0144\",\" Dysponujesz wiedz\\u0105 z zakresu zagadnie\\u0144 rachunku prawdopodobie\\u0144stwa, kombinatoryki i statystyki\",\"Microsoft Excel nie ma przed Tob\\u0105 tajemnic\",\" Komunikujesz si\\u0119 w j\\u0119zyku angielskim na poziomie komunikatywnym\"]",
+                            Responsibilities = "[\"Lead the game development team, oversee project lifecycle\",\"Nasz\\u0105 misj\\u0105 jest nie tylko wprowadzanie nowych tytu\\u0142\\u00F3w na rynek, ale tak\\u017Ce ich dostosowywanie do specyficznych wymaga\\u0144 r\\u00F3\\u017Cnych rynk\\u00F3w.\",\"Specjalizujemy si\\u0119 w zaawansowanej matematyce gier oraz tworzeniu i doskonaleniu mechanizm\\u00F3w kontrolnych.\"]",
                             Salary = "18000-20000 zł brutto",
                             Technology = "C++",
                             Title = "Lead Game Developer",
@@ -1033,6 +1033,11 @@ namespace JobHunt.Infrastructure.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("text")
                         .HasColumnName("phone");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("status");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone")

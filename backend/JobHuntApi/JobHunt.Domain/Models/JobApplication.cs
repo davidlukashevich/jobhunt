@@ -1,4 +1,6 @@
-﻿namespace JobHunt.Domain.Models;
+﻿using JobHunt.Domain.Enums;
+
+namespace JobHunt.Domain.Models;
 
 public class JobApplication : BaseEntity
 {
@@ -12,4 +14,5 @@ public class JobApplication : BaseEntity
     public Guid JobId { get; set; }
     public required string CreatedBy { get; set; }
     public Job? Job { get; set; }
+    public required string Status { get; set; }
 }

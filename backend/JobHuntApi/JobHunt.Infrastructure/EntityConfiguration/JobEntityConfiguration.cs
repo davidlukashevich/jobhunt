@@ -1,4 +1,5 @@
 ﻿
+using System.Text.Json;
 using JobHunt.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -68,8 +69,20 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                     OperationMode = "Remote",
                     ContractType = "UOP", 
                     JobLevel = "Junior", 
-                    Responsibilities = "Assist in frontend dev",
-                    Requirements = "1+ years in HTML/CSS, Javascript, React",
+                    Responsibilities = JsonSerializer.Serialize(new List<string>
+                    {
+                        "Projektowanie i implementowanie Front-endu na podstawie wymagań biznesowych",
+                        "Testowanie manualne oraz automatyczne dostarczanych rozwiązań",
+                        "Udział w pracach utrzymaniowych w środowiskach testowych i produkcyjnych",
+                    }) ,
+                    Requirements = JsonSerializer.Serialize(new List<string>
+                    {
+                        "Wykształcenie: min. student 3 roku - kierunek informatyka lub pokrewny",
+                        "Znajomość: Vue 3 + Angular + CSS + TypeScript",
+                        "Znajomość systemów kontroli wersji (Git)",
+                        "Znajomość języka angielskiego umożliwiająca sprawną komunikację w mowie i w piśmie"
+                    }),
+                    
                     AboutCompany = "Web and mobile dev",
                     Type = "Frontend", 
                     Technology = "Js", 
@@ -87,8 +100,20 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                     OperationMode = "Hybrid", 
                     ContractType = "UOP", 
                     JobLevel = "Middle", 
-                    Responsibilities = "Develop frontend apps", 
-                    Requirements = "3+ years with Angular, TypeScript", 
+                    Responsibilities = JsonSerializer.Serialize(new List<string>
+                    {
+                        "Build user interfaces using Angular and TypeScript for Google Cloud's AI applications.",
+                        "Work closely with backend teams, PM, UX Researchers, and UX Designers on improvements to Cloud AI products.",
+                        "Design and build new frontend components and features for all Cloud AI applications and services.",
+                        "Opportunities to work on end-to-end features including UI, API and backend layers to develop full-stack experience."
+                    }) ,
+                    Requirements = JsonSerializer.Serialize(new List<string>
+                    {
+                        "3-4 years of experience in frontend development using Angular and TypeScript.",
+                        "Additional proficiency with Lit, Sass, Java, C++ is preferred.",
+                        "Openness to contributing to Google's future success in Cloud AI.",
+                        "English level: min B2+."
+                    }),
                     AboutCompany = "Web innovation leaders",
                     Type = "Frontend", 
                     Technology = "Typescript",
@@ -106,8 +131,28 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                      OperationMode = "Remote", 
                      ContractType = "B2B", 
                      JobLevel = "Senior", 
-                     Responsibilities = "Develop UI components, optimize for performance",
-                     Requirements = "5+ years experience with React", 
+                     Responsibilities = JsonSerializer.Serialize(new List<string>
+                     {
+                         "Collaborating with a cross-functional team of UX designers and UI developers",
+                         "Iteratively coding with considerations for fast-paced delivery and quality",
+                         "Working with multiple stakeholders including product owners and engineering leads",
+                         "Developing and maintaining a consistent approach to our component library and consuming applications",
+                         "Mentoring junior team members",
+                         "Ensuring UI consistency across multiple applications in collaboration with engineering leadership",
+                         "Adhering to best practices in our UX/UI functions",
+                         "Creating high-fidelity HTML/CSS prototypes",
+                         "Addressing cross-browser concerns and ensuring web accessibility"
+                     }) ,
+                     Requirements = JsonSerializer.Serialize(new List<string>
+                     {
+                         "7+ years of experience",
+                         "Expert experience with HTML, CSS, React, and Node.js",
+                         "High fidelity HTML/CSS prototyping skills",
+                         "Excellent knowledge of design systems and responsive web design",
+                         "Strong understanding of component-based development within a shared style guide context",
+                         "Deep knowledge of web accessibility standards",
+                         "Expertise in managing cross-browser issues "
+                     }),
                      AboutCompany = "Leading in AI solutions", 
                      Type = "Frontend", 
                      Technology = "React", 
@@ -125,8 +170,22 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                      OperationMode = "Hybrid", 
                      ContractType = "B2B",
                      JobLevel = "Lead",
-                     Responsibilities = "Oversee frontend projects", 
-                     Requirements = "7+ years with React, javascript, html, css",
+                     Responsibilities = JsonSerializer.Serialize(new List<string>
+                     {
+                         "Working in international Scrum Team to deliver Business critical solutions within the terminal/transit warehousing area in close cooperation with Product Owner",
+                         "Developing and technically owning backend (Java 17+/Spring, Event-Driven Architecture) and frontend (React for building dynamic, component-driven user interfaces) applications hosted in Azure Cloud",
+                         "Continuous improvement of products and internal delivery & maintenance processes"
+                       
+                     }),
+                     Requirements = JsonSerializer.Serialize(new List<string>
+                     {
+                         "Strong proficiency in React for building dynamic, component-driven user interfaces",
+                         "In-depth knowledge of Redux for state management, including actions, reducers, and middlewares (such as Redux Thunk or Redux Saga)",
+                         "Experience with React hooks (useEffect, useState, etc.) and functional components",
+                         "Proficiency in JavaScript (ES6+)",
+                         "Familiarity with React Router for navigation and Axios for API requests",
+                         "Understanding of CSS"
+                     }),
                      AboutCompany = "Web dev specialists", 
                      Type = "Frontend", 
                      Technology = "Js",
@@ -147,8 +206,18 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Hybrid", 
                 ContractType = "B2B", 
                 JobLevel = "Junior",
-                Responsibilities = "Assist backend development team",
-                Requirements = "1+ years with .NET",
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                    "Assist backend development team",
+                    "Szukamy osoby, której zadaniem będzie rozwijanie naszego produktu opartego o środowisko bazodanowe MS SQL oraz .Net"
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "Doświadczenie w programowaniu z wykorzystaniem C# .Net",
+                    "Znajomość Microsoft SQL Server w zakresie tworzenia zapytań",
+                    "Doświadczenie w projektowaniu lub tworzeniu aplikacji komercyjnych (mile widziane)",
+                    "Znajomość jęz. angielskiego umożliwiająca czytanie dokumentacji technicznej"
+                }),
                 AboutCompany = "Focus on data analytics", 
                 Type = "Backend", 
                 Technology = ".Net", 
@@ -166,8 +235,23 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Remote",
                 ContractType = "UOP", 
                 JobLevel = "Middle", 
-                Responsibilities = "Develop API services",
-                Requirements = "3+ years with Python, Flask",
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                    "projektowanie i implementacja rozwiązań informatycznych;",
+                    "praca w oparciu o zwinną metodykę wytwarzania oprogramowania;",
+                    "dbanie o jakość kodu źródłowego;",
+                    "współpraca z pozostałymi członkami zespołu."
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "3+ years with Python, Flask",
+                    "doświadczenie na stanowisku programisty – minimum 2 lata;",
+                    "doświadczenie w pracy projektowej w zespole deweloperskim;",
+                    "dobra znajomość wzorców projektowych, zasad programowania obiektowego;",
+                    "znajomość narzędzi kontroli wersji Git;",
+                    "doświadczenie w pisaniu testów jednostkowych, integracyjnych;",
+                    "samodzielność i komunikatywność.",
+                }),
                 AboutCompany = "Data science leaders", 
                 Type = "Backend", 
                 Technology = "Python", 
@@ -185,8 +269,26 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Remote", 
                 ContractType = "B2B", 
                 JobLevel = "Senior",
-                Responsibilities = "Design backend services",
-                Requirements = "5+ years in backend dev, Python, Django",
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                   " Wsparcie zespołu w budowaniu architektury aplikacji",
+                   " Udział w podejmowaniu decyzji i rozwiązywaniu problemów w określonych obszarach projektu",
+                    "Wsparcie prowadzenia zespołu developerskiego",
+                  "  Dzielenie się wiedzą i doświadczeniami z resztą zespołu",
+                   " Pisanie czystego, wydajnego kodu",
+                   " Prowadzenie procesu Code Review oraz podejmowanie decyzji na poziomie kodu",
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                   " Minimum 3-letnie doświadczenie w budowaniu aplikacji pythonowych",
+                   " Doświadczenie w projektowaniu i budowaniu wysoko-skalowalnych aplikacji z równoległym strumieniem przetwarzania",
+                   " Tworzenie czytelnego kodu zgodnego z zasadami SOLID, umiejętność wykorzystywania Design Patterns w codziennej pracy",
+                   " Podstawowa znajomość algorytmów i struktur danych",
+                   " Język angielski na poziomie umożliwiającym swobodne czytanie i pisanie dokumentacji oraz porozumiewanie się z współpracownikami (min. B2)",
+                   " Doświadczenie w pracy z JavaScript, optymalnie NestJS",
+                    "Doświadczenie w pracy z Flask oraz relacyjnymi i nie relacyjnymi bazami danych",
+                   " Znajomość ekosystemu AWS",
+                }),
                 AboutCompany = "Experts in cloud tech", 
                 Type = "Backend", 
                 Technology = "Python", 
@@ -206,8 +308,30 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Onsite", 
                 ContractType = "UOP", 
                 JobLevel = "Lead", 
-                Responsibilities = "Lead backend projects", 
-                Requirements = "7+ years in backend dev, Java, Spring Boot", 
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                   " Core Java development and Web applications with Spring and Angular",
+                   " Participate in requirements analysis",
+                   " Work with deployment pipelines and CI/CD processes",
+                    "Debugging and problem solving on existing applications",
+                   " Working in distributed teams with Agile Frameworks (Kanban/Scrum)",
+                   " Feature development, code reviews, guide our developers for best development practices",
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "Bachelor's or Master's degree in computer science/engineering or last year of university degree",
+                   " At least 7+ years of hands-on Java development experience",
+                   " Very Good knowledge of Java (11+)",
+                   " Strong Experience with Spring Framework",
+                   " Strong Experience with JPA/Hibernate",
+                   " Strong Experience with SQL/NoSQL with understanding of database design and optimization methodologies",
+                   " Experience with Apache Camel",
+                   " Experience with Messaging Queues",
+                   " Experience with QueryDSL or other query mapping frameworks",
+                   " Experience in Angular 10+",
+                   " Knowledge of unit testing frameworks (preferred Cucumber)",
+                   " Good knowledge of linux commands and scripting",
+                }),
                 AboutCompany = "Backend solutions", 
                 Type = "Backend", 
                 Technology = "Java", 
@@ -227,8 +351,21 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Remote",
                 ContractType = "UOP",
                 JobLevel = "Junior", 
-                Responsibilities = "Support web projects", 
-                Requirements = "Experience with HTML, CSS, JavaScript", 
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                    "Support web projects",
+                    "Projektowanie i implementowanie Front-endu na podstawie wymagań biznesowych",
+                    "Testowanie manualne oraz automatyczne dostarczanych rozwiązań",
+                    "Udział w pracach utrzymaniowych w środowiskach testowych i produkcyjnych",
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "Experience with HTML, CSS, JavaScript",
+                    "Wykształcenie: min. student 3 roku - kierunek informatyka lub pokrewny",
+                    "Znajomość: Vue 3 + Angular + CSS + TypeScript",
+                    "Znajomość systemów kontroli wersji (Git)",
+                    "Znajomość języka angielskiego umożliwiająca sprawną komunikację w mowie i w piśmie"
+                }),
                 AboutCompany = "Web innovation hub", 
                 Type = "Fullstack", 
                 Technology = "Js", 
@@ -245,8 +382,20 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Remote", 
                 ContractType = "B2B", 
                 JobLevel = "Middle",
-                Responsibilities = "Develop web applications",
-                Requirements = "3+ years with JS & Node",
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                    "Projektowanie i implementowanie Front-endu na podstawie wymagań biznesowych",
+                    "Testowanie manualne oraz automatyczne dostarczanych rozwiązań",
+                    "Udział w pracach utrzymaniowych w środowiskach testowych i produkcyjnych",
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "3+ years with JS & Node",
+                    "Wykształcenie: min. student 3 roku - kierunek informatyka lub pokrewny",
+                    "Znajomość: Vue 3 + Angular + CSS + TypeScript",
+                    "Znajomość systemów kontroli wersji (Git)",
+                    "Znajomość języka angielskiego umożliwiająca sprawną komunikację w mowie i w piśmie"
+                }),
                 AboutCompany = "Web solutions specialists", 
                 Type = "Fullstack", 
                 Technology = "Js",
@@ -264,8 +413,21 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Hybrid",
                 ContractType = "UOP",
                 JobLevel = "Senior", 
-                Responsibilities = "Develop fullstack apps",
-                Requirements = "5+ years in fullstack dev, , Ruby on Rails, JavaScript", 
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                   " tworzenie portali turystycznych dla naszych Klientów w Polsce i za granicą",
+                  "  rozwój i tworzenie nowych funkcjonalności dotychczasowych aplikacji",
+                   " uczestnictwo w przeglądach kodu oraz dążenie do zapewnienia wysokiej jakości i efektywności rozwiązań",
+                   " aktywne uczestnictwo w tworzeniu specyfikacji projektowych wraz z zespołem",
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "5+ years in fullstack dev, , Ruby on Rails, JavaScript",
+                   " dobra znajomość zasad projektowania, dostępności i testowania użyteczności",
+                    "znajomość kompatybilności między przeglądarkami, techniki buforowania i optymalizacji wydajności, znajomość podstaw SEO i umiejętność optymalizacji pod kątem wyszukiwarek",
+                   " aktywna współpraca z klientami oraz zespołami - Twoja wiedza pozwala na konstruktywny dialog i wybór odpowiednich rozwiązań.",
+                   " znajomość systemu kontroli wersji (GIT)",
+                }),
                 AboutCompany = "Comprehensive IT services", 
                 Type = "Fullstack",
                 Technology = "JavaScript", 
@@ -285,8 +447,24 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Remote", 
                 ContractType = "UOP", 
                 JobLevel = "Lead",
-                Responsibilities = "Lead fullstack projects",
-                Requirements = "7+ years in fullstack dev, JavaScript, Node.js, React",
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                    "Lead fullstack projects",
+                    "Solid understanding of change management processes",
+                   " Strong Gitlab, Jira, and Confluence experience for project and code management",
+                   " Knowledge of HTML, CSS, and JavaScript for front-end integration",
+                   " Ability to work collaboratively within a globally distributed team",
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "7+ years in fullstack dev, JavaScript, Node.js, React",
+                   " Problem-solving skills and a proactive approach to challenges",
+                   " Experience working in a DevSecOps environment",
+                   " Solid understanding of change management processes",
+                   " Strong Gitlab, Jira, and Confluence experience for project and code management",
+                    "Knowledge of HTML, CSS, and JavaScript for front-end integration",
+                    "Ability to work collaboratively within a globally distributed team",
+                }),
                 AboutCompany = "IT and web solutions",
                 Type = "Fullstack", 
                 Technology = "Javascript", 
@@ -305,8 +483,21 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Onsite", 
                 ContractType = "B2B",
                 JobLevel = "Junior", 
-                Responsibilities = "Support mobile dev team", 
-                Requirements = "Basic knowledge in Swift, iOS",
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                    "Support mobile dev team",
+                   " Udział w rozwoju oprogramowania aplikacji mobilnych dla branży finansowej",
+                   " Stosowanie dobrych praktyk programowania obiektowego i wzorców projektowych, takich jak MVP, MVVM czy MVC",
+                   " Implementacja atrakcyjnych i intuicyjnych interfejsów użytkownika",
+                   " Ścisła współpraca z zespołem projektantów UX/UI, backendowców, testerów oraz product managerów, aby spełnić wymagania projektowe i dostarczyć wysokiej jakości produkt",
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "Basic knowledge in Swift, iOS",
+                   " Znajomość Kotlin oraz Java",
+                   " Doświadczenie z Android Studio",
+                   " znajomość Git, Gerrit, Gradle",
+                }),
                 AboutCompany = "Creative app developers", 
                 Type = "Mobile",
                 Technology = "Swift", 
@@ -323,8 +514,25 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Hybrid",
                 ContractType = "B2B", 
                 JobLevel = "Middle",
-                Responsibilities = "Maintain mobile apps", 
-                Requirements = "2+ years in mobile dev, Kotlin",
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                    "Maintain mobile apps",
+                    "Udział w rozwoju oprogramowania aplikacji mobilnych dla branży finansowej",
+                    "Stosowanie dobrych praktyk programowania obiektowego i wzorców projektowych, takich jak MVP, MVVM czy MVC",
+                    "Implementacja atrakcyjnych i intuicyjnych interfejsów użytkownika",
+                   " Ścisła współpraca z zespołem projektantów UX/UI, backendowców, testerów oraz product managerów, aby spełnić wymagania projektowe i dostarczyć wysokiej jakości produkt",
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "2+ years in mobile dev, Kotlin",
+                    "Znajomość Kotlin oraz Java",
+                   " Doświadczenie z Android Studio",
+                  "  znajomość Git, Gerrit, Gradle",
+                   " Doświadczene z Postman lub SoapUI",
+                   " Doświadczenie z Jira, Confluence",
+                   " Doświadczenie z Adobexd lub podobnymi bibliotekami",
+                   " Doświadczenie z narzędziami CI/CD (Jenkins)",
+                }),
                 AboutCompany = "Mobile app innovation", 
                 Type = "Mobile", 
                 Technology =  "Kotlin", 
@@ -344,8 +552,23 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Hybrid", 
                 ContractType = "UOP", 
                 JobLevel = "Senior", 
-                Responsibilities = "Design mobile features", 
-                Requirements = "5+ years in mobile dev, , Android, Kotlin",
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                    "Design mobile features",
+                   " Programming languages  Swift",
+                   " Mobile development frameworks",
+                   " In-depth experience with application and user interface level using at least one mobile application development language",
+                   " Asynchronous programming and networking protocols",
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "5+ years in mobile dev, , Android, Kotlin",
+                   " Advanced English (written and spoken)",
+                   " Expertise in software engineering toolchain (Jira, Git, CI/CD)",
+                   " Good communication skills",
+                   " Willingness to learn",
+                   " Basic know how of automotive problematics",
+                }),
                 AboutCompany = "Top mobile solutions", 
                 Type = "Mobile", 
                 Technology = "Kotlin",
@@ -364,8 +587,24 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Onsite", 
                 ContractType = "UOP", 
                 JobLevel = "Lead", 
-                Responsibilities = "Oversee mobile development",
-                Requirements = "7+ years in mobile dev, Swift",
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                    "Oversee mobile development",
+                    "Advanced English (written and spoken)",
+                   " Expertise in software engineering toolchain (Jira, Git, CI/CD)",
+                    "Good communication skills",
+                   " Willingness to learn",
+                   " Basic knowhow of automotive problematics",
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "7+ years in mobile dev, Swift",
+                   " Advanced English (written and spoken)",
+                   " Expertise in software engineering toolchain (Jira, Git, CI/CD)",
+                    "Good communication skills",
+                   " Willingness to learn",
+                    "Basic knowhow of automotive problematics",
+                }),
                 AboutCompany = "Specializing in mobile tech", 
                 Type = "Mobile", 
                 Technology = "Swift", 
@@ -386,8 +625,14 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Remote",
                 ContractType = "B2B",
                 JobLevel = "Junior",
-                Responsibilities = "Write game mechanics code",
-                Requirements = "Experience with Unity, C#",
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                    "Write game mechanics code"
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "Experience with Unity, C#",
+                }),
                 AboutCompany = "Renowned in game dev", 
                 Type = "GameDev", 
                 Technology = "C#", 
@@ -404,8 +649,14 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Onsite",
                 ContractType = "UOP", 
                 JobLevel = "Middle", 
-                Responsibilities = "Create engaging game logic", 
-                Requirements = "3+ years with Unity,C#",
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                    "Create engaging game logic"
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "3+ years with Unity,C#"
+                }),
                 AboutCompany = "Innovators in gaming", 
                 Type = "Gamedev", 
                 Technology = "C#",
@@ -425,8 +676,22 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Remote", 
                 ContractType = "UOP", 
                 JobLevel = "Senior", 
-                Responsibilities = "Develop complex game systems, mentor junior developers", 
-                Requirements = "5+ years with Unity or Unreal Engine, strong C# or C++ skills", 
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                    "Develop complex game systems, mentor junior developers",
+                   " Naszą misją jest nie tylko wprowadzanie nowych tytułów na rynek, ale także ich dostosowywanie do specyficznych wymagań różnych rynków.",
+                   " Specjalizujemy się w zaawansowanej matematyce gier oraz tworzeniu i doskonaleniu mechanizmów kontrolnych.",
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                   " Programujesz w C++ 17",
+                   " Znasz STL, Git/Svn",
+                    "Posiadasz umiejętność analitycznego i logicznego myślenia",
+                    "Masz zdolność do analizy wymagań niezbędnych do projektowania i wdrażania najlepszych rozwiązań",
+                   " Dysponujesz wiedzą z zakresu zagadnień rachunku prawdopodobieństwa, kombinatoryki i statystyki",
+                   " Microsoft Excel nie ma przed Tobą tajemnic",
+                   " Komunikujesz się w języku angielskim na poziomie komunikatywnym",
+                }),
                 AboutCompany = "A renowned leader in AAA game development", 
                 Type = "GameDev", 
                 Technology = "C#", 
@@ -443,8 +708,23 @@ public class JobEntityConfiguration : IEntityTypeConfiguration<Job>
                 OperationMode = "Onsite", 
                 ContractType = "UOP", 
                 JobLevel = "Lead", 
-                Responsibilities = "Lead the game development team, oversee project lifecycle", 
-                Requirements = "7+ years in game development, experience leading large projects, Unreal Engine, C++, Game Design", 
+                Responsibilities = JsonSerializer.Serialize(new List<string>
+                {
+                    "Lead the game development team, oversee project lifecycle",
+                    "Naszą misją jest nie tylko wprowadzanie nowych tytułów na rynek, ale także ich dostosowywanie do specyficznych wymagań różnych rynków.",
+                    "Specjalizujemy się w zaawansowanej matematyce gier oraz tworzeniu i doskonaleniu mechanizmów kontrolnych.",
+                }) ,
+                Requirements = JsonSerializer.Serialize(new List<string>
+                {
+                    "7+ years in game development, experience leading large projects, Unreal Engine, C++, Game Design",
+                   " Programujesz w C++ 17",
+                   " Znasz STL, Git/Svn",
+                   " Posiadasz umiejętność analitycznego i logicznego myślenia",
+                   " Masz zdolność do analizy wymagań niezbędnych do projektowania i wdrażania najlepszych rozwiązań",
+                   " Dysponujesz wiedzą z zakresu zagadnień rachunku prawdopodobieństwa, kombinatoryki i statystyki",
+                    "Microsoft Excel nie ma przed Tobą tajemnic",
+                   " Komunikujesz się w języku angielskim na poziomie komunikatywnym",
+                }),
                 AboutCompany = "Industry leader in immersive gaming experiences", 
                 Type = "GameDev", 
                 Technology = "C++", 

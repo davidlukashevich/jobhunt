@@ -5,7 +5,7 @@ using JobHunt.Application.Request.University;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using IMediator = MassTransit.Mediator.IMediator;
+
 
 namespace JobHuntApi.Controllers
 {

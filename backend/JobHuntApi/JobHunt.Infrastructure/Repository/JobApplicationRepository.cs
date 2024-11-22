@@ -1,4 +1,5 @@
-﻿using JobHunt.Domain.Interface.Repository;
+﻿
+using JobHunt.Domain.Interface.Repository;
 using JobHunt.Domain.Models;
 using JobHunt.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -44,5 +45,14 @@ public class JobApplicationRepository : IJobApplicationRepository
             .Include(j => j.Job)
             .ThenInclude(j => j!.Image)
             .ToListAsync();
+    }
+
+    public async Task UpdateJobApplicationStatusAsync(Guid jobApplicationId, string newStatus)
+    {
+        await _context.JobApplications
+            .Where(j => j.Id == jobApplicationId)
+            .ExecuteUpdateAsync(s => s
+                .SetProperty(p => p.Status, newStatus)
+            );
     }
 }

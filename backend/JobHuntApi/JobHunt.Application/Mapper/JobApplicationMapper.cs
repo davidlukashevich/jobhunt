@@ -1,5 +1,6 @@
 ﻿using JobHunt.Application.Request.JobApplication;
 using JobHunt.Application.Response.JobApplication;
+using JobHunt.Domain.Enums;
 using JobHunt.Domain.Models;
 
 namespace JobHunt.Application.Mapper;
@@ -18,7 +19,8 @@ public static class JobApplicationMapper
             AboutInformation = request.AboutUser,
             JobId = request.JobId,
             CreatedBy = request.CreatedBy,
-            Cv = $"{your_link}/cv_{request.Cv.FileName}"
+            Status = JobApplicationStatus.Pending.ToString(),
+            Cv = $"your_link/cv_{request.Cv.FileName}"
         };
     }
 
@@ -33,6 +35,7 @@ public static class JobApplicationMapper
             Phone = jobApplication.Phone,
             AboutInformation = jobApplication.AboutInformation,
             Cv = jobApplication.Cv,
+            CreatedAt = jobApplication.CreatedAt
         };
     }
 
@@ -47,6 +50,8 @@ public static class JobApplicationMapper
                 Lastname = j.LastName,
                 Email = j.Email,
                 Phone = j.Phone,
+                CreatedAt = j.CreatedAt,
+                
             })
             .ToList();
         
@@ -65,6 +70,8 @@ public static class JobApplicationMapper
                 JobCompanyLogo = j.Job.Image!.ImageUrl,
                 JobAddressCountry = j.Job.Address!.Country,
                 JobAddressCity = j.Job.Address!.City,
+                Status = j.Status,
+                CreatedAt = j.CreatedAt
             })
             .ToList();
         

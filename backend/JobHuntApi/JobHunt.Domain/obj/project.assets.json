@@ -132,6 +132,7 @@
       "packagesPath": "C:\\Users\\Yura\\.nuget\\packages\\",
       "outputPath": "D:\\dotnet\\jobhunt\\backend\\JobHuntApi\\JobHunt.Domain\\obj\\",
       "projectStyle": "PackageReference",
+      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
         "C:\\Users\\Yura\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
