@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { FaBriefcase, FaHome, FaMapMarkerAlt, FaMoneyBillWave } from 'react-icons/fa';
+import { SiLevelsdotfyi } from 'react-icons/si'
+import { useNavigate, useParams } from 'react-router-dom';
 import Container from '../../components/Container/Container';
-import { FaMapMarkerAlt, FaClock, FaMoneyBillWave, FaBriefcase, FaHome, FaCalendarAlt } from 'react-icons/fa';
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import './index.css';
 
 const JobDetails: React.FC = () => {
@@ -12,17 +14,17 @@ const JobDetails: React.FC = () => {
     const job = {
         id,
         title: 'Praktykant/Praktykantka do Zespołu .NET',
+        icon: 'https://cdn-icons-png.freepik.com/256/3673/3673360.png?semt=ais_hybrid',
         company: 'AXA IT Solutions',
         location: 'Chłodna 51, Wola, Warszawa',
         employmentType: 'Umowa zlecenie',
         salaryRate: '32,00 zł brutto / godz.',
         workType: 'Praca zdalna, praca hybrydowa',
-        contractDuration: 'Pełny etat / część etatu',
-        availability: 'ważna do 23 listopada 2024',
+        level: 'Praktykant',
         responsibilities: [
             'Wykonywanie zadań developerskich z zakresu programowania w C# oraz Angular (17+)',
-            'Współpraca i wsparcie zespołu testowego przy wykonywaniu testów nowych funkcjonalności i poprawy błędów w już istniejących',
-            'Analiza problemów developerskich i możliwości ich rozwiązania z bardziej doświadczonymi osobami w zespole',
+            'Współpraca i wsparcie zespołu testowego przy wykonywaniu ',
+            'Analiza problemów developerskich i możliwości ich rozwiązania z bardziej doświadczonymi',
             'Praca zgodnie z metodyką Agile/DSDM',
         ],
         requirements: [
@@ -45,44 +47,52 @@ const JobDetails: React.FC = () => {
     return (
         <Container>
             <div className="job-header">
-                <h2 className="job-title">{job.title}</h2>
-                <p className="company-name">{job.company}</p>
-                <p className="job-location">
-                    <FaMapMarkerAlt /> {job.location}
-                </p>
+                <div className='job-icon-wrapper'>
+                    <img className='job-icon' src={job.icon} />
+                </div>
+                <div className='job-company-info'>
+                    <h2 className="job-title">{job.title}</h2>
+                    <p className="company-name">{job.company}</p>
+                </div>
             </div>
-            <div className="job-body">
+            <div className='job-body'>
                 <div className="job-description">
-                    <h3>Zakres obowiązków</h3>
-                    <ul>
-                        {job.responsibilities.map((task, index) => (
-                            <li key={index}>{task}</li>
-                        ))}
-                    </ul>
-                    <h3>Nasze wymagania</h3>
-                    <ul>
-                        {job.requirements.map((requirement, index) => (
-                            <li key={index}>{requirement}</li>
-                        ))}
-                    </ul>
-                    <h3>O firmie</h3>
-                    <p>{job.aboutCompany}</p>
+                    <div className='job-info'>
+                        <h3>Zakres obowiązków</h3>
+                        <ul>
+                            {job.responsibilities.map((task, index) => (
+                                <div className='job-response'><IoMdCheckmarkCircleOutline className='check-icon' /><li key={index}>{task}</li></div>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className='job-info'>
+                        <h3 className='job-skills-title'>Nasze wymagania</h3>
+                        <ul>
+                            {job.requirements.map((requirement, index) => (
+                                <div className='job-requirements'><IoMdCheckmarkCircleOutline className='check-icon' /><li key={index}>{requirement}</li></div>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className='job-info'>
+                        <h3 className='about-firm-title'>O firmie</h3>
+                        <p>{job.aboutCompany}</p>
+                    </div>
                 </div>
                 <div className="job-details">
                     <p className="salary-rate">
                         <FaMoneyBillWave /> {job.salaryRate}
                     </p>
+                    <p className="job-location">
+                        <FaMapMarkerAlt /> {job.location}
+                    </p>
                     <p className="employment-type">
                         <FaBriefcase /> {job.employmentType}
                     </p>
                     <p className="work-type">
-                        <FaHome /> {job.workType}
+                        <FaHome className='work-type-icon' /> {job.workType}
                     </p>
-                    <p className="contract-duration">
-                        <FaClock /> {job.contractDuration}
-                    </p>
-                    <p className="availability">
-                        <FaCalendarAlt /> {job.availability}
+                    <p className='work-level'>
+                        <SiLevelsdotfyi />{job.level}
                     </p>
                 </div>
             </div>
