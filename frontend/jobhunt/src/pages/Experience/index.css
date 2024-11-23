@@ -1,0 +1,88 @@
+.experience-form-wrapper {
+    margin-top: 20px;
+}
+
+.experience-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.experience-form label {
+    font-size: 16px;
+    color: #333;
+}
+
+.experience-form input, .experience-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    grid-area: btn;
+    
+}
+
+.input{
+    padding-top: 200px;
+}
+
+
+.experience-form{
+    display: grid;
+    margin-top: 50px;
+    
+    grid-template-areas: 
+            "position companyname"
+            "workfrom workto"
+            "location location"
+            "responsibility responsibility"
+            "btn btn";
+            
+    
+}
+
+
+.textarea{
+    height: 200px;
+}
+
+h3{
+    margin-top: 25px;
+}
+
+.label_position{
+    grid-area: position;
+}
+.label_companyname{
+    grid-area: companyname;
+}
+.label_location{
+    grid-area: location;
+}
+.label_workfrom{
+    grid-area: workfrom;
+}
+
+.label_workto{
+    grid-area: workto;
+}
+
+.label_responsibility{
+    grid-area: responsibility;
+}
+
+.input{
+    height: 40px;
+}

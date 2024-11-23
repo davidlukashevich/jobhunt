@@ -51,6 +51,8 @@
     margin-top: 20px;
     text-align: center;
 }
+
+
   
 .menu-button {
     padding: 10px 20px;
@@ -302,11 +304,13 @@
 .experience_list{
     list-style: none;
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .education_list{
     list-style: none;
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .experience_list-item{
@@ -368,21 +372,23 @@
 .education_button{
     background-color: rgb(56, 43, 236);
     padding: 10px 30px;
-    margin-top: 30px;
+    
     border-radius: 10px;
     border: none;
     color: white;
     text-align: center;
+    text-decoration: none;
 }
 
 .experience_button{
     background-color: rgb(56, 43, 236);
     padding: 10px 30px;
-    margin-top: 30px;
+    
     border-radius: 10px;
     border: none;
     color: white;
     text-align: center;
+    text-decoration: none;
 }
 
 .education_date{

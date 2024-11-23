@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import Container from "../../components/Container/Container";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineDateRange } from "react-icons/md";
 import { CiPhone } from "react-icons/ci";
 import { AiOutlineMail } from "react-icons/ai";
 import { FaRegBuilding } from "react-icons/fa";
-import { FaUniversity } from "react-icons/fa";
+
 import { SiLevelsdotfyi } from "react-icons/si";
 
 import "./index.css";
 import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 
@@ -36,6 +35,7 @@ interface JobOffer {
 const Profile: React.FC<ProfileProps> = ({ role }) => {
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   const [employeeData, setEmployeeData] = useState({
     id: "8a6967e8-66d3-47c0-a682-826fffb69fbe",
@@ -398,7 +398,12 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
                     </>
                   ))}
                 </ul>
-                <button className="experience_button">Add Experience</button>
+                <Link
+                  to="/myprofile/experience/create"
+                  className="experience_button"
+                >
+                  Add Experience
+                </Link>
               </AccordionDetails>
             </Accordion>
           </div>
@@ -446,7 +451,12 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
                     ))
                   )}
                 </ul>
-                <button className="education_button">Add Education</button>
+                <Link
+                  to="/myprofile/education/create"
+                  className="education_button"
+                >
+                  Add Education
+                </Link>
               </AccordionDetails>
             </Accordion>
           </div>
