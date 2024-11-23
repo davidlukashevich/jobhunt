@@ -24,9 +24,77 @@
 
 .submit-btn {
     background-color: #4CAF50;
+    
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    grid-area: btn;
+    
+}
+
+.input{
+    padding-top: 200px;
+}
+
+.job_info-wrapper{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #D3D3D3 ;
+}
+
+.job_logo{
+    width: 100px;
+    border: 1px solid #D3D3D3;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.application-form{
+    display: grid;
+    margin-top: 50px;
+    
+    grid-template-areas: 
+            "name lastname"
+            "mobile email"
+            "cv cv"
+            "coverletter coverletter"
+            "btn btn";
+            
+    
+}
+
+
+.textarea{
+    height: 200px;
+}
+
+h3{
+    margin-top: 25px;
+}
+
+.label_name{
+    grid-area: name;
+}
+.label_lastname{
+    grid-area: lastname;
+}
+.label_mobile{
+    grid-area: mobile;
+}
+.label_email{
+    grid-area: email;
+}
+.label_cv{
+    grid-area: cv;
+}
+.label_coverletter{
+    grid-area: coverletter;
+}
+
+.input{
+    height: 40px;
 }

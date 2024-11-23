@@ -11,7 +11,7 @@ import Profile from './pages/Profile/Profile';
 import PostJobOffer from './pages/PostJobOffer/PostJobOffer';
 
 function App() {
-  const userRole: 'Employee' | 'Employer' = 'Employer';
+  const userRole: 'Employee' | 'Employer' = 'Employee';
 
   return (
     <BrowserRouter>
@@ -25,7 +25,7 @@ function App() {
             <Route path='/myprofile' element={<Profile role={userRole}/>} />
             <Route path="/post-job-offer" element={<PostJobOffer />} />
           </Routes>
-        <Footer/>
+        {/* <Footer/> */}
       </div>
     </BrowserRouter>
   );

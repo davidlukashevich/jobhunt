@@ -1,6 +1,9 @@
 .profile-page {
-    margin-top: 30px;
+    margin-top: 70px;
     color: #0062cc;
+    align-items: start;
+    display: flex;
+    justify-content: space-between;
 }
   
 .profile-title {
@@ -182,4 +185,230 @@
 .delete-btn {
     background-color: #dc3545;
     color: white;
-}  
+} 
+.icon{
+    color: rgb(25, 21, 88);
+    margin-right: 20px;
+} 
+
+.user_info{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.user_fullname{
+    font-size: 30px;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(25, 21, 88);
+}
+.user_profession{
+    color: rgb(25, 21, 88);
+    margin-top: 20px;
+    font-size: 15px;
+    text-align: center;
+}
+.user_avatar{
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+}
+
+.user_address{
+    margin-top: 50px;
+    color: rgb(25, 21, 88);
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e8e6e6;
+}
+
+.user_email{
+    margin-top: 25px;
+    color: rgb(25, 21, 88);
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e8e6e6;
+}
+.user_mobile{
+    margin-top: 25px;
+    color: rgb(25, 21, 88);
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e8e6e6;
+}
+.user_dateofbirth{
+    margin-top: 25px;   
+    color: rgb(25, 21, 88);
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e8e6e6;
+}
+
+.user_button{
+    background-color: rgb(56, 43, 236);
+    padding: 10px 30px;
+    margin-top: 30px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+
+.user_additional-data{
+    display: flex;
+    flex-direction: column;
+     align-items: start; 
+     justify-content: center; 
+}
+
+.summary_title{
+    color: rgb(25, 21, 88);
+    font-size: 30px;
+}
+
+.summary_info{
+    margin-top: 30px;
+    color: rgb(25, 21, 88);
+    width: 600px;
+    
+    
+}
+
+
+.experience_wrapper{
+    margin-top: 80px;
+    /* display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.education_wrapper{
+    margin-top: 80px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+}
+
+.experience_title{
+    color: rgb(25, 21, 88);
+    
+}
+
+
+
+.experience_list{
+    list-style: none;
+    margin-top: 20px;
+}
+
+.education_list{
+    list-style: none;
+    margin-top: 20px;
+}
+
+.experience_list-item{
+    border-bottom: 1px solid #e8e6e6;
+    width: 500px;
+    padding: 20px 0;
+   
+    margin-top: 20px;
+}
+
+.education_title{
+    color: rgb(25, 21, 88);
+    
+}
+
+.education_icon{
+    margin-right: 5px;
+}
+
+
+.experience_position{
+    color: rgb(25, 21, 88);
+    font-size: 25px;
+}
+
+.education_list-item{
+    border-bottom: 1px solid #e8e6e6;
+    width: 500px;
+    padding: 20px 0;
+
+    margin-top: 20px;
+}
+
+
+
+.education_universityname{
+    color: rgb(25, 21, 88);
+    font-size: 25px;
+}
+
+.education_level{
+    color: rgb(25, 21, 88);
+    margin-top: 10px;
+}
+
+.education_info{
+    margin-top: 15px;
+}
+
+.education_fieldofstudy{
+    color: rgb(25, 21, 88);
+}
+
+.education_specialization{
+    color: rgb(25, 21, 88);
+}
+
+.education_date{
+    color: rgb(25, 21, 88);   
+}
+
+.experience_companyname{
+    color: rgb(25, 21, 88);
+}
+.experience_location{
+    color: rgb(25, 21, 88);
+}
+.experience_responsibility{
+    margin-top: 15px;
+    color: rgb(25, 21, 88);
+    
+}
+.experience_date{
+    color: black;
+    color: rgb(25, 21, 88);
+    
+}
+
+.experience_icon{
+    margin-right: 5px;
+}
+
+.experience_company_info{
+    display: flex;
+    margin-top: 15px;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.experience_company_info-bloc1{
+    display: flex;
+    gap: 30px;
+}
+
+.education_info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.education_info_block1{
+    display: flex;
+    gap: 30px;
+}
