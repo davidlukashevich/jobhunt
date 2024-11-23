@@ -21,6 +21,8 @@ public class ProfileEntityConfiguration : IEntityTypeConfiguration<Profile>
         builder.Property(p => p.ImageId).HasColumnName("image_id");
         builder.Property(p => p.CreatedAt).HasColumnName("created_at");
         builder.Property(p => p.UpdatedAt).HasColumnName("updated_at");
+        builder.Property(p => p.Specialization).HasColumnName("specialization").IsRequired();
+        builder.Property(p => p.ProfileSummary).HasColumnName("profile_summary").IsRequired();
         
        
         

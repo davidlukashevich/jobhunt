@@ -8,6 +8,8 @@ public class UpdateProfileRequest
     public required string Name { get; set; }
     public required string Lastname { get; set; }
     public required string Email { get; set; }
+    public required string Specialization { get; set; }
+    public required string ProfileSummary { get; set; }
     public string? Phone { get; set; }
     public string? UserId { get; set; }
     public int DateOfBirthYear { get; set; }

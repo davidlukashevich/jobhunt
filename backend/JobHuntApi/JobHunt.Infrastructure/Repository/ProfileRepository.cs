@@ -39,6 +39,8 @@ public class ProfileRepository : IProfileRepository
                 .SetProperty(p => p.Phone, profile.Phone)
                 .SetProperty(p => p.DateOfBirth, profile.DateOfBirth)
                 .SetProperty(p => p.CreatedBy, profile.CreatedBy)
+                .SetProperty(p => p.Specialization, profile.Specialization)
+                .SetProperty(p => p.ProfileSummary, profile.ProfileSummary)
             );
         
         return updateResult > 0;

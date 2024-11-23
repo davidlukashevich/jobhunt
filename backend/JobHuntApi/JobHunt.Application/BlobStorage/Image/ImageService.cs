@@ -40,8 +40,8 @@ public class ImageService : IImageService
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
-            throw;
+            Console.WriteLine(e.Message);
+            throw new Exception(e.Message);
         }
         
     }

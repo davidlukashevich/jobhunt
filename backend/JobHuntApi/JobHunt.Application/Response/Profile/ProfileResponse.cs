@@ -8,6 +8,8 @@ public class ProfileResponse
     public required string Name { get; set; }
     public required string Lastname { get; set; }
     public required string Email { get; set; }
+    public required string Specialization { get; set; }
+    public required string ProfileSummary { get; set; }
     public string? Phone { get; set; }
     public string? DateOfBirth { get; set; }
     public List<UniversityDTO>? Universities { get; set; }
