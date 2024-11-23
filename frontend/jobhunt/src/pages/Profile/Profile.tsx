@@ -10,6 +10,10 @@ import { FaUniversity } from "react-icons/fa";
 import { SiLevelsdotfyi } from "react-icons/si";
 
 import "./index.css";
+import Accordion from "@mui/material/Accordion";
+import AccordionActions from "@mui/material/AccordionActions";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
 
 interface ProfileProps {
   role: "Employee" | "Employer";
@@ -355,76 +359,96 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
             quae ab consequuntur id assumenda veritatis optio esse doloremque!
           </p>
           <div className="experience_wrapper">
-            <h2 className="experience_title"> Work Experience</h2>
-            <ul className="experience_list">
-              {employeeData.experiences.map((e) => (
-                <>
-                  <li className="experience_list-item">
-                    <p className="experience_position">{e.position}</p>
-                    <div className="experience_company_info">
-                      <div className="experience_company_info-bloc1">
-                        <p className="experience_companyname">
-                          <FaRegBuilding className="experience_icon" />
-                          {e.companyName}
-                        </p>
-                        <p className="experience_location">
-                          <CiLocationOn className="experience_icon" />
-                          {e.location}
-                        </p>
-                      </div>
-                      <div className="">
-                        <p className="experience_date">
-                          <MdOutlineDateRange className="experience_icon" />
-                          {e.workFrom} / {e.workTo}
-                        </p>
-                      </div>
-                    </div>
+            <Accordion>
+              <AccordionSummary
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                Work Experience
+              </AccordionSummary>
+              <AccordionDetails>
+                <ul className="experience_list">
+                  {employeeData.experiences.map((e) => (
+                    <>
+                      <li className="experience_list-item">
+                        <p className="experience_position">{e.position}</p>
+                        <div className="experience_company_info">
+                          <div className="experience_company_info-bloc1">
+                            <p className="experience_companyname">
+                              <FaRegBuilding className="experience_icon" />
+                              {e.companyName}
+                            </p>
+                            <p className="experience_location">
+                              <CiLocationOn className="experience_icon" />
+                              {e.location}
+                            </p>
+                          </div>
+                          <div className="">
+                            <p className="experience_date">
+                              <MdOutlineDateRange className="experience_icon" />
+                              {e.workFrom} / {e.workTo}
+                            </p>
+                          </div>
+                        </div>
 
-                    <p className="experience_responsibility">
-                      {e.responsibility}
-                    </p>
-                  </li>
-                </>
-              ))}
-            </ul>
+                        <p className="experience_responsibility">
+                          {e.responsibility}
+                        </p>
+                      </li>
+                    </>
+                  ))}
+                </ul>
+                <button className="experience_button">Add Experience</button>
+              </AccordionDetails>
+            </Accordion>
           </div>
           <div className="education_wrapper">
-            <h2 className="education_title">Education</h2>
-            <ul className="education_list">
-              {employeeData.universities.length == 0 ? (
-                <p>no</p>
-              ) : (
-                employeeData.universities.map((u) => (
-                  <>
-                    <li className="education_list-item">
-                      <p className="education_universityname">
-                        {u.universityName}
-                      </p>
-                      <p className="education_level">
-                        <SiLevelsdotfyi className="education_icon" />
-                        {u.educationLevel}
-                      </p>
-                      <div className="education_info">
-                        <div className="education_info_block1">
-                          <p className="education_fieldofstudy">
-                            {u.fieldOfStudy}
+            <Accordion>
+              <AccordionSummary
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                Education
+              </AccordionSummary>
+              <AccordionDetails>
+                <ul className="education_list">
+                  {employeeData.universities.length == 0 ? (
+                    <p>no</p>
+                  ) : (
+                    employeeData.universities.map((u) => (
+                      <>
+                        <li className="education_list-item">
+                          <p className="education_universityname">
+                            {u.universityName}
                           </p>
-                          <p className="education_specialization">
-                            {u.specialization}
+                          <p className="education_level">
+                            <SiLevelsdotfyi className="education_icon" />
+                            {u.educationLevel}
                           </p>
-                        </div>
-                        <div className="education_info_block2">
-                          <p className="education_date">
-                            <MdOutlineDateRange className="education_icon" />
-                            {u.studyFrom} / {u.studyTo}
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                  </>
-                ))
-              )}
-            </ul>
+                          <div className="education_info">
+                            <div className="education_info_block1">
+                              <p className="education_fieldofstudy">
+                                {u.fieldOfStudy}
+                              </p>
+                              <p className="education_specialization">
+                                {u.specialization}
+                              </p>
+                            </div>
+                            <div className="education_info_block2">
+                              <p className="education_date">
+                                <MdOutlineDateRange className="education_icon" />
+                                {u.studyFrom} / {u.studyTo}
+                              </p>
+                            </div>
+                          </div>
+                        </li>
+                      </>
+                    ))
+                  )}
+                </ul>
+                <button className="education_button">Add Education</button>
+              </AccordionDetails>
+            </Accordion>
           </div>
         </div>
       </div>
