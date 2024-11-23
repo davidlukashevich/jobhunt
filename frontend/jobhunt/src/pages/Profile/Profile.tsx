@@ -42,6 +42,9 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
     name: "Max",
     lastname: "Kryvanos",
     email: "max@gmail.com",
+    specialization: "Backend Developer",
+    profilesummary:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. A perspiciatis obcaecati maiores, odit quia sint labore provident officiis, assumenda neque sequi nesciunt! Ratione hic animi fuga veritatis magni minima modi beatae est ipsum nesciunt eligendi doloribus atque sequi mollitia nisi quasi dolorem officia nam laboriosam error id tempore quis, porro temporibus. Sapiente, earum voluptatum! Nostrum architecto error tenetur, temporibus iste nihil rem in adipisci numquam harum ea mollitia enim quia delectus maiores facilis perspiciatis. Nihil aliquam officiis tempora atque similique fugit omnis nulla eos, voluptates, eveniet at autem voluptate quas a quae ab consequuntur id assumenda veritatis optio esse doloremque!",
     phone: "12345",
     dateOfBirth: "04/07/2016",
     universities: [
@@ -322,7 +325,7 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
               {employeeData.name} <br />
               {employeeData.lastname}
             </p>
-            <p className="user_profession">Backend Developer</p>
+            <p className="user_profession">{employeeData.specialization}</p>
             <p className="user_address">
               <CiLocationOn className="icon" />
               {employeeData.address.country}, {employeeData.address.city}
@@ -345,19 +348,7 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
 
         <div className="user_additional-data">
           <h3 className="summary_title">Professional Summary</h3>
-          <p className="summary_info">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. A
-            perspiciatis obcaecati maiores, odit quia sint labore provident
-            officiis, assumenda neque sequi nesciunt! Ratione hic animi fuga
-            veritatis magni minima modi beatae est ipsum nesciunt eligendi
-            doloribus atque sequi mollitia nisi quasi dolorem officia nam
-            laboriosam error id tempore quis, porro temporibus. Sapiente, earum
-            voluptatum! Nostrum architecto error tenetur, temporibus iste nihil
-            rem in adipisci numquam harum ea mollitia enim quia delectus maiores
-            facilis perspiciatis. Nihil aliquam officiis tempora atque similique
-            fugit omnis nulla eos, voluptates, eveniet at autem voluptate quas a
-            quae ab consequuntur id assumenda veritatis optio esse doloremque!
-          </p>
+          <p className="summary_info">{employeeData.profilesummary}</p>
           <div className="experience_wrapper">
             <Accordion>
               <AccordionSummary
@@ -390,10 +381,21 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
                             </p>
                           </div>
                         </div>
-
+                        <p className="responsibility">Responsibility:</p>
                         <p className="experience_responsibility">
                           {e.responsibility}
                         </p>
+                        <div className="experience_buttons-wrapper">
+                          <Link
+                            className="experience_update-button"
+                            to={`/myprofile/experience/update/${e.id}`}
+                          >
+                            Update
+                          </Link>
+                          <button className="experience_delete-button">
+                            Delete
+                          </button>
+                        </div>
                       </li>
                     </>
                   ))}
@@ -445,6 +447,17 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
                                 {u.studyFrom} / {u.studyTo}
                               </p>
                             </div>
+                          </div>
+                          <div className="education_buttons-wrapper">
+                            <Link
+                              className="education_update-button"
+                              to={`/myprofile/education/update/:${u.id}`}
+                            >
+                              Update
+                            </Link>
+                            <button className="education_delete-button">
+                              Delete
+                            </button>
                           </div>
                         </li>
                       </>

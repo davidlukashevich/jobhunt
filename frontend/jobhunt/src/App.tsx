@@ -28,6 +28,14 @@ function App() {
           <Route path="/post-job-offer" element={<PostJobOffer />} />
           <Route path="myprofile/experience/create" Component={Experience} />
           <Route path="myprofile/education/create" Component={Education} />
+          <Route
+            path="myprofile/experience/update/:experienceId"
+            Component={Experience}
+          />
+          <Route
+            path="myprofile/education/update/:educationId"
+            Component={Education}
+          />
         </Routes>
         {/* <Footer/> */}
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Container from "../../components/Container/Container";
 import "./index.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Experience: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +12,8 @@ const Experience: React.FC = () => {
     workfrom: "",
     workto: "",
   });
+
+  let { experienceId } = useParams();
 
   const navigate = useNavigate();
 
@@ -99,7 +101,7 @@ const Experience: React.FC = () => {
             />
           </label>
           <button type="submit" className="submit-btn">
-            Add Experience
+            {experienceId ? "Update Experience" : "Add Experience"}
           </button>
         </form>
       </div>

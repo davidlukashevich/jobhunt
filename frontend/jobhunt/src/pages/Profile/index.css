@@ -19,6 +19,69 @@
     border-radius: 8px;
     background-color: #f8f9fa;
 }
+
+.responsibility{
+    margin-top: 20px;
+    color: rgb(25, 21, 88);
+}
+
+.education_buttons-wrapper{
+    margin-top: 30px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 30px;
+}
+.experience_buttons-wrapper{
+    margin-top: 30px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 30px;
+}
+
+.experience_update-button{
+    background-color: rgb(245, 161, 25);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.education_update-button{
+    background-color: rgb(245, 161, 25);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+
+.experience_delete-button{
+    background-color: red;
+    font-size: 15px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.education_delete-button{
+    background-color: red;
+    font-size: 15px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
   
 .profile-details label {
     display: block;
@@ -217,8 +280,8 @@
     text-align: center;
 }
 .user_avatar{
-    width: 220px;
-    height: 220px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
 }
 

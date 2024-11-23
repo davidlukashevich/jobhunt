@@ -1,7 +1,7 @@
 import Container from "../../components/Container/Container";
 import React, { useState } from "react";
 import "./index.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Education: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +12,9 @@ const Education: React.FC = () => {
     studyfrom: "",
     studyto: "",
   });
+
+  let { educationId } = useParams();
+
   const navigate = useNavigate();
 
   const handleChange = (
@@ -99,7 +102,7 @@ const Education: React.FC = () => {
             />
           </label>
           <button type="submit" className="submit-btn">
-            Add Education
+            {educationId ? "Update Education" : "Add Education"}
           </button>
         </form>
       </div>
