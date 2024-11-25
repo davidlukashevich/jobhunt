@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Container from "../../components/Container/Container";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineDateRange } from "react-icons/md";
 import { CiPhone } from "react-icons/ci";
@@ -13,6 +13,7 @@ import "./index.css";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
+import UserDataContext from "../../components/UserDataMode/UserDataMode";
 
 interface ProfileProps {
   role: "Employee" | "Employer";
@@ -36,6 +37,13 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const context = useContext(UserDataContext);
+
+  if (!context) {
+    throw new Error('Component must be used within a Provider');
+  }
+
+  const { token, userId } = context;
 
   const [employeeData, setEmployeeData] = useState({
     id: "8a6967e8-66d3-47c0-a682-826fffb69fbe",
@@ -157,6 +165,10 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
     setIsEditing(false);
     alert(`${role} profile updated successfully!`);
   };
+
+  /*if (!token) {
+    return <div><Navigate to={'/auth'} /></div>
+  }*/
 
   return (
     <Container>

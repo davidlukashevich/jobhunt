@@ -1,12 +1,12 @@
-import React, { createContext, FC, useState } from "react";
+import React, { createContext, useState } from "react";
 
 interface UserDataContextInterface {
     children: React.ReactNode;
 }
 
 type ContextType = {
-    token: string
-    userId: string
+    token: string | null
+    userId: string | null
     changeToken: (newToken: string) => void
     changeUserId: (newUserId: string) => void
 }
@@ -14,16 +14,18 @@ type ContextType = {
 const UserDataContext = createContext<ContextType | undefined>(undefined);
 
 export function UserDataContextProvider (props: UserDataContextInterface) {
-    const [token, setToken] = useState('');
-    const [userId, setUserId] = useState('');
 
     const changeToken = (newToken: string) => {
-        setToken(newToken);
+        localStorage.setItem('token', newToken);
     }
 
     const changeUserId = (newUserId: string) => {
-        setUserId(newUserId);
+        localStorage.setItem('userId', newUserId);
     }
+
+    let token = localStorage.getItem('token');
+    let userId = localStorage.getItem('userId');
+
 
     return (
         <UserDataContext.Provider value={{token, userId, changeToken, changeUserId}}>
