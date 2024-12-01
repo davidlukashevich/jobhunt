@@ -37,7 +37,7 @@ public class TokenService :  ITokenService
            
             claims: claims,
             signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256),
-            expires: DateTime.Now.AddHours(1)
+            expires: DateTime.Now.AddDays(5)
         );
         
         return tokenHandler.WriteToken(token) ;

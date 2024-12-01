@@ -32,6 +32,8 @@ public static class ApplicationDependencies
         {
             options.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
         });
+        
+        services.AddHttpContextAccessor();
 
         services.AddSingleton(_ =>  new BlobServiceClient(configuration.GetConnectionString("BlobStorage")) );
         services.AddScoped<IImageService, ImageService>();
@@ -92,6 +94,21 @@ public static class ApplicationDependencies
                 ValidateLifetime = true,
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtOptions:Key"]!))
+            };
+
+            jwt.Events = new JwtBearerEvents
+            {
+                OnMessageReceived = ctx =>
+                { 
+                    ctx.Request.Cookies.TryGetValue("accessToken", out var accessToken);
+
+                    if (!string.IsNullOrEmpty(accessToken))
+                    {
+                        ctx.Token = accessToken;
+                    }
+                    
+                    return Task.CompletedTask;
+                }
             };
         });
 

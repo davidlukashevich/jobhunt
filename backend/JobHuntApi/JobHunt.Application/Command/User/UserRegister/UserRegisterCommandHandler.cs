@@ -4,6 +4,7 @@ using JobHunt.Application.Response.User;
 using JobHunt.Application.Service;
 using JobHunt.Infrastructure.Identity.UserManager;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 
 
 namespace JobHunt.Application.Command.User.UserRegister;
@@ -13,11 +14,13 @@ public class UserRegisterCommandHandler : IRequestHandler<UserRegisterCommand, U
     
     private readonly IApplicationUserManager _applicationUserManager;
     private readonly ITokenService _tokenService;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public UserRegisterCommandHandler(IApplicationUserManager applicationUserManager, ITokenService tokenService)
+    public UserRegisterCommandHandler(IApplicationUserManager applicationUserManager, ITokenService tokenService, IHttpContextAccessor httpContextAccessor)
     {
         _applicationUserManager = applicationUserManager;
         _tokenService = tokenService;
+        _httpContextAccessor = httpContextAccessor;
     }
 
     public async Task<UserRegisterResponse> Handle(UserRegisterCommand request, CancellationToken cancellationToken)
@@ -48,11 +51,20 @@ public class UserRegisterCommandHandler : IRequestHandler<UserRegisterCommand, U
 
         var token = _tokenService.GenerateToken(newUser.Email,  roleList);
         
+        _httpContextAccessor.HttpContext?.Response.Cookies.Append("accessToken", token, new CookieOptions
+        {
+            Expires = DateTimeOffset.UtcNow.AddDays(5),
+            HttpOnly = true,
+            IsEssential = true,
+            Secure = true,
+            SameSite = SameSiteMode.None
+        });
+        
         return new UserRegisterResponse()
         {
             StatusCode = HttpStatusCode.OK,
             Message = "User has been registered successfully!",
-            Token = token,
+            //Token = token,
             UserId = newUser.Id,
             UserRoles = roleList
         };

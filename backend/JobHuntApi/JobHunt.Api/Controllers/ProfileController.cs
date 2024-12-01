@@ -1,5 +1,6 @@
 using JobHunt.Application.Command.Profile.CreateProfile;
 using JobHunt.Application.Command.Profile.UpdateProfile;
+
 using JobHunt.Application.Query.Profile.GetProfile;
 using JobHunt.Application.Request.Profile;
 using MediatR;
@@ -21,9 +22,11 @@ namespace JobHuntApi.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<ActionResult> CreateProfile([FromForm] CreateProfileRequest createProfileRequest)
+        public async Task<ActionResult> CreateProfile([FromForm] CreateProfileRequest request)
         {
-            var result = await _sender.Send(new CreateProfileCommand(createProfileRequest));
+            var result = await _sender.Send(new CreateProfileCommand(
+                   request
+                ));
             
             return Ok(result);
         }

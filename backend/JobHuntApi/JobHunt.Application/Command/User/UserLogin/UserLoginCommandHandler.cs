@@ -5,7 +5,7 @@ using JobHunt.Application.Service;
 using JobHunt.Application.SingInManager;
 using JobHunt.Infrastructure.Identity.UserManager;
 using MediatR;
-
+using Microsoft.AspNetCore.Http;
 
 
 namespace JobHunt.Application.Command.User.UserLogin;
@@ -16,14 +16,14 @@ public class UserLoginCommandHandler : IRequestHandler<UserLoginCommand ,UserLog
     private readonly IApplicationSignInManager _signInManager;
     private readonly IApplicationUserManager _userManager;
     private readonly ITokenService _tokenService;
-    
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public UserLoginCommandHandler(IApplicationSignInManager signInManager, IApplicationUserManager userManager, ITokenService tokenService)
+    public UserLoginCommandHandler(IApplicationSignInManager signInManager, IApplicationUserManager userManager, ITokenService tokenService, IHttpContextAccessor httpContextAccessor)
     {
         _signInManager = signInManager;
         _userManager = userManager;
         _tokenService = tokenService;
-        
+        _httpContextAccessor = httpContextAccessor;
     }
 
     public async Task<UserLoginResponse> Handle(UserLoginCommand request, CancellationToken cancellationToken)
@@ -51,11 +51,20 @@ public class UserLoginCommandHandler : IRequestHandler<UserLoginCommand ,UserLog
         var roleList = new List<string>(userRole);
         var token =  _tokenService.GenerateToken(userByEmail.Email!, userRole);
         
+        _httpContextAccessor.HttpContext?.Response.Cookies.Append("accessToken", token, new CookieOptions
+        {
+            Expires = DateTimeOffset.UtcNow.AddDays(5),
+            HttpOnly = true,
+            IsEssential = true,
+            Secure = true,
+            SameSite = SameSiteMode.None
+        });
+        
         return new UserLoginResponse()
         {
             StatusCode = HttpStatusCode.OK,
             Message = "User was logged in successfully!",
-            Token =  token,
+            //Token =  token,
             UserId = userByEmail.Id,
             UserRoles = roleList
         };

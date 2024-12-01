@@ -20,7 +20,7 @@ public static class JobApplicationMapper
             JobId = request.JobId,
             CreatedBy = request.CreatedBy,
             Status = JobApplicationStatus.Pending.ToString(),
-            Cv = $"your_link/cv_{request.Cv.FileName}"
+            Cv = $"https://jobhuntstorage.blob.core.windows.net/files/cv_{request.Cv.FileName}"
         };
     }
 

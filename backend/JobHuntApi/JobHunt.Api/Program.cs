@@ -27,7 +27,7 @@ builder.Services
     .AddApplication(configuration)
     .AddInfrastructure();
 
-services.AddSwaggerGen(options =>
+/*services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
@@ -51,7 +51,7 @@ services.AddSwaggerGen(options =>
             Array.Empty<string>()
         }
     });
-});
+});*/
 
 
 
