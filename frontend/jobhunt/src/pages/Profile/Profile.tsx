@@ -1,29 +1,50 @@
-import React, { useContext, useState } from "react";
-import Container from "../../components/Container/Container";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { CiLocationOn } from "react-icons/ci";
-import { MdOutlineDateRange } from "react-icons/md";
-import { CiPhone } from "react-icons/ci";
+import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineMail } from "react-icons/ai";
+import { CiBookmarkRemove, CiLocationOn, CiPhone } from "react-icons/ci";
 import { FaRegBuilding } from "react-icons/fa";
+import { GrCompliance } from "react-icons/gr";
+import { MdOutlineDateRange, MdPendingActions } from "react-icons/md";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import Container from "../../components/Container/Container";
 
 import { SiLevelsdotfyi } from "react-icons/si";
 
-import "./index.css";
 import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import moment from "moment";
+import educationApi from "../../api/educationApi";
+import experienceApi from "../../api/experienceApi";
+import jobApplicationApi from "../../api/jobApplicationApi";
+import profileApi from "../../api/profileApi";
 import UserDataContext from "../../components/UserDataMode/UserDataMode";
+import "./index.css";
+import jobApi from "../../api/jobApi";
 
 interface ProfileProps {
   role: "Employee" | "Employer";
 }
 
 interface JobApplication {
+  id: string;
   jobTitle: string;
+  jobCompanyName: string;
+  jobCompanyLogo: string;
+  jobAddressCountry: string;
+  jobAddressCity: string;
+  createdAt: string;
+  status: string;
+}
+
+interface JobApplicationEmployer {
+  id: string;
+  title: string;
   companyName: string;
-  appliedDate: string;
-  status: "Pending" | "Accepted" | "Rejected";
+  companyLogo: string;
+  city: string;
+  createdAt: string;
+  operationMode: string,
+  salary: string
 }
 
 interface JobOffer {
@@ -37,65 +58,55 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [educationUpdate, setEducationUpdate] = useState(false);
   const context = useContext(UserDataContext);
 
   if (!context) {
     throw new Error('Component must be used within a Provider');
   }
 
-  const { token, userId } = context;
+  const { userId, changeName, changeImageUrl, changeProfileId, deleteData } = context;
 
   const [employeeData, setEmployeeData] = useState({
-    id: "8a6967e8-66d3-47c0-a682-826fffb69fbe",
-    name: "Max",
-    lastname: "Kryvanos",
-    email: "max@gmail.com",
-    specialization: "Backend Developer",
-    profilesummary:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. A perspiciatis obcaecati maiores, odit quia sint labore provident officiis, assumenda neque sequi nesciunt! Ratione hic animi fuga veritatis magni minima modi beatae est ipsum nesciunt eligendi doloribus atque sequi mollitia nisi quasi dolorem officia nam laboriosam error id tempore quis, porro temporibus. Sapiente, earum voluptatum! Nostrum architecto error tenetur, temporibus iste nihil rem in adipisci numquam harum ea mollitia enim quia delectus maiores facilis perspiciatis. Nihil aliquam officiis tempora atque similique fugit omnis nulla eos, voluptates, eveniet at autem voluptate quas a quae ab consequuntur id assumenda veritatis optio esse doloremque!",
-    phone: "12345",
-    dateOfBirth: "04/07/2016",
+    id: "",
+    name: "",
+    lastname: "",
+    email: "",
+    specialization: "",
+    profileSummary: "",
+    phone: "",
+    dateOfBirth: "",
     universities: [
       {
-        id: "b18cddbc-57d1-4712-8e92-7ced82872260",
-        universityName: "MIT",
-        educationLevel: "Bachelor",
-        fieldOfStudy: "Computer Science",
-        specialization: "Backend",
-        studyFrom: "17/10/2022",
-        studyTo: "20/06/2026",
+        id: "",
+        universityName: "",
+        educationLevel: "",
+        fieldOfStudy: "",
+        specialization: "",
+        studyFrom: "",
+        studyTo: "",
       },
     ],
     experiences: [
       {
-        id: "26e5b505-e3fc-45a4-a8e7-11425229bf32",
-        position: "Junior Backend Developer",
-        companyName: "Visa",
-        responsibility: "api, test",
-        workFrom: "10/10/2020",
-        location: "Warsaw",
-        workTo: "10/10/2025",
-      },
-      {
-        id: "e25eae28-4611-4e90-9848-9a2caab9c4af",
-        position: "Middle Backend Developer",
-        companyName: "Microsoft",
-        responsibility: "Create api, writing unit tests",
-        workFrom: "10/10/2024",
-        location: "USA",
-        workTo: "10/10/2030",
-      },
+        id: "",
+        position: "",
+        companyName: "",
+        responsibility: "",
+        workFrom: "",
+        location: "",
+        workTo: "",
+      }
     ],
     address: {
-      id: "47b9773e-9bc0-41bd-a623-135d6110fc08",
-      country: "Belarus",
-      city: "Minsk",
-      street: "st. Janka Kupala 25",
+      id: "",
+      country: "",
+      city: "",
+      street: "",
     },
     image: {
-      id: "c7661d02-4896-4293-9759-13cd05ef9338",
-      imageUrl:
-        "https://jobhuntstorage.blob.core.windows.net/images/profile_8a6967e8-66d3-47c0-a682-826fffb69fbe",
+      id: "",
+      imageUrl: "",
     },
   });
 
@@ -107,23 +118,29 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
 
   const [jobApplications, setJobApplications] = useState<JobApplication[]>([
     {
-      jobTitle: "Frontend Developer",
-      companyName: "Tech Solutions",
-      appliedDate: "2024-11-10",
-      status: "Pending",
-    },
+      id: "",
+      jobTitle: "",
+      jobCompanyName: "",
+      jobCompanyLogo: "",
+      jobAddressCountry: "",
+      jobAddressCity: "",
+      createdAt: "",
+      status: "",
+    }
+  ]);
+
+  const [jobApplicationsEmployer, setJobApplicationsEmployer] = useState<JobApplicationEmployer[]>([
     {
-      jobTitle: "Backend Engineer",
-      companyName: "Innovatech",
-      appliedDate: "2024-11-12",
-      status: "Accepted",
-    },
-    {
-      jobTitle: "Full-Stack Developer",
-      companyName: "DevHub",
-      appliedDate: "2024-11-15",
-      status: "Rejected",
-    },
+      id: "",
+      title: "",
+      companyName: "",
+      companyLogo: "",
+      city: "",
+      createdAt: "",
+      operationMode: "",
+      salary: "",
+
+    }
   ]);
 
   const [jobOffers, setJobOffers] = useState<JobOffer[]>([
@@ -166,9 +183,44 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
     alert(`${role} profile updated successfully!`);
   };
 
-  /*if (!token) {
-    return <div><Navigate to={'/auth'} /></div>
-  }*/
+  const handleViewClick = (id: string) => {
+    navigate(`/job/${id}`);
+  }
+
+  const handleLogout = () => {
+    deleteData();
+  }
+
+  const handleDeleteExperience = (id: string) => {
+    experienceApi.deleteExperience(id);
+  }
+
+  const handleDeleteEducation = (id: string) => {
+    educationApi.deleteEducation(id);
+  }
+
+  useEffect(() => {
+    profileApi.getProfile(userId).then(data => {
+      setEmployeeData(data);
+      changeName(data.name);
+      changeImageUrl(data.image.imageUrl);
+      changeProfileId(data.id);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (role === 'Employee') {
+      jobApplicationApi.getAllJobApplicationsByUserId(userId).then(data => {
+        const formattedDate = moment(data.createdAt).format('YYYY-MM-DD');
+        setJobApplications(data);
+      });
+    } else if (role === 'Employer') {
+      jobApi.getAllJobByUserId(userId).then(data => {
+        setJobApplicationsEmployer(data);
+        console.log(data)
+      })
+    }
+  }, []);
 
   return (
     <Container>
@@ -325,7 +377,6 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
             )
           }
         </div> */}
-
         <div className="user_info">
           <img
             className="user_avatar"
@@ -360,7 +411,7 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
 
         <div className="user_additional-data">
           <h3 className="summary_title">Professional Summary</h3>
-          <p className="summary_info">{employeeData.profilesummary}</p>
+          <p className="summary_info">{employeeData.profileSummary}</p>
           <div className="experience_wrapper">
             <Accordion>
               <AccordionSummary
@@ -404,7 +455,7 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
                           >
                             Update
                           </Link>
-                          <button className="experience_delete-button">
+                          <button onClick={() => handleDeleteExperience(e.id)} className="experience_delete-button">
                             Delete
                           </button>
                         </div>
@@ -463,11 +514,11 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
                           <div className="education_buttons-wrapper">
                             <Link
                               className="education_update-button"
-                              to={`/myprofile/education/update/:${u.id}`}
+                              to={`/myprofile/education/update/${u.id}`}
                             >
                               Update
                             </Link>
-                            <button className="education_delete-button">
+                            <button onClick={() => handleDeleteEducation(u.id)} className="education_delete-button">
                               Delete
                             </button>
                           </div>
@@ -485,6 +536,106 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
               </AccordionDetails>
             </Accordion>
           </div>
+          <div className="education_wrapper">
+            {role === 'Employee' && <Accordion>
+              <AccordionSummary
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                All Aplications
+              </AccordionSummary>
+              <AccordionDetails>
+                <ul className="education_list">
+                  {jobApplications.length == 0 ? (
+                    <p>no</p>
+                  ) : (
+                    jobApplications.map((a) => (
+                      <>
+                        <li className="application_list-item" onClick={() => handleViewClick(a.id)}>
+                          <p className="education_universityname">
+                            {a.jobTitle}
+                          </p>
+                          <div className="experience_company_info">
+                            <div className="experience_company_info-bloc1">
+                              <p className="experience_companyname">
+                                <img src={a.jobCompanyLogo} className="application_icon" />
+                                {a.jobCompanyName}
+                              </p>
+                              <p className="experience_location">
+                                <CiLocationOn className="experience_icon" />
+                                {a.jobAddressCountry}, {a.jobAddressCity}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="experience_company_info">
+                            <p className="experience_date">
+                              {a.status === 'Pending' ? <MdPendingActions className="experience_icon" /> :
+                                a.status === 'Accepted' ? <GrCompliance className="experience_icon" /> : <CiBookmarkRemove className="experience_icon" />}
+                              {a.status}
+                            </p>
+                            <p className="education_date">
+                              <MdOutlineDateRange className="education_icon" />
+                              {a.createdAt}
+                            </p>
+                          </div>
+                        </li>
+                      </>
+                    ))
+                  )}
+                </ul>
+              </AccordionDetails>
+            </Accordion>}
+            {role === 'Employer' && <Accordion>
+              <AccordionSummary
+                aria-controls="panel1-content"
+                id="panel1-header"
+              >
+                All Aplications
+              </AccordionSummary>
+              <AccordionDetails>
+                <ul className="education_list">
+                  {jobApplicationsEmployer.length == 0 ? (
+                    <p>no</p>
+                  ) : (
+                    jobApplicationsEmployer.map((a) => (
+                      <>
+                        <li className="application_list-item" onClick={() => handleViewClick(a.id)}>
+                          <p className="education_universityname">
+                            {a.title}
+                          </p>
+                          <div className="experience_company_info">
+                            <div className="experience_company_info-bloc1">
+                              <p className="experience_companyname">
+                                <img src={a.companyLogo} className="application_icon" />
+                                {a.companyName}
+                              </p>
+                              <p className="experience_location">
+                                <CiLocationOn className="experience_icon" />
+                                {a.city}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="experience_company_info">
+                            <p className="experience_date">
+                              {a.operationMode}
+                            </p>
+                            <p className="experience_date">
+                              {a.salary}
+                            </p>
+                            <p className="education_date">
+                              <MdOutlineDateRange className="education_icon" />
+                              {a.createdAt}
+                            </p>
+                          </div>
+                        </li>
+                      </>
+                    ))
+                  )}
+                </ul>
+              </AccordionDetails>
+            </Accordion>}
+          </div>
+          <button className="logout-btn" onClick={handleLogout}><Link className="logout-btn-link" to={'/'}>Logout</Link></button>
         </div>
       </div>
     </Container>

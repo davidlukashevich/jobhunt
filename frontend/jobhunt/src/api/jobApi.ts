@@ -12,6 +12,9 @@ const jobApi = {
     },
     getJobById(id:string | undefined) {
         return axios.get(`https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/job/${id}`).then(response => response.data);
+    },
+    getAllJobByUserId(userId: string | null) {
+        return axios.get(`https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/job/createdBy/${userId}`).then(response => response.data);
     }
 }
 

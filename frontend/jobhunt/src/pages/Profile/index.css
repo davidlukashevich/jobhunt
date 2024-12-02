@@ -502,3 +502,31 @@
     display: flex;
     gap: 30px;
 }
+
+.logout-btn {
+    padding: 10px 30px;
+    margin-top: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: red;
+    margin: 20px 40%;
+    cursor: pointer;
+}
+
+.logout-btn-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.application_list-item {
+    border-bottom: 1px solid #e8e6e6;
+    width: 500px;
+    padding: 20px 0;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.application_icon {
+    width: 30px;
+    height: 30px;
+}

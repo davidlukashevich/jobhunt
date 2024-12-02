@@ -13,7 +13,7 @@ import Experience from "./pages/Experience/Experience";
 import Education from "./pages/Education/Education";
 
 function App() {
-  const userRole: "Employee" | "Employer" = "Employee";
+  const userRole: "Employee" | "Employer" = "Employer";
 
   return (
     <BrowserRouter>

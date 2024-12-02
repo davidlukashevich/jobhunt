@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import userApi from '../../api/userApi';
 import './index.css';
 import UserDataContext from '../UserDataMode/UserDataMode';
+import { Navigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 interface LoginForm {
   email: string;
@@ -24,12 +26,13 @@ const Form: React.FC = () => {
   const [errorPassword, setErrorPassword] = useState(false);
   const [errorLogin, setErrorLogin] = useState(false);
   const context = useContext(UserDataContext);
+  const [isAuth, setIsAuth] = useState(false);
 
   if (!context) {
     throw new Error('Component must be used within a Provider');
   }
 
-  const { changeToken, changeUserId } = context;
+  const { changeUserId } = context;
 
 
   const [loginForm, setLoginForm] = useState<LoginForm>({
@@ -78,9 +81,8 @@ const Form: React.FC = () => {
     if (formType === 'login') {
       userApi.userLogin(loginForm.email, loginForm.password).then(data => {
         setErrorLogin(false)
-        console.log(data)
-        changeToken(data.token)
         changeUserId(data.userId)
+        setIsAuth(true)
       }).catch(err => {
         setErrorLogin(true)
       });
@@ -97,6 +99,10 @@ const Form: React.FC = () => {
       });
     }
   };
+
+  if (isAuth) {
+    return <div><Navigate to={'/myprofile'} /></div>
+  }
 
   return (
     <div className='auth-form'>
