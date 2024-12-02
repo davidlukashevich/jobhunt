@@ -100,9 +100,9 @@ const Form: React.FC = () => {
     }
   };
 
-  if (isAuth) {
+  /*if (isAuth) {
     return <div><Navigate to={'/myprofile'} /></div>
-  }
+  }*/
 
   return (
     <div className='auth-form'>
