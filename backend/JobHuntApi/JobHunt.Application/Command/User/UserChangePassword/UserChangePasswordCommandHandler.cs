@@ -1,7 +1,6 @@
 ﻿using System.Net;
 using JobHunt.Application.Exceptions.User;
 using JobHunt.Application.Response;
-using JobHunt.Application.Response.User;
 using JobHunt.Infrastructure.Identity.UserManager;
 using MediatR;
 

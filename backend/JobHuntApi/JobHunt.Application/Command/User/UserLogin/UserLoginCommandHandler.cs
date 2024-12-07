@@ -34,7 +34,6 @@ public class UserLoginCommandHandler : IRequestHandler<UserLoginCommand ,UserLog
         if (userByEmail is null)
         {
             throw new UserDoesNotExist("User with email address " + request.UserLoginRequest.Email + " does not exist");
-
             
         }
 

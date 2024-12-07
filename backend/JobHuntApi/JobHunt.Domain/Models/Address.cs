@@ -1,4 +1,4 @@
-﻿using JobHunt.Domain.Interface;
+﻿
 
 namespace JobHunt.Domain.Models;
 

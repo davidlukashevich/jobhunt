@@ -1,7 +1,10 @@
 ﻿using System.Net;
+using JobHunt.Application.BlobStorage.Image;
 using JobHunt.Application.Command.Address.UpdateAddress;
+using JobHunt.Application.Command.Image.UpdateImage;
 using JobHunt.Application.Exceptions.Job;
 using JobHunt.Application.Mapper;
+using JobHunt.Application.Query.Image.GetImageById;
 //using JobHunt.Application.MessageBroker;
 //using JobHunt.Application.MessageBroker.Address.UpdateAddress;
 using JobHunt.Application.Response;
@@ -16,15 +19,17 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand, Bas
     private readonly IJobRepository _jobRepository;
     //private readonly ISendMessage _sendMessage;
     private readonly ISender _sender;
+    private readonly IImageService _imageService;
 
     public UpdateJobCommandHandler(
         IJobRepository jobRepository,
         //ISendMessage sendMessage,
-        ISender sender)
+        ISender sender, IImageService imageService)
     {
         _jobRepository = jobRepository;
         _sender = sender;
-       // _sendMessage = sendMessage;
+        _imageService = imageService;
+        // _sendMessage = sendMessage;
     }
 
     public async Task<BaseResponse> Handle(UpdateJobByIdCommand request, CancellationToken cancellationToken)
@@ -50,6 +55,32 @@ public class UpdateJobCommandHandler : IRequestHandler<UpdateJobByIdCommand, Bas
         }
 
         await _sender.Send(new UpdateAddressCommand(updateJobRequest.AddressId, updatedAddressRequest), cancellationToken);
+        
+        if (updateJobRequest.JobImage is not null)
+        {
+
+            var imageById = await _sender.Send(new GetImageByIdQuery(updateJobRequest.ImageId), cancellationToken);
+
+            await _imageService.DeleteImageAsync(imageById.Name!, "job" );
+
+            await _imageService.UploadImageAsync(
+                updateJobRequest.JobImage,
+                "job", 
+                updateJobRequest.JobImage.FileName
+            );
+
+            var updatedImageJob = ImageMapper.ToImageModelUpdate(
+                updateJobRequest.JobImage.FileName,
+                "job");
+
+            await _sender.Send(new UpdateImageCommand(
+                    updateJobRequest.ImageId, 
+                    updatedImageJob),
+                cancellationToken
+            );
+
+
+        }
         
         
         

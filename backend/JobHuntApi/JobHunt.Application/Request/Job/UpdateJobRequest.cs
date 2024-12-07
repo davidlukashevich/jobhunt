@@ -1,4 +1,6 @@
-﻿namespace JobHunt.Application.Request.Job;
+﻿using Microsoft.AspNetCore.Http;
+
+namespace JobHunt.Application.Request.Job;
 
 public class UpdateJobRequest
 {
@@ -18,4 +20,6 @@ public class UpdateJobRequest
     public Guid AddressId { get; set; }
     public required string AboutCompany { get; set; }
     public required string Salary { get; set; }
+    public Guid ImageId { get; set; }
+    public  IFormFile? JobImage  { get; set; }
 }

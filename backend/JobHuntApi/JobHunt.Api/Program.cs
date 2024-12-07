@@ -25,7 +25,7 @@ builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(nameof(J
 
 builder.Services
     .AddApplication(configuration)
-    .AddInfrastructure();
+    .AddInfrastructure(configuration);
 
 /*services.AddSwaggerGen(options =>
 {

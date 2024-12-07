@@ -18,4 +18,6 @@ public class SingleJobResponse
     public string? CreatedBy { get; set; }
     public string? AboutCompany { get; set; }
     public string? Salary { get; set; }
+    public string? Type { get; set; }
+    public string? Technology { get; set; }
 }

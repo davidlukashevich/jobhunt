@@ -85,7 +85,7 @@ namespace JobHuntApi.Controllers
 
         [HttpPut("update/{id}")]
         [Authorize(Roles = "Employer")]
-        public async Task<ActionResult> UpdateJob(Guid id, [FromBody] UpdateJobRequest updateJobRequest)
+        public async Task<ActionResult> UpdateJob(Guid id, [FromForm] UpdateJobRequest updateJobRequest)
         {
             var result = await _sender.Send(new UpdateJobByIdCommand(id, updateJobRequest));
             

@@ -43,6 +43,8 @@ public static class JobMapper
             AboutCompany = job.AboutCompany,
             CreatedBy = job.CreatedBy,
             Salary = job.Salary,
+            Type = job.Type,
+            Technology = job.Technology,
             Address = new AddressDTO()
             {
                 Id = job.Address!.Id,
@@ -97,7 +99,8 @@ public static class JobMapper
             Technology = jobRequest.Technology,
             CreatedBy = jobRequest.CreatedBy!,
             AboutCompany = jobRequest.AboutCompany,
-            Salary = jobRequest.Salary
+            Salary = jobRequest.Salary,
+            
         };
     }
 }

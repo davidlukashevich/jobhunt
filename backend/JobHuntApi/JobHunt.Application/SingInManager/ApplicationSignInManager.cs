@@ -25,7 +25,16 @@ public class ApplicationSignInManager : IApplicationSignInManager
 
     public Task SignOutAsync()
     {
-        _httpContextAccessor.HttpContext?.Response.Cookies.Delete("accessToken");
+        
+        _httpContextAccessor.HttpContext?.Response.Cookies.Append("accessToken", "", new CookieOptions
+        {
+            Expires = DateTimeOffset.UtcNow.AddDays(-1),
+            HttpOnly = true,
+            Secure = true,        
+            SameSite = SameSiteMode.None
+        });
+        
+
         return Task.CompletedTask;
     }
 }

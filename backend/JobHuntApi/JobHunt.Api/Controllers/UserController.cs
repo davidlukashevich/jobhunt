@@ -1,7 +1,7 @@
 using JobHunt.Application.Command.User.UserChangePassword;
 using JobHunt.Application.Command.User.UserLogin;
 using JobHunt.Application.Command.User.UserRegister;
-using JobHunt.Application.Query.User.UserSignOut;
+using JobHunt.Application.Command.User.UserSignOut;
 using JobHunt.Application.Request.User;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -50,12 +50,12 @@ namespace JobHuntApi.Controllers
             return Ok(result);
         }
 
-        [HttpGet("logout")]
+        [HttpDelete("logout")]
         [Authorize(Roles = "Employer, Employee")]
 
         public async Task<ActionResult> UserLogout()
         {
-            var result = await _sender.Send(new UserSignOutQuery());
+            var result = await _sender.Send(new UserSignOutCommand());
             
             return Ok(result);
         }

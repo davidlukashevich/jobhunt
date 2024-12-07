@@ -1,4 +1,4 @@
-﻿using JobHunt.Domain.Enums;
+﻿
 
 namespace JobHunt.Domain.Models;
 

@@ -1,9 +1,9 @@
 ﻿using JobHunt.Application.SingInManager;
 using MediatR;
 
-namespace JobHunt.Application.Query.User.UserSignOut;
+namespace JobHunt.Application.Command.User.UserSignOut;
 
-public class UserSignOutQueryHandler : IRequestHandler<UserSignOutQuery, string>
+public class UserSignOutQueryHandler : IRequestHandler<UserSignOutCommand, string>
 {
     
     private readonly IApplicationSignInManager _signInManager;
@@ -13,7 +13,7 @@ public class UserSignOutQueryHandler : IRequestHandler<UserSignOutQuery, string>
         _signInManager = signInManager;
     }
 
-    public Task<string> Handle(UserSignOutQuery request, CancellationToken cancellationToken)
+    public Task<string> Handle(UserSignOutCommand request, CancellationToken cancellationToken)
     {
         _signInManager.SignOutAsync();
         return Task.FromResult("User Sign Out Successfully");

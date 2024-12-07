@@ -3,7 +3,7 @@ using JobHunt.Application.BlobStorage.Files;
 using JobHunt.Application.Mapper;
 using JobHunt.Application.Response;
 using JobHunt.Domain.Interface.Repository;
-using JobHunt.Domain.Models;
+
 using MediatR;
 
 namespace JobHunt.Application.Command.JobApplication.CreateJobApplication;

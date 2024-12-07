@@ -35,7 +35,12 @@ public static class ApplicationDependencies
         
         services.AddHttpContextAccessor();
 
-        services.AddSingleton(_ =>  new BlobServiceClient(configuration.GetConnectionString("BlobStorage")) );
+        services.AddSingleton(_ => new BlobServiceClient(
+            configuration.GetConnectionString("BlobStorage")
+        ));
+        
+        
+        
         services.AddScoped<IImageService, ImageService>();
         services.AddScoped<IFileService, FileService>();
        // services.AddScoped<ISendMessage, SendMessage>();

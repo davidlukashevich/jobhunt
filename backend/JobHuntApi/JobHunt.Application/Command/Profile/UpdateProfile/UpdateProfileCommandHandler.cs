@@ -71,11 +71,11 @@ public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand,
             await _imageService.UploadImageAsync(
                 updatedProfileRequest.ProfileImage,
                 "profile", 
-                request.ProfileId.ToString()
+                updatedProfileRequest.UserId!
                 );
 
             var updatedImageProfile = ImageMapper.ToImageModelUpdate(
-                request.ProfileId.ToString(),
+                updatedProfileRequest.UserId!,
                 "profile");
 
             await _sender.Send(new UpdateImageCommand(
@@ -86,12 +86,6 @@ public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand,
 
 
         }
-                
-                
-
-        
-
-        
         
 
         return new BaseResponse()
