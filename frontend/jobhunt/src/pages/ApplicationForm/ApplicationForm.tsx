@@ -48,7 +48,7 @@ const ApplicationForm: React.FC = () => {
         jobApplicationApi.createJobApplication(formData);
         navigate('/');
     };
-
+    
     return (
         <Container>
             <div className="application-form-wrapper">

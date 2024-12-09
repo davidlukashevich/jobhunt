@@ -33,6 +33,16 @@ const jobApplicationApi = {
         return axios.post('https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/jobApplication/create', form, {
             withCredentials: true
         });
+    },
+    getAllJobApplicationsByJobId(jobId: string | undefined) {
+        return axios.get(`https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/jobapplication/job/${jobId}`, {
+            withCredentials: true
+        }).then(response => response.data);
+    },
+    getJobApplicationById(jobApplicationId: string | undefined) {
+        return axios.get(`https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/jobapplication/application/${jobApplicationId}`, {
+            withCredentials: true
+        }).then(response => response.data);
     }
 }
 

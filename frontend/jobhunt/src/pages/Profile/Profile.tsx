@@ -194,7 +194,6 @@ const Profile: React.FC = () => {
 
   useEffect(() => {
     if (userId) {
-      debugger
       profileApi.getProfile(userId).then(data => {
         setEmployeeData(data);
         changeName(data.name);

@@ -12,6 +12,8 @@ import PostJobOffer from "./pages/PostJobOffer/PostJobOffer";
 import Experience from "./pages/Experience/Experience";
 import Education from "./pages/Education/Education";
 import FormJob from "./pages/Job/FormJob";
+import Candidates from "./pages/Candidates/Candidates";
+import CandidatesInfo from "./pages/Candidates/CandidatesInfo";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/auth" Component={AuthPage} />
           <Route path="/job/:id" Component={JobDetails} />
           <Route path="/apply/:jobId" Component={ApplicationForm} />
+          <Route path="/apply/candidates/:jobId" Component={Candidates} />
+          <Route path="/apply/candidatesinfo/:applicationId" Component={CandidatesInfo} />
           <Route path="/myprofile" element={<Profile />} />
           <Route path="/post-job-offer" element={<PostJobOffer />} />
           <Route path="myprofile/experience/create" Component={Experience} />

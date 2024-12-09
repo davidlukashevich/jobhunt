@@ -167,6 +167,9 @@ const JobDetails: React.FC = (props) => {
                             <button onClick={handleDelete} className="job_delete-button">
                                 Delete
                             </button>
+                            <button onClick={() => navigate(`/apply/candidates/${id}`)} className="job_delete-button">
+                                Candidates
+                            </button>
                         </div>}
                 </div></> : <><div className="job-header">
                     <div className='job-icon-wrapper'>
