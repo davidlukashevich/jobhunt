@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router';
 import jobApplicationApi from '../../api/jobApplicationApi';
 import Container from '../../components/Container/Container';
 import './index.css';
+import UserDataContext from '../../components/UserDataMode/UserDataMode';
 
 const ApplicationForm: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -13,14 +14,22 @@ const ApplicationForm: React.FC = () => {
         aboutUser: '',
         resume: null as File | null,
         jobId: '' as string | undefined,
-        createdBy: ''
+        createdBy: '' as string | null
     });
+    const context = useContext(UserDataContext);
+
+    if (!context) {
+        throw new Error('Component must be used within a Provider');
+    }
+
+    const navigate = useNavigate();
+
+    const { userId } = context;
 
     const { jobId } = useParams();
-    const currentDate = new Date().toLocaleDateString();
 
     useEffect(() => {
-        setFormData({ ...formData, jobId: jobId, createdBy: currentDate });
+        setFormData({ ...formData, jobId: jobId, createdBy: userId });
     }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -37,6 +46,7 @@ const ApplicationForm: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         jobApplicationApi.createJobApplication(formData);
+        navigate('/');
     };
 
     return (

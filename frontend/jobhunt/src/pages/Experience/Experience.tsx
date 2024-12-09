@@ -74,9 +74,13 @@ const Experience: React.FC = () => {
     }
   };
 
+  const handleDeleteExperience = () => {
+    experienceApi.deleteExperience(experienceId);
+  }
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if(!experienceId) {
+    if (!experienceId) {
       experienceApi.createExperience(formData, profileId)
     } else {
       experienceApi.updateExperience(formData, experienceId);
@@ -101,7 +105,7 @@ const Experience: React.FC = () => {
           <label className="label_company">
             Company name
             <input
-              type="test"
+              type="text"
               name="companyname"
               className="input"
               value={formData.companyname}
@@ -221,9 +225,15 @@ const Experience: React.FC = () => {
               required
             />
           </label>
-          <button type="submit" className="submit-btn">
-            {experienceId ? "Update Experience" : "Add Experience"}
+          {!experienceId && <button type="submit" className="submit-btn-experience-add">
+            Add Experience
+          </button>}
+          {experienceId && <><button type="submit" className="submit-btn-experience">
+            Update Experience
           </button>
+          <button onClick={handleDeleteExperience} className="experience_delete-button">
+            Delete
+          </button></>}
         </form>
       </div>
     </Container>

@@ -44,7 +44,6 @@ const Education: React.FC = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    console.log(name);
     const [, date] = name.split('_');
     const valueNum = parseInt(value)
     if (name === "studyfrom_year" || name === "studyfrom_month" || name === "studyfrom_day") {
@@ -55,6 +54,10 @@ const Education: React.FC = () => {
       setFormData({ ...formData, [name]: value });
     }
   };
+
+  const handleDeleteEducation = (e:React.FormEvent) => {
+    educationApi.deleteEducation(educationId);
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -205,9 +208,14 @@ const Education: React.FC = () => {
               ))}
             </select>
           </label>
-          <button type="submit" className="submit-btn">
-            {educationId ? "Update Education" : "Add Education"}
-          </button>
+          {!educationId && <button type="submit" className="submit-btn-education-add">
+            Add Education
+          </button>}
+          {educationId && <><button type="submit" className="submit-btn-education">
+            Update Education
+          </button> <button onClick={handleDeleteEducation} className="education_delete-button">
+              Delete
+            </button></>}
         </form>
       </div>
     </Container>

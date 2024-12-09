@@ -4,6 +4,7 @@ import './index.css';
 import UserDataContext from '../UserDataMode/UserDataMode';
 import { Navigate } from 'react-router';
 import { Link } from 'react-router-dom';
+import Profile from '../../pages/Profile/Profile';
 
 interface LoginForm {
   email: string;
@@ -32,7 +33,7 @@ const Form: React.FC = () => {
     throw new Error('Component must be used within a Provider');
   }
 
-  const { changeUserId } = context;
+  const { changeUserId, changeRole } = context;
 
 
   const [loginForm, setLoginForm] = useState<LoginForm>({
@@ -82,6 +83,7 @@ const Form: React.FC = () => {
       userApi.userLogin(loginForm.email, loginForm.password).then(data => {
         setErrorLogin(false)
         changeUserId(data.userId)
+        changeRole(data.userRoles);
         setIsAuth(true)
       }).catch(err => {
         setErrorLogin(true)
@@ -95,14 +97,13 @@ const Form: React.FC = () => {
 
       userApi.userRegister(signUpForm.email, signUpForm.password, signUpForm.username, signUpForm.userType).then(data => {
         setErrorPassword(false);
-        console.log(data);
       });
     }
   };
 
-  /*if (isAuth) {
+  if (isAuth) {
     return <div><Navigate to={'/myprofile'} /></div>
-  }*/
+  }
 
   return (
     <div className='auth-form'>

@@ -22,16 +22,24 @@
     border-radius: 4px;
 }
 
-.submit-btn {
+.submit-btn-education {
     background-color: #4CAF50;
-    
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    grid-area: btn;
-    
+    grid-area: btn;   
+}
+
+.submit-btn-education-add {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    grid-area: btn-add; 
 }
 
 .input{
@@ -48,10 +56,8 @@
             "university level"
             "field specialization"
             "studyfrom studyto"
-           
-            "btn btn";
-            
-    
+            "btn-add btn-add"
+            "btn btn-delete";  
 }
 
 
@@ -90,4 +96,15 @@ h3{
     font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 4px;
+}
+
+.education_delete-button{
+    background-color: red;
+    font-size: 15px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    grid-area: btn-delete;
 }

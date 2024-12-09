@@ -67,7 +67,7 @@ ul li {
 .apply-btn {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 100px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -117,4 +117,50 @@ ul li {
     background-color: #f9f9f9;
     padding: 20px;
     margin: 0 0 20px 0;
+}
+
+.job_delete-button {
+    background-color: red;
+    font-size: 15px;
+    color: white;
+    padding: 10px 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    grid-area: btn-delete;
+}
+
+.job_update-button {
+    background-color: rgb(245, 161, 25);
+    color: white;
+    padding: 10px 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.job-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.job-textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: 200px;
 }

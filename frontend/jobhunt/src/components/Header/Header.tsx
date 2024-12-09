@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './index.css';
 import Container from '../Container/Container';
@@ -11,7 +11,7 @@ const Header: React.FC = () => {
     throw new Error('Component must be used within a Provider');
   }
 
-  const { name, imageUrl } = context;
+  const { imageUrl, name } = context;
 
   return (
     <header className='header'>

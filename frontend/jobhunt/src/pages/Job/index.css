@@ -1,0 +1,134 @@
+.job-form-wrapper {
+    margin-top: 20px;
+}
+
+.job-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.job-form label {
+    font-size: 16px;
+    color: #333;
+}
+
+.job-form input, .job-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    grid-area: btn;
+}
+
+.job-form {
+    display: grid;
+    grid-template-columns: 500px 500px;
+    grid-template-areas: 
+            'logo title'
+            'name level'
+            'operation contract'
+            'country city'
+            'street type'
+            'technology salary'
+            'about about'
+            'responsibilities responsibilities'
+            'requirements requirements'
+            'btn btn';
+}
+
+.input{
+    padding-top: 200px;
+}
+
+.textarea{
+    height: 200px;
+}
+
+h3{
+    margin-top: 25px;
+}
+
+.input{
+    height: 40px;
+}
+
+.select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.label_title {
+    grid-area: title;
+}
+
+.label_companyname {
+    grid-area: name;
+}
+
+.label_level {
+    grid-area: level;
+}
+
+.label_operation {
+    grid-area: operation;
+}
+
+.label_contract {
+    grid-area: contract;
+}
+
+.label_country {
+    grid-area: country;
+}
+
+.label_city {
+    grid-area: city;
+}
+
+.label_street {
+    grid-area: street;
+}
+
+.label_type {
+    grid-area: type;
+}
+
+.label_technology {
+    grid-area: technology;
+}
+
+.label_salary {
+    grid-area: salary;
+}
+
+.label_about {
+    grid-area: about;
+}
+
+.label_responsibilities {
+    grid-area: responsibilities;
+}
+
+.label_requirements {
+    grid-area: requirements;
+}
+
+.label_logo {
+    grid-area: logo;
+}

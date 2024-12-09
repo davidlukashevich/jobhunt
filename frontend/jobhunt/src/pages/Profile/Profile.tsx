@@ -13,17 +13,13 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import moment from "moment";
-import educationApi from "../../api/educationApi";
-import experienceApi from "../../api/experienceApi";
+import jobApi from "../../api/jobApi";
 import jobApplicationApi from "../../api/jobApplicationApi";
 import profileApi from "../../api/profileApi";
+import userApi from "../../api/userApi";
+import { Loader } from "../../components/Loader/Loader";
 import UserDataContext from "../../components/UserDataMode/UserDataMode";
 import "./index.css";
-import jobApi from "../../api/jobApi";
-
-interface ProfileProps {
-  role: "Employee" | "Employer";
-}
 
 interface JobApplication {
   id: string;
@@ -34,6 +30,7 @@ interface JobApplication {
   jobAddressCity: string;
   createdAt: string;
   status: string;
+  jobId: string
 }
 
 interface JobApplicationEmployer {
@@ -54,7 +51,7 @@ interface JobOffer {
   applicationsCount: number;
 }
 
-const Profile: React.FC<ProfileProps> = ({ role }) => {
+const Profile: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -65,7 +62,9 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
     throw new Error('Component must be used within a Provider');
   }
 
-  const { userId, changeName, changeImageUrl, changeProfileId, deleteData } = context;
+  const { role, userId, changeName, changeImageUrl, changeProfileId, deleteData } = context;
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const [employeeData, setEmployeeData] = useState({
     id: "",
@@ -126,6 +125,7 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
       jobAddressCity: "",
       createdAt: "",
       status: "",
+      jobId: ''
     }
   ]);
 
@@ -138,8 +138,7 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
       city: "",
       createdAt: "",
       operationMode: "",
-      salary: "",
-
+      salary: ""
     }
   ]);
 
@@ -183,44 +182,48 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
     alert(`${role} profile updated successfully!`);
   };
 
-  const handleViewClick = (id: string) => {
-    navigate(`/job/${id}`);
+  const handleViewClick = (jobId: string) => {
+    navigate(`/job/${jobId}`);
   }
 
   const handleLogout = () => {
+    userApi.userLogout();
     deleteData();
-  }
-
-  const handleDeleteExperience = (id: string) => {
-    experienceApi.deleteExperience(id);
-  }
-
-  const handleDeleteEducation = (id: string) => {
-    educationApi.deleteEducation(id);
+    navigate('/');
   }
 
   useEffect(() => {
-    profileApi.getProfile(userId).then(data => {
-      setEmployeeData(data);
-      changeName(data.name);
-      changeImageUrl(data.image.imageUrl);
-      changeProfileId(data.id);
-    });
-  }, []);
+    if (userId) {
+      debugger
+      profileApi.getProfile(userId).then(data => {
+        setEmployeeData(data);
+        changeName(data.name);
+        changeImageUrl(data.image.imageUrl);
+        changeProfileId(data.id);
+      });
+    }
+  }, [isLoading]);
 
   useEffect(() => {
-    if (role === 'Employee') {
+    if (role === 'Employee' && userId) {
       jobApplicationApi.getAllJobApplicationsByUserId(userId).then(data => {
         const formattedDate = moment(data.createdAt).format('YYYY-MM-DD');
         setJobApplications(data);
       });
-    } else if (role === 'Employer') {
+    } else if (role === 'Employer' && userId) {
       jobApi.getAllJobByUserId(userId).then(data => {
         setJobApplicationsEmployer(data);
-        console.log(data)
       })
     }
   }, []);
+
+  if (!userId) {
+    return <Navigate to={'/auth'} />
+  }
+
+  if (!employeeData.name) {
+    return <Loader />
+  }
 
   return (
     <Container>
@@ -412,180 +415,180 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
         <div className="user_additional-data">
           <h3 className="summary_title">Professional Summary</h3>
           <p className="summary_info">{employeeData.profileSummary}</p>
-          <div className="experience_wrapper">
+          {role === 'Employee' &&
+            <div className="experience_wrapper">
+              <div>
+                <Accordion>
+                  <AccordionSummary
+                    aria-controls="panel1-content"
+                    id="panel1-header"
+                  >
+                    Work Experience
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <ul className="experience_list">
+                      {employeeData.experiences.map((e) => (
+                        <>
+                          <li className="experience_list-item">
+                            <p className="experience_position">{e.position}</p>
+                            <div className="experience_company_info">
+                              <div className="experience_company_info-bloc1">
+                                <p className="experience_companyname">
+                                  <FaRegBuilding className="experience_icon" />
+                                  {e.companyName}
+                                </p>
+                                <p className="experience_location">
+                                  <CiLocationOn className="experience_icon" />
+                                  {e.location}
+                                </p>
+                              </div>
+                              <div className="">
+                                <p className="experience_date">
+                                  <MdOutlineDateRange className="experience_icon" />
+                                  {e.workFrom} / {e.workTo}
+                                </p>
+                              </div>
+                            </div>
+                            <p className="responsibility">Responsibility:</p>
+                            <p className="experience_responsibility">
+                              {e.responsibility}
+                            </p>
+                            <div className="experience_buttons-wrapper">
+                              <Link
+                                className="experience_update-button"
+                                to={`/myprofile/experience/update/${e.id}`}
+                              >
+                                Update
+                              </Link>
+                            </div>
+                          </li>
+                        </>
+                      ))}
+                    </ul>
+                    <Link
+                      to="/myprofile/experience/create"
+                      className="experience_button"
+                      onClick={() => setIsLoading(!isLoading)}
+                    >
+                      Add Experience
+                    </Link>
+                  </AccordionDetails>
+                </Accordion>
+              </div>
+              <div className="education_wrapper">
+                <Accordion>
+                  <AccordionSummary
+                    aria-controls="panel1-content"
+                    id="panel1-header"
+                  >
+                    Education
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <ul className="education_list">
+                      {employeeData.universities.length == 0 ? (
+                        <p>no</p>
+                      ) : (
+                        employeeData.universities.map((u) => (
+                          <>
+                            <li className="education_list-item">
+                              <p className="education_universityname">
+                                {u.universityName}
+                              </p>
+                              <p className="education_level">
+                                <SiLevelsdotfyi className="education_icon" />
+                                {u.educationLevel}
+                              </p>
+                              <div className="education_info">
+                                <div className="education_info_block1">
+                                  <p className="education_fieldofstudy">
+                                    {u.fieldOfStudy}
+                                  </p>
+                                  <p className="education_specialization">
+                                    {u.specialization}
+                                  </p>
+                                </div>
+                                <div className="education_info_block2">
+                                  <p className="education_date">
+                                    <MdOutlineDateRange className="education_icon" />
+                                    {u.studyFrom} / {u.studyTo}
+                                  </p>
+                                </div>
+                              </div>
+                              <div className="education_buttons-wrapper">
+                                <Link
+                                  className="education_update-button"
+                                  to={`/myprofile/education/update/${u.id}`}
+                                >
+                                  Update
+                                </Link>
+                              </div>
+                            </li>
+                          </>
+                        ))
+                      )}
+                    </ul>
+                    <Link
+                      to="/myprofile/education/create"
+                      className="education_button"
+                    >
+                      Add Education
+                    </Link>
+                  </AccordionDetails>
+                </Accordion>
+              </div>
+              <div className="education_wrapper">
+                <Accordion>
+                  <AccordionSummary
+                    aria-controls="panel1-content"
+                    id="panel1-header"
+                  >
+                    All Aplications
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <ul className="education_list">
+                      {jobApplications.length == 0 ? (
+                        <p>no</p>
+                      ) : (
+                        jobApplications.map((a) => (
+                          <>
+                            <li className="application_list-item" onClick={() => handleViewClick(a.jobId)}>
+                              <p className="education_universityname">
+                                {a.jobTitle}
+                              </p>
+                              <div className="experience_company_info">
+                                <div className="experience_company_info-bloc1">
+                                  <p className="experience_companyname">
+                                    <img src={a.jobCompanyLogo} className="application_icon" />
+                                    {a.jobCompanyName}
+                                  </p>
+                                  <p className="experience_location">
+                                    <CiLocationOn className="experience_icon" />
+                                    {a.jobAddressCountry}, {a.jobAddressCity}
+                                  </p>
+                                </div>
+                              </div>
+                              <div className="experience_company_info">
+                                <p className="experience_date">
+                                  {a.status === 'Pending' ? <MdPendingActions className="experience_icon" /> :
+                                    a.status === 'Accepted' ? <GrCompliance className="experience_icon" /> : <CiBookmarkRemove className="experience_icon" />}
+                                  {a.status}
+                                </p>
+                                <p className="education_date">
+                                  <MdOutlineDateRange className="education_icon" />
+                                  {a.createdAt}
+                                </p>
+                              </div>
+                            </li>
+                          </>
+                        ))
+                      )}
+                    </ul>
+                  </AccordionDetails>
+                </Accordion>
+              </div>
+            </div>}
+          {role === 'Employer' && <div className="experience_wrapper">
             <Accordion>
-              <AccordionSummary
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                Work Experience
-              </AccordionSummary>
-              <AccordionDetails>
-                <ul className="experience_list">
-                  {employeeData.experiences.map((e) => (
-                    <>
-                      <li className="experience_list-item">
-                        <p className="experience_position">{e.position}</p>
-                        <div className="experience_company_info">
-                          <div className="experience_company_info-bloc1">
-                            <p className="experience_companyname">
-                              <FaRegBuilding className="experience_icon" />
-                              {e.companyName}
-                            </p>
-                            <p className="experience_location">
-                              <CiLocationOn className="experience_icon" />
-                              {e.location}
-                            </p>
-                          </div>
-                          <div className="">
-                            <p className="experience_date">
-                              <MdOutlineDateRange className="experience_icon" />
-                              {e.workFrom} / {e.workTo}
-                            </p>
-                          </div>
-                        </div>
-                        <p className="responsibility">Responsibility:</p>
-                        <p className="experience_responsibility">
-                          {e.responsibility}
-                        </p>
-                        <div className="experience_buttons-wrapper">
-                          <Link
-                            className="experience_update-button"
-                            to={`/myprofile/experience/update/${e.id}`}
-                          >
-                            Update
-                          </Link>
-                          <button onClick={() => handleDeleteExperience(e.id)} className="experience_delete-button">
-                            Delete
-                          </button>
-                        </div>
-                      </li>
-                    </>
-                  ))}
-                </ul>
-                <Link
-                  to="/myprofile/experience/create"
-                  className="experience_button"
-                >
-                  Add Experience
-                </Link>
-              </AccordionDetails>
-            </Accordion>
-          </div>
-          <div className="education_wrapper">
-            <Accordion>
-              <AccordionSummary
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                Education
-              </AccordionSummary>
-              <AccordionDetails>
-                <ul className="education_list">
-                  {employeeData.universities.length == 0 ? (
-                    <p>no</p>
-                  ) : (
-                    employeeData.universities.map((u) => (
-                      <>
-                        <li className="education_list-item">
-                          <p className="education_universityname">
-                            {u.universityName}
-                          </p>
-                          <p className="education_level">
-                            <SiLevelsdotfyi className="education_icon" />
-                            {u.educationLevel}
-                          </p>
-                          <div className="education_info">
-                            <div className="education_info_block1">
-                              <p className="education_fieldofstudy">
-                                {u.fieldOfStudy}
-                              </p>
-                              <p className="education_specialization">
-                                {u.specialization}
-                              </p>
-                            </div>
-                            <div className="education_info_block2">
-                              <p className="education_date">
-                                <MdOutlineDateRange className="education_icon" />
-                                {u.studyFrom} / {u.studyTo}
-                              </p>
-                            </div>
-                          </div>
-                          <div className="education_buttons-wrapper">
-                            <Link
-                              className="education_update-button"
-                              to={`/myprofile/education/update/${u.id}`}
-                            >
-                              Update
-                            </Link>
-                            <button onClick={() => handleDeleteEducation(u.id)} className="education_delete-button">
-                              Delete
-                            </button>
-                          </div>
-                        </li>
-                      </>
-                    ))
-                  )}
-                </ul>
-                <Link
-                  to="/myprofile/education/create"
-                  className="education_button"
-                >
-                  Add Education
-                </Link>
-              </AccordionDetails>
-            </Accordion>
-          </div>
-          <div className="education_wrapper">
-            {role === 'Employee' && <Accordion>
-              <AccordionSummary
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                All Aplications
-              </AccordionSummary>
-              <AccordionDetails>
-                <ul className="education_list">
-                  {jobApplications.length == 0 ? (
-                    <p>no</p>
-                  ) : (
-                    jobApplications.map((a) => (
-                      <>
-                        <li className="application_list-item" onClick={() => handleViewClick(a.id)}>
-                          <p className="education_universityname">
-                            {a.jobTitle}
-                          </p>
-                          <div className="experience_company_info">
-                            <div className="experience_company_info-bloc1">
-                              <p className="experience_companyname">
-                                <img src={a.jobCompanyLogo} className="application_icon" />
-                                {a.jobCompanyName}
-                              </p>
-                              <p className="experience_location">
-                                <CiLocationOn className="experience_icon" />
-                                {a.jobAddressCountry}, {a.jobAddressCity}
-                              </p>
-                            </div>
-                          </div>
-                          <div className="experience_company_info">
-                            <p className="experience_date">
-                              {a.status === 'Pending' ? <MdPendingActions className="experience_icon" /> :
-                                a.status === 'Accepted' ? <GrCompliance className="experience_icon" /> : <CiBookmarkRemove className="experience_icon" />}
-                              {a.status}
-                            </p>
-                            <p className="education_date">
-                              <MdOutlineDateRange className="education_icon" />
-                              {a.createdAt}
-                            </p>
-                          </div>
-                        </li>
-                      </>
-                    ))
-                  )}
-                </ul>
-              </AccordionDetails>
-            </Accordion>}
-            {role === 'Employer' && <Accordion>
               <AccordionSummary
                 aria-controls="panel1-content"
                 id="panel1-header"
@@ -632,10 +635,16 @@ const Profile: React.FC<ProfileProps> = ({ role }) => {
                     ))
                   )}
                 </ul>
+                <Link
+                  to="/myprofile/job/create"
+                  className="education_button"
+                >
+                  Add Job
+                </Link>
               </AccordionDetails>
-            </Accordion>}
-          </div>
-          <button className="logout-btn" onClick={handleLogout}><Link className="logout-btn-link" to={'/'}>Logout</Link></button>
+            </Accordion>
+          </div>}
+          <button className="logout-btn" onClick={handleLogout}><div className="logout-btn-link">Logout</div></button>
         </div>
       </div>
     </Container>

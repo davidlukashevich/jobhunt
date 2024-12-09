@@ -25,7 +25,7 @@ const Main: FC = () => {
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [jobs, setJobs] = useState<JobType[]>([]);
-    
+
     useEffect(() => {
         setIsLoading(true)
         jobApi.getAllJobs().then(data => {
@@ -35,15 +35,15 @@ const Main: FC = () => {
     }, [])
 
     const jobsFilter = [
-        { id: 1, title: 'Frontend'},
-        { id: 2, title: 'Backend'},
-        { id: 3, title: 'Fullstack'},
-        { id: 4, title: 'Mobile'},
-        { id: 5, title: 'GameDev'}
+        { id: 1, title: 'Frontend' },
+        { id: 2, title: 'Backend' },
+        { id: 3, title: 'Fullstack' },
+        { id: 4, title: 'Mobile' },
+        { id: 5, title: 'GameDev' }
     ];
 
     const handleSearch = () => {
-        if(searchQuery === "") {
+        if (searchQuery === "") {
             setError(true);
             return
         }

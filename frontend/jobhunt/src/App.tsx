@@ -11,10 +11,9 @@ import Profile from "./pages/Profile/Profile";
 import PostJobOffer from "./pages/PostJobOffer/PostJobOffer";
 import Experience from "./pages/Experience/Experience";
 import Education from "./pages/Education/Education";
+import FormJob from "./pages/Job/FormJob";
 
 function App() {
-  const userRole: "Employee" | "Employer" = "Employer";
-
   return (
     <BrowserRouter>
       <div className="App">
@@ -24,10 +23,11 @@ function App() {
           <Route path="/auth" Component={AuthPage} />
           <Route path="/job/:id" Component={JobDetails} />
           <Route path="/apply/:jobId" Component={ApplicationForm} />
-          <Route path="/myprofile" element={<Profile role={userRole} />} />
+          <Route path="/myprofile" element={<Profile />} />
           <Route path="/post-job-offer" element={<PostJobOffer />} />
           <Route path="myprofile/experience/create" Component={Experience} />
           <Route path="myprofile/education/create" Component={Education} />
+          <Route path="myprofile/job/create" Component={FormJob} />
           <Route
             path="myprofile/experience/update/:experienceId"
             Component={Experience}
@@ -35,6 +35,10 @@ function App() {
           <Route
             path="myprofile/education/update/:educationId"
             Component={Education}
+          />
+          <Route
+            path="myprofile/job/update/:jobId"
+            Component={FormJob}
           />
         </Routes>
         {/* <Footer/> */}
