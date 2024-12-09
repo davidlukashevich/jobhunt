@@ -24,11 +24,18 @@ public class CreateJobApplicationCommandHandler : IRequestHandler<CreateJobAppli
     {
         var createJobApplicationRequest = request.CreateJobApplicationRequest;
         
-        var newJobApplication = JobApplicationMapper.ToJobApplicationModelCreate(createJobApplicationRequest);
+        var uniqueFileGuid = Guid.NewGuid();
+        
+        var newJobApplication = JobApplicationMapper.ToJobApplicationModelCreate(createJobApplicationRequest,uniqueFileGuid);
         
         await _jobApplicationRepository.CreateJobApplicationsAsync(newJobApplication);
 
-        await _fileService.UploadCvAsync(createJobApplicationRequest.Cv, "files");
+        if (!await _fileService.IsFileExistsAsync(createJobApplicationRequest.Cv, uniqueFileGuid))
+        {
+            await _fileService.UploadCvAsync(createJobApplicationRequest.Cv, uniqueFileGuid);
+        }
+
+       
         
         return new BaseResponse()
         {

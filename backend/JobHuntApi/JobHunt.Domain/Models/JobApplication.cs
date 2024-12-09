@@ -15,4 +15,5 @@ public class JobApplication : BaseEntity
     public required string CreatedBy { get; set; }
     public Job? Job { get; set; }
     public required string Status { get; set; }
+    
 }

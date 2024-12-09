@@ -15,16 +15,17 @@ public class FileService : IFileService
         _blobContainerClient = _blobServiceClient.GetBlobContainerClient("files");
     }
 
-    public async Task UploadCvAsync(IFormFile file, string containerName)
+    public async Task UploadCvAsync(IFormFile file, Guid fileGuid)
     {
 
         try
         {
-            var filename = $"cv_{file.FileName}";
-        
+            var filename = $"cv_{fileGuid}_{file.FileName}";
+            
             var blob = _blobContainerClient.GetBlobClient(filename);
         
             await blob.UploadAsync(file.OpenReadStream());
+            
         }
         catch (Exception e)
         {
@@ -34,5 +35,22 @@ public class FileService : IFileService
         
         
       
+    }
+
+    public async Task<bool> IsFileExistsAsync(IFormFile file, Guid fileGuid)
+    {
+        try
+        {
+            var filename = $"cv_{fileGuid}_{file.FileName}";
+            
+            var blobClient = _blobContainerClient.GetBlobClient(filename);
+
+            return await blobClient.ExistsAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }

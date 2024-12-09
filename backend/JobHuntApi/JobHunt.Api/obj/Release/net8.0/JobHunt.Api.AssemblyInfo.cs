@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JobHunt.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+068c21bbcec8a9fcde698714f6afde6694e5b831")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+328917f3e150f1caacaa579754a68dd3fe8863a4")]
 [assembly: System.Reflection.AssemblyProductAttribute("JobHunt.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JobHunt.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

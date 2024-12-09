@@ -7,7 +7,7 @@ namespace JobHunt.Application.Mapper;
 
 public static class JobApplicationMapper
 {
-    public static JobApplication ToJobApplicationModelCreate(CreateJobApplicationRequest request)
+    public static JobApplication ToJobApplicationModelCreate(CreateJobApplicationRequest request, Guid fileGuid)
     {
         return new JobApplication()
         {
@@ -20,7 +20,7 @@ public static class JobApplicationMapper
             JobId = request.JobId,
             CreatedBy = request.CreatedBy,
             Status = JobApplicationStatus.Pending.ToString(),
-            Cv = $"https://jobhuntstorage.blob.core.windows.net/files/cv_{request.Cv.FileName}"
+            Cv = $"https://jobhuntstorage.blob.core.windows.net/files/cv_{fileGuid}_{request.Cv.FileName}"
         };
     }
 
@@ -71,7 +71,8 @@ public static class JobApplicationMapper
                 JobAddressCountry = j.Job.Address!.Country,
                 JobAddressCity = j.Job.Address!.City,
                 Status = j.Status,
-                CreatedAt = j.CreatedAt
+                CreatedAt = j.CreatedAt,
+                JobId = j.JobId,
             })
             .ToList();
         

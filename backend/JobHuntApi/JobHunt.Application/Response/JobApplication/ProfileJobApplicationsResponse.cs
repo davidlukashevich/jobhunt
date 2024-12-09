@@ -10,5 +10,6 @@ public class ProfileJobApplicationsResponse
     public string? JobCompanyLogo { get; set; }
     public string? Status  { get; set; }
     public DateTime CreatedAt { get; set; }
+    public Guid JobId { get; set; }
     
 }
