@@ -164,3 +164,13 @@ ul li {
     border-radius: 4px;
     height: 200px;
 }
+
+.job_candidate-button {
+    background-color: darkgreen;
+    font-size: 15px;
+    color: white;
+    padding: 10px 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

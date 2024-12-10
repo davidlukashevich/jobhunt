@@ -4,7 +4,6 @@ import jobApplicationApi from "../../api/jobApplicationApi";
 import { AiOutlineMail } from "react-icons/ai";
 import { CiPhone } from "react-icons/ci";
 import { MdOutlineDateRange } from "react-icons/md";
-import jsPDF from "jspdf";
 
 type CandidateInfoType = {
     aboutInformation: string

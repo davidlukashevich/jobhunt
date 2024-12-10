@@ -14,6 +14,7 @@ import Education from "./pages/Education/Education";
 import FormJob from "./pages/Job/FormJob";
 import Candidates from "./pages/Candidates/Candidates";
 import CandidatesInfo from "./pages/Candidates/CandidatesInfo";
+import CreateProfile from "./components/FormProfile/CreateProfile";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="myprofile/experience/create" Component={Experience} />
           <Route path="myprofile/education/create" Component={Education} />
           <Route path="myprofile/job/create" Component={FormJob} />
+          <Route path="myprofile/create" Component={CreateProfile} />
           <Route
             path="myprofile/experience/update/:experienceId"
             Component={Experience}

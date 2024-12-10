@@ -7,6 +7,7 @@ import jobApi from '../../api/jobApi';
 import Container from '../../components/Container/Container';
 import UserDataContext from '../../components/UserDataMode/UserDataMode';
 import './index.css';
+import ApplicationForm from '../ApplicationForm/ApplicationForm';
 
 type JobDetailsType = {
     id: string
@@ -64,18 +65,19 @@ const JobDetails: React.FC = (props) => {
         throw new Error('Component must be used within a Provider');
     }
 
-    const { userId, role } = context;
+    const { userId, role, changeJobData } = context;
 
     useEffect(() => {
         jobApi.getJobById(id).then(data => {
             setJobDetails(data)
-            console.log(data);
+            console.log(data)
+            changeJobData(data.image.imageUrl, data.title);
         });
     }, [])
 
     const handleApplyClick = () => {
         if (userId) {
-            navigate(`/apply/${id}`);
+            navigate('/apply/${id}');
         } else {
             navigate('/auth');
         }
@@ -85,8 +87,6 @@ const JobDetails: React.FC = (props) => {
         jobApi.updateJob(id, jobDetails);
         setIsUpdate(false)
     }
-
-    console.log(jobDetails)
 
     const handleDelete = () => {
         jobApi.deleteJob(id, jobDetails.address.id, jobDetails.image.id);
@@ -167,7 +167,7 @@ const JobDetails: React.FC = (props) => {
                             <button onClick={handleDelete} className="job_delete-button">
                                 Delete
                             </button>
-                            <button onClick={() => navigate(`/apply/candidates/${id}`)} className="job_delete-button">
+                            <button onClick={() => navigate(`/apply/candidates/${id}`)} className="job_candidate-button">
                                 Candidates
                             </button>
                         </div>}

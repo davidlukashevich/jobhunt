@@ -20,6 +20,7 @@ import userApi from "../../api/userApi";
 import { Loader } from "../../components/Loader/Loader";
 import UserDataContext from "../../components/UserDataMode/UserDataMode";
 import "./index.css";
+import { error } from "console";
 
 interface JobApplication {
   id: string;
@@ -199,6 +200,8 @@ const Profile: React.FC = () => {
         changeName(data.name);
         changeImageUrl(data.image.imageUrl);
         changeProfileId(data.id);
+      }).catch(error => {
+        navigate('/myprofile/create');
       });
     }
   }, [isLoading]);

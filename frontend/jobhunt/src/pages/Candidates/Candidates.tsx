@@ -23,7 +23,6 @@ const Candidates = () => {
             setInfo(data);
         });
     }, []);
-
     return (
         <Container>
             <div className='card-container'>

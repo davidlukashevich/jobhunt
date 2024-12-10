@@ -24,7 +24,7 @@ const ApplicationForm: React.FC = () => {
 
     const navigate = useNavigate();
 
-    const { userId } = context;
+    const { userId, image, title } = context;
 
     const { jobId } = useParams();
 
@@ -53,8 +53,8 @@ const ApplicationForm: React.FC = () => {
         <Container>
             <div className="application-form-wrapper">
                 <div className="job_info-wrapper">
-                    <img className='job_logo' src="https://jobhuntstorage.blob.core.windows.net/images/jbd.jpg" alt="" />
-                    <h2>Junior Backend Developer</h2>
+                    <img className='job_logo' src={image} alt="" />
+                    <h2>{title}</h2>
                 </div>
                 <h3>Dane osobowe:</h3>
                 <form className="application-form" onSubmit={handleSubmit}>

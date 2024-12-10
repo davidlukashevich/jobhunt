@@ -199,8 +199,7 @@ const FormJob: React.FC = () => {
                     </label>
                     <label className="label_about">
                         About Company
-                        <input
-                            type="textarea"
+                        <textarea
                             name="aboutCompany"
                             className="textarea"
                             value={formData.aboutCompany}
@@ -210,8 +209,7 @@ const FormJob: React.FC = () => {
                     </label>
                     <label className="label_responsibilities">
                         Responsibilities
-                        <input
-                            type="textarea"
+                        <textarea
                             name="responsibilities"
                             className="textarea"
                             value={formData.responsibilities}
@@ -221,8 +219,7 @@ const FormJob: React.FC = () => {
                     </label>
                     <label className="label_requirements">
                         Requirements
-                        <input
-                            type="textarea"
+                        <textarea
                             name="requirements"
                             className="textarea"
                             value={formData.requirements}

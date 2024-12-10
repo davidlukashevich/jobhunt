@@ -11,18 +11,28 @@ type ContextType = {
     role: string | null
     name: string | null
     isLoading: boolean
+    title: string
+    image: string
     changeRole: (newRole: string) => void
     changeUserId: (newUserId: string) => void
     changeName: (newName: string) => void
     changeImageUrl: (newImageUrl: string) => void
     changeProfileId: (newProfileId: string) => void
     deleteData: () => void
+    changeJobData: (newImage: string, newTitle: string) => void
 }
 
 const UserDataContext = createContext<ContextType | undefined>(undefined);
 
 export function UserDataContextProvider (props: UserDataContextInterface) {
     const [isLoading, setIsLoading] = useState(false);
+    const [image, setImage] = useState('');
+    const [title, setTitle] = useState('');
+
+    const changeJobData = (newImage: string, newTitle: string) => {
+        setImage(newImage);
+        setTitle(newTitle);
+    }
     
     const changeUserId = (newUserId: string) => {
         localStorage.setItem('userId', newUserId);
@@ -61,7 +71,7 @@ export function UserDataContextProvider (props: UserDataContextInterface) {
     let role = localStorage.getItem('role');
 
     return (
-        <UserDataContext.Provider value={{isLoading, name, userId, imageUrl, profileId, role, changeRole, changeUserId, changeName, changeImageUrl, changeProfileId, deleteData}}>
+        <UserDataContext.Provider value={{title, image, isLoading, name, userId, imageUrl, profileId, role, changeRole, changeUserId, changeName, changeImageUrl, changeProfileId, deleteData, changeJobData}}>
             {props.children}
         </UserDataContext.Provider>
     )
