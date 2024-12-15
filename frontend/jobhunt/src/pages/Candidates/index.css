@@ -1,0 +1,28 @@
+.candidate-btn {
+    display: flex;
+    margin: 20px 0 0 0;
+}
+
+.btn-reject {
+    background-color: red;
+    color: white;
+    padding: 10px 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 0 10px;
+}
+
+.btn-accept {
+    background-color: rgb(245, 161, 25);
+    color: white;
+    padding: 10px 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 0 10px;
+}

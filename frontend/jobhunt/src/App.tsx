@@ -11,10 +11,12 @@ import Profile from "./pages/Profile/Profile";
 import PostJobOffer from "./pages/PostJobOffer/PostJobOffer";
 import Experience from "./pages/Experience/Experience";
 import Education from "./pages/Education/Education";
+import FormJob from "./pages/Job/FormJob";
+import Candidates from "./pages/Candidates/Candidates";
+import CandidatesInfo from "./pages/Candidates/CandidatesInfo";
+import CreateProfile from "./components/FormProfile/CreateProfile";
 
 function App() {
-  const userRole: "Employee" | "Employer" = "Employee";
-
   return (
     <BrowserRouter>
       <div className="App">
@@ -24,10 +26,14 @@ function App() {
           <Route path="/auth" Component={AuthPage} />
           <Route path="/job/:id" Component={JobDetails} />
           <Route path="/apply/:jobId" Component={ApplicationForm} />
-          <Route path="/myprofile" element={<Profile role={userRole} />} />
+          <Route path="/apply/candidates/:jobId" Component={Candidates} />
+          <Route path="/apply/candidatesinfo/:applicationId" Component={CandidatesInfo} />
+          <Route path="/myprofile" element={<Profile />} />
           <Route path="/post-job-offer" element={<PostJobOffer />} />
           <Route path="myprofile/experience/create" Component={Experience} />
           <Route path="myprofile/education/create" Component={Education} />
+          <Route path="myprofile/job/create" Component={FormJob} />
+          <Route path="myprofile/create" Component={CreateProfile} />
           <Route
             path="myprofile/experience/update/:experienceId"
             Component={Experience}
@@ -36,6 +42,11 @@ function App() {
             path="myprofile/education/update/:educationId"
             Component={Education}
           />
+          <Route
+            path="myprofile/job/update/:jobId"
+            Component={FormJob}
+          />
+          <Route path="myprofile/update/:profileId" Component={CreateProfile} />
         </Routes>
         {/* <Footer/> */}
       </div>

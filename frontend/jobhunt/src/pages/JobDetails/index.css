@@ -34,8 +34,12 @@ ul li {
 }
 
 .work-type-icon {
-    font-size: 30px;
+    font-size: 20px;
     margin: 0 0 0 -3px;
+}
+
+.job-location-icon {
+    font-size: 40px;
 }
 
 .salary-rate {
@@ -60,13 +64,18 @@ ul li {
     margin-bottom: 10px;
 }
 
+.job-description {
+    width: 800px;
+}
+
 .apply-btn {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
+    padding: 10px 100px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin: 20px 0;
 }
 
 .job-body {
@@ -102,15 +111,6 @@ ul li {
 
 .check-icon {
     font-size: 17px;
-   
-}
-
-.job-skills-title {
-    margin: 20px 0 0 0;
-}
-
-.about-firm-title {
-    margin: 20px 0 0 0;
 }
 
 .job-info {
@@ -121,4 +121,61 @@ ul li {
     background-color: #f9f9f9;
     padding: 20px;
     margin: 0 0 20px 0;
+}
+
+.job_buttons-wrapper {
+    display: flex;
+    margin: 20px 0 20px -200px;
+}
+
+.job_delete-button {
+    background-color: red;
+    font-size: 15px;
+    color: white;
+    padding: 10px 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    grid-area: btn-delete;
+    margin: 0 30px;
+}
+
+.job_update-button {
+    background-color: rgb(245, 161, 25);
+    color: white;
+    padding: 10px 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.job-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.job-textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: 200px;
+}
+
+.job_candidate-button {
+    background-color: darkgreen;
+    font-size: 15px;
+    color: white;
+    padding: 10px 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }

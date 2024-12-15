@@ -4,6 +4,7 @@
     /* border-bottom: 2px solid #ac3b61;
     box-shadow: 0 2px 4px rgba(172, 59, 97, 0.6); */
     background-color: #0062cc;
+    position: relative;
 }
 
 .menu-list {
@@ -22,6 +23,46 @@
     text-decoration: none;
     color: #ffffff;
     transition: background-color 0.3s ease;
+    font-size: 20px;
+}
+
+.menu-title {
+    position: absolute;
+    top: 33%;
+}
+
+.menu-login {
+    text-decoration: none;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    font-size: 20px;
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin: 0 15px 0 0;
+}
+
+.profile-link {
+    text-decoration: none;
+}
+
+.profile-block {
+    border: solid 1px #fff;
+    border-radius: 50px;
+    display: flex;
+    padding: 0 100px 0 0;
+    position: relative;
+}
+
+.profile-title {
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 20%;
+    left: 40%;
 }
 
 /* .menu-link:hover {

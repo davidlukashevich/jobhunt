@@ -66,10 +66,6 @@
   text-decoration: none;
 }
 
-.auth-form a:hover {
-  text-decoration: underline;
-}
-
 .auth-form .submit-btn {
   width: 100%;
   background-color: #0062cc;
@@ -163,7 +159,8 @@
   margin: 8px 0;
   display: block;
   border: 2px solid #0062cc;
-  border-radius: 8px;  /* Square shape with slight rounding */
+  border-radius: 8px;
+  /* Square shape with slight rounding */
   background-color: #f8f9fa;
   font-size: 14px;
   color: #333;
@@ -173,7 +170,8 @@
 .auth-form input[type="text"]:focus,
 .auth-form input[type="email"]:focus,
 .auth-form input[type="password"]:focus {
-  border-color: #004085; /* Darker shade on focus */
+  border-color: #004085;
+  /* Darker shade on focus */
   background-color: #e9ecef;
 }
 
@@ -210,9 +208,6 @@
   text-decoration: none;
 }
 
-.auth-form a:hover {
-  text-decoration: underline;
-}
 
 .auth-form .submit-btn {
   width: 100%;
@@ -233,4 +228,9 @@
 
 .auth-form .submit-btn:active {
   background-color: #003366;
+}
+
+.error {
+  color: red;
+  margin: 20px 0 0 0;
 }

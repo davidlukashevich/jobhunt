@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router';
+import userApi from '../../api/userApi';
+import UserDataContext from '../UserDataMode/UserDataMode';
 import './index.css';
 
 interface LoginForm {
@@ -19,6 +22,17 @@ type FormType = 'login' | 'signup';
 const Form: React.FC = () => {
   const [formType, setFormType] = useState<FormType>('login');
   const [userType, setUserType] = useState<'employee' | 'employer'>('employee');
+  const [errorPassword, setErrorPassword] = useState(false);
+  const [errorLogin, setErrorLogin] = useState(false);
+  const context = useContext(UserDataContext);
+  const [isAuth, setIsAuth] = useState(false);
+
+  if (!context) {
+    throw new Error('Component must be used within a Provider');
+  }
+
+  const { changeUserId, changeRole } = context;
+
 
   const [loginForm, setLoginForm] = useState<LoginForm>({
     email: '',
@@ -64,24 +78,44 @@ const Form: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formType === 'login') {
-      console.log('Logging in with: ', loginForm);
+      userApi.userLogin(loginForm.email, loginForm.password).then(data => {
+        setErrorLogin(false)
+        changeUserId(data.userId)
+        changeRole(data.userRoles);
+        setIsAuth(true)
+      }).catch(err => {
+        setErrorLogin(true)
+      });
+
     } else {
-      console.log('Signing up with: ', signUpForm);
+      if (signUpForm.password !== signUpForm.confirmPassword) {
+        setErrorPassword(true);
+        return
+      }
+
+      userApi.userRegister(signUpForm.email, signUpForm.password, signUpForm.username, signUpForm.userType).then(data => {
+        setErrorPassword(false);
+        setFormType('login')
+      });
     }
   };
+
+  if (isAuth) {
+    return <div><Navigate to={'/myprofile'} /></div>
+  }
 
   return (
     <div className='auth-form'>
       <div className="auth-form-switch">
-        <button 
-            onClick={() => setFormType('login')}
-            className={formType === 'login' ? 'active' : 'login-btn'}
+        <button
+          onClick={() => setFormType('login')}
+          className={formType === 'login' ? 'active' : 'login-btn'}
         >
           Log In
         </button>
-        <button 
-            onClick={() => setFormType('signup')}
-            className={formType === 'signup' ? 'active' : 'signup-btn'}
+        <button
+          onClick={() => setFormType('signup')}
+          className={formType === 'signup' ? 'active' : 'signup-btn'}
         >
           Sign Up
         </button>
@@ -135,6 +169,8 @@ const Form: React.FC = () => {
               formType === 'login' ? loginForm.password : signUpForm.password
             }
             onChange={(e) => handleInputChange(e, formType)}
+            pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*_])[A-Za-z\d!@#$%^&*_]{6,20}$'
+            title='The password must contain at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*), and be between 6 and 20 characters long.'
             required
           />
         </div>
@@ -160,42 +196,18 @@ const Form: React.FC = () => {
                 className='auth-form-input'
                 value={signUpForm.confirmPassword}
                 onChange={(e) => handleInputChange(e, 'signup')}
+                pattern='^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*_])[A-Za-z\d!@#$%^&*_]{6,20}$'
                 required
               />
             </div>
-
-            {userType === 'employer' && (
-              <>
-                <div>
-                  <label>Company Name:</label>
-                  <input
-                    type="text"
-                    name="companyName"
-                    className='auth-form-input'
-                    value={signUpForm.companyName || ''}
-                    onChange={(e) => handleInputChange(e, 'signup')}
-                    required
-                  />
-                </div>
-                <div>
-                  <label>Company Address:</label>
-                  <input
-                    type="text"
-                    name="companyAddress"
-                    className='auth-form-input'
-                    value={signUpForm.companyAddress || ''}
-                    onChange={(e) => handleInputChange(e, 'signup')}
-                    required
-                  />
-                </div>
-              </>
-            )}
           </>
         )}
 
         <button type="submit" className="submit-btn">
           {formType === 'login' ? 'Log In' : 'Sign Up'}
         </button>
+        {formType === 'login' && errorLogin && <p className='error'>Wrong email or password</p>}
+        {formType === 'signup' && errorPassword && <p className='error'>The passwords do not match</p>}
       </form>
     </div>
   );

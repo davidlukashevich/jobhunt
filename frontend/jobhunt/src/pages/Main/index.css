@@ -74,3 +74,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+.search-error {
+    font-weight: bold;
+    color: red;
+    margin: 10px 0 0 0;
+    font-size: 17px;
+}

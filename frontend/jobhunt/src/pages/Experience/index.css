@@ -22,16 +22,24 @@
     border-radius: 4px;
 }
 
-.submit-btn {
+.submit-btn-experience {
     background-color: #4CAF50;
-    
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     grid-area: btn;
-    
+}
+
+.submit-btn-experience-add {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    grid-area: btn-add;
 }
 
 .input{
@@ -42,15 +50,14 @@
 .experience-form{
     display: grid;
     margin-top: 50px;
-    
+    grid-template-columns: 500px 500px;
     grid-template-areas: 
-            "position companyname"
+            "position company"
             "workfrom workto"
             "location location"
             "responsibility responsibility"
-            "btn btn";
-            
-    
+            "btn-add btn-add"
+            "btn btn-delete";
 }
 
 
@@ -65,8 +72,8 @@ h3{
 .label_position{
     grid-area: position;
 }
-.label_companyname{
-    grid-area: companyname;
+.label_company{
+    grid-area: company;
 }
 .label_location{
     grid-area: location;
@@ -85,4 +92,24 @@ h3{
 
 .input{
     height: 40px;
+}
+
+.select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.experience_delete-button {
+    background-color: red;
+    font-size: 15px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    grid-area: btn-delete;
 }

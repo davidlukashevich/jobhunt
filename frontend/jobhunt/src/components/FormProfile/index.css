@@ -1,0 +1,116 @@
+.profile-form-wrapper {
+    margin-top: 20px;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profile-form label {
+    font-size: 16px;
+    color: #333;
+}
+
+.profile-form input, .profile-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    grid-area: btn;
+}
+
+.profile-form {
+    display: grid;
+    grid-template-columns: 500px 500px;
+    grid-template-areas: 
+            'avatar avatar'
+            'name lastName'
+            'email phone'
+            'country city'
+            'street specialization'
+            'date date'
+            'profileSummary profileSummary'
+            'btn btn';
+}
+
+.input{
+    padding-top: 200px;
+}
+
+.textarea{
+    height: 200px;
+}
+
+h3{
+    margin-top: 25px;
+}
+
+.input{
+    height: 40px;
+}
+
+.select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.label_name {
+    grid-area: name;
+}
+
+.label_lastName {
+    grid-area: lastName;
+}
+
+.label_phone {
+    grid-area: phone;
+}
+
+.label_email {
+    grid-area: email;
+}
+
+.label_date {
+    grid-area: date;
+}
+
+.label_country {
+    grid-area: country;
+}
+
+.label_city {
+    grid-area: city;
+}
+
+.label_street {
+    grid-area: street;
+}
+
+.label_profileSummary {
+    grid-area: profileSummary;
+}
+
+.label_specialization {
+    grid-area: specialization;
+}
+
+.label_avatar {
+    grid-area: avatar;
+}
