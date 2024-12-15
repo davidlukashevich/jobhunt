@@ -5,14 +5,14 @@
     display: flex;
     justify-content: space-between;
 }
-  
+
 .profile-title {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
 }
-  
+
 .profile-details {
     padding: 20px;
     border: 2px solid #0062cc;
@@ -20,19 +20,12 @@
     background-color: #f8f9fa;
 }
 
-.responsibility{
+.responsibility {
     margin-top: 20px;
     color: rgb(25, 21, 88);
 }
 
-.education_buttons-wrapper{
-    margin-top: 30px;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    gap: 30px;
-}
-.experience_buttons-wrapper{
+.education_buttons-wrapper {
     margin-top: 30px;
     display: flex;
     justify-content: end;
@@ -40,7 +33,15 @@
     gap: 30px;
 }
 
-.experience_update-button{
+.experience_buttons-wrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 30px;
+}
+
+.experience_update-button {
     background-color: rgb(245, 161, 25);
     color: white;
     padding: 10px 20px;
@@ -51,7 +52,7 @@
     font-size: 15px;
 }
 
-.education_update-button{
+.education_update-button {
     background-color: rgb(245, 161, 25);
     color: white;
     padding: 10px 20px;
@@ -61,14 +62,14 @@
     text-decoration: none;
     font-size: 15px;
 }
-  
+
 .profile-details label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
     color: #333;
 }
-  
+
 .profile-details input,
 .profile-details textarea {
     width: 100%;
@@ -78,7 +79,7 @@
     margin-top: 5px;
     background-color: #f8f9fa;
 }
-  
+
 .save-button {
     margin-top: 20px;
     padding: 10px;
@@ -88,14 +89,14 @@
     color: #ffffff;
     cursor: pointer;
 }
-  
+
 .profile-menu {
     margin-top: 20px;
     text-align: center;
 }
 
 
-  
+
 .menu-button {
     padding: 10px 20px;
     border: none;
@@ -106,7 +107,7 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-  
+
 .menu-button:hover {
     background-color: #004085;
 }
@@ -137,13 +138,13 @@
 .applications-title {
     margin-bottom: 20px;
 }
-  
+
 .applications-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
-  
+
 .application-card {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -151,24 +152,24 @@
     background-color: #f8f9fa;
     width: 300px;
 }
-  
+
 .application-card h4 {
     margin-bottom: 10px;
     color: #0062cc;
 }
-  
+
 .application-card p {
     margin: 5px 0;
 }
-  
+
 .status-pending {
     color: #ffc107;
 }
-  
+
 .status-accepted {
     color: #28a745;
 }
-  
+
 .status-rejected {
     color: #dc3545;
 }
@@ -183,13 +184,13 @@
 .job-offers-title {
     margin-bottom: 20px;
 }
-  
+
 .job-offers-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
-  
+
 .job-offer-card {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -197,22 +198,22 @@
     background-color: #f8f9fa;
     width: 300px;
 }
-  
+
 .job-offer-card h4 {
     margin-bottom: 10px;
     color: #0062cc;
 }
-  
+
 .job-offer-card p {
     margin: 5px 0;
 }
-  
+
 .offer-actions {
     display: flex;
     gap: 10px;
     margin-top: 10px;
 }
-  
+
 .edit-btn,
 .delete-btn {
     padding: 5px 10px;
@@ -220,77 +221,82 @@
     cursor: pointer;
     border-radius: 4px;
 }
-  
+
 .edit-btn {
     background-color: #007bff;
     color: white;
- }
-  
+}
+
 .delete-btn {
     background-color: #dc3545;
     color: white;
-} 
-.icon{
+}
+
+.icon {
     color: rgb(25, 21, 88);
     margin-right: 20px;
-} 
+}
 
-.user_info{
-    
+.user_info {
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    
+
 }
 
-.user_fullname{
+.user_fullname {
     font-size: 30px;
     margin-top: 30px;
     text-align: center;
     font-weight: bold;
     color: rgb(25, 21, 88);
 }
-.user_profession{
+
+.user_profession {
     color: rgb(25, 21, 88);
     margin-top: 20px;
     font-size: 15px;
     text-align: center;
 }
-.user_avatar{
+
+.user_avatar {
     width: 250px;
     height: 250px;
     border-radius: 50%;
 }
 
-.user_address{
+.user_address {
     margin-top: 50px;
     color: rgb(25, 21, 88);
     padding-bottom: 5px;
     border-bottom: 1px solid #e8e6e6;
 }
 
-.user_email{
+.user_email {
     margin-top: 25px;
-    color: rgb(25, 21, 88);
-    padding-bottom: 5px;
-    border-bottom: 1px solid #e8e6e6;
-}
-.user_mobile{
-    margin-top: 25px;
-    color: rgb(25, 21, 88);
-    padding-bottom: 5px;
-    border-bottom: 1px solid #e8e6e6;
-}
-.user_dateofbirth{
-    margin-top: 25px;   
     color: rgb(25, 21, 88);
     padding-bottom: 5px;
     border-bottom: 1px solid #e8e6e6;
 }
 
-.user_button{
+.user_mobile {
+    margin-top: 25px;
+    color: rgb(25, 21, 88);
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e8e6e6;
+}
+
+.user_dateofbirth {
+    margin-top: 25px;
+    color: rgb(25, 21, 88);
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e8e6e6;
+}
+
+.user_button {
     background-color: rgb(56, 43, 236);
     padding: 10px 30px;
     margin-top: 30px;
@@ -301,25 +307,25 @@
     text-decoration: none;
 }
 
-.user_additional-data{
+.user_additional-data {
     display: flex;
     flex-direction: column;
-     align-items: start; 
-     justify-content: center; 
+    align-items: start;
+    justify-content: center;
 }
 
-.summary_title{
+.summary_title {
     color: rgb(25, 21, 88);
     font-size: 30px;
 }
 
-.summary_info{
+.summary_info {
     margin-top: 30px;
     color: rgb(25, 21, 88);
-    width: 600px;    
+    width: 600px;
 }
 
-.experience_wrapper{
+.experience_wrapper {
     margin-top: 80px;
     /* display: flex;
     justify-content: center;
@@ -327,7 +333,7 @@
     align-items: center; */
 }
 
-.education_wrapper{
+.education_wrapper {
     margin-top: 80px;
     /* display: flex;
     justify-content: center;
@@ -335,46 +341,46 @@
     flex-direction: column; */
 }
 
-.experience_title{
-    color: rgb(25, 21, 88);    
+.experience_title {
+    color: rgb(25, 21, 88);
 }
 
-.experience_list{
+.experience_list {
     list-style: none;
     margin-top: 20px;
     margin-bottom: 30px;
 }
 
-.education_list{
+.education_list {
     list-style: none;
     margin-top: 20px;
     margin-bottom: 30px;
 }
 
-.experience_list-item{
+.experience_list-item {
     border-bottom: 1px solid #e8e6e6;
     width: 500px;
     padding: 20px 0;
-   
+
     margin-top: 20px;
 }
 
-.education_title{
+.education_title {
     color: rgb(25, 21, 88);
-    
+
 }
 
-.education_icon{
+.education_icon {
     margin-right: 5px;
 }
 
 
-.experience_position{
+.experience_position {
     color: rgb(25, 21, 88);
     font-size: 25px;
 }
 
-.education_list-item{
+.education_list-item {
     border-bottom: 1px solid #e8e6e6;
     width: 500px;
     padding: 20px 0;
@@ -382,32 +388,32 @@
     margin-top: 20px;
 }
 
-.education_universityname{
+.education_universityname {
     color: rgb(25, 21, 88);
     font-size: 25px;
 }
 
-.education_level{
+.education_level {
     color: rgb(25, 21, 88);
     margin-top: 10px;
 }
 
-.education_info{
+.education_info {
     margin-top: 15px;
 }
 
-.education_fieldofstudy{
+.education_fieldofstudy {
     color: rgb(25, 21, 88);
 }
 
-.education_specialization{
+.education_specialization {
     color: rgb(25, 21, 88);
 }
 
-.education_button{
+.education_button {
     background-color: rgb(56, 43, 236);
     padding: 10px 30px;
-    
+
     border-radius: 10px;
     border: none;
     color: white;
@@ -415,10 +421,10 @@
     text-decoration: none;
 }
 
-.experience_button{
+.experience_button {
     background-color: rgb(56, 43, 236);
     padding: 10px 30px;
-    
+
     border-radius: 10px;
     border: none;
     color: white;
@@ -426,32 +432,35 @@
     text-decoration: none;
 }
 
-.education_date{
-    color: rgb(25, 21, 88);   
+.education_date {
+    color: rgb(25, 21, 88);
 }
 
-.experience_companyname{
+.experience_companyname {
     color: rgb(25, 21, 88);
 }
-.experience_location{
+
+.experience_location {
     color: rgb(25, 21, 88);
 }
-.experience_responsibility{
+
+.experience_responsibility {
     margin-top: 15px;
     color: rgb(25, 21, 88);
-    
+
 }
-.experience_date{
+
+.experience_date {
     color: black;
     color: rgb(25, 21, 88);
-    
+
 }
 
-.experience_icon{
+.experience_icon {
     margin-right: 5px;
 }
 
-.experience_company_info{
+.experience_company_info {
     display: flex;
     margin-top: 15px;
     gap: 30px;
@@ -459,33 +468,50 @@
     justify-content: space-between;
 }
 
-.experience_company_info-bloc1{
+.experience_company_info-bloc1 {
     display: flex;
     gap: 30px;
 }
 
-.education_info{
+.education_info {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.education_info_block1{
+.education_info_block1 {
     display: flex;
     gap: 30px;
 }
 
+.btns {
+    margin: 0 20%;
+}
+
 .logout-btn {
-    padding: 10px 30px;
-    margin-top: 30px;
+    padding: 10px 50px;
     border-radius: 10px;
     border: none;
     background-color: red;
-    margin: 20px 40%;
+    margin: 20px 35%;
     cursor: pointer;
 }
 
 .logout-btn-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.edit-btn {
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: darkgreen;
+    margin: 20px auto;
+    cursor: pointer;
+}
+
+.edit-btn-link {
     color: #fff;
     text-decoration: none;
 }
@@ -499,12 +525,123 @@
 }
 
 .application_icon {
-    width: 30px;
-    height: 30px;
+    margin: 0 5px 0 0;
 }
 
 .about_info {
     margin: 15px 0 0 0;
     font-size: 20px;
     text-align: center;
+}
+
+.profile-page-form input {
+    display: block;
+    padding: 8px;
+    border: 1px solid #0062cc;
+    border-radius: 4px;
+    margin-top: 5px;
+    background-color: #f8f9fa;
+}
+
+.profile-page-form textarea {
+    width: 100%;
+}
+
+.profile-page-form {
+    margin-top: 70px;
+    color: #0062cc;
+    align-items: start;
+    display: flex;
+}
+
+.user_additional-data-form {
+    width: 100%;
+}
+
+.user_info-form {
+    margin: 0 50px 0 -100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name-block {
+    display: flex;
+    margin: 0 0 10px 0;
+}
+
+.label_name {
+    margin: 0 10px 0 0;
+}
+
+.label_name {
+    margin: 0 5px 0 0;
+}
+
+.user_data-form {
+    margin: 20px 0 0 30px;
+}
+
+.address-block {
+    display: flex;
+}
+
+.changePassword-block {
+    border: 1px solid #0062cc;
+    margin: 20px 0 0 0;
+}
+
+.passwor-title {
+    color: rgb(25, 21, 88);
+    font-size: 25px;
+    text-align: center;
+}
+
+.label_newPassword {
+    margin: 0 0 0 10px;
+}
+
+.passwords-inputs {
+    display: flex;
+    margin: 20px 21%;
+}
+
+.profile-page-form label {
+    color: black;
+}
+
+.password-btn {
+    padding: 10px 20px;
+    border: none;
+    margin: 10px 36%;
+    border-radius: 4px;
+    background-color: #0062cc;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.password-btn:hover {
+    background-color: #004085;
+}
+
+.edit-btn-form {
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: darkgreen;
+    margin: 20px auto;
+    cursor: pointer;
+}
+
+.job-logo {
+    width: 30%;
+    height: 100px;
+    margin: 0 35% 10px;
+}
+
+.info_icon {
+    margin: 5px 5px 0 0;
 }

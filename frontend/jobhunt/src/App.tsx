@@ -46,6 +46,7 @@ function App() {
             path="myprofile/job/update/:jobId"
             Component={FormJob}
           />
+          <Route path="myprofile/update/:profileId" Component={CreateProfile} />
         </Routes>
         {/* <Footer/> */}
       </div>

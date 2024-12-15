@@ -1,5 +1,5 @@
 import Container from "../../components/Container/Container";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./index.css";
 import { useNavigate, useParams } from "react-router-dom";
 import UserDataContext from "../../components/UserDataMode/UserDataMode";
@@ -12,14 +12,14 @@ const Education: React.FC = () => {
     fieldOfStudy: "",
     specialization: "",
     studyFrom: {
-      year: undefined,
-      day: undefined,
-      month: undefined,
+      year: undefined as undefined | number,
+      day: undefined as undefined | number,
+      month: undefined as undefined | number,
     },
     studyTo: {
-      year: undefined,
-      day: undefined,
-      month: undefined
+      year: undefined as undefined | number,
+      day: undefined as undefined | number,
+      month: undefined as undefined | number
     }
   });
 
@@ -34,7 +34,24 @@ const Education: React.FC = () => {
     throw new Error('Component must be used within a Provider');
   }
 
-  const { profileId } = context;
+  const { profileId, education } = context;
+
+  useEffect(() => {
+    if (educationId) {
+      const studyFrom = education.studyFrom.split('/');
+      const studyTo = education.studyTo.split('/');
+      setFormData({
+        ...formData, universityName: education.universityName, educationLevel: education.educationLevel,
+        fieldOfStudy: education.fieldOfStudy, specialization: education.specialization, studyFrom: {
+          ...formData.studyFrom,
+          year: Number(studyFrom[2]), day: Number(studyFrom[0]), month: Number(studyFrom[1])
+        }, studyTo: {
+          ...formData.studyTo,
+          year: Number(studyTo[2]), day: Number(studyTo[0]), month: Number(studyTo[1])
+        }
+      })
+    }
+  }, [])
 
   let { educationId } = useParams();
 
@@ -55,18 +72,23 @@ const Education: React.FC = () => {
     }
   };
 
-  const handleDeleteEducation = (e:React.FormEvent) => {
-    educationApi.deleteEducation(educationId);
+  const handleDeleteEducation = (e: React.FormEvent) => {
+    educationApi.deleteEducation(educationId).then(data => {
+      navigate("/myprofile");
+    });
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!educationId) {
-      educationApi.createEducation(formData, profileId);
+      educationApi.createEducation(formData, profileId).then(data => {
+        navigate("/myprofile");
+      });;
     } else {
-      educationApi.updateEducation(formData, educationId);
+      educationApi.updateEducation(formData, educationId).then(data => {
+        navigate("/myprofile");
+      });;
     }
-    navigate("/myprofile");
   };
   return (
     <Container>

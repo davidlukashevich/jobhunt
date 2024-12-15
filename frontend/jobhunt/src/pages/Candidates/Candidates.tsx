@@ -4,6 +4,7 @@ import Container from "../../components/Container/Container"
 import { useParams } from "react-router";
 import jobApplicationApi from "../../api/jobApplicationApi";
 import CardCandidate from "../../components/Card/CardCandidate";
+import moment from "moment";
 
 type InfoType = {
     id: string
@@ -21,6 +22,12 @@ const Candidates = () => {
     useEffect(() => {
         jobApplicationApi.getAllJobApplicationsByJobId(jobId).then(data => {
             setInfo(data);
+            setInfo((prevInfo) =>
+                prevInfo.map((info) => ({
+                    ...info,
+                    createdAt: moment(info.createdAt).format('YYYY-MM-DD')
+                }))
+            );
         });
     }, []);
     return (
@@ -28,7 +35,7 @@ const Candidates = () => {
             <div className='card-container'>
                 {info.length > 0 ? (
                     info.map((i) => (
-                        <CardCandidate key={i.id} id={i.id} name={i.name} lastname={i.lastname} email={i.email} phone={i.phone} createdAt={i.createdAt} />  
+                        <CardCandidate key={i.id} id={i.id} name={i.name} lastname={i.lastname} email={i.email} phone={i.phone} createdAt={i.createdAt} />
                     ))
                 ) : (
                     <p>No candidates found</p>

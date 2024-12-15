@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Container from "../Container/Container";
 import UserDataContext from "../UserDataMode/UserDataMode";
 import './index.css'
@@ -11,9 +11,9 @@ const CreateProfile: React.FC = () => {
         lastName: "",
         email: "",
         phone: "",
-        dateOfBirthYear: "",
-        dateOfBirthMonth: "",
-        dateOfBirthDay: "",
+        dateOfBirthYear: undefined as undefined | number,
+        dateOfBirthMonth: undefined as undefined | number,
+        dateOfBirthDay: undefined as undefined | number,
         country: "",
         city: "",
         street: "",
@@ -31,15 +31,30 @@ const CreateProfile: React.FC = () => {
         throw new Error('Component must be used within a Provider');
     }
 
-    const {userId} = context;
+    const { userId, profile } = context;
+
+    const { profileId } = useParams();
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (profileId) {
+            const dateOfBirth = profile.dateOfBirth.split('/');
+            console.log(dateOfBirth)
+            console.log(Number(dateOfBirth[2]))
+            setFormData({
+                ...formData, name: profile.name, lastName: profile.lastName, email: profile.email, phone: profile.phone,
+                country: profile.country, city: profile.city, street: profile.street, profileSummary: profile.profileSummary,
+                specialization: profile.specialization, dateOfBirthDay: Number(dateOfBirth[0]), dateOfBirthMonth: Number(dateOfBirth[1]), dateOfBirthYear: Number(dateOfBirth[2])
+            });
+        }
+    }, []);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
     ) => {
         const { name, value } = e.target;
-        if(name === 'dateOfBirthDay' || name === 'dateOfBirthMonth' || name === 'dateOfBirthYear') {
+        if (name === 'dateOfBirthDay' || name === 'dateOfBirthMonth' || name === 'dateOfBirthYear') {
             setFormData({ ...formData, [name]: Number(value) });
         } else {
             setFormData({ ...formData, [name]: value });
@@ -54,9 +69,18 @@ const CreateProfile: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        profileApi.createProfile(formData, userId);
-        navigate('/myprofile');
 
+        if (!profileId) {
+            profileApi.createProfile(formData, userId).then(data => {
+                navigate('/myprofile');
+            });
+        } else {
+            profileApi.updateProfile(profileId, formData, userId, profile.addressId, profile.imageId).then(data => {
+                if (data.statusCode === 200) {
+                    navigate('/myprofile');
+                }
+            });
+        }
     };
     return (
         <Container>
@@ -69,7 +93,7 @@ const CreateProfile: React.FC = () => {
                             className="input"
                             name="file"
                             onChange={handleFileChange}
-                            required
+                            required={!profileId ? true : false}
                         />
                     </label>
                     <label className="label_name">
@@ -215,7 +239,7 @@ const CreateProfile: React.FC = () => {
                             required
                         />
                     </label>
-                    <button type="submit" className="submit-btn">Create Profile</button>
+                    <button type="submit" className="submit-btn">{!profileId ? 'Create Profile' : 'Update Profile'}</button>
                 </form>
             </div>
         </Container>

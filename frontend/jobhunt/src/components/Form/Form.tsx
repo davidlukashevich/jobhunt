@@ -1,10 +1,8 @@
 import React, { useContext, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router';
 import userApi from '../../api/userApi';
-import './index.css';
 import UserDataContext from '../UserDataMode/UserDataMode';
-import { Navigate } from 'react-router';
-import { Link } from 'react-router-dom';
-import Profile from '../../pages/Profile/Profile';
+import './index.css';
 
 interface LoginForm {
   email: string;
@@ -97,6 +95,7 @@ const Form: React.FC = () => {
 
       userApi.userRegister(signUpForm.email, signUpForm.password, signUpForm.username, signUpForm.userType).then(data => {
         setErrorPassword(false);
+        setFormType('login')
       });
     }
   };

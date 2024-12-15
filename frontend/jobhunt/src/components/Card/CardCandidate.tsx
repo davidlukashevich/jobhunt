@@ -17,13 +17,10 @@ const CardCandidate: React.FC<CardProps> = ({ id, name, lastname, email, phone, 
     };
   
     return (
-      <div className="card">
+      <div className="card-candidate">
         <h2 className="job-title">{name} {lastname}</h2>
         <p className='job-city'>{email}</p>
         <p className='job-operation'>{phone}</p>
-        <div className="card-arrow">
-          <span>→</span>
-        </div>
         <div className="card-footer">
           <div className="company-info">
             <p>{createdAt}</p>

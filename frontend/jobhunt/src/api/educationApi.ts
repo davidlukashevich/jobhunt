@@ -26,12 +26,12 @@ const educationApi = {
     deleteEducation(educationId: string | undefined) {
         return axios.delete(`https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/University/delete/${educationId}`, {
             withCredentials: true
-        })
+        }).then(response => response.data);;
     },
     updateEducation(formData: formDataType, educationId: string) {
         return axios.put(`https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/University/update/${educationId}`, formData, {
             withCredentials: true
-        })
+        }).then(response => response.data);;
     }
 }
 

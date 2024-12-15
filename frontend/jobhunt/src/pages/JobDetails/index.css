@@ -34,8 +34,12 @@ ul li {
 }
 
 .work-type-icon {
-    font-size: 30px;
+    font-size: 20px;
     margin: 0 0 0 -3px;
+}
+
+.job-location-icon {
+    font-size: 40px;
 }
 
 .salary-rate {
@@ -71,6 +75,7 @@ ul li {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin: 20px 0;
 }
 
 .job-body {
@@ -106,7 +111,6 @@ ul li {
 
 .check-icon {
     font-size: 17px;
-   
 }
 
 .job-info {
@@ -119,6 +123,11 @@ ul li {
     margin: 0 0 20px 0;
 }
 
+.job_buttons-wrapper {
+    display: flex;
+    margin: 20px 0 20px -200px;
+}
+
 .job_delete-button {
     background-color: red;
     font-size: 15px;
@@ -128,6 +137,7 @@ ul li {
     border-radius: 10px;
     cursor: pointer;
     grid-area: btn-delete;
+    margin: 0 30px;
 }
 
 .job_update-button {
@@ -139,11 +149,6 @@ ul li {
     cursor: pointer;
     text-decoration: none;
     font-size: 15px;
-}
-
-.btns {
-    display: flex;
-    justify-content: space-between;
 }
 
 .job-input {

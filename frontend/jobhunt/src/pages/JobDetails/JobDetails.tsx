@@ -7,7 +7,6 @@ import jobApi from '../../api/jobApi';
 import Container from '../../components/Container/Container';
 import UserDataContext from '../../components/UserDataMode/UserDataMode';
 import './index.css';
-import ApplicationForm from '../ApplicationForm/ApplicationForm';
 
 type JobDetailsType = {
     id: string
@@ -65,19 +64,19 @@ const JobDetails: React.FC = (props) => {
         throw new Error('Component must be used within a Provider');
     }
 
-    const { userId, role, changeJobData } = context;
+    const { userId, role, changeJobData, changeJobId } = context;
 
     useEffect(() => {
         jobApi.getJobById(id).then(data => {
             setJobDetails(data)
-            console.log(data)
             changeJobData(data.image.imageUrl, data.title);
+            changeJobId(id as string);
         });
     }, [])
 
     const handleApplyClick = () => {
         if (userId) {
-            navigate('/apply/${id}');
+            navigate(`/apply/${id}`);
         } else {
             navigate('/auth');
         }
@@ -89,8 +88,9 @@ const JobDetails: React.FC = (props) => {
     }
 
     const handleDelete = () => {
-        jobApi.deleteJob(id, jobDetails.address.id, jobDetails.image.id);
-        navigate('/myprofile');
+        jobApi.deleteJob(id, jobDetails.address.id, jobDetails.image.id).then(data => {
+            navigate('/myprofile');
+        });
     }
 
     const handleChange = (
@@ -122,13 +122,13 @@ const JobDetails: React.FC = (props) => {
                         <div className='job-info'>
                             <h3>Zakres obowiązków</h3>
                             <ul>
-                                <div className='job-response'><IoMdCheckmarkCircleOutline className='check-icon' /><li>{jobDetails?.responsibilities}</li></div>
+                                <div className='job-response'><li>{jobDetails?.responsibilities}</li></div>
                             </ul>
                         </div>
                         <div className='job-info'>
                             <h3 className='job-skills-title'>Nasze wymagania</h3>
                             <ul>
-                                <div className='job-requirements'><IoMdCheckmarkCircleOutline className='check-icon' /><li>{jobDetails?.requirements}</li></div>
+                                <div className='job-requirements'><li>{jobDetails?.requirements}</li></div>
                             </ul>
                         </div>
                         <div className='job-info'>
@@ -156,8 +156,8 @@ const JobDetails: React.FC = (props) => {
                 </div>
                 <div className='btns'>
                     {role === null || role === 'Employee' ? <button className="apply-btn" onClick={handleApplyClick}>Aplikuj szybko</button> : ''}
-                    {role === 'Employer' &&
-                        <div className="education_buttons-wrapper">
+                    {role === 'Employer' && jobDetails.createdBy === userId &&
+                        <div className="job_buttons-wrapper">
                             <button
                                 className="job_update-button"
                                 onClick={() => setIsUpdate(true)}
@@ -233,7 +233,7 @@ const JobDetails: React.FC = (props) => {
                             />
                         </p>
                         <p className="job-location">
-                            <FaMapMarkerAlt />  <input
+                            <FaMapMarkerAlt className='job-location-icon' />  <input
                                 type="text"
                                 name="street"
                                 className="job-input"
@@ -254,7 +254,7 @@ const JobDetails: React.FC = (props) => {
                             />
                         </p>
                         <p className="employment-type">
-                            <FaBriefcase />  <input
+                            <FaBriefcase className='experience_icon' />  <input
                                 type="text"
                                 name="contractType"
                                 className="job-input"

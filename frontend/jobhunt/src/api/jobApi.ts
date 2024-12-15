@@ -79,7 +79,7 @@ const jobApi = {
 
         return axios.post('https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/job/create', form, {
             withCredentials: true
-        });
+        }).then(response => response.data);
     },
     updateJob(jobId: string | undefined, jobDetails: jobDetailsType) {
         const form = new FormData();
@@ -101,14 +101,12 @@ const jobApi = {
 
         return axios.put(`https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/job/update/${jobId}`, form, {
             withCredentials: true
-        });
+        }).then(response => response.data);
     },
     deleteJob(jobId: string | undefined, addressId: string | undefined, imageId: string | undefined) {
         return axios.delete(`https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/job/delete/${jobId}?addressId=${addressId}&imageId=${imageId}`, {
             withCredentials: true
-        }).catch(err => {
-            console.log(err);
-        })
+        }).then(response => response.data);
     }
 }
 

@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from "../../components/Container/Container";
 import "./index.css";
 import { useNavigate, useParams } from "react-router-dom";
 import experienceApi from "../../api/experienceApi";
 import UserDataContext from "../../components/UserDataMode/UserDataMode";
+import exp from "constants";
 
 type formDataType = {
   position: string
@@ -30,14 +31,14 @@ const Experience: React.FC = () => {
     location: "",
     responsibility: "",
     workfrom: {
-      year: undefined,
-      day: undefined,
-      month: undefined
+      year: undefined as undefined | number,
+      day: undefined as undefined | number,
+      month: undefined as undefined | number
     },
     workto: {
-      year: undefined,
-      day: undefined,
-      month: undefined
+      year: undefined as undefined | number,
+      day: undefined as undefined | number,
+      month: undefined as undefined | number
     }
   });
 
@@ -53,11 +54,28 @@ const Experience: React.FC = () => {
     throw new Error('Component must be used within a Provider');
   }
 
-  const { profileId } = context;
+  const { profileId, experience } = context;
 
   let { experienceId } = useParams();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (experienceId) {
+      const workFrom = experience.workFrom.split('/');
+      const workTo = experience.workTo.split('/');
+      setFormData({
+        ...formData, position: experience.position, companyname: experience.companyName,
+        location: experience.location, responsibility: experience.responsibility, workfrom: {
+          ...formData.workfrom,
+          year: Number(workFrom[2]), day: Number(workFrom[0]), month: Number(workFrom[1])
+        }, workto: {
+          ...formData.workto,
+          year: Number(workTo[2]), day: Number(workTo[0]), month: Number(workTo[1])
+        }
+      })
+    }
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -75,17 +93,22 @@ const Experience: React.FC = () => {
   };
 
   const handleDeleteExperience = () => {
-    experienceApi.deleteExperience(experienceId);
+    experienceApi.deleteExperience(experienceId).then(data => {
+      navigate("/myprofile");
+    });
   }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!experienceId) {
-      experienceApi.createExperience(formData, profileId)
+      experienceApi.createExperience(formData, profileId).then(data => {
+        navigate("/myprofile");
+      })
     } else {
-      experienceApi.updateExperience(formData, experienceId);
+      experienceApi.updateExperience(formData, experienceId).then(data => {
+        navigate("/myprofile");
+      });
     }
-    navigate("/myprofile");
   };
   return (
     <Container>
@@ -231,9 +254,9 @@ const Experience: React.FC = () => {
           {experienceId && <><button type="submit" className="submit-btn-experience">
             Update Experience
           </button>
-          <button onClick={handleDeleteExperience} className="experience_delete-button">
-            Delete
-          </button></>}
+            <button onClick={handleDeleteExperience} className="experience_delete-button">
+              Delete
+            </button></>}
         </form>
       </div>
     </Container>

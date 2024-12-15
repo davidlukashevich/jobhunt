@@ -26,12 +26,12 @@ const experienceApi = {
     deleteExperience(experienceId: string | undefined) {
         return axios.delete(`https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/experience/delete/${experienceId}`, {
             withCredentials: true
-        })
+        }).then(response => response.data);
     },
     updateExperience(formData: formDataType, experienceId: string) {
         return axios.put(`https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/experience/update/${experienceId}`, formData, {
             withCredentials: true
-        });
+        }).then(response => response.data);;
     }
 }
 

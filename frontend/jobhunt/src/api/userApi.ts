@@ -15,7 +15,12 @@ const userApi = {
     userLogout() {
         return axios.delete('https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/user/logout', {
             withCredentials: true
-        });
+        }).then(response => response.data);
+    },
+    changePassword(email: string, currentPassword: string, newPassword: string) {
+        return axios.post('https://jobhuntapi-e8gybug7bcb8h3bq.polandcentral-01.azurewebsites.net/api/user/changePassword', {email, currentPassword, newPassword}, {
+            withCredentials: true
+        })
     }
 }
 

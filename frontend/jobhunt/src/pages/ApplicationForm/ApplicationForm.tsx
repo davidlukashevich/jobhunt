@@ -45,15 +45,16 @@ const ApplicationForm: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        jobApplicationApi.createJobApplication(formData);
-        navigate('/');
+        jobApplicationApi.createJobApplication(formData).then(data => {
+            navigate('/');
+        });
     };
     
     return (
         <Container>
             <div className="application-form-wrapper">
                 <div className="job_info-wrapper">
-                    <img className='job_logo' src={image} alt="" />
+                    <img className='job_logo' src={image as string} alt="" />
                     <h2>{title}</h2>
                 </div>
                 <h3>Dane osobowe:</h3>

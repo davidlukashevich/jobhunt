@@ -57,10 +57,10 @@ const FormJob: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!jobId) {
-            jobApi.createJob(formData);
-        } else {
+            jobApi.createJob(formData).then(data => {
+                navigate("/myprofile");
+            });
         }
-        navigate("/myprofile");
     };
     return (
         <Container>
