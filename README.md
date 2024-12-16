@@ -140,13 +140,9 @@ This application uses **React Router** for navigation between different views. T
 - **CSS**: For styling the components and pages.
 - **TypeScript**: For type safety and enhanced development experience.
 - **Material UI**: For styling.
-ASP.NET Core Web API: Framework for building RESTful APIs.
-
-Entity Framework Core (EF Core): Object-relational mapper for interacting with the database.
-
-Microsoft Azure Blob Storage: For storing and managing files in the cloud.
-
-Microsoft Azure Web App: For hosting and running the application on the Azure platform.
-
-Microsoft Azure PostgreSQL Server: For database management and storage.
+- **ASP.NET Core Web API**: Framework for building RESTful APIs.
+- **Entity Framework Core (EF Core)**: Object-relational mapper for interacting with the database.
+- **Microsoft Azure Blob Storage**: For storing and managing files in the cloud.
+- **Microsoft Azure Web App**: For hosting and running the application on the Azure platform.
+- **Microsoft Azure PostgreSQL Server**: For database management and storage.
 
