@@ -152,3 +152,9 @@ This application uses **React Router** for navigation between different views. T
  ## Database Diagram
 ![Screenshot 2024-11-02 114339](https://github.com/user-attachments/assets/41ba842d-a858-4b7d-8df7-f30ed5f07646)
 
+## Project creators
+- David Lukashevich 64465 (Frontend)
+- Abzal Zhaksylyk 65372 (Frontend)
+- Artsiom Kryvanos 63270 (Backend)
+- Vladyslav Kopaihorodskyi 62267 (Design)
+
