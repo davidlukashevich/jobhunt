@@ -25,6 +25,8 @@ The **JobHunt** application is a job portal that allows users to search for jobs
 5. [State Management](#state-management)
 6. [Routes](#routes)
 7. [Technologies Used](#technologies-used)
+8. [Database Diagram](#database-diagram)
+9. [Project creators](#project-creators)
 
 ## Installation
 
