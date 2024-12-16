@@ -5,6 +5,9 @@
 
 The **JobHunt** application is a job portal that allows users to search for jobs, view detailed job descriptions, and apply for positions. This application includes features such as job search, job filtering, viewing job details, and submitting job applications. It is built with **React** for the frontend, using various hooks such as `useState` and `useParams`, and styled using **CSS**.
 
+## Video for project
+- https://drive.google.com/file/d/1LoaX9jQ-3uz8RsNOLLIC11wIoYwLAuxI/view?usp=sharing
+
 ## Features
 
 - **Search Jobs**: Users can search for jobs by title.
