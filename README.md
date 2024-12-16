@@ -149,3 +149,6 @@ This application uses **React Router** for navigation between different views. T
 - **Microsoft Azure Web App**: For hosting and running the application on the Azure platform.
 - **Microsoft Azure PostgreSQL Server**: For database management and storage.
 
+ ## Database Diagram
+![Screenshot 2024-11-02 114339](https://github.com/user-attachments/assets/41ba842d-a858-4b7d-8df7-f30ed5f07646)
+
